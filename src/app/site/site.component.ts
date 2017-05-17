@@ -11,10 +11,10 @@ import {SiteService} from './site.service';
 
 export class SiteComponent implements OnInit {
 
-  logs: String[];
+  nodes: any[];
 
   constructor(private siteService:SiteService) {
-    this.logs = [];
+    this.nodes = [];
    }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class SiteComponent implements OnInit {
     this.siteService.commenceProbing().then((res : String[]) => {
       console.log(JSON.stringify(res));
       res.forEach(el =>{
-        this.logs.push(el);
+        this.nodes.push(el);
       });
     });
   }

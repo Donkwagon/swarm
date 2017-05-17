@@ -6,10 +6,19 @@
         </div>
         <div class="f1"></div>
     </div>
-    <div class="probe-log-stream ofys">
+    <div class="probe-log-stream c ofys">
             
-        <div class="log-entry" *ngFor="let log of logs">
-            {{log}}
+        <div class="log-entry c s0" *ngFor="let node of nodes">
+            <b>Node: {{node.name}} URL: <a href="https://seekingalpha.com{{node.url}}" target="_blank">{{node.url}}</a> Type: {{node.type}}</b>
+            <br>
+            <div class="c s0" *ngFor="let N of node.children">
+                {{N.name}}::<a href="https://seekingalpha.com{{N.url}}" target="_blank">{{N.url}}</a>{{N.type}}
+                <br>
+                <div class="s0" *ngFor="let n of N.children">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{{n.name}}::<a href="https://seekingalpha.com{{n.url}}" target="_blank">{{n.url}}</a>{{n.type}}
+                    <br>
+                </div>
+            </div>
         </div>
     </div>
 </div>

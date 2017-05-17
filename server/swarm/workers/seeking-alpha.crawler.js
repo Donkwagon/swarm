@@ -1,14 +1,12 @@
 const express = require('express');
-const SA_ROOT_URLS = express.Router();
+const SA_ROOT = express.Router();
 
 var request = require('request');
 var cheerio = require('cheerio');
 
-var rootUrl = "https://seekingalpha.com";
-var root_urls = [];
+var nodes = [];
 
-
-SA_ROOT_URLS.get('/', function(req, res){
+SA_ROOT.get('/', function(req, res){
 
     req = request.defaults({
         jar: true,                 // save cookies to jar
@@ -25,17 +23,48 @@ SA_ROOT_URLS.get('/', function(req, res){
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
         }
     }, function(error, response, html){
+
         var $ = cheerio.load(html);
-        $('li').each(function(i, el) {
-            console.log($(this).text());
-            root_urls.push($(this).text());
+
+        $('.content').each(function(i, el) {
+
+            if($('h3',this).text()){
+                var nodeName = $('h3',this).text();
+                var node = {};
+                node.name = nodeName;
+                node.children = [];
+                node.type = "";
+                node.url = "";
+
+                $('ul',this).each(function(j, e) {
+                    var N = {};
+                    N.children = [];
+
+                    $('li',this).each(function(k, element) {
+                        if($(this).hasClass('title')){
+                            N.type = 'title';
+                            N.name = $(this).text();
+                            N.url = $(this).children('a').attr('href');
+                        }else{
+                            n = {};
+                            n.type = '';
+                            n.name = $(this).text();
+                            n.children = [];
+                            n.url = $(this).children('a').attr('href');
+                            N.children.push(n);
+                        }
+                    });
+                    node.children.push(N);
+                });
+                nodes.push(node);
+            }
         });
+
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        //console.log('body:', html); // Print the HTML for the Google homepage.
-        res.status(200).json(root_urls);
+        res.status(200).json(nodes);
     });
 })
 
 
-module.exports = SA_ROOT_URLS;
+module.exports = SA_ROOT;
