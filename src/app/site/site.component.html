@@ -1,14 +1,15 @@
-<div class="site-interface c">
+<div class="site-interface c f1">
     <div class="site-interface-action-bar r">
-        <div class="site-interface-action-bar-item">
+        <div class="site-interface-action-bar-item" (click)="commenceProbing()">
             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
             Commence Probing
         </div>
         <div class="f1"></div>
     </div>
-    <div class="probe-log-stream">
+    <div class="probe-log-stream ofys">
             
-      C:\Users\james\Documents\GitHub\swarm>npm install mongoose --save
-      swarm@0.0.0 C:\Users\james\Documents\GitHub\swarm
+        <div class="log-entry" *ngFor="let log of logs">
+            {{log}}
+        </div>
     </div>
 </div>

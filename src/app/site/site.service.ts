@@ -5,9 +5,16 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class SiteService {
-    private sitesUrl = '/api/sites';
+    private sitesUrl = '/queen/SA';
 
     constructor (private http: Http) {}
+    commenceProbing(): Promise<String[]> {
+      return this.http.get(this.sitesUrl)
+                 .toPromise()
+                 .then(response => response.json() as String[])
+                 .catch(this.handleError);
+    }
+
 
     // get("/site/sites")
     getSites(): Promise<Site[]> {

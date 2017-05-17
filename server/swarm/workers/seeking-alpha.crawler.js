@@ -33,6 +33,7 @@ SA_ROOT_URLS.get('/', function(req, res){
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         //console.log('body:', html); // Print the HTML for the Google homepage.
+        res.status(200).json(root_urls);
     });
 })
 
