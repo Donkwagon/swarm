@@ -45,12 +45,14 @@ SA_ROOT.get('/', function(req, res){
                             N.type = 'title';
                             N.name = $(this).text();
                             N.url = $(this).children('a').attr('href');
+                            N.fullUrl = url + $(this).children('a').attr('href');
                         }else{
                             n = {};
                             n.type = '';
                             n.name = $(this).text();
                             n.children = [];
                             n.url = $(this).children('a').attr('href');
+                            n.fullUrl = url + $(this).children('a').attr('href');
                             N.children.push(n);
                         }
                     });
@@ -65,6 +67,5 @@ SA_ROOT.get('/', function(req, res){
         res.status(200).json(nodes);
     });
 })
-
 
 module.exports = SA_ROOT;

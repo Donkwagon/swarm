@@ -1,4 +1,5 @@
 <div class="site-interface c f1">
+
     <div class="site-interface-action-bar r">
         <div class="site-interface-action-bar-item" (click)="commenceProbing()">
             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
@@ -6,17 +7,18 @@
         </div>
         <div class="f1"></div>
     </div>
+
     <div class="probe-log-stream c ofys">
-            
         <div class="log-entry c s0" *ngFor="let node of nodes">
             <b>Node: {{node.name}} URL: <a href="https://seekingalpha.com{{node.url}}" target="_blank">{{node.url}}</a> Type: {{node.type}}</b>
             <br>
             <div class="c s0" *ngFor="let N of node.children">
                 {{N.name}}::<a href="https://seekingalpha.com{{N.url}}" target="_blank">{{N.url}}</a>{{N.type}}
                 <br>
-                <div class="s0" *ngFor="let n of N.children">
-                    &nbsp;&nbsp;&nbsp;&nbsp;{{n.name}}::<a href="https://seekingalpha.com{{n.url}}" target="_blank">{{n.url}}</a>{{n.type}}
-                    <br>
+                <div class="entrance-row r s0" *ngFor="let n of N.children">
+                    <div class="f1">{{n.name}}</div>
+                    <a class="f1" href="https://seekingalpha.com{{n.url}}" target="_blank">{{n.url}}</a>
+                    <div class="f1"> Status</div>
                 </div>
             </div>
         </div>
