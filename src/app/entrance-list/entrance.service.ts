@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class EntranceService {
-    private entrancesUrl = '/queen/SA';
+    private entrancesUrl = '/queen/entrance';
 
     constructor (private http: Http) {}
     commenceProbing(): Promise<String[]> {
@@ -25,18 +25,18 @@ export class EntranceService {
     }
 
     // get("/entrance/entrances")
-    getEntrancesByStatus(status: String): Promise<Entrance[]> {
-      return this.http.get(this.entrancesUrl + '/status/' + status)
+    getEntrancesBySite(siteName: String): Promise<Entrance[]> {
+      return this.http.get(this.entrancesUrl + '/site/' + siteName)
                  .toPromise()
                  .then(response => response.json() as Entrance[])
                  .catch(this.handleError);
     }
 
      // get("/entrance/entrances/:id")
-    getEntrance(entranceId: String): Promise<entrance> {
+    getEntrance(entranceId: String): Promise<Entrance> {
       return this.http.get(this.entrancesUrl + '/' + entranceId)
                  .toPromise()
-                 .then(response => response.json() as entrance)
+                 .then(response => response.json() as Entrance)
                  .catch(this.handleError);
     }
 

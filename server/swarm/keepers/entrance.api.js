@@ -2,7 +2,6 @@ const express = require('express');
 const entrance = express.Router();
 var ENTRANCE_COLLECTION = "entrance";
 var ObjectID = require('mongodb').ObjectID;
-// CONTACTS API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -20,8 +19,8 @@ entrance.get("", function(req, res) {
   });
 });
 
-entrance.get("/status/:status", function(req, res) {
-  db.collection(ENTRANCE_COLLECTION).find({status: req.params.status}).toArray(function(err, docs) {
+entrance.get("/site/:siteName", function(req, res) {
+  db.collection(ENTRANCE_COLLECTION).find({siteName: req.params.siteName}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get entrances.");
     } else {

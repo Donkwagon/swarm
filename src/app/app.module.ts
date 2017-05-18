@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SiteComponent } from './site/site.component';
 import { EntranceListComponent } from './entrance-list/entrance-list.component';
+import { PostListComponent } from './post-list/post-list.component';
+import { AuthorListComponent } from './author-list/author-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
-    EntranceListComponent
+    EntranceListComponent,
+    PostListComponent,
+    AuthorListComponent
   ],
   imports: [
     BrowserModule,

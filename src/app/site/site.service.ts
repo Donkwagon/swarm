@@ -8,6 +8,13 @@ export class SiteService {
     private sitesUrl = '/queen/SA';
 
     constructor (private http: Http) {}
+    runTest(): Promise<String[]> {
+      return this.http.get('/queen/test')
+                 .toPromise()
+                 .then(response => response.json() as String[])
+                 .catch(this.handleError);
+    }
+
     commenceProbing(): Promise<String[]> {
       return this.http.get(this.sitesUrl)
                  .toPromise()

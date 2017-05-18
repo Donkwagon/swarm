@@ -7,6 +7,9 @@ const queen = express.Router();
 const SA = require('./workers/seeking-alpha.crawler');
 queen.use('/SA', SA);
 
+const TEST = require('./workers/seeking-alpha.article-list.crawler');
+queen.use('/TEST', TEST);
+
 /////////////////////////////////////
 //Keepers
 const entrance = require('./keepers/entrance.api');
