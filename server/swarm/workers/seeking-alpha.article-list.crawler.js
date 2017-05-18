@@ -5,7 +5,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 var SITES_COLLECTION = "sites";
-var POSTS_COLLECTION = "posts";
+var BACKLOG_COLLECTION = "backlogs";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //The get method takes sitemap entrance information and organize it into two data structure
@@ -32,6 +32,8 @@ SA_A_LIST.get('/', function(req, res){
         $('li').filter('.article').each(function(i, el) {
             var post = {};
             post.title = $('.a-title',this).text();
+            post.type = "article"
+            
             post.url = $('.a-title',this).attr('href');
             post.authorDisplayImage = $('img','.media-left',this).attr('src');
             post.authorName = $('a','.a-info',this).eq(1).text();
@@ -51,7 +53,9 @@ SA_A_LIST.get('/', function(req, res){
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         
         posts.forEach(post =>{
-            db.collection(POSTS_COLLECTION).insertOne(post, function(err, doc) {
+            post.createDate = new Date();
+            db.collection(BACKLOG_COLLECTION).insertOne(post, function(err, doc) {
+                console.log("inserted!");
                 if (err) {handleError(res, err.message, "Failed to create new task.");} 
             });
         });
