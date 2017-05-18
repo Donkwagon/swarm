@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SiteComponent } from './site/site.component';
+import { EntranceListComponent } from './entrance-list/entrance-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SiteComponent
+    SiteComponent,
+    EntranceListComponent
   ],
   imports: [
     BrowserModule,
