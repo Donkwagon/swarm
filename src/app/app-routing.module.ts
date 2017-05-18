@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'sitemap', component: SitemapComponent},
       { path: 'posts', component: PostsComponent},
       { path: 'authors', component: AuthorsComponent},
-      { path: 'entrance', component: EntrancesComponent},
+      { path: 'entrances', component: EntrancesComponent},
       { path: 'logs', component: LogsComponent}
   ]}
 ];

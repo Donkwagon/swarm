@@ -1,21 +1,21 @@
 <div class="site-interface c f1">
 
     <div class="site-interface-action-bar r">
-        <div class="site-interface-action-bar-item">
+        <a class="site-interface-action-bar-item" routerLink="/site/SA/sitemap" routerLinkActive="active">
             Sitemap
-        </div>
-        <div class="site-interface-action-bar-item">
+        </a>
+        <a class="site-interface-action-bar-item" routerLink="/site/SA/entrances" routerLinkActive="active">
             Entrances
-        </div>
-        <div class="site-interface-action-bar-item">
+        </a>
+        <a class="site-interface-action-bar-item" routerLink="/site/SA/posts" routerLinkActive="active">
             Posts
-        </div>
-        <div class="site-interface-action-bar-item">
+        </a>
+        <a class="site-interface-action-bar-item" routerLink="/site/SA/authors" routerLinkActive="active">
             Authors
-        </div>
-        <div class="site-interface-action-bar-item">
+        </a>
+        <a class="site-interface-action-bar-item" routerLink="/site/SA/logs" routerLinkActive="active">
             Live Log
-        </div>
+        </a>
         <div class="f1"></div>
         <div class="site-interface-action-bar-item" (click)="commenceProbing()">
             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
@@ -28,6 +28,7 @@
     </div>
 
     <div class="probe-log-stream c ofys">
+        <router-outlet></router-outlet>
         <table>
             <tr>
                 <th>Site</th>

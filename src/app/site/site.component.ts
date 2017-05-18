@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SiteService } from './site.service';
 import { EntranceService } from '../entrance-list/entrance.service';
 
-import { Entrance } from '../entrance-list/entrance';
+import { Entrance } from '../classes/entrance';
 
 @Component({
   selector: 'app-site',
