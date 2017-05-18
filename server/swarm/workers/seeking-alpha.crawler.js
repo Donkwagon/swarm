@@ -4,9 +4,10 @@ const SA_ROOT = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
 
-var nodes = [];
 
 SA_ROOT.get('/', function(req, res){
+    
+    var nodes = [];
 
     req = request.defaults({
         jar: true,                 // save cookies to jar

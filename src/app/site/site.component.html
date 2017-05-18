@@ -10,15 +10,13 @@
 
     <div class="probe-log-stream c ofys">
         <div class="log-entry c s0" *ngFor="let node of nodes">
-            <b>Node: {{node.name}} URL: <a href="https://seekingalpha.com{{node.url}}" target="_blank">{{node.url}}</a> Type: {{node.type}}</b>
-            <br>
             <div class="c s0" *ngFor="let N of node.children">
-                {{N.name}}::<a href="https://seekingalpha.com{{N.url}}" target="_blank">{{N.url}}</a>{{N.type}}
                 <br>
+                <a href="https://seekingalpha.com{{N.url}}" target="_blank">{{N.name}}</a>
                 <div class="entrance-row r s0" *ngFor="let n of N.children">
                     <div class="f1">{{n.name}}</div>
                     <a class="f1" href="https://seekingalpha.com{{n.url}}" target="_blank">{{n.url}}</a>
-                    <div class="f1"> Status</div>
+                    <div class="f162"> Status</div>
                 </div>
             </div>
         </div>
