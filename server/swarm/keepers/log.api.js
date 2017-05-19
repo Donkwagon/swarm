@@ -1,6 +1,6 @@
 const express = require('express');
 const log = express.Router();
-var log_COLLECTION = "log";
+var log_COLLECTION = "logs";
 var ObjectID = require('mongodb').ObjectID;
 
 // Generic error handler used by all endpoints.
