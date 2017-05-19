@@ -1,22 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule }                     from '@angular/platform-browser';
+import { NgModule }                          from '@angular/core';
+import { FormsModule }                       from '@angular/forms';
+import { HttpModule }                        from '@angular/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule }                  from './app-routing.module';
+import { AppComponent }                      from './app.component';
 
-import { AppComponent } from './app.component';
+import { SiteComponent }                     from './site/site.component';
+import { EntranceListComponent }             from './entrance-list/entrance-list.component';
+import { PostListComponent }                 from './post-list/post-list.component';
+import { AuthorListComponent }               from './author-list/author-list.component';
+import { PostsComponent }                    from './site/posts/posts.component';
 
-import { SiteComponent } from './site/site.component';
-import { EntranceListComponent } from './entrance-list/entrance-list.component';
-import { PostListComponent } from './post-list/post-list.component';
-import { AuthorListComponent } from './author-list/author-list.component';
-import { PostsComponent } from './site/posts/posts.component';
-
-import { AuthorsComponent } from './site/authors/authors.component';
-import { EntrancesComponent } from './site/entrances/entrances.component';
-import { LogsComponent } from './site/logs/logs.component';
-import { SitemapComponent } from './site/sitemap/sitemap.component';
+import { AuthorsComponent }                  from './site/authors/authors.component';
+import { EntrancesComponent }                from './site/entrances/entrances.component';
+import { LogsComponent }                     from './site/logs/logs.component';
+import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +27,7 @@ import { SitemapComponent } from './site/sitemap/sitemap.component';
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
+    BrowserModule,FormsModule,HttpModule,
     AppRoutingModule
   ],
   providers: [],

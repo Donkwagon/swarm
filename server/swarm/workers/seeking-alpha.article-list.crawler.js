@@ -18,7 +18,8 @@ var BACKLOG_COLLECTION = "backlogs";
 
 SA_A_LIST.get('/', function(req, res){
 
-    var posts = [];
+    var articles = [];
+    var authors = [];
 
     var url = 'http://seekingalpha.com/stock-ideas/long-ideas';//flat array of entrance
 
@@ -39,7 +40,7 @@ SA_A_LIST.get('/', function(req, res){
             post.authorName = $('a','.a-info',this).eq(1).text();
             post.authorUsername = $('a','.a-info',this).eq(1).attr('href').split('/')[2];
 
-            posts.push(post);
+            articles.push(post);
 
             // console.log("============================================================================");
             // console.log(post.title);
@@ -52,8 +53,8 @@ SA_A_LIST.get('/', function(req, res){
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         
-        posts.forEach(post =>{
-            post.createDate = new Date();
+        articles.forEach(post =>{
+            articles.createDate = new Date();
             db.collection(BACKLOG_COLLECTION).insertOne(post, function(err, doc) {
                 console.log("inserted!");
                 if (err) {handleError(res, err.message, "Failed to create new task.");} 
