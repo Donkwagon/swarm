@@ -18,8 +18,7 @@ var BACKLOG_COLLECTION = "backlogs";
 
 SA_A_LIST.get('/', function(req, res){
 
-    var articles = [];
-    var authors = [];
+    var backlogs = [];
 
     var url = 'http://seekingalpha.com/stock-ideas/long-ideas';//flat array of entrance
 
@@ -32,31 +31,37 @@ SA_A_LIST.get('/', function(req, res){
         var $ = cheerio.load(html);
         $('li').filter('.article').each(function(i, el) {
             var post = {};
-            post.title = $('.a-title',this).text();
-            post.type = "article"
-            
-            post.url = $('.a-title',this).attr('href');
-            post.authorDisplayImage = $('img','.media-left',this).attr('src');
-            post.authorName = $('a','.a-info',this).eq(1).text();
-            post.authorUsername = $('a','.a-info',this).eq(1).attr('href').split('/')[2];
 
-            articles.push(post);
+            var log = {};
+            log.type = "article";
+            log.createDate = new Date();
+            log.url = $('.a-title',this).attr('href');
+            log.id = $(this).attr('article_id');
+            log.content = {};
+            log.content.title = $('.a-title',this).text();
+            log.content.displayName = $('a','.a-info',this).eq(1).text();
+            log.content.username = $('a','.a-info',this).eq(1).attr('href').split('/')[2];
+            log.displayImage = $('img','.media-left',this).attr('src');
 
-            // console.log("============================================================================");
-            // console.log(post.title);
-            // console.log(post.url);
-            // console.log(post.authorDisplayImage);
-            // console.log(post.authorName);
-            // console.log(post.authorUsername);
+            var logAuthor = {};
+            logAuthor.type = "author";
+            logAuthor.createDate = new Date();
+            logAuthor.id = $('a','.a-info',this).eq(1).attr('href').split('/')[2];
+            logAuthor.url = $('a','.media-left',this).attr('href');
+            logAuthor.content = {};
+            logAuthor.content.displayName = $('a','.a-info',this).eq(1).text();
+            logAuthor.content.username = $('a','.a-info',this).eq(1).attr('href').split('/')[2];
+            logAuthor.displayImage = $('img','.media-left',this).attr('src');
+
+            backlogs.push(log);
+            backlogs.push(logAuthor);
         });
         
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         
-        articles.forEach(post =>{
-            articles.createDate = new Date();
-            db.collection(BACKLOG_COLLECTION).insertOne(post, function(err, doc) {
-                console.log("inserted!");
+        backlogs.forEach(log =>{
+            db.collection(BACKLOG_COLLECTION).insertOne(log, function(err, doc) {
                 if (err) {handleError(res, err.message, "Failed to create new task.");} 
             });
         });

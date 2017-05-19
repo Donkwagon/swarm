@@ -3,15 +3,13 @@
 body{
     padding:0;margin:0;
     font-family: 'Ubuntu', sans-serif, 'Microsoft Yahei';
-    font-size:13px;
+    font-size:13px;color:#EEE;
     background-color:black;
-    color:#EEE;
 }
 ////////////////////////////////////////////////////////////////////////
 /* Frequently used css properties */
 .r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;}
-.f1{display:flex;flex:1;}.f162{display:flex;flex:1.62;} //Golden Ratio
-.s0{flex-shrink:0;}
+.f1{display:flex;flex:1;}.f162{display:flex;flex:1.62;}.s0{flex-shrink:0;}
 .ac{text-align:center;}.al{text-align:left;}.ar{text-align:right;}
 .w100{width:100%;}.h100{height:100%;}
 .ofys{overflow-y:scroll;}
@@ -20,17 +18,20 @@ a:visited {color: pink;text-decoration:none;}
 a:hover {color: pink;text-decoration:none;}
 a:active {color: pink;text-decoration:none;}
 /////////////////////////////////////////////////////////
-
+/* Color Palette */
+$blue:rgb(29, 88, 226);
+$orange:rgb(226, 120, 29);
+$green:rgb(63, 204, 77);
+$red:rgb(198, 34, 25);
+/////////////////////////////////////////////////////////
 $line:rgba(238, 238, 220,0.5);
 .blue{color:rgb(29, 147, 232);}
-
-
 
 .site-list{
     padding:1em;
 
     .site-list-item{
-        padding:1em;
+        padding:0.75em 1em;
         border:$line solid 1px;
     }
 }
@@ -47,15 +48,6 @@ $line:rgba(238, 238, 220,0.5);
     position:fixed;
     width:100%;height:100%;
     justify-content:stretch;
-}
-
-.site-map{
-    // position:fixed;
-    // width:100%;height:100%;
-}
-
-.node-array{
-
 }
 
 .node{
