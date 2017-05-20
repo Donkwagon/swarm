@@ -2,15 +2,16 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 // create a schema
 var backlogSchema = new Schema({
 
-  id: { type: String, required: true, unique: true },
+  backlogID: { type: String, required: true, unique: false },
   type: String,
   url: String,
-  content: Any,
+  content: Schema.Types.Mixed,
   siteUrl: String,
-  strategy: Any,
+  strategy: Schema.Types.Mixed,
   status: String,
 
   created_at: Date,
