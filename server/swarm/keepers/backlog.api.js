@@ -10,7 +10,7 @@ function handleError(res, reason, message, code) {
 }
 
 backlog.get("", function(req, res) {
-  db.collection(backlog_COLLECTION).find({}).toArray(function(err, docs) {
+  db.collection(backlog_COLLECTION).find({}).limit(200).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get backlogs.");
     } else {
@@ -19,8 +19,9 @@ backlog.get("", function(req, res) {
   });
 });
 
-backlog.get("/site/:siteName", function(req, res) {
-  db.collection(backlog_COLLECTION).find({siteName: req.params.siteName}).toArray(function(err, docs) {
+backlog.get("/type/:type", function(req, res) {
+  console.log(req.params);
+  db.collection(backlog_COLLECTION).find({"type": req.params.type}).limit(200).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get backlogs.");
     } else {

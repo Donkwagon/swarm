@@ -1,3 +1,19 @@
-<p>
-  backlogs works!
-</p>
+
+<table>
+    <tr>
+        <th>Info</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let backlog of backlogs">
+        <td class="r">
+          <img class="table-profile-image" [src]="backlog.content.displayImage"/>
+          &nbsp;
+          <a href="https://seekingalpha.com{{backlog.url}}" target="_blank">
+          {{backlog.content.displayName}}
+          </a>
+        </td>
+        <td>
+          Status
+        </td>
+    </tr>
+</table>

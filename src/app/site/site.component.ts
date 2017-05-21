@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SiteService } from './site.service';
-import { EntranceService } from '../entrance-list/entrance.service';
+import { SiteService } from '../@core/services/site.service';
 
-import { Entrance } from '../classes/entrance';
+import { EntranceService } from '../@core/services/entrance.service';
+import { Entrance } from '../@core/classes/entrance';
 
 @Component({
   selector: 'app-site',

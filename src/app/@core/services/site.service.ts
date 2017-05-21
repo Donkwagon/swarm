@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Site } from './site';
+import { Site } from '../classes/site';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 

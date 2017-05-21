@@ -15,5 +15,8 @@ queen.use('/TEST', TEST);
 const entrance = require('./keepers/entrance.api');
 queen.use('/entrance', entrance);
 
+const backlog = require('./keepers/backlog.api');
+queen.use('/backlog', backlog);
+
 
 module.exports = queen;
