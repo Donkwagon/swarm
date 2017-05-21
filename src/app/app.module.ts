@@ -16,6 +16,7 @@ import { AuthorsComponent }                  from './site/authors/authors.compon
 import { EntrancesComponent }                from './site/entrances/entrances.component';
 import { LogsComponent }                     from './site/logs/logs.component';
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
+import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { SitemapComponent }                  from './site/sitemap/sitemap.compon
     EntranceListComponent,
     PostListComponent,
     AuthorListComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

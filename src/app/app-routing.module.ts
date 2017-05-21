@@ -6,6 +6,7 @@ import { PostsComponent }                    from './site/posts/posts.component'
 import { AuthorsComponent }                  from './site/authors/authors.component';
 import { EntrancesComponent }                from './site/entrances/entrances.component';
 import { LogsComponent }                     from './site/logs/logs.component';
+import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'posts', component: PostsComponent},
       { path: 'authors', component: AuthorsComponent},
       { path: 'entrances', component: EntrancesComponent},
+      { path: 'backlogs', component: BacklogsComponent},
       { path: 'logs', component: LogsComponent}
   ]}
 ];
