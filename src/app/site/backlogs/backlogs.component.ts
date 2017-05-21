@@ -13,17 +13,20 @@ import { BacklogService } from "../../@core/services/backlog.service";
 export class BacklogsComponent implements OnInit {
 
   backlogs: Backlog[];
+  currentType: String;
 
   constructor(private backlogService:BacklogService) {
     this.backlogs = [];
   }
 
   ngOnInit() {
-    this.getBacklogs();
+    this.getBacklogs('author');
   }
 
-  public getBacklogs = () =>{
-    this.backlogService.getbacklogsByType('author').then((backlogs : Backlog[]) => {
+  public getBacklogs = (type: String) =>{
+    this.currentType = type;
+    this.backlogs = [];
+    this.backlogService.getbacklogsByType(type).then((backlogs : Backlog[]) => {
       console.log(backlogs);
       backlogs.forEach(backlog =>{
         this.backlogs.push(backlog);
