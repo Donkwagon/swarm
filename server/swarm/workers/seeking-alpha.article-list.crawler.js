@@ -6,6 +6,7 @@ var BACKLOG_COLLECTION = "backlogs";
 
 var Entrance = require('../keepers/models/entrance.model');
 
+
 SA_A_LIST.get('/', function(req, res){
 
     Entrance.find({}, function(err, entrances) {

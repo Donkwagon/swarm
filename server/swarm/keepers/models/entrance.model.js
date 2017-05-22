@@ -7,6 +7,17 @@ var cheerio = require('cheerio');
 
 var Backlog = require('./backlog.model');
 
+// Import Admin SDK
+var serviceAccount =  require("../../../firebase/swarm-2124b-firebase-adminsdk-towvk-3a3e35ee20.json");
+var admin = require("firebase-admin");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://swarm-2124b.firebaseio.com"
+});
+// Get a database reference to our blog
+var firebaseDb = admin.database();
+var ref = firebaseDb.ref("swarm");
+
 var entranceSchema = new Schema({
 
   name: String,
@@ -32,6 +43,7 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
     pageNum++;
     URL = baseURL + "?page=" + pageNum;
     console.log(URL);
+    
 
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {
@@ -57,7 +69,6 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
                         });
                         
                         Backlog.find({"backlogID" : articleBacklog.backlogID}, function (err, docs) {
-                            console.log(docs);
                             if (!docs.length){articleBacklog.save(function(err){
                                     if (err) throw err;
                                     console.log('articleBacklog saved successfully!');
@@ -87,6 +98,13 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
                                 });
                             }else{
                                 console.log("backlog already exist!")
+                            }
+                        });
+                        var logsRef = ref.child("logs");
+                        logsRef.push({
+                            alanisawesome: {
+                                date_of_birth: "June 23, 1912",
+                                full_name: "Alan Turing"
                             }
                         });
 
