@@ -8,6 +8,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class AppComponent {
   constructor(db: AngularFireDatabase) {
-
+    var audio = new Audio();
+    audio.src = "http://www.bigsoundbank.com/sounds/mp3/0945.mp3";
+    audio.load();
+    audio.play();
   }
 }
