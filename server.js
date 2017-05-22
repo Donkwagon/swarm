@@ -35,4 +35,7 @@ mongoose.connect('mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwc
 
 //////////////////////////////////////////
 //Connect to Firebase service account
-
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://swarm-2124b.firebaseio.com"
+// });

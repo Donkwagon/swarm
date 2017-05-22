@@ -2,20 +2,33 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// create a schema
+///////////////////////////////////////////////////////
+var serviceAccount =  require("../../../firebase/swarm-2124b-firebase-adminsdk-towvk-3a3e35ee20.json");
+var admin = require("firebase-admin");
+admin.initializeApp({credential: admin.credential.cert(serviceAccount),databaseURL: "https://swarm-2124b.firebaseio.com"});
+var firebaseDb = admin.database();
+var ref = firebaseDb.ref("swarm");
+var logsRef = ref.child("logs");
+
 var logSchema = new Schema({
 
   message: String,
   level: String,
   status: Number,
+  subject: String,
+  action: String,
 
   created_at: Date,
   updated_at: Date
+
 });
 
-// the schema is useless so far
-// we need to create a model using it
-var Entrance = mongoose.model('User', logSchema);
 
-// make this available to our users in our Node applications
-module.exports = Entrance;
+logSchema.methods.pushToFirebaseDb = function(log) {
+  console.log(log);
+  logsRef.push(log);
+};
+
+var Log = mongoose.model('Log', logSchema);
+
+module.exports = Log;
