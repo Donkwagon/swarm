@@ -3,6 +3,8 @@ var mongoose =    require('mongoose');
 var request =     require('request');
 var cheerio =     require('cheerio');
 
+var chalk =       require('chalk');
+
 var Backlog =     require('./backlog.model');
 var Log =         require('./log.model');
 
@@ -35,10 +37,10 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
         if(error||response.statusCode != 200){
-            console.log('error:'+ error);
-            console.log("status:"+response.statusCode);
+            console.log(chalk.red('error:' + error));
+            console.log(chalk.red("status:" + response.statusCode));
         }else{
-            console.log("status:"+response.statusCode);
+            console.log(chalk.green("status" + response.statusCode));
             webpageTetacle(html);
             setTimeout(() =>{webpageOpener(baseURL,pageNum,UserAgent);}, 3000);
         }
@@ -54,39 +56,59 @@ webpageTetacle = (html) => {
         $('li').filter('.article').each(function(i, el) {
             if($('a','.a-info',this).eq(1).text() && $(this).attr('article_id')){
 
+                /////////////////////////////////////////////////////////////////////////////////
+                //Data values of interest
+                var backlogID_article =    $(this).attr('article_id');
+                var backlogID_author =     $('a','.a-info',this).eq(1).attr('href').split('/')[2];
+                var title =                $('.a-title',this).text();
+                var displayName =          $('a','.a-info',this).eq(1).text();
+                var displayImage =         $('img','.media-left',this).attr('src');
+                var username =             $('a','.a-info',this).eq(1).attr('href').split('/')[2];
+                var URL_article =          $('.a-title',this).attr('href');
+                var URL_author =           $('a','.media-left',this).attr('href');
+
+                /////////////////////////////////////////////////////////////////////////////////
+                //Create new backlog for article and save if it doesn't exist in backlogs list
                 var articleBL = new Backlog({
-                    type: "article",
-                    created_at: new Date(),
-                    url: $('.a-title',this).attr('href'),
-                    backlogID: $(this).attr('article_id'),
-                    content: {
-                        title: $('.a-title',this).text(),
-                        displayName: $('a','.a-info',this).eq(1).text(),
-                        username: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
-                    }
+                    type: "article",created_at: new Date(),
+                    url: URL_article,
+                    backlogID: backlogID_article,
+                    content: {title: title,displayName: displayName,username: username}
                 });
                 
                 Backlog.find({"backlogID" : articleBL.backlogID}, function (err, docs) {
-                    if (!docs.length){articleBL.save(function(err){if (err) throw err;console.log('Saved!');});
-                    }else{console.log("backlog already exist!")}
+                    if (!docs.length){
+                        articleBL.save(function(err){
+                            if (err) throw err;
+                            console.log(chalk.green("Saved"));
+                        });
+                    }else{
+                        console.log(chalk.yellow("backlog already exist!"));
+                    }
                 });
 
+                /////////////////////////////////////////////////////////////////////////////////
+                //Create new backlog for author and save if it doesn't exist in backlogs list
                 var authorBL = new Backlog({
-                    type: "author",
-                    createDate: new Date(),
-                    backlogID: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
-                    url: $('a','.media-left',this).attr('href'),
-                    content: {
-                        username: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
-                        displayName: $('a','.a-info',this).eq(1).text(),
-                        displayImage: $('img','.media-left',this).attr('src')
-                    }
+                    type: "author",created_at: new Date(),
+                    backlogID: backlogID_author,
+                    url: URL_author,
+                    content: {username: username,displayName: displayName,displayImage: displayImage}
                 });
                 
                 Backlog.find({"backlogID" : authorBL.backlogID}, function (err, docs) {
-                    if (!docs.length){authorBL.save(function(err) {if (err) throw err;console.log('Saved!');});
-                    }else{console.log("backlog already exist!")}
+                    if (!docs.length){
+                        authorBL.save(function(err) {
+                            if (err) throw err;
+                            console.log(chalk.green("Saved"));
+                        });
+                    }else{
+                        console.log(chalk.yellow("backlog already exist!"));
+                    }
                 });
+
+                /////////////////////////////////////////////////////////////////////////////////
+                //Log what's going on
                 var log = new Log({
                     message: "article and author saved",
                     level: 1,
@@ -94,11 +116,10 @@ webpageTetacle = (html) => {
                     subject: "article",
                     action: "save",
 
-                    created_at: new Date(),
-                    updated_at: new Date()
+                    created_at: new Date()
                 });
-                log.save(function(err) {if (err) throw err;console.log('Saved!')});
 
+                log.save(function(err) {if (err) throw err;console.log('Saved!')});
             }
         });
     }
