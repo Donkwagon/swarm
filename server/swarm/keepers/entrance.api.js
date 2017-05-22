@@ -1,6 +1,6 @@
 const express = require('express');
 const entrance = express.Router();
-var ENTRANCE_COLLECTION = "entrance";
+var ENTRANCE_COLLECTION = "entrances";
 var ObjectID = require('mongodb').ObjectID;
 
 // Generic error handler used by all endpoints.

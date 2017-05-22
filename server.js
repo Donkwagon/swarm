@@ -5,6 +5,8 @@ var http =            require('http');
 var dotenv =          require('dotenv').config();
 var admin =           require("firebase-admin");
 
+var chalk =           require('chalk');
+ 
 var serviceAccount =  require("./server/firebase/swarm-2124b-firebase-adminsdk-towvk-3a3e35ee20.json");
 
 var app = express();
@@ -24,8 +26,7 @@ const server = http.createServer(app);
 server.listen(process.env.PORT || 8080, function (err) {
   if (err) {console.log(err);process.exit(1);}
   var port = server.address().port;
-  console.log(process.env.S3_BUCKET);
-  console.log("App now running on port", port);
+  console.log(chalk.cyan("App now running on port", port));
 });
 
 //////////////////////////////////////////

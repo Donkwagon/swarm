@@ -34,11 +34,14 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
     
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
-        if(error){console.log('error:', error);}console.log('statusCode:', response && response.statusCode);
-
-        webpageTetacle(html);
-
-        if(!error&&response.statusCode == 200){setTimeout(() =>{webpageOpener(baseURL,pageNum,UserAgent);}, 3000);}
+        if(error||response.statusCode != 200){
+            console.log('error:'+ error);
+            console.log("status:"+response.statusCode);
+        }else{
+            console.log("status:"+response.statusCode);
+            webpageTetacle(html);
+            setTimeout(() =>{webpageOpener(baseURL,pageNum,UserAgent);}, 3000);
+        }
     });
 }
 
@@ -47,59 +50,57 @@ webpageTetacle = (html) => {
     //takes html and return desired data
 
     var $ = cheerio.load(html);
-    if(!error){
-        if($('li').filter('.article')){
-            $('li').filter('.article').each(function(i, el) {
-                if($('a','.a-info',this).eq(1).text() && $(this).attr('article_id')){
+    if($('li').filter('.article')){
+        $('li').filter('.article').each(function(i, el) {
+            if($('a','.a-info',this).eq(1).text() && $(this).attr('article_id')){
 
-                    var articleBL = new Backlog({
-                        type: "article",
-                        created_at: new Date(),
-                        url: $('.a-title',this).attr('href'),
-                        backlogID: $(this).attr('article_id'),
-                        content: {
-                            title: $('.a-title',this).text(),
-                            displayName: $('a','.a-info',this).eq(1).text(),
-                            username: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
-                        }
-                    });
-                    
-                    Backlog.find({"backlogID" : articleBL.backlogID}, function (err, docs) {
-                        if (!docs.length){articleBL.save(function(err){if (err) throw err;console.log('Saved!');});
-                        }else{console.log("backlog already exist!")}
-                    });
+                var articleBL = new Backlog({
+                    type: "article",
+                    created_at: new Date(),
+                    url: $('.a-title',this).attr('href'),
+                    backlogID: $(this).attr('article_id'),
+                    content: {
+                        title: $('.a-title',this).text(),
+                        displayName: $('a','.a-info',this).eq(1).text(),
+                        username: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
+                    }
+                });
+                
+                Backlog.find({"backlogID" : articleBL.backlogID}, function (err, docs) {
+                    if (!docs.length){articleBL.save(function(err){if (err) throw err;console.log('Saved!');});
+                    }else{console.log("backlog already exist!")}
+                });
 
-                    var authorBL = new Backlog({
-                        type: "author",
-                        createDate: new Date(),
-                        backlogID: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
-                        url: $('a','.media-left',this).attr('href'),
-                        content: {
-                            username: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
-                            displayName: $('a','.a-info',this).eq(1).text(),
-                            displayImage: $('img','.media-left',this).attr('src')
-                        }
-                    });
-                    
-                    Backlog.find({"backlogID" : authorBL.backlogID}, function (err, docs) {
-                        if (!docs.length){authorBL.save(function(err) {if (err) throw err;console.log('Saved!');});
-                        }else{console.log("backlog already exist!")}
-                    });
-                    var log = new Log({
-                        message: "article and author saved",
-                        level: 1,
-                        status: 200,
-                        subject: "article",
-                        action: "save",
+                var authorBL = new Backlog({
+                    type: "author",
+                    createDate: new Date(),
+                    backlogID: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
+                    url: $('a','.media-left',this).attr('href'),
+                    content: {
+                        username: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
+                        displayName: $('a','.a-info',this).eq(1).text(),
+                        displayImage: $('img','.media-left',this).attr('src')
+                    }
+                });
+                
+                Backlog.find({"backlogID" : authorBL.backlogID}, function (err, docs) {
+                    if (!docs.length){authorBL.save(function(err) {if (err) throw err;console.log('Saved!');});
+                    }else{console.log("backlog already exist!")}
+                });
+                var log = new Log({
+                    message: "article and author saved",
+                    level: 1,
+                    status: 200,
+                    subject: "article",
+                    action: "save",
 
-                        created_at: new Date(),
-                        updated_at: new Date()
-                    });
-                    log.save(function(err) {if (err) throw err;console.log('Saved!')});
+                    created_at: new Date(),
+                    updated_at: new Date()
+                });
+                log.save(function(err) {if (err) throw err;console.log('Saved!')});
 
-                }
-            });
-        }
+            }
+        });
     }
 }
 

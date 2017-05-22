@@ -41,7 +41,7 @@ export class EntranceService {
     }
 
     // post("/entrance/entrances")
-    creatEentrance(newentrance: Entrance): Promise<Entrance> {
+    createEntrance(newentrance: Entrance): Promise<Entrance> {
       var data = newentrance;
       return this.http.post(this.entrancesUrl, data)
                  .toPromise()
@@ -52,7 +52,7 @@ export class EntranceService {
    
 
     // delete("/entrance/entrances/:id")
-    deletEentrance(delentranceId: String): Promise<String> {
+    deleteEntrance(delentranceId: String): Promise<String> {
       return this.http.delete(this.entrancesUrl + '/' + delentranceId)
                  .toPromise()
                  .then(response => response.json() as String)

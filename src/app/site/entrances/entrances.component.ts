@@ -6,7 +6,8 @@ import { Entrance } from '../../@core/classes/entrance';
 @Component({
   selector: 'app-entrances',
   templateUrl: './entrances.component.html',
-  styleUrls: ['./entrances.component.scss']
+  styleUrls: ['./entrances.component.scss'],
+  providers: [EntranceService]
 })
 export class EntrancesComponent implements OnInit {
 
@@ -21,11 +22,17 @@ export class EntrancesComponent implements OnInit {
 
   public getEntranceBySiteName() {
     this.entranceService.getEntrances().then((entranceList : Entrance[]) => {
-      console.log(JSON.stringify(entranceList));
       entranceList.forEach(entrance =>{
         this.entranceList.push(entrance);
       });
     });
   }
 
+  public deleteEntrance(entrance) {
+    var entranceId = entrance._id;
+
+    this.entranceService.deleteEntrance(entranceId).then((res : String) => {
+      console.log(res);
+    });
+  }
 }
