@@ -6,15 +6,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 var Backlog = require('./backlog.model');
-
-// Import Admin SDK
+///////////////////////////////////////////////////////
 var serviceAccount =  require("../../../firebase/swarm-2124b-firebase-adminsdk-towvk-3a3e35ee20.json");
 var admin = require("firebase-admin");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://swarm-2124b.firebaseio.com"
-});
-// Get a database reference to our blog
+admin.initializeApp({credential: admin.credential.cert(serviceAccount),databaseURL: "https://swarm-2124b.firebaseio.com"});
 var firebaseDb = admin.database();
 var ref = firebaseDb.ref("swarm");
 
@@ -36,27 +31,25 @@ entranceSchema.methods.fetchBacklogData = function() {
         var pageNum = 0;
         fetcBacklogFromArticleList(this.url,pageNum);
     }
-
 };
 
 fetcBacklogFromArticleList = function (baseURL,pageNum) {
+
     pageNum++;
     URL = baseURL + "?page=" + pageNum;
     console.log(URL);
     
-
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
-    req.get({url: URL,headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'}
+    req.get({url: URL,headers: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'}
     }, function(error, response, html){
-        console.log('error:', error); // Print the error if one occurred
+        if(!error){console.log('error:', error);} // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         var $ = cheerio.load(html);
         if(!error){
             if($('li').filter('.article')){
                 $('li').filter('.article').each(function(i, el) {
                     if($('a','.a-info',this).eq(1).text() && $(this).attr('article_id')){
-                        var articleBacklog = new Backlog({
+                        var articleBL = new Backlog({
                             type: "article",
                             created_at: new Date(),
                             url: $('.a-title',this).attr('href'),
@@ -68,17 +61,12 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
                             }
                         });
                         
-                        Backlog.find({"backlogID" : articleBacklog.backlogID}, function (err, docs) {
-                            if (!docs.length){articleBacklog.save(function(err){
-                                    if (err) throw err;
-                                    console.log('articleBacklog saved successfully!');
-                                });
-                            }else{
-                                console.log("backlog already exist!")
-                            }
+                        Backlog.find({"backlogID" : articleBL.backlogID}, function (err, docs) {
+                            if (!docs.length){articleBL.save(function(err){if (err) throw err;console.log('Saved!');});
+                            }else{console.log("backlog already exist!")}
                         });
 
-                        var authorBacklog = new Backlog({
+                        var authorBL = new Backlog({
                             type: "author",
                             createDate: new Date(),
                             backlogID: $('a','.a-info',this).eq(1).attr('href').split('/')[2],
@@ -90,16 +78,11 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
                             }
                         });
                         
-                        Backlog.find({"backlogID" : authorBacklog.backlogID}, function (err, docs) {
-                            console.log(docs);
-                            if (!docs.length){authorBacklog.save(function(err) {
-                                    if (err) throw err;
-                                    console.log('authorBacklog saved successfully!');
-                                });
-                            }else{
-                                console.log("backlog already exist!")
-                            }
+                        Backlog.find({"backlogID" : authorBL.backlogID}, function (err, docs) {
+                            if (!docs.length){authorBL.save(function(err) {if (err) throw err;console.log('Saved!');});
+                            }else{console.log("backlog already exist!")}
                         });
+
                         var logsRef = ref.child("logs");
                         logsRef.push({
                             alanisawesome: {
@@ -113,9 +96,6 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
                 
             }
         }
-        console.log('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-
         if(!error&&response.statusCode == 200){
             setTimeout(function(){
                 fetcBacklogFromArticleList(baseURL,pageNum);
@@ -123,7 +103,6 @@ fetcBacklogFromArticleList = function (baseURL,pageNum) {
         }
     });
 }
-
 
 
 var Entrance = mongoose.model('Entrance', entranceSchema);
