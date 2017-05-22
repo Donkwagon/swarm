@@ -38,22 +38,6 @@
 
     <div class="probe-log-stream c ofys">
         <router-outlet></router-outlet>
-        <table>
-            <tr>
-                <th>Site</th>
-                <th>Entrance</th>
-                <th>Strategy</th>
-                <th>Frequency</th>
-                <th>Status</th>
-            </tr>
-            <tr *ngFor="let entrance of entranceList">
-                <td>{{entrance.siteName}}</td>
-                <td>{{entrance.name}}</td>
-                <td>{{entrance.strategy.name}}</td>
-                <td>{{entrance.strategy.frequency}}</td>
-                <td>{{entrance.status}}</td>
-            </tr>
-        </table>
         <div class="log-entry c s0" *ngFor="let node of nodes">
             <div class="c s0" *ngFor="let N of node.children">
                 <br>

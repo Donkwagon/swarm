@@ -2,54 +2,43 @@ import { Component, OnInit } from '@angular/core';
 
 import { SiteService } from '../@core/services/site.service';
 
-import { EntranceService } from '../@core/services/entrance.service';
-import { Entrance } from '../@core/classes/entrance';
-
 @Component({
   selector: 'app-site',
   templateUrl: './site.component.html',
   styleUrls: ['./site.component.scss'],
-  providers: [SiteService,EntranceService]
+  providers: [SiteService]
 })
 
 export class SiteComponent implements OnInit {
 
   nodes: any[];
-  entranceList: Entrance[];
 
-  constructor(private siteService:SiteService, private entranceService:EntranceService) {
+  constructor(private siteService:SiteService) {
     this.nodes = [];
-    this.entranceList = [];
   }
 
   ngOnInit() {
-    this.getEntranceBySiteName();
   }
 
   public runTest() {
     this.siteService.runTest().then((res : String[]) => {
       console.log(JSON.stringify(res));
-      res.forEach(el =>{
-        this.nodes.push(el);
-      });
+      if(res.length){
+        res.forEach(el =>{
+          this.nodes.push(el);
+        });
+      }
     });
   }
 
   public commenceProbing() {
     this.siteService.commenceProbing().then((res : String[]) => {
       console.log(JSON.stringify(res));
-      res.forEach(el =>{
-        this.nodes.push(el);
-      });
-    });
-  }
-
-  public getEntranceBySiteName() {
-    this.entranceService.getEntrances().then((entranceList : Entrance[]) => {
-      console.log(JSON.stringify(entranceList));
-      entranceList.forEach(entrance =>{
-        this.entranceList.push(entrance);
-      });
+      if(res.length){
+        res.forEach(el =>{
+          this.nodes.push(el);
+        });
+      }
     });
   }
 }

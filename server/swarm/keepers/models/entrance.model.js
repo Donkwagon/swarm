@@ -34,8 +34,7 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
     
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
-        if(error){console.log('error:', error);}
-        console.log('statusCode:', response && response.statusCode);
+        if(error){console.log('error:', error);}console.log('statusCode:', response && response.statusCode);
 
         webpageTetacle(html);
 
