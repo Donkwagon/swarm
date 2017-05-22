@@ -7,8 +7,7 @@ var serviceAccount =  require("../../../firebase/swarm-2124b-firebase-adminsdk-t
 var admin = require("firebase-admin");
 admin.initializeApp({credential: admin.credential.cert(serviceAccount),databaseURL: "https://swarm-2124b.firebaseio.com"});
 var firebaseDb = admin.database();
-var ref = firebaseDb.ref("swarm");
-var logsRef = ref.child("logs");
+var ref = firebaseDb.ref("swarm/logs");
 
 var logSchema = new Schema({
 
@@ -24,9 +23,9 @@ var logSchema = new Schema({
 });
 
 
-logSchema.methods.pushToFirebaseDb = function(log) {
-  console.log(log);
-  logsRef.push(log);
+logSchema.methods.pushToFirebaseDb = (log) => {
+  log = JSON.parse(JSON.stringify(log));
+  ref.push().set({log});
 };
 
 var Log = mongoose.model('Log', logSchema);

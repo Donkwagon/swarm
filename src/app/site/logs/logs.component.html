@@ -1,3 +1,23 @@
-<p *ngFor="let log of logs | async">
-  {{ log | json }}
-</p>
+
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Action</th>
+        <th>Message</th>
+        <th>Status</th>
+    </tr>
+    <tr  *ngFor="let log of logs | async">
+        <td>
+          {{log.log.created_at}}
+        </td>
+        <td>
+          {{log.log.action}}
+        </td>
+        <td>
+          {{log.log.message}}
+        </td>
+        <td>
+          {{log.log.status}}
+        </td>
+    </tr>
+</table>

@@ -9,7 +9,7 @@ var Entrance = require('../keepers/models/entrance.model');
 
 SA_A_LIST.get('/', function(req, res){
 
-    Entrance.find({}, function(err, entrances) {
+    Entrance.find({"name":"Long Ideas"}, function(err, entrances) {
         if (err) throw err;
         console.log(entrances);
         entrances.forEach( entrance =>{

@@ -118,8 +118,8 @@ webpageTetacle = (html) => {
 
                     created_at: new Date()
                 });
-
-                log.save(function(err) {if (err) throw err;console.log('Saved!')});
+                log.pushToFirebaseDb(log);
+                //log.save(function(err) {if (err) throw err;console.log('Saved!')});
             }
         });
     }
