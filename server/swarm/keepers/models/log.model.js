@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var logSchema = new Schema({
 
   message: String,
-  level: Number,
+  level: String,
+  status: Number,
 
   created_at: Date,
   updated_at: Date

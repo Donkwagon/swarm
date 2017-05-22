@@ -1,13 +1,9 @@
 export class Log {
     
     _id?: String;
-    backlogID: String;
-    type: String;
-    url: String;
-    content: any;
-    siteUrl: String;
-    strategy: any;
-    status: String;
+    message: String;
+    level: String;
+    status: Number;
 
     created_at: Date;
     updated_at: Date;
