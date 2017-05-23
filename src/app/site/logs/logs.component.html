@@ -8,7 +8,7 @@
     </tr>
     <tr  *ngFor="let log of logs | async">
         <td>
-          {{log.log.created_at}}
+          {{log.log.created_at | date:"shortTime"}}
         </td>
         <td>
           {{log.log.action}}
