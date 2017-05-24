@@ -9,6 +9,7 @@ import { Entrance } from '../../@core/classes/entrance';
   styleUrls: ['./entrances.component.scss'],
   providers: [EntranceService]
 })
+
 export class EntrancesComponent implements OnInit {
 
   entranceList: Entrance[];

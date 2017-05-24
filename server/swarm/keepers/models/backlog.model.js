@@ -24,19 +24,15 @@ var backlogSchema = new Schema({
 });
 
 backlogSchema.methods.fetchAuthorInfo = function() {
-  console.log("fetching.......");
+    
   if (this.url){
       var URL = "https://seekingalpha.com" + this.url + "#regular_articles";
-      console.log(URL);
       var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
-      
       this.webpageOpener(URL,UserAgent);
   }
 };
 
 backlogSchema.methods.webpageOpener = function (URL,UserAgent) {
-    console.log("opening............");
-    console.log(URL);
     
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}},(error, response, html) =>{
@@ -49,7 +45,7 @@ backlogSchema.methods.webpageOpener = function (URL,UserAgent) {
             this.webpageTetacles(html,URL);
         }
     });
-}
+};
 
 backlogSchema.methods.webpageTetacles = function (html,URL) {
     //page parsing logic
@@ -115,11 +111,11 @@ backlogSchema.methods.webpageTetacles = function (html,URL) {
     });
     console.log(author);
 
-    saveAuthor(author);
+    this.saveAuthor(author);
 
-}
+};
 
-saveAuthor = function (author) {
+backlogSchema.methods.saveAuthor = function (author) {
     
     Author.find({"username" : author.username}, function (err, docs) {
         if (!docs.length){
@@ -139,26 +135,10 @@ saveAuthor = function (author) {
             });
         }else{
             console.log(chalk.yellow("Author already exist!"));
-            // author._id = docs[0]._id;
-            // docs[0] = author;
-            // docs[0].update(function(err){
-            //     if (err) throw err;
-            //     console.log(chalk.green("Updated"));
-            //     var log = new Log({
-            //         message: author.displayName,
-            //         level: 1,
-            //         status: 200,
-            //         subject: "Article Url",
-            //         action: "Save",
-
-            //         created_at: new Date()
-            //     });
-            //     log.pushToFirebaseDb(log);
-            // });
         }
     });
 
-}
+};
 
 
 
