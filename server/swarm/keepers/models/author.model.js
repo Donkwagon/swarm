@@ -9,6 +9,7 @@ var authorSchema = new Schema({
   displayImage: String,
   
   numArticles: Number,
+  numPremiumArticles: Number,
   numBlogPosts: Number,
   numComments: Number,
   numStockTalks: Number,
@@ -16,12 +17,16 @@ var authorSchema = new Schema({
   NumFollowings: Number,
 
   bio: String,
+  bioTags: String,
   RSSFeedUrl: String,
   contributorSince: Number,
+
+  links: Schema.Types.Mixed,
 
   created_at: Date,
   updated_at: Date
 });
+
 
 var Author = mongoose.model('Author', authorSchema);
 

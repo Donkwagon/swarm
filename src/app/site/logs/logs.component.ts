@@ -19,7 +19,12 @@ export class LogsComponent implements OnInit {
 
   constructor(db: AngularFireDatabase) {
   
-    this.logs = <FirebaseListObservable<any>> db.list('/swarm/logs').map(items => { //first map
+    this.logs = <FirebaseListObservable<any>> db.list('/swarm/logs', {
+      query: {
+        limitToFirst: 10,
+        limitToLast: 100,
+      }
+    }).map(items => { //first map
       return items.map(item => {
         return item;
       })

@@ -14,6 +14,12 @@ export class SiteService {
                  .then(response => response.json() as String[])
                  .catch(this.handleError);
     }
+    crawlAuthors(): Promise<String[]> {
+      return this.http.get('/queen/test/author')
+                 .toPromise()
+                 .then(response => response.json() as String[])
+                 .catch(this.handleError);
+    }
 
     commenceProbing(): Promise<String[]> {
       return this.http.get(this.sitesUrl)
