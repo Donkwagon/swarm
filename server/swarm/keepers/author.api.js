@@ -1,6 +1,6 @@
 const express = require('express');
 const author = express.Router();
-var author_COLLECTION = "author";
+var author_COLLECTION = "authors";
 var ObjectID = require('mongodb').ObjectID;
 
 // Generic error handler used by all endpoints.

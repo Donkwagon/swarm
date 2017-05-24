@@ -1,3 +1,28 @@
-<p>
-  authors works!
-</p>
+
+<table>
+    <tr>
+        <th> </th>
+        <th>Name</th>
+        <th>PArticles</th>
+        <th>Articles</th>
+        <th>Blog</th>
+        <th>Comments</th>
+        <th>StockTalks</th>
+        <th>Followers</th>
+        <th>Following</th>
+        <th>Since</th>
+    </tr>
+    <tr *ngFor="let author of authors">
+        <td><img class="table-profile-image" [src]="author.displayImage"/></td>
+        <td>{{author.displayName}}</td>
+        <td>{{author.numPremiumArticles}}</td>
+        <td>{{author.numArticles}}</td>
+        <td>{{author.numBlogPosts}}</td>
+        <td>{{author.numComments}}</td>
+        <td>{{author.numStockTalks}}</td>
+        <td>{{author.numFollowers}}</td>
+        <td>{{author.NumFollowings}}</td>
+        <td>{{author.contributorSince}}</td>
+        <td (click)="deleteEntrance(entrance)">Delete</td>
+    </tr>
+</table>

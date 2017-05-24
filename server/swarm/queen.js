@@ -18,5 +18,8 @@ queen.use('/entrance', entrance);
 const backlog = require('./keepers/backlog.api');
 queen.use('/backlog', backlog);
 
+const author = require('./keepers/author.api');
+queen.use('/author', author);
+
 
 module.exports = queen;
