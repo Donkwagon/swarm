@@ -42,6 +42,17 @@ export class SiteComponent implements OnInit {
     });
   }
 
+  public crawlArticles() {
+    this.siteService.crawlArticles().then((res : String[]) => {
+      console.log(JSON.stringify(res));
+      if(res.length){
+        res.forEach(el =>{
+          this.nodes.push(el);
+        });
+      }
+    });
+  }
+
   public commenceProbing() {
     this.siteService.commenceProbing().then((res : String[]) => {
       console.log(JSON.stringify(res));

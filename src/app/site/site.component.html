@@ -20,7 +20,7 @@
             Backlogs
         </a>
         <a class="site-interface-action-bar-item" routerLink="/site/SA/logs" routerLinkActive="active">
-            Live Log
+            Logs
         </a>
         <input class="action-bar-search" placeholder="Search.." spellcheck="none"/>
         <i class="fa fa-search search-icon" aria-hidden="true"></i>
@@ -28,15 +28,19 @@
         <div class="f1"></div>
         <div class="site-interface-action-bar-item" (click)="commenceProbing()">
             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
-            Commence Probing
+            getEntrances
         </div>
         <div class="site-interface-action-bar-item" (click)="runTest()">
             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
-            Run Test
+            Run
         </div>
         <div class="site-interface-action-bar-item" (click)="crawlAuthors()">
             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
-            Crawl Authors
+            Get Authors
+        </div>
+        <div class="site-interface-action-bar-item" (click)="crawlArticles()">
+            <i class="fa fa-play" aria-hidden="true"></i>&nbsp;
+            Get Articles
         </div>
     </div>
 

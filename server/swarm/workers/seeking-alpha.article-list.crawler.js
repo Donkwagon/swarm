@@ -34,6 +34,15 @@ SA.get('/author', function(req, res){
     });
 });
 
+SA.get('/article', function(req, res){
+
+    Backlog.find({"type":"article"}, function(err, articleBacklogs) {
+        if (err) throw err;
+        index = 0;
+        fetchArticleInfo(articleBacklogs,index);
+    });
+});
+
 fetchAuthorInfo = (authorBacklogs,index) => {
 
     index++;
@@ -52,6 +61,27 @@ fetchAuthorInfo = (authorBacklogs,index) => {
         setTimeout(() =>{fetchAuthorInfo(authorBacklogs,index);}, 200);
     }else{
         fetchAuthorInfo(authorBacklogs,index);
+    }
+};
+
+fetchArticleInfo = (articleBacklogs,index) => {
+
+    index++;
+    backlog = articleBacklogs[index];
+    backlog = new Backlog(backlog);
+
+    if(backlog.status != "fetched"){
+        console.log("calling backlog fetch article info method....");
+        
+        backlog.fetchArticleInfo();
+        Backlog.find({"backlogID" : backlog.backlogID}, function (err, docs) {
+            console.log(docs);
+            docs[0].status = "fetched";
+            docs[0].save();
+        });
+        setTimeout(() =>{fetchArticleInfo(articleBacklogs,index);}, 1000);
+    }else{
+        fetchArticleInfo(articleBacklogs,index);
     }
 };
 

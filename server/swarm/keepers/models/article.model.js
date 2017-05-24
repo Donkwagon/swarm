@@ -6,10 +6,18 @@ var Author = require('./author.model');
 var articleSchema = new Schema({
   articleId: { type: Number, required: true, unique: true},
   title: String,
+  username: String,
   author: String,
+  summary: Schema.Types.Mixed,
+  articleUrl: String,
+
+  published_at: Date,
+
   created_at: Date,
   updated_at: Date
 });
+
+
 
 var Article = mongoose.model('Article', articleSchema);
 
