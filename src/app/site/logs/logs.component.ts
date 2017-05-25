@@ -29,16 +29,14 @@ export class LogsComponent implements OnInit {
         return item;
       })
     });
-
-    // this.logs = <FirebaseListObservable<any>> db.list('/swarm/logs').reduce(items => { //first map
-    //   return items.reduce((x,y) => {
-    //     console.log(x+1);
-    //   })
-    // });
   }
 
   ngOnInit() {
     this.logs.subscribe(value => console.log("subscribed"));
+  }
+
+  removeDocument = () =>{
+    this.logs.remove();
   }
 
 }

@@ -19,13 +19,13 @@ a:hover {color: pink;text-decoration:none;}
 a:active {color: pink;text-decoration:none;}
 /////////////////////////////////////////////////////////
 /* Color Palette */
-$blue:rgb(54, 105, 188);
+$theme:rgb(219, 35, 63);
 $orange:rgb(226, 120, 29);
 $green:rgb(63, 204, 77);
 $red:rgb(198, 34, 25);
 /////////////////////////////////////////////////////////
 $line:rgba(238, 238, 220,0.5);
-.blue{color:$blue;}
+.blue{color:$theme;}
 
 .site-list{
     padding:0.5em 1em 0.5em 0.5em;
@@ -56,17 +56,18 @@ $line:rgba(238, 238, 220,0.5);
         letter-spacing:8px;
         text-shadow:0 0 1spx orange;
         background-color:rgba(0,0,0,0.1);
-        border-bottom:$blue solid 1px;
+        border-bottom:$theme solid 1px;
         margin-bottom:0.5em;
 
         img{
             height:1.2rem;width:1.2rem;
-            border:$blue solid 1px;
+            border:$theme solid 1px;
             background-color:rgba(54, 105, 188,0.1);
             padding:0.5em;
         }
     }
 }
+
 .app-background{
     position:fixed;width:100%;height:100%;
     img{opacity:0.3;width:100%;height:auto;-webkit-filter: grayscale(0.6) sepia(0.1) blur(3px);}
@@ -100,14 +101,14 @@ $line:rgba(238, 238, 220,0.5);
 .site-interface{
     position:relative;
     height:100%;
-    border-left:$blue solid 1px;
+    border-left:$theme solid 1px;
 
     .site-interface-action-bar{
         position:absolute;
         top:0;left:0;
         width:100%;
         z-index:10;
-        background-color:$blue;
+        background-color:$theme;
         box-shadow:0 0 3px rgba(0,0,0,0.3);
 
         a:link {color: inherit;text-decoration:none;}
@@ -116,12 +117,11 @@ $line:rgba(238, 238, 220,0.5);
         a:active {color: inherit;text-decoration:none;}
 
         .site-interface-action-bar-item{
-            border-top:rgba(255,255,255,0.1) solid 1px;
-            padding:0.5em 1em;
-            background-color:$blue;
-            border-left:rgba(0,0,0,0.3) solid 1px;
+            padding:0.5em 0.5em 0.5em 0.5em;
+            background-color:$theme;
 
             &:hover{
+                cursor:pointer;
                 background-color:black;
             }
         }
@@ -141,7 +141,7 @@ $line:rgba(238, 238, 220,0.5);
 
             &:focus{
                 outline:none;
-                border-bottom:$blue solid 1px;
+                border-bottom:$theme solid 1px;
             }
         }
         ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -215,6 +215,7 @@ table{
         border-bottom:rgba(255,255,255,0.1) solid 1px;
     }
 }
+
 app-site{
     flex:1;
 }

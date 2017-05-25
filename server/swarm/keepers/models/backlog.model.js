@@ -6,7 +6,7 @@ var cheerio =     require('cheerio');
 var chalk =       require('chalk');
 var Author =      require('./author.model');
 var Log =         require('./log.model');
-var Article =         require('./article.model');
+var Article =     require('./article.model');
 
 var Schema = mongoose.Schema;
 
@@ -38,12 +38,29 @@ backlogSchema.methods.webpageOpener = function (URL,UserAgent) {
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}},(error, response, html) =>{
         if(error||response.statusCode != 200){
-            console.log(chalk.red('error:' + error));
+            console.log(chalk.red('error:' + error + "status:" + response.statusCode));
             console.log(response);
-            console.log(chalk.red("status:" + response.statusCode));
+
+            var log = new Log({
+                message: "Request Error" + response.statusCode + URL,
+                subject: "Request Response",
+                level: 2,status: response.statusCode,action: "Request",
+                created_at: new Date()
+            });
+            
+            log.pushToFirebaseDb(log);
         }else{
             console.log(chalk.green("status" + response.statusCode));
             this.webpageTetacles_author(html,URL);
+
+            var log = new Log({
+                message: "Request OK" + response.statusCode + URL,
+                subject: "Request Response",
+                level: 2,status: response.statusCode,action: "Request",
+                created_at: new Date()
+            });
+            
+            log.pushToFirebaseDb(log);
         }
     });
 };
@@ -110,9 +127,18 @@ backlogSchema.methods.webpageTetacles_author = function (html,URL) {
 
         created_at: new Date()
     });
-    console.log(author);
+    console.log(author.username);
 
     this.saveAuthor(author);
+
+    var log = new Log({
+        message: "Parse" + author.username,
+        subject: "Author Info",
+        level: 1,status: 200,action: "Parse",
+        created_at: new Date()
+    });
+    
+    log.pushToFirebaseDb(log);
 
 };
 
@@ -127,7 +153,7 @@ backlogSchema.methods.saveAuthor = function (author) {
                     message: author.displayName,
                     level: 1,
                     status: 200,
-                    subject: "Article Url",
+                    subject: "Author",
                     action: "Save",
 
                     created_at: new Date()
@@ -155,16 +181,32 @@ backlogSchema.methods.webpageOpenerArticle = function (URL,UserAgent) {
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}},(error, response, html) =>{
         if(error||response.statusCode != 200){
-            console.log(chalk.red('error:' + error));
+            console.log(chalk.red('error:' + error + "status:" + response.statusCode));
             console.log(response);
-            console.log(chalk.red("status:" + response.statusCode));
+
+            var log = new Log({
+                message: "Request Error" + response.statusCode + URL,
+                subject: "Request Response",
+                level: 2,status: response.statusCode,action: "Request",
+                created_at: new Date()
+            });
+            
+            log.pushToFirebaseDb(log);
         }else{
             console.log(chalk.green("status" + response.statusCode));
             this.webpageTetacles_article(html,URL);
+
+            var log = new Log({
+                message: "Request OK" + response.statusCode + URL,
+                subject: "Request Response",
+                level: 2,status: response.statusCode,action: "Request",
+                created_at: new Date()
+            });
+            
+            log.pushToFirebaseDb(log);
         }
     });
 };
-
 
 backlogSchema.methods.webpageTetacles_article = function (html,URL) {
     //page parsing logic
@@ -197,9 +239,18 @@ backlogSchema.methods.webpageTetacles_article = function (html,URL) {
         published_at: publish_at,
         created_at: new Date()
     });
-    console.log(article);
+    console.log(article.title);
 
     this.saveArticle(article);
+
+    var log = new Log({
+        message: "Parse" + article.title,
+        subject: "Article Info",
+        level: 1,status: 200,action: "Parse",
+        created_at: new Date()
+    });
+    
+    log.pushToFirebaseDb(log);
 
 };
 
@@ -208,17 +259,18 @@ backlogSchema.methods.saveArticle = function (article) {
     Article.find({"articleId" : article.articleId}, function (err, docs) {
         if (!docs.length){
             article.save(function(err){
-                if (err) throw err;
-                console.log(chalk.green("Article Saved"));
-                var log = new Log({
-                    message: "article savedd",
-                    level: 1,
-                    status: 200,
-                    subject: "Article Url",
-                    action: "Save",
 
+                if (err) throw err;
+
+                console.log(chalk.green("Article Saved"));
+
+                var log = new Log({
+                    message: "saved" + article.title,
+                    subject: "Article Info",
+                    level: 1,status: 200,action: "Save",
                     created_at: new Date()
                 });
+                
                 log.pushToFirebaseDb(log);
             });
         }else{
@@ -227,8 +279,6 @@ backlogSchema.methods.saveArticle = function (article) {
     });
 
 };
-
-
 
 var Backlog = mongoose.model('Backlog', backlogSchema);
 

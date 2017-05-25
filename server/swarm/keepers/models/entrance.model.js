@@ -12,15 +12,15 @@ var Schema = mongoose.Schema;
 
 var entranceSchema = new Schema({
 
-  name: String,
-  url: String,
-  siteName: String,
-  siteUrl: String,
-  strategy: Schema.Types.Mixed,
-  status: String,
+    name: String,
+    url: String,
+    siteName: String,
+    siteUrl: String,
+    strategy: Schema.Types.Mixed,
+    status: String,
 
-  created_at: Date,
-  updated_at: Date
+    created_at: Date,
+    updated_at: Date
 });
 
 entranceSchema.methods.fetchBacklogData = function() {
@@ -40,19 +40,35 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
         if(error||response.statusCode != 200){
-            console.log(chalk.red('error:' + error));
-            console.log(chalk.red("status:" + response.statusCode));
+            console.log(chalk.red('error:' + error + "status:" + response.statusCode));
+
+            var log = new Log({
+                message: "Request Error" + response.statusCode + URL,
+                subject: "Request Response",
+                level: 2,status: response.statusCode,action: "Request",
+                created_at: new Date()
+            });
+            
+            log.pushToFirebaseDb(log);
+
         }else{
             console.log(chalk.green("status" + response.statusCode));
             webpageTetacles(html);
             setTimeout(() =>{webpageOpener(baseURL,pageNum,UserAgent);}, 10);
+
+            var log = new Log({
+                message: "Request OK" + response.statusCode + URL,
+                subject: "Request Response",
+                level: 2,status: response.statusCode,action: "Request",
+                created_at: new Date()
+            });
+            
+            log.pushToFirebaseDb(log);
         }
     });
 }
 
 webpageTetacles = (html) => {
-    //page parsing logic
-    //takes html and return desired data
 
     var $ = cheerio.load(html);
     if($('li').filter('.article')){
@@ -81,6 +97,15 @@ webpageTetacles = (html) => {
 
                 saveBacklog(articleBL);
 
+                var log = new Log({
+                    message: "Parse" + articleBL.title,
+                    subject: "Article Backlog",
+                    level: 1,status: 200,action: "Parse",
+                    created_at: new Date()
+                });
+                
+                log.pushToFirebaseDb(log);
+
                 /////////////////////////////////////////////////////////////////////////////////
                 //Create new backlog for author and save if it doesn't exist in backlogs list
                 var authorBL = new Backlog({
@@ -90,8 +115,17 @@ webpageTetacles = (html) => {
                     content: {username: username,displayName: displayName,displayImage: displayImage}
                 });
 
-                saveBacklog(articleBL);
+                saveBacklog(authorBL);
                 //log.save(function(err) {if (err) throw err;console.log('Saved!')});
+
+                var log = new Log({
+                    message: "Parsed" + authorBL.title,
+                    subject: "Author Backlog",
+                    level: 1,status: 200,action: "Parse",
+                    created_at: new Date()
+                });
+                
+                log.pushToFirebaseDb(log);
             }
         });
     }
@@ -118,7 +152,7 @@ saveBacklog = (backlog) =>{
         }else{
             console.log(chalk.yellow("backlog already exist!"));
             var log = new Log({
-                message: "Url exist",
+                message: "Backlog exist",
                 level: 1,
                 status: 302 ,
                 subject: "Article Url",
