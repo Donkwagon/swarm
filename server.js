@@ -33,13 +33,25 @@ server.listen(process.env.PORT || 8080, function (err) {
 
 var io = require('socket.io')(server);
 
-io.on('connection', function(socket){
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+io.on('connection', (socket) => {
+  console.log('user connected');
+  io.emit('an event sent to all connected clients');
+  
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+  
+  socket.on('add-message', (message) => {
+    io.emit('message', {type:'new-message', text: message});    
+  });
+
+  io.of('/message').clients(function(error, clients){
+    if (error) throw error;
+    console.log(clients); // => [PZDoMHjiu8PYfRiKAAAF, Anw2LatarvGVVXEIAAAD]
   });
 });
 
+  
 
 //////////////////////////////////////////
 //Connect to mongoose db
