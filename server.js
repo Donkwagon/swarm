@@ -16,12 +16,6 @@ app.use(bodyParser.json());
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
-const api = require('./server/routes/api');
-const queen = require('./server/swarm/queen');
-
-app.use('/api', api);
-app.use('/queen',queen);
-
 const server = http.createServer(app);
 
 server.listen(process.env.PORT || 8080, function (err) {
@@ -29,38 +23,19 @@ server.listen(process.env.PORT || 8080, function (err) {
   var port = server.address().port;
   console.log(chalk.cyan("App now running on port", port));
 });
- 
 
-var io = require('socket.io')(server);
+//Start socket.io server 
+var io = require("./server/socket.server").listen(server);
 
-io.on('connection', (socket) => {
-  console.log('user connected');
-  io.emit('an event sent to all connected clients');
-  
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-  
-  socket.on('add-message', (message) => {
-    io.emit('message', {type:'new-message', text: message});    
-  });
+const api = require('./server/routes/api');
+const queen = require('./server/swarm/queen');
 
-  io.of('/message').clients(function(error, clients){
-    if (error) throw error;
-    console.log(clients); // => [PZDoMHjiu8PYfRiKAAAF, Anw2LatarvGVVXEIAAAD]
-  });
-});
+app.use('/api', api);
+app.use('/queen',queen);
 
-  
 
 //////////////////////////////////////////
 //Connect to mongoose db
 global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc"));
 mongoose.connect('mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc');
 
-//////////////////////////////////////////
-//Connect to Firebase service account
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://swarm-2124b.firebaseio.com"
-// });

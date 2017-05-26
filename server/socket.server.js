@@ -1,24 +1,42 @@
-exports.listen = function(server) {
+//一.设置Socket.IO服务器
+var socketio = require('socket.io');
+var io;
 
-    io = socketio.listen(server);   //启动Socket.IO服务器，允许它搭载在已有的HTTP服务器上
+//require models
+var Author =     require('./swarm/keepers/model/author.model');
+var Article =    require('./swarm/keepers/model/article.model');
+var Backlog =    require('./swarm/keepers/model/backlog.model');
+var Entrance =   require('./swarm/keepers/model/entrance.model');
+var Log =        require('./swarm/keepers/model/log.model');
 
-    io.set('log level', 1);
-
-    io.sockets.on('connection', function (socket) {  //定义每个用户连接的处理逻辑
-        guestNumber = assignGuestName(socket, guestNumber,nickNames, namesUsed);  //在用户连接上来时赋予其一个访客名
-
-        joinRoom(socket, 'Lobby');  //在用户连接上来时把他放入聊天室Lobby里
-
-        handleMessageBroadcasting(socket, nickNames);  //处理用户的消息，更名，以及聊天室的创建和变更
-
-        handleNameChangeAttempts(socket, nickNames, namesUsed);
-
-        handleRoomJoining(socket);
-
-        socket.on('rooms', function() {  //当用户发出请求时，向其提供已经被占用的聊天室的列表
-            socket.emit('rooms', io.sockets.manager.rooms);
-      });
-      
-      handleClientDisconnection(socket, nickNames, namesUsed); //定义用户断开连接后的清除逻辑
+exports.listen = (server) => {
+    
+    io = socketio.listen(server);
+    io.set('log level',1);
+    
+    io.sockets.on('connection',function(socket){
+        console.log("a new user connection!");
+        
+        socket.on('add-message', (message) => {
+            console.log(message);
+        });
+        
+        socket.on('add-log', (log) => {
+            console.log(log);
+        });
+        
+        socket.on('disconnect', function(){
+            console.log('user disconnected');
+        });
+        
+        socket.on('add-message', (message) => {
+            io.emit('message', {
+                type:'new-message',
+                text: message
+            });    
+        });
+  
     });
-}; 
+
+    return io;
+}
