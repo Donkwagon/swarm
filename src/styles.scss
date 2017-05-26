@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '_theme';
+
 $font-stack:'Ubuntu', sans-serif, 'Microsoft Yahei';
 body{
     padding:0;margin:0;
@@ -6,6 +8,7 @@ body{
     font-size:13px;color:#EEE;
     background-color:black;
 }
+
 ////////////////////////////////////////////////////////////////////////
 /* Frequently used css properties */
 .r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;}
@@ -17,14 +20,6 @@ a:link {color: pink;text-decoration:none;}
 a:visited {color: pink;text-decoration:none;}
 a:hover {color: pink;text-decoration:none;}
 a:active {color: pink;text-decoration:none;}
-/////////////////////////////////////////////////////////
-/* Color Palette */
-$theme:rgb(219, 35, 63);
-$orange:rgb(226, 120, 29);
-$green:rgb(63, 204, 77);
-$red:rgb(198, 34, 25);
-/////////////////////////////////////////////////////////
-$line:rgba(238, 238, 220,0.5);
 .blue{color:$theme;}
 
 .site-list{
@@ -77,25 +72,6 @@ $line:rgba(238, 238, 220,0.5);
     position:fixed;
     width:100%;height:100%;
     justify-content:stretch;
-}
-
-.node{
-    padding:0.2em 0.5em;
-    background-color:rgba(255,255,255,0.2);
-    border-bottom:rgba(255,255,255,0.3) solid 1px;
-
-    &:hover{
-        cursor:pointer;
-        color:#fff;
-    }
-
-    .node-info-box{
-        align-items:flex-end;
-
-        .node-info{
-            font-size:0.8em;
-        }
-    }
 }
 
 .site-interface{
