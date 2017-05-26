@@ -4,6 +4,7 @@ const express =   require('express');
 var Entrance =    require('../keepers/models/entrance.model');
 var Backlog =     require('../keepers/models/backlog.model');
 var Author =      require('../keepers/models/author.model');
+var Log =         require('../keepers/models/log.model');
 
 const SA = express.Router();
 
@@ -58,6 +59,16 @@ fetchAuthorInfo = (authorBacklogs,index) => {
             docs[0].status = "fetched";
             docs[0].save();
         });
+
+        var log = new Log({
+            message: "Fetch" + backlog.backlogID,
+            subject: "Author Info",
+            level: 1,status: 200,action: "Fetch",
+            created_at: new Date()
+        });
+        
+        log.pushToFirebaseDb(log);
+        log.save();
         setTimeout(() =>{fetchAuthorInfo(authorBacklogs,index);}, 200);
     }else{
         fetchAuthorInfo(authorBacklogs,index);
@@ -79,6 +90,17 @@ fetchArticleInfo = (articleBacklogs,index) => {
             docs[0].status = "fetched";
             docs[0].save();
         });
+
+        var log = new Log({
+            message: "Fetch" + backlog.backlogID,
+            subject: "Article Info",
+            level: 1,status: 200,action: "Fetch",
+            created_at: new Date()
+        });
+        
+        log.pushToFirebaseDb(log);
+        log.save();
+
         setTimeout(() =>{fetchArticleInfo(articleBacklogs,index);}, 1000);
     }else{
         fetchArticleInfo(articleBacklogs,index);

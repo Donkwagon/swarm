@@ -49,6 +49,7 @@ backlogSchema.methods.webpageOpener = function (URL,UserAgent) {
             });
             
             log.pushToFirebaseDb(log);
+            log.save();
         }else{
             console.log(chalk.green("status" + response.statusCode));
             this.webpageTetacles_author(html,URL);
@@ -61,6 +62,7 @@ backlogSchema.methods.webpageOpener = function (URL,UserAgent) {
             });
             
             log.pushToFirebaseDb(log);
+            log.save();
         }
     });
 };
@@ -139,6 +141,7 @@ backlogSchema.methods.webpageTetacles_author = function (html,URL) {
     });
     
     log.pushToFirebaseDb(log);
+    log.save();
 
 };
 
@@ -159,6 +162,7 @@ backlogSchema.methods.saveAuthor = function (author) {
                     created_at: new Date()
                 });
                 log.pushToFirebaseDb(log);
+                log.save();
             });
         }else{
             console.log(chalk.yellow("Author already exist!"));
@@ -251,6 +255,7 @@ backlogSchema.methods.webpageTetacles_article = function (html,URL) {
     });
     
     log.pushToFirebaseDb(log);
+    log.save();
 
 };
 
@@ -272,6 +277,7 @@ backlogSchema.methods.saveArticle = function (article) {
                 });
                 
                 log.pushToFirebaseDb(log);
+                log.save();
             });
         }else{
             console.log(chalk.yellow("article already exist!"));

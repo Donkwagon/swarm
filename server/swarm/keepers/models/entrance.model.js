@@ -50,6 +50,7 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
             });
             
             log.pushToFirebaseDb(log);
+            log.save();
 
         }else{
             console.log(chalk.green("status" + response.statusCode));
@@ -64,6 +65,7 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
             });
             
             log.pushToFirebaseDb(log);
+            log.save();
         }
     });
 }
@@ -105,6 +107,7 @@ webpageTetacles = (html) => {
                 });
                 
                 log.pushToFirebaseDb(log);
+                log.save();
 
                 /////////////////////////////////////////////////////////////////////////////////
                 //Create new backlog for author and save if it doesn't exist in backlogs list
@@ -126,6 +129,7 @@ webpageTetacles = (html) => {
                 });
                 
                 log.pushToFirebaseDb(log);
+                log.save();
             }
         });
     }
@@ -162,6 +166,7 @@ saveBacklog = (backlog) =>{
             });
 
             log.pushToFirebaseDb(log);
+            log.save();
         }
     });
 }

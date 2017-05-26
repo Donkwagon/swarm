@@ -2,6 +2,7 @@ var express =         require("express");
 var bodyParser =      require("body-parser");
 var mongoose =        require('mongoose');
 var http =            require('http');
+var url =             require('url');
 var dotenv =          require('dotenv').config();
 var admin =           require("firebase-admin");
 
@@ -28,6 +29,17 @@ server.listen(process.env.PORT || 8080, function (err) {
   var port = server.address().port;
   console.log(chalk.cyan("App now running on port", port));
 });
+ 
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
+
 
 //////////////////////////////////////////
 //Connect to mongoose db

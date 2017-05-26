@@ -21,5 +21,8 @@ queen.use('/backlog', backlog);
 const author = require('./keepers/author.api');
 queen.use('/author', author);
 
+const log = require('./keepers/log.api');
+queen.use('/log', log);
+
 
 module.exports = queen;
