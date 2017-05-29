@@ -1,13 +1,13 @@
-//一.设置Socket.IO服务器
+
 var socketio = require('socket.io');
 var io;
 
 //require models
-var Author =     require('./swarm/keepers/model/author.model');
-var Article =    require('./swarm/keepers/model/article.model');
-var Backlog =    require('./swarm/keepers/model/backlog.model');
-var Entrance =   require('./swarm/keepers/model/entrance.model');
-var Log =        require('./swarm/keepers/model/log.model');
+var Author =     require('./swarm/keepers/models/author.model');
+var Article =    require('./swarm/keepers/models/article.model');
+var Backlog =    require('./swarm/keepers/models/backlog.model');
+var Entrance =   require('./swarm/keepers/models/entrance.model');
+var Log =        require('./swarm/keepers/models/log.model');
 
 exports.listen = (server) => {
     
@@ -21,8 +21,17 @@ exports.listen = (server) => {
             console.log(message);
         });
         
-        socket.on('add-log', (log) => {
-            console.log(log);
+        socket.on('logs', () => {
+            console.log("on logs");
+            var currentTime = new Date();
+            //var stream = Log.find({gte:currentTime}).cursor();
+            var stream = Log.find().cursor();
+            len = 0;
+
+            stream.on('data', function (log) {
+                console.log(len++);
+                io.emit("log",log);
+            })
         });
         
         socket.on('disconnect', function(){

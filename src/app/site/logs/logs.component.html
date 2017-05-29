@@ -6,18 +6,18 @@
         <th>Message</th>
         <th>Status</th>
     </tr>
-    <tr  *ngFor="let log of logs | async">
+    <tr  *ngFor="let log of logList">
         <td>
-          {{log.log.created_at | date:"shortTime"}}
+          {{log.created_at | date:"shortTime"}}
         </td>
         <td>
-          {{log.log.action}}
+          {{log.action}}
         </td>
         <td>
-          {{log.log.message}}
+          {{log.message}}
         </td>
         <td>
-          {{log.log.status}}
+          {{log.status}}
         </td>
     </tr>
 </table>

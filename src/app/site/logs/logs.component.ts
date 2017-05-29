@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
-import { WebSocketService } from '../../@core/services/websocket.service';
 import { LogService } from '../../@core/services/log.service';
 import { Log } from '../../@core/classes/log';
 
@@ -23,12 +22,20 @@ export class LogsComponent implements OnInit {
   logs: FirebaseListObservable<any>;
   reducedLogs: FirebaseListObservable<any>;
 
-  constructor(private db: AngularFireDatabase, private weService:WebSocketService) {
-    weService.connect("http://localhost:8080/");
+  logList = [];
+  connection;
+  message;
+
+  constructor(private db: AngularFireDatabase,private logService: LogService) {
+    
   }
 
   ngOnInit() {
-    this.logs.subscribe(value => console.log("subscribed"));
+    //this.logs.subscribe(value => console.log("subscribed"));
+    this.connection = this.logService.getMessages().subscribe(log => {
+      this.logList.push(log);
+    });
+    this.logService.getLogs();
   }
 
   getFirebaseLogs = () =>{
