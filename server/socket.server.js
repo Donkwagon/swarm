@@ -9,7 +9,9 @@ var Backlog =    require('./swarm/keepers/models/backlog.model');
 var Entrance =   require('./swarm/keepers/models/entrance.model');
 var Log =        require('./swarm/keepers/models/log.model');
 
-exports.listen = (server) => {
+exports.listen = function(server) {
+
+    var collection = db.collection("logs");
     
     io = socketio.listen(server);
     io.set('log level',1);
@@ -24,14 +26,17 @@ exports.listen = (server) => {
         socket.on('logs', () => {
             console.log("on logs");
             var currentTime = new Date();
-            //var stream = Log.find({gte:currentTime}).cursor();
-            var stream = Log.find().cursor();
-            len = 0;
-
-            stream.on('data', function (log) {
-                console.log(len++);
-                io.emit("log",log);
-            })
+            console.log("COLLECTION------------------");
+            console.log(collection);
+            collection.find({}, {'tailable': 1, 'sort': [['$natural', 1]]}, function(err, cursor) {
+                cursor.intervalEach(300, function(err, item) {
+                    console.log(item);
+                    if(item != null) {
+                        console.log(item);
+                        socket.emit('all', item);
+                    }
+                });
+            });
         });
         
         socket.on('disconnect', function(){

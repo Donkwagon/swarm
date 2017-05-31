@@ -23,6 +23,10 @@ server.listen(process.env.PORT || 8080, function (err) {
   var port = server.address().port;
   console.log(chalk.cyan("App now running on port", port));
 });
+//////////////////////////////////////////
+//Connect to mongoose db
+global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc"));
+mongoose.connect('mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc');
 
 //Start socket.io server 
 var io = require("./server/socket.server").listen(server);
@@ -34,8 +38,4 @@ app.use('/api', api);
 app.use('/queen',queen);
 
 
-//////////////////////////////////////////
-//Connect to mongoose db
-global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc"));
-mongoose.connect('mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc');
 
