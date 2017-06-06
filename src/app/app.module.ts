@@ -3,6 +3,8 @@ import { NgModule }                          from '@angular/core';
 import { FormsModule }                       from '@angular/forms';
 import { HttpModule }                        from '@angular/http';
 
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 import { environment }                       from '../environments/environment';
 import { AngularFireModule }                 from 'angularfire2';
 import { AngularFireDatabaseModule }         from 'angularfire2/database';
@@ -34,7 +36,9 @@ import { SocketComponent }                   from './socket/socket.component';
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule // imports firebase/auth, only needed for auth features
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

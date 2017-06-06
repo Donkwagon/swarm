@@ -16,10 +16,10 @@ var serviceAccount =  require("./server/firebase/swarm-2124b-firebase-adminsdk-t
   // password: nvest12345
   // host: nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com
 
-var pgp = require('pg-promise')();
-const conString = 'postgres://nvestdb:nvest12345@nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com:5432/nvestdb?ssl=true';
-var pgDb = pgp(conString);
-console.log(pgDb);
+// var pgp = require('pg-promise')();
+// const conString = 'postgres://nvestdb:nvest12345@nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com:5432/nvestdb?ssl=true';
+// var pgDb = pgp(conString);
+// console.log(pgDb);
 // pgDb.none('CREATE TABLE items(id SERIAL PRIMARY KEY, text VARCHAR(40) not null, complete BOOLEAN)')
 //     .then(() => {
 //         console.log("inserted???");

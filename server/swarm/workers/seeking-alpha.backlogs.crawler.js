@@ -102,5 +102,4 @@ fetchArticleInfo = (articleBacklogs,index) => {
     }
 };
 
-
 module.exports = SA;

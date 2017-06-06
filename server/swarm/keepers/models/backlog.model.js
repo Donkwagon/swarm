@@ -15,7 +15,7 @@ var BacklogSchema = new Schema({
 
     backlogID: { type: String, required: true, unique: false },
     type: String,
-    url: String,
+    url:  { type: String, required: true, unique: true },
     content: Schema.Types.Mixed,
     siteUrl: String,
     strategy: Schema.Types.Mixed,
@@ -23,15 +23,18 @@ var BacklogSchema = new Schema({
 
     created_at: Date,
     updated_at: Date
+    
 });
 
 BacklogSchema.methods.crawl = function() {
     
   if (this.url){
+
       if(this.type == 'author'){var URL = 'https://seekingalpha.com' + this.url + '#regular_articles';}
       if(this.type == 'article'){var URL = 'https://seekingalpha.com' + this.url + '#regular_articles';}
 
       var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
+      
       this.requestWebpage(URL,UserAgent);
   }
 };
@@ -39,6 +42,7 @@ BacklogSchema.methods.crawl = function() {
 BacklogSchema.methods.requestWebpage = function (URL,UserAgent) {
     
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
+
     req.get({url: URL,headers: {'User-Agent': UserAgent}},(error, response, html) =>{
 
         if(error||response.statusCode != 200){
