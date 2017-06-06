@@ -15,13 +15,13 @@
     <tr *ngFor="let author of authors">
         <td><img class="table-profile-image" [src]="author.displayImage"/></td>
         <td>{{author.displayName}}</td>
-        <td>{{author.numPremiumArticles}}</td>
-        <td>{{author.numArticles}}</td>
-        <td>{{author.numBlogPosts}}</td>
-        <td>{{author.numComments}}</td>
-        <td>{{author.numStockTalks}}</td>
-        <td>{{author.numFollowers}}</td>
-        <td>{{author.NumFollowings}}</td>
+        <td class="ar">{{author.numPremiumArticles || '-'}}</td>
+        <td class="ar">{{author.numArticles}}</td>
+        <td class="ar">{{author.numBlogPosts}}</td>
+        <td class="ar">{{author.numComments}}</td>
+        <td class="ar">{{author.numStockTalks}}</td>
+        <td class="ar">{{author.numFollowers}}</td>
+        <td class="ar">{{author.NumFollowings}}</td>
         <td>{{author.contributorSince}}</td>
         <td (click)="deleteEntrance(entrance)">Delete</td>
     </tr>

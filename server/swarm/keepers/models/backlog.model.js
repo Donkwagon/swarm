@@ -6,6 +6,7 @@ var cheerio =     require('cheerio');
 var Author =      require('./author.model');
 var Article =     require('./article.model');
 var Log =         require('./log.model');
+var BacklogArchive =     require('./backlog_archive.model');
 
 var chalk =       require('chalk');
 
@@ -154,6 +155,34 @@ BacklogSchema.methods.saveData = function (data) {
     }
 };
 
+
+
+BacklogSchema.methods.archive = function() {
+    this.status = "fetched";
+    
+    backlogArchive = new BacklogArchive({
+        backlogID: this.backlogID,
+        type: this.type,
+        url:  this.url,
+        content: this.content,
+        siteUrl: this.siteUrl,
+        strategy: this.strategy,
+        status: this.status,
+
+        created_at: this.created_at,
+        updated_at: new Date()
+    })
+
+    backlogArchive.save();
+
+    this.remove({ backlogID: this.backlogID }, function (err) {
+        if (err) return handleError(err);
+        else{
+            console.log("archived and removed backlog");
+        }
+    });
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 //backlog article parsing
 ///////////////////////////////////////////////////////////////////////////////
@@ -177,7 +206,12 @@ BacklogSchema.methods.htmlToData_article = function (html,URL) {
     var publish_at = $('time').attr('content');
 
     if($('.name-link').attr("href")){
-        username = $('.name-link').attr("href").split('author/')[1].split('/article')[0];
+        console.log(URL);
+        temp = $('.name-link').attr("href").split('/');
+        len = temp.length;
+        console.log(temp);
+        username = temp[len - 2];
+        console.log(username)
     }
 
     if(URL.split('article/')[1]){
