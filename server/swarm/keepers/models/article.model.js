@@ -8,8 +8,11 @@ var articleSchema = new Schema({
   title: String,
   username: String,
   author: String,
+  username: String,
   summary: Schema.Types.Mixed,
   articleUrl: String,
+  includeStocks: Array,
+  primaryStock: Schema.Types.Mixed,
 
   published_at: Date,
 

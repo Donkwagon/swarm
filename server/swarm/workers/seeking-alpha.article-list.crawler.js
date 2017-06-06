@@ -15,7 +15,6 @@ SA.get('/', function(req, res){
 
     Entrance.find({"name":"Quick Stock Picks & Lists"}, function(err, entrances) {
         if (err) throw err;
-        console.log(entrances);
         entrances.forEach( entrance =>{
             entr = new Entrance(entrance);
             entr.fetchBacklogData(function(err, name) {
@@ -51,11 +50,9 @@ fetchAuthorInfo = (authorBacklogs,index) => {
     backlog = new Backlog(backlog);
 
     if(backlog.status != "fetched"){
-        console.log("calling backlog fetchauthorinfo method....");
         
-        backlog.fetchAuthorInfo();
+        backlog.crawl();
         Backlog.find({"backlogID" : backlog.backlogID}, function (err, docs) {
-            console.log(docs);
             docs[0].status = "fetched";
             docs[0].save();
         });
@@ -82,11 +79,9 @@ fetchArticleInfo = (articleBacklogs,index) => {
     backlog = new Backlog(backlog);
 
     if(backlog.status != "fetched"){
-        console.log("calling backlog fetch article info method....");
         
-        backlog.fetchArticleInfo();
+        backlog.crawl();
         Backlog.find({"backlogID" : backlog.backlogID}, function (err, docs) {
-            console.log(docs);
             docs[0].status = "fetched";
             docs[0].save();
         });
