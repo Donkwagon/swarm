@@ -5,6 +5,7 @@ var ARTICLE_COLLECTION = "articles";
 var ObjectID = require('mongodb').ObjectID;
 
 var Backlog = require("./models/backlog.model")
+var ArticleBacklog = require("./models/backlog_article.model")
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -34,6 +35,38 @@ backlog.get("/archive", function(req, res) {
     }
   });
 });
+
+backlog.get('/typecleaning', function(req, res){
+
+    Backlog.find({"type":"article"}, function(err, docs) {
+        if (err) throw err;
+        docs.forEach( doc =>{
+            console.log(typeof(doc.articleId));
+            doc.save();
+        });
+    });
+});
+
+backlog.get('/generate', function(req, res){
+    shardedGenerator(3600706,100);
+});
+
+function shardedGenerator(i,intv){
+  var max = i + intv;
+  console.log("max: " + max);
+  while(i < max){
+    if(i > 4079627){break;}
+    var ab = new ArticleBacklog({
+      i: i,
+      st:null,
+      res:0
+    })
+    ab.save();
+    i++;
+  }
+  setTimeout(function(){ shardedGenerator(i,intv) }, 15);
+}
+
 
 backlog.get("/type/:type", function(req, res) {
   console.log(req.params);

@@ -1,8 +1,11 @@
 <div class="option-bar r">
   <div class="option-button" (click)="getBacklogs('author')">Authors</div>
   <div class="option-button" (click)="getBacklogs('article')">Articles</div>
+  <div class="option-button" (click)="typecleaning()">Type Cleaning</div>
+  <div class="option-button" (click)="generate()">Generate</div>
   <div class="option-button" (click)="archive()">Archive</div>
 </div>
+
 <table *ngIf="currentType == 'author'">
     <tr>
         <th>Type</th>
@@ -23,6 +26,7 @@
         </td>
     </tr>
 </table>
+
 <table *ngIf="currentType == 'article'">
     <tr>
         <th>Type</th>

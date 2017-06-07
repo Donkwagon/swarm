@@ -9,7 +9,6 @@ export class AuthorService {
 
     constructor (private http: Http) {}
 
-    // get("/author/authors")
     getAuthors(): Promise<Author[]> {
       return this.http.get(this.authorsUrl)
                  .toPromise()
@@ -17,7 +16,6 @@ export class AuthorService {
                  .catch(this.handleError);
     }
 
-    // get("/author/authors")
     getAuthorsByType(type: String): Promise<Author[]> {
       return this.http.get(this.authorsUrl + '/type/' + type)
                  .toPromise()
@@ -25,7 +23,6 @@ export class AuthorService {
                  .catch(this.handleError);
     }
 
-     // get("/author/authors/:id")
     getAuthor(authorId: String): Promise<Author> {
       return this.http.get(this.authorsUrl + '/' + authorId)
                  .toPromise()
@@ -33,7 +30,6 @@ export class AuthorService {
                  .catch(this.handleError);
     }
 
-    // post("/author/authors")
     createAuthor(newauthor: Author): Promise<Author> {
       var data = newauthor;
       return this.http.post(this.authorsUrl, data)
@@ -42,9 +38,6 @@ export class AuthorService {
                  .catch(this.handleError);
     }
 
-   
-
-    // delete("/author/authors/:id")
     deleteAuthor(deleteAuthorId: String): Promise<String> {
       return this.http.delete(this.authorsUrl + '/' + deleteAuthorId)
                  .toPromise()
@@ -52,7 +45,6 @@ export class AuthorService {
                  .catch(this.handleError);
     }
 
-    // put("/author/authors/:id")
     updateAuthor(putauthor: Author): Promise<Author> {
       var putUrl = this.authorsUrl + '/' + putauthor._id;
       return this.http.put(putUrl, putauthor)

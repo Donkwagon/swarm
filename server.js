@@ -51,8 +51,8 @@ server.listen(8100, function (err) {
 
 //////////////////////////////////////////
 //Connect to mongoose db
-global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc"));
-mongoose.connect('mongodb://Donkw:Idhap007@ds123351.mlab.com:23351/heroku_30rvwcxc');
+global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532"));
+mongoose.connect('mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532');
 
 
 //Start socket.io server 

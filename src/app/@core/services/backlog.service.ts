@@ -24,6 +24,22 @@ export class BacklogService {
                  .catch(this.handleError);
     }
 
+
+    typecleaning(): Promise<any> {
+      return this.http.get(this.backlogsUrl + "/typecleaning")
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
+
+    generate(): Promise<any> {
+      return this.http.get(this.backlogsUrl + "/generate")
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
     // get("/backlog/backlogs")
     getbacklogsByType(type: String): Promise<Backlog[]> {
       return this.http.get(this.backlogsUrl + '/type/' + type)

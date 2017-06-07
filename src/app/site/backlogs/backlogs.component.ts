@@ -38,4 +38,14 @@ export class BacklogsComponent implements OnInit {
       console.log(res);
     });
   }
+  public typecleaning = () =>{
+    this.backlogService.typecleaning().then((res : any) => {
+      console.log(res);
+    });
+  }
+  public generate = () =>{
+    this.backlogService.generate().then((res : any) => {
+      console.log(res);
+    });
+  }
 }

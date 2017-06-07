@@ -15,6 +15,7 @@ var Schema = mongoose.Schema;
 var BacklogSchema = new Schema({
 
     backlogID: { type: String, required: true, unique: false },
+    articleId: Number,
     type: String,
     url:  { type: String, required: true, unique: true },
     content: Schema.Types.Mixed,
@@ -124,8 +125,8 @@ BacklogSchema.methods.saveData = function (data) {
             }else{
                 console.log(chalk.yellow('Author already exist!'));
             }
-        });
-        
+        });//
+                
     };
 
     if(this.type == "article"){
