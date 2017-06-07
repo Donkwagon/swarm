@@ -17,6 +17,13 @@ export class BacklogService {
                  .catch(this.handleError);
     }
 
+    archiveBacklogs(): Promise<any> {
+      return this.http.get(this.backlogsUrl + "/archive")
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
     // get("/backlog/backlogs")
     getbacklogsByType(type: String): Promise<Backlog[]> {
       return this.http.get(this.backlogsUrl + '/type/' + type)

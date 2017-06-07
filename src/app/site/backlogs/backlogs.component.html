@@ -1,6 +1,7 @@
 <div class="option-bar r">
   <div class="option-button" (click)="getBacklogs('author')">Authors</div>
   <div class="option-button" (click)="getBacklogs('article')">Articles</div>
+  <div class="option-button" (click)="archive()">Archive</div>
 </div>
 <table *ngIf="currentType == 'author'">
     <tr>

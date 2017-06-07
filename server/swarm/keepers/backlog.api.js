@@ -1,7 +1,10 @@
 const express = require('express');
 const backlog = express.Router();
 var backlog_COLLECTION = "backlogs";
+var ARTICLE_COLLECTION = "articles";
 var ObjectID = require('mongodb').ObjectID;
+
+var Backlog = require("./models/backlog.model")
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -15,6 +18,19 @@ backlog.get("", function(req, res) {
       handleError(res, err.message, "Failed to get backlogs.");
     } else {
       res.status(200).json(docs);
+    }
+  });
+});
+
+backlog.get("/archive", function(req, res) {
+  Backlog.find({status:"fetched"},function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get backlogs.");
+    } else {
+      docs.forEach(el =>{
+          console.log(el);
+          el.archive();
+      });
     }
   });
 });

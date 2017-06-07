@@ -96,7 +96,7 @@ fetchArticleInfo = (articleBacklogs,index) => {
         log.pushToFirebaseDb(log);
         log.save();
 
-        setTimeout(() =>{fetchArticleInfo(articleBacklogs,index);}, 1000);
+        setTimeout(() =>{fetchArticleInfo(articleBacklogs,index);}, 500);
     }else{
         fetchArticleInfo(articleBacklogs,index);
     }

@@ -33,4 +33,9 @@ export class BacklogsComponent implements OnInit {
       });
     });
   }
+  public archive = () =>{
+    this.backlogService.archiveBacklogs().then((res : any) => {
+      console.log(res);
+    });
+  }
 }
