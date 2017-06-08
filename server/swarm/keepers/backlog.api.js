@@ -4,8 +4,8 @@ var backlog_COLLECTION = "backlogs";
 var ARTICLE_COLLECTION = "articles";
 var ObjectID = require('mongodb').ObjectID;
 
-var Backlog = require("./models/backlog.model")
-var ArticleBacklog = require("./models/backlog_article.model")
+var Backlog = require("./models/system/backlog.model")
+var ArticleBacklog = require("./models/system/backlog_article.model")
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {

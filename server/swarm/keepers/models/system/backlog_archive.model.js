@@ -3,8 +3,8 @@ var mongoose =    require('mongoose');
 var request =     require('request');
 var cheerio =     require('cheerio');
 
-var Author =      require('./author.model');
-var Article =     require('./article.model');
+var Author =      require('../content/author.model');
+var Article =     require('../content/article.model');
 var Backlog =     require('./backlog.model');
 
 var chalk =       require('chalk');

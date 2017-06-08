@@ -1,10 +1,10 @@
 
 const express =   require('express');
 
-var Entrance =    require('../keepers/models/entrance.model');
-var Backlog =     require('../keepers/models/backlog.model');
-var Author =      require('../keepers/models/author.model');
-var Log =         require('../keepers/models/log.model');
+var Entrance =    require('../keepers/models/system/entrance.model');
+var Backlog =     require('../keepers/models/system/backlog.model');
+var Author =      require('../keepers/models/content/author.model');
+var Log =         require('../keepers/models/system/log.model');
 
 const SA = express.Router();
 

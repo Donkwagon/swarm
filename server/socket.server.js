@@ -3,11 +3,11 @@ var socketio = require('socket.io');
 var io;
 
 //require models
-var Author =     require('./swarm/keepers/models/author.model');
-var Article =    require('./swarm/keepers/models/article.model');
-var Backlog =    require('./swarm/keepers/models/backlog.model');
-var Entrance =   require('./swarm/keepers/models/entrance.model');
-var Log =        require('./swarm/keepers/models/log.model');
+var Author =     require('./swarm/keepers/models/content/author.model');
+var Article =    require('./swarm/keepers/models/content/article.model');
+var Backlog =    require('./swarm/keepers/models/system/backlog.model');
+var Entrance =   require('./swarm/keepers/models/system/entrance.model');
+var Log =        require('./swarm/keepers/models/system/log.model');
 
 exports.listen = function(server) {
 

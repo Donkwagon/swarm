@@ -14,6 +14,9 @@ var articleSchema = new Schema({
   includeStocks: Array,
   primaryStock: Schema.Types.Mixed,
 
+  authorInfo: Boolean,
+  securityInfo: Boolean,
+
   published_at: Date,
 
   created_at: Date,

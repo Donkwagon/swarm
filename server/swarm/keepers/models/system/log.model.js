@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 ///////////////////////////////////////////////////////
-var serviceAccount =  require("../../../firebase/swarm-2124b-firebase-adminsdk-towvk-3a3e35ee20.json");
+var serviceAccount =  require("../../../../firebase/swarm-2124b-firebase-adminsdk-towvk-3a3e35ee20.json");
 var admin = require("firebase-admin");
 admin.initializeApp({credential: admin.credential.cert(serviceAccount),databaseURL: "https://swarm-2124b.firebaseio.com"});
 var firebaseDb = admin.database();
