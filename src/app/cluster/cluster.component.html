@@ -1,3 +1,26 @@
-<p>
-  cluster works!
-</p>
+<div class="r wr">
+  <div class="server c" *ngFor="let server of servers | async">
+    <div class="r aie">
+      <img src="{{heroImages[3]}}"/>
+      <b>{{server.type | uppercase}}</b>
+    </div>
+    <table class="system">
+      <tr>
+        <td class="caption">HOST</td>
+        <td class="ar">{{server.system.host}}</td>
+      </tr>
+      <tr>
+        <td class="caption">FREE MEM</td>
+        <td class="ar">{{server.system.freeMem/1024/1024 | number:'3.0-0'}}MB</td>
+      </tr>
+      <tr>
+        <td class="caption">TOTAL MEM</td>
+        <td class="ar">{{server.system.totalMem/1024/1024 | number:'3.0-0'}}MB</td>
+      </tr>
+      <tr>
+        <td class="caption">TYPE</td>
+        <td class="ar">{{server.system.type}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

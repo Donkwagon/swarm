@@ -1,0 +1,28 @@
+
+
+.server{
+    border:rgba(255,255,255,0.3) solid 1px;
+    padding:0.5em;
+    margin:0.5em;
+
+    &:hover{
+        cursor:pointer;
+        border:rgba(255,255,255,0.5) solid 1px;
+    }
+
+
+    .system{
+        padding:0.5em 0;
+        margin-top:1em;
+        //background-color:rgba(0,0,0,0.9);
+        font-size:13px;
+
+        .caption{
+            color:grey;
+        }
+
+        p{
+            line-height:1.1;margin:0;padding:0;
+        }
+    }
+}

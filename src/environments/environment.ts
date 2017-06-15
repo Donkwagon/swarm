@@ -10,7 +10,7 @@ export const environment = {
     authDomain: "swarm-f92be.firebaseapp.com",
     databaseURL: "https://swarm-f92be.firebaseio.com",
     projectId: "swarm-f92be",
-    storageBucket: "",
+    storageBucket: "swarm-f92be.appspot.com",
     messagingSenderId: "106479663290"
   }
 };

@@ -13,6 +13,7 @@ body{
 /* Frequently used css properties */
 .r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;}
 .f1{display:flex;flex:1;}.f162{display:flex;flex:1.62;}.s0{flex-shrink:0;}
+.aie{align-items:flex-end;}
 .ac{text-align:center;}.al{text-align:left;}.ar{text-align:right;}
 .w100{width:100%;}.h100{height:100%;}
 .ofys{overflow-y:scroll;}
@@ -193,7 +194,6 @@ a:active {color: pink;text-decoration:none;}
 
 table{
     width:100%;
-    background-color:rgba(0,0,0,0.1);
     border-collapse: collapse;
     th{
         border-collapse: collapse;
@@ -201,8 +201,8 @@ table{
     }
 
     td{
-        padding:0.1em 0.5em;
-        border-bottom:rgba(255,255,255,0.05) solid 1px;
+        padding:0.1em 0em;
+        //border-bottom:rgba(255,255,255,0.05) solid 1px;
     }
 }
 
