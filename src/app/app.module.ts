@@ -22,7 +22,7 @@ import { LogsComponent }                     from './site/logs/logs.component';
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 import { SocketComponent }                   from './socket/socket.component';
-import { ClusterComponent } from './cluster/cluster.component';
+import { ClusterComponent }                  from './cluster/cluster.component';
 
 @NgModule({
   declarations: [

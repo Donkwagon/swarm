@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAXJ3foIpBLMfadRFN_ZVpra0tsr-UUJ90",
-    authDomain: "swarm-2124b.firebaseapp.com",
-    databaseURL: "https://swarm-2124b.firebaseio.com",
-    projectId: "swarm-2124b",
-    storageBucket: "swarm-2124b.appspot.com",
-    messagingSenderId: "862603459828"
+    apiKey: "AIzaSyADsDAzimwrTKj-bWjGakZTE9IrEFsy3po",
+    authDomain: "swarm-f92be.firebaseapp.com",
+    databaseURL: "https://swarm-f92be.firebaseio.com",
+    projectId: "swarm-f92be",
+    storageBucket: "",
+    messagingSenderId: "106479663290"
   }
 };
