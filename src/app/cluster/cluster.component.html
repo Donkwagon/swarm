@@ -1,26 +1,52 @@
-<div class="r wr">
-  <div class="server c" *ngFor="let server of servers | async">
-    <div class="r aie">
-      <img src="{{heroImages[3]}}"/>
-      <b>{{server.type | uppercase}}</b>
+<div class="site-interface c f1">
+  <div class="system-stats r wr">
+    <div class="system-stat r">
+      <h2 class="ac">CPS&nbsp;</h2>
+      <h1 class="ac">96/s</h1>
     </div>
-    <table class="system">
-      <tr>
-        <td class="caption">HOST</td>
-        <td class="ar">{{server.system.host}}</td>
-      </tr>
-      <tr>
-        <td class="caption">FREE MEM</td>
-        <td class="ar">{{server.system.freeMem/1024/1024 | number:'3.0-0'}}MB</td>
-      </tr>
-      <tr>
-        <td class="caption">TOTAL MEM</td>
-        <td class="ar">{{server.system.totalMem/1024/1024 | number:'3.0-0'}}MB</td>
-      </tr>
-      <tr>
-        <td class="caption">TYPE</td>
-        <td class="ar">{{server.system.type}}</td>
-      </tr>
-    </table>
+    <div class="system-stat r">
+      <h2 class="ac">Supervisors&nbsp;</h2>
+      <h1 class="ac">2</h1>
+    </div>
+    <div class="system-stat r">
+      <h2 class="ac">Workers&nbsp;</h2>
+      <h1 class="ac">3</h1>
+    </div>
+    <div class="system-stat r">
+      <h2 class="ac">Queue&nbsp;</h2>
+      <h1 class="ac">3</h1>
+    </div>
+  </div>
+
+  <div class="r wr">
+    <div class="server c" *ngFor="let server of servers | async" >
+      <div class="r aie">
+        <img src="{{heroImages[3]}}"/>
+        <div class="f1"></div>
+        <b [ngClass]="{'supervisor': server.type == 'supervisor'}">{{server.type | uppercase}}</b>
+      </div>
+      <table class="system">
+        <tr>
+          <td class="caption">LAST UPDATE</td>
+          <td class="ar">{{(time - server.updated_at)/1000 | number:'1.0-0'}} s</td>
+        </tr>
+        <tr>
+          <td class="caption">LIFE</td>
+          <td class="ar">{{(time - server.created_at)/1000/60/60 | number:'1.1-1'}} hr</td>
+        </tr>
+        <tr>
+          <td class="caption">HOST</td>
+          <td class="ar">{{server.system.host}}</td>
+        </tr>
+        <tr>
+          <td class="caption">MEM</td>
+          <td class="ar">{{server.system.freeMem/1024/1024 | number:'1.0-0'}} / {{server.system.totalMem/1024/1024 | number:'1.0-0'}} MB</td>
+        </tr>
+        <tr>
+          <td class="caption">TYPE</td>
+          <td class="ar">{{server.system.type}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

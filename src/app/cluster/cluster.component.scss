@@ -1,9 +1,37 @@
 
+.system-stats{
+    background-color:rgba(255,255,255,0.1);
+
+    .system-stat{
+        padding:0.5em;
+
+        h1{
+            padding:0;
+            margin:0;
+            line-height:1;
+            font-size:1em;
+            font-weight:bold;
+        }
+
+        h2{
+            padding:0;
+            margin:0;
+            line-height:1;
+            font-size:1em;
+            color:#ccc;
+            font-weight:normal;
+        }
+    }
+}
 
 .server{
     border:rgba(255,255,255,0.3) solid 1px;
     padding:0.5em;
     margin:0.5em;
+
+    img{
+        height:5em;
+    }
 
     &:hover{
         cursor:pointer;
@@ -25,4 +53,8 @@
             line-height:1.1;margin:0;padding:0;
         }
     }
+}
+
+.supervisor{
+    color:orange;
 }

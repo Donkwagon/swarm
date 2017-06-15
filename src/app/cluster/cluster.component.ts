@@ -15,6 +15,7 @@ export class ClusterComponent implements OnInit {
 
   servers: FirebaseListObservable<any>;
   heroImages: String[];
+  time: any;
 
   constructor(private db: AngularFireDatabase) {
     this.servers = db.list('/redis/servers');
@@ -46,6 +47,9 @@ export class ClusterComponent implements OnInit {
       "https://hydra-media.cursecdn.com/overwatch.gamepedia.com/6/60/Zenyatta_link.png?version=276a6987721ab8c5cad50f397fc29ec6"
 
     ]
+    setInterval(() => {
+        this.time =  new Date();
+     }, 1000);
   }
 
   ngOnInit() {
