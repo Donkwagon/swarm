@@ -16,7 +16,8 @@ var ArticleBacklogSchema = new Schema({
 
     i: Number,
     st: String,
-    res: Number
+    res: Number,
+    t: String
     
 });
 

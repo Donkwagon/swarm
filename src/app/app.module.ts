@@ -22,12 +22,13 @@ import { LogsComponent }                     from './site/logs/logs.component';
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 import { SocketComponent }                   from './socket/socket.component';
+import { ClusterComponent } from './cluster/cluster.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
