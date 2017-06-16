@@ -46,6 +46,10 @@
           <td class="caption">TYPE</td>
           <td class="ar">{{server.system.type}}</td>
         </tr>
+        <tr *ngFor="let network of server.system.networkInterfaces['Wi-Fi']">
+          <td class="caption">{{network.family}}</td>
+          <td class="ar">{{network.address}}</td>
+        </tr>
       </table>
     </div>
   </div>
