@@ -1,6 +1,7 @@
-
+@import '../../_theme';
 .system-stats{
-    background-color:rgba(255,255,255,0.1);
+    //background-color:rgba(255,255,255,0.1);
+    
 
     .system-stat{
         padding:0.5em;
@@ -25,17 +26,19 @@
 }
 
 .server{
-    border:rgba(255,255,255,0.3) solid 1px;
+    //border:rgba(255,255,255,0.3) solid 1px;
     padding:0.5em;
     margin:0.5em;
+    //background-color:rgba(72, 66, 244,0.5);
+    border:$theme solid 1px;
 
     img{
-        height:5em;
+        height:3em;
     }
 
     &:hover{
         cursor:pointer;
-        border:rgba(255,255,255,0.5) solid 1px;
+        //border:rgba(255,255,255,0.5) solid 1px;
     }
 
 
