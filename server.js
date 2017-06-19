@@ -43,7 +43,7 @@ app.use(express.static(distDir));
 
 const server = http.createServer(app);
 
-server.listen(8080, function (err) {
+server.listen(process.env.PORT || 8100, function (err) {
   if (err) {console.log(err);process.exit(1);}
   var port = server.address().port;
   console.log(chalk.cyan("App now running on port", port));
