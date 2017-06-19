@@ -21,9 +21,9 @@
   <div class="r wr">
     <div class="server c" *ngFor="let server of servers | async" >
       <div class="r aie">
-        <img src="{{heroImages[3]}}"/>
-        <div class="f1"></div>
-        <b [ngClass]="{'supervisor': server.type == 'supervisor'}">{{server.type | uppercase}}</b>
+        <!--<img src="{{heroImages[3]}}"/>
+        <div class="f1"></div>-->
+        <b class="type" [ngClass]="{'supervisor': server.type == 'supervisor'}"><i>{{server.type | uppercase}}</i></b>
       </div>
       <table class="system">
         <tr>
