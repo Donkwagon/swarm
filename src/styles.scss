@@ -11,7 +11,7 @@ body{
 
 ////////////////////////////////////////////////////////////////////////
 /* Frequently used css properties */
-.r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;}
+.r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;}.wr{flex-wrap:wrap;}
 .f1{display:flex;flex:1;}.f162{display:flex;flex:1.62;}.s0{flex-shrink:0;}
 .aie{align-items:flex-end;}
 .ac{text-align:center;}.al{text-align:left;}.ar{text-align:right;}
@@ -212,4 +212,5 @@ app-site{
 
 app-cluster{
     flex:1;
+    flex-direction:column;
 }
