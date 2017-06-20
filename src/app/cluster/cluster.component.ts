@@ -16,6 +16,7 @@ export class ClusterComponent implements OnInit {
   servers: FirebaseListObservable<any>;
   heroImages: String[];
   time: any;
+  queueLength: Number;
 
   constructor(private db: AngularFireDatabase) {
     this.servers = db.list('/redis/servers');
@@ -54,6 +55,10 @@ export class ClusterComponent implements OnInit {
 
   ngOnInit() {
     //this.getServers();
+    this.db.list('/redis/queues', { preserveSnapshot: true }).subscribe(snapshots => {
+      console.log(snapshots);
+      this.queueLength = snapshots.length;
+    })
   }
 
   getServers() {
