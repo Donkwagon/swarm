@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Site } from '../@core/classes/site';
 import { SiteService } from '../@core/services/sites.service';
+import { AceEditorComponent  } from 'ng2-ace-editor'; 
 
 
 @Component({

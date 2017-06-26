@@ -10,6 +10,9 @@ import { AngularFireModule }                 from 'angularfire2';
 import { AngularFireDatabaseModule }         from 'angularfire2/database';
 import { AngularFireAuthModule }             from 'angularfire2/auth';
 
+import { AceEditorDirective  } from 'ng2-ace-editor';
+import { AceEditorComponent } from 'ng2-ace-editor'; 
+
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
 
@@ -29,7 +32,8 @@ import { SitesComponent }                    from './sites/sites.component';
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent,
+    AceEditorDirective,AceEditorComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
