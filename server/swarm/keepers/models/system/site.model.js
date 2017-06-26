@@ -7,6 +7,8 @@ var siteSchema = new Schema({
 
   name: String,
   url: String,
+  imgUrl: String,
+  description: String,
   crawlers: Schema.Types.Mixed,
 
   created_at: Date,

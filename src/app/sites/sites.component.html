@@ -1,0 +1,18 @@
+<div class="page f1 c">
+  <div class="site-info-box r" *ngFor="let site of sites">
+    <img [src]="site.imgUrl"/>
+    <span>{{site.name}}</span>
+    <span>{{site.url}}</span>
+  </div>
+
+  <div class="site-info-box c">
+    <form class="new-site-form c">
+      <input class="new-site-input" type="text" placeholder="site name" [(ngModel)]="newSite.name" name="siteName"/>
+      <input class="new-site-input" type="text" placeholder="site URL" [(ngModel)]="newSite.url" name="siteUrl"/>
+      <input class="new-site-input" type="text" placeholder="site logoURL" [(ngModel)]="newSite.imgUrl" name="imgUrl"/>
+      <textarea class="new-site-input" type="text" placeholder="site description" [(ngModel)]="newSite.description" name="siteDescription"></textarea>
+      <div class="submit-btn" (click)="submitNewSite()">Submit</div>
+    </form>
+  </div>
+
+</div>

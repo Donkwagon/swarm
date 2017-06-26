@@ -17,11 +17,13 @@ const entrance =   require('./keepers/entrance.api');
 const backlog =    require('./keepers/backlog.api');
 const author =     require('./keepers/author.api');
 const log =        require('./keepers/log.api');
+const site =        require('./keepers/site.api');
 
 queen.use('/log', log);
 queen.use('/author', author);
 queen.use('/backlog', backlog);
 queen.use('/entrance', entrance);
+queen.use('/site', site);
 
 
 module.exports = queen;

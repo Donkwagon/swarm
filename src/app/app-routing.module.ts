@@ -10,10 +10,12 @@ import { BacklogsComponent }                 from './site/backlogs/backlogs.comp
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                   from './cluster/cluster.component';
+import { SitesComponent }                    from './sites/sites.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
+  { path: 'sites', component: SitesComponent},
   { path: 'cluster', component: ClusterComponent},
   { path: 'socket', component: SocketComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [

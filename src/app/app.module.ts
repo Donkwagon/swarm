@@ -23,12 +23,13 @@ import { SitemapComponent }                  from './site/sitemap/sitemap.compon
 import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                  from './cluster/cluster.component';
+import { SitesComponent }                    from './sites/sites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
