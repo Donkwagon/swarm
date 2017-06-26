@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 ///////////////////////////////////////////////////////
-var serviceAccount =  require("../../../../firebase/swarm-f92be-firebase-adminsdk-2xqe2-88b9c9c713");
+var serviceAccount =  require("../../../../firebase/swarm-c0b98-firebase-adminsdk-q66u1-685dfe1150");
 var admin = require("firebase-admin");
-admin.initializeApp({credential: admin.credential.cert(serviceAccount),databaseURL: "https://swarm-f92be.firebaseio.com"});
+admin.initializeApp({credential: admin.credential.cert(serviceAccount),databaseURL: "https://swarm-c0b98.firebaseio.com"});
 var firebaseDb = admin.database();
 var ref = firebaseDb.ref("swarm/logs");
 

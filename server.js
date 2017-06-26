@@ -8,7 +8,7 @@ var admin =           require("firebase-admin");
 
 var chalk =           require('chalk');
  
-var serviceAccount =  require("./server/firebase/swarm-f92be-firebase-adminsdk-2xqe2-88b9c9c713");
+var serviceAccount =  require("./server/firebase/swarm-c0b98-firebase-adminsdk-q66u1-685dfe1150");
 
   // adapter: postgresql
   // database: nvestdb
