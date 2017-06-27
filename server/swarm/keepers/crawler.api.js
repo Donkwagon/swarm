@@ -3,6 +3,9 @@ const crawler = express.Router();
 var crawler_COLLECTION = "crawlers";
 var ObjectID = require('mongodb').ObjectID;
 
+const vm = require('vm');
+var _eval = require('eval')
+
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
@@ -41,6 +44,13 @@ crawler.post("", function(req, res) {
       res.status(201).json(doc.ops[0]);
     }
   });
+});
+
+crawler.post("/run", function(req, res) {
+  var data = req.body.code;
+  vm.runInThisContext(data);
+  console.log(data);
+  console.log(fuck);
 });
 
 crawler.get("/:id", function(req, res) {

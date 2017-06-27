@@ -15,6 +15,16 @@ export class CrawlerService {
                  .catch(this.handleError);
     }
 
+    // post("/Crawler/Crawlers")
+    runCode(code: String): Promise<Crawler> {
+      var data = {code: code};
+      console.log("data");
+      return this.http.post(this.CrawlersUrl + '/run', data)
+                 .toPromise()
+                 .then(response => response.json() as Crawler)
+                 .catch(this.handleError);
+    }
+
 
     // get("/Crawler/Crawlers")
     getCrawlers(): Promise<Crawler[]> {
