@@ -6,6 +6,8 @@ var Schema = mongoose.Schema;
 var siteSchema = new Schema({
 
   name: String,
+  type: String, //id based, periodically updated
+  numStep: Number,
   url: String,
   imgUrl: String,
   description: String,
