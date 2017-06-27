@@ -11,11 +11,14 @@ import { SitemapComponent }                  from './site/sitemap/sitemap.compon
 import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                   from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
+import { CrawlerComponent }                  from './sites/crawler/crawler.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
-  { path: 'sites', component: SitesComponent},
+  { path: 'sites', component: SitesComponent, children: [
+      { path: 'crawler', component: CrawlerComponent}
+  ]},
   { path: 'cluster', component: ClusterComponent},
   { path: 'socket', component: SocketComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [

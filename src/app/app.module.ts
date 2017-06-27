@@ -3,15 +3,16 @@ import { NgModule }                          from '@angular/core';
 import { FormsModule }                       from '@angular/forms';
 import { HttpModule }                        from '@angular/http';
 
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy }                  from '@angular/common';
+import { HashLocationStrategy }              from '@angular/common';
 
 import { environment }                       from '../environments/environment';
 import { AngularFireModule }                 from 'angularfire2';
 import { AngularFireDatabaseModule }         from 'angularfire2/database';
 import { AngularFireAuthModule }             from 'angularfire2/auth';
 
-import { AceEditorDirective  } from 'ng2-ace-editor';
-import { AceEditorComponent } from 'ng2-ace-editor'; 
+import { AceEditorDirective  }               from 'ng2-ace-editor';
+import { AceEditorComponent }                from 'ng2-ace-editor'; 
 
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
@@ -27,12 +28,13 @@ import { BacklogsComponent }                 from './site/backlogs/backlogs.comp
 import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                  from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
+import { CrawlerComponent }                  from './sites/crawler/crawler.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent,
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent, CrawlerComponent,
     AceEditorDirective,AceEditorComponent
   ],
   imports: [

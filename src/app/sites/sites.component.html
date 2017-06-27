@@ -1,23 +1,23 @@
 <div class="page f1 c">
   <div class="site-info-box r" *ngFor="let site of sites">
     <img [src]="site.imgUrl"/>
-    <div class="c">
+    <div class="c f1">
       <span><b>{{site.name}}</b></span>
       <span>{{site.url}}</span>
-    </div>
 
-    <div class="summary-interface f1">
-      
-      <div ace-editor
-        [(text)]="text" 
-        [mode]="'javascript'"
-        [theme]="'eclipse'"
-        [options]="options"
-        [readOnly]="false"
-        [autoUpdateContent]="true"
-        [durationBeforeCallback]="1000"
-        (textChanged)="onChange($event)"
-        style="min-height: 200px; width:100%; overflow: auto;"></div>
+      <div class="summary-interface">
+        <a routerLink="/sites/crawler" routerLinkActive="active">Crawler</a>
+        <!--<div ace-editor
+          [(text)]="text" 
+          [mode]="'javascript'"
+          [theme]="'eclipse'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"></div>-->
+      </div>
     </div>
   </div>
 
@@ -32,3 +32,5 @@
   </div>
 
 </div>
+
+<router-outlet></router-outlet>
