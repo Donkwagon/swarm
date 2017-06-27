@@ -1,8 +1,15 @@
 <div class="crawler-interface c">
+  <div class="crawler-panel">
+    <form>
+      <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+    </form>
+    <button (click)="runCode()">submit</button>
+
+  </div>
   <div class="editor-wrapper f1">
     <div ace-editor
       class="f1 ace-editor"
-      [(text)]="text" 
+      [(text)]="crawler.code" 
       [mode]="'javascript'"
       [theme]="'eclipse'"
       [options]="options"

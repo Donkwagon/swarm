@@ -16,10 +16,9 @@ export class CrawlerService {
     }
 
     // post("/Crawler/Crawlers")
-    runCode(code: String): Promise<Crawler> {
-      var data = {code: code};
+    runCode(crawler: Crawler): Promise<Crawler> {
       console.log("data");
-      return this.http.post(this.CrawlersUrl + '/run', data)
+      return this.http.post(this.CrawlersUrl + '/run', crawler)
                  .toPromise()
                  .then(response => response.json() as Crawler)
                  .catch(this.handleError);
