@@ -22,27 +22,58 @@ export class CrawlerComponent implements OnInit {
   sub: any;
   site: Site;
   urlStrategy: String[];
+  urlTypes: String[];
+  curUrlType: String;
 
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService,
     private crawlerService: CrawlerService){
 
+      this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
   }
 
   ngOnInit() {
+
     this.crawler = new Crawler();
+
     this.sub = this.route.params.subscribe(params => {
-       this.siteName = params['siteName'];
-       this.getSiteInfo();
+      this.siteName = params['siteName'];
+      this.getSiteInfo();
     });
+
   }
 
   getSiteInfo = () => {
+
     this.siteService.getSitesBySite(this.siteName).then(res => {
-      console.log(res);
+      
       this.site = res[0];
+
+      if(!this.crawler.urlStrategy){
+        
+        this.crawler.urlStrategy = {
+          root:{
+            type:"root",
+            urlSection:this.site.url
+          },
+          sections:[]
+        };
+      }
     });
+  }
+
+  selectNewUrlSectionType = (type) => {
+    this.curUrlType = type;
+    console.log(type);
+  }
+
+  clearNewUrlSectionType = () => {
+    this.curUrlType = null;
+  }
+
+  addUrlStrategy = () => {
+    this.crawler.urlStrategy.sections.push();
   }
 
   onChange = () => {

@@ -9,13 +9,19 @@ export class Crawler {
     siteId: string;
     code: string;
     doc: string;
+
     editHistory: any;
 
-    urlStrategy: any;
+    urlStrategy: {
+        root: Object,
+        sections: Object[]
+    };
 
     validation: Boolean;
 
     created_at: Date;
     updated_at: Date;
+
     constructor(){}
+    
 }

@@ -15,25 +15,43 @@
 
       <form class="r f1" *ngIf="site">
 
-        <div class="root-url">
-          {{site.url}}
+        <div class="url-section-wrapper r">
+          <div class="url-section-type">
+            ROOT:
+          </div>
+          <div class="root-url">
+            {{site.url}}
+          </div>
+        </div>
+
+        <div class="url-section-wrapper r">
+          <div class="url-section-type">
+            CONST:
+          </div>
+          <div class="url-section">
+            article/
+          </div>
+        </div>
+
+        <div class="url-section-wrapper r">
+          <div class="url-section-type">
+            ID RANGE (1-100,000)
+          </div>
         </div>
 
         <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
 
         <div class="add-url-wrapper r">
+
           <div class="add-button">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </div>
-          <div class="url-strategy">
-            CONST
+
+          <div class="url-strategy" *ngFor="let type of urlTypes"  (click)="selectNewUrlSectionType(type)">
+            {{type}}
           </div>
-          <div class="url-strategy">
-            ID RANGE
-          </div>
-          <div class="url-strategy">
-            TICKER
-          </div>
+          
+
           <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
           <input type="number" min="0" max="10000000000" value="0">
           <input type="number" min="0" max="10000000000" value="0">
@@ -64,9 +82,21 @@
       </div>
       
       <div class="output-interface c">
-        <div class="interface-module c">
+        <div class="interface-module c f1">
           <b>INPUT PARAMETERS</b>
-          <div class="interface-module-body">
+          <div class="interface-module-body f1">
+
+          </div>
+        </div>
+        <div class="interface-module c f1">
+          <b>RESPONSE</b>
+          <div class="interface-module-body f1">
+
+          </div>
+        </div>
+        <div class="interface-module c f1">
+          <b>DATA OUTPUT</b>
+          <div class="interface-module-body f1">
 
           </div>
         </div>
@@ -74,5 +104,5 @@
     </div>
     
   </div>
-  
+
 </div>
