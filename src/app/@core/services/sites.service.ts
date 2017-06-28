@@ -25,8 +25,8 @@ export class SiteService {
     }
 
     // get("/Site/Sites")
-    getSitesBySite(siteName: String): Promise<Site[]> {
-      return this.http.get(this.SitesUrl + '/site/' + siteName)
+    getSitesBySite(name: String): Promise<Site[]> {
+      return this.http.get(this.SitesUrl + '/site/' + name)
                  .toPromise()
                  .then(response => response.json() as Site[])
                  .catch(this.handleError);

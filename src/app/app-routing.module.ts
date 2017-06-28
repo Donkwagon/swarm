@@ -17,7 +17,7 @@ import { CrawlerComponent }                  from './sites/crawler/crawler.compo
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'sites', component: SitesComponent, children: [
-      { path: 'crawler', component: CrawlerComponent}
+      { path: ':siteName/crawler', component: CrawlerComponent}
   ]},
   { path: 'cluster', component: ClusterComponent},
   { path: 'socket', component: SocketComponent},

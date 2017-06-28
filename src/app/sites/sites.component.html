@@ -1,13 +1,13 @@
 <div class="page f1 c">
   <div class="site-info-box r" *ngFor="let site of sites">
     <img [src]="site.imgUrl"/>
-    <div class="c f1">
+    <div class="c">
       <span><b>{{site.name}}</b></span>
       <span>{{site.url}}</span>
+    </div>
 
-      <div class="summary-interface">
-        <a routerLink="/sites/crawler" routerLinkActive="active">Crawler</a>
-      </div>
+    <div class="summary-interface f1">
+      <a routerLink="/sites/{{site.name}}/crawler" routerLinkActive="active">Crawler</a>
     </div>
   </div>
 

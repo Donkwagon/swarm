@@ -21,8 +21,9 @@ site.get("", function(req, res) {
   });
 });
 
-site.get("/site/:siteName", function(req, res) {
-  db.collection(site_COLLECTION).find({siteName: req.params.siteName}).toArray(function(err, docs) {
+site.get("/site/:name", function(req, res) {
+  console.log(req.params.name);
+  db.collection(site_COLLECTION).find({name: req.params.name}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get sites.");
     } else {
