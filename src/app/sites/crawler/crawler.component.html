@@ -38,8 +38,7 @@
             ID RANGE (1-100,000)
           </div>
         </div>
-
-        <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+        <div class="f1"></div>
 
         <div class="add-url-wrapper r">
 
@@ -52,9 +51,15 @@
           </div>
           
 
-          <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
-          <input type="number" min="0" max="10000000000" value="0">
-          <input type="number" min="0" max="10000000000" value="0">
+          <input placeholder="Fixed URL component" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+
+          <div class="range-selector">
+            Min:
+            <input class="range-selector-input" type="number" min="0" max="10000000000" value="0">
+            Max:
+            <input class="range-selector-input" type="number" min="0" max="10000000000" value="0">
+          </div>
+
         </div>
         
         <div class="f1"></div>

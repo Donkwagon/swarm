@@ -8,7 +8,7 @@ $borderColor:rgba(255,255,240,0.7);
     border-top:$borderColor solid 1px;
     border-left:$borderColor solid 1px;
     border-bottom:$borderColor solid 1px;
-    border-right:rgba(255,255,240,0.3) solid 1px;
+    //border-right:rgba(255,255,240,0.3) solid 1px;
     width:15rem;
     margin:1em 0 1em 1em;
     border-top-left-radius:3px;
@@ -74,18 +74,17 @@ $borderColor:rgba(255,255,240,0.7);
     font-size:1.1em;
 
     .url-section-wrapper{
+        background-color:#ccc;
 
         &:hover{
             cursor:pointer;
-            border:$theme solid 3px;
+            background-color:white;
         }
     }
 
 
     .url-section-type{
-        //background-color:#C43E2B;
         color:#C43E2B;
-        background-color:#ccc;
         padding:0.2em 0.3em;
     }
 
@@ -93,32 +92,44 @@ $borderColor:rgba(255,255,240,0.7);
         background-color:transparent;
         color:white;
         padding:0.2em 0em 0.2em 0em;
-        background-color:#ccc;
         color:black;
     }
 
     .root-url{
         padding:0.2em 0em 0.2em 0em;
-        background-color:#ccc;
         color:black;
     }
 
-    // input{
-    //     background-color:rgba(255,255,255,0);
-    //     border:none;
-    //     font-family:$font-stack;
-    //     font-size:1em;
+    input{
+        background-color:orange;
+        border:none;
+        font-family:$font-stack;
+        font-size:1em;
+        padding:0.2em 0.5em;
+        color:black;
+        text-shadow:0 0 3px rgba(0,0,0,0.3);
+        box-shadow:inset 0 0 1rem rgba(0,0,0,0.2);
 
-    //     border-bottom:rgba(255,255,255,0.3) solid 1px;
-    //     padding:0.2em 0.5em;
-    //     color:$theme;
-    //     font-weight:bold;
+        &:focus{
+            outline:none;
+        }
+    }
 
-    //     &:focus{
-    //         outline:none;
-    //         border-bottom:$theme solid 1px;
-    //     }
-    // }
+    .range-selector-input{
+        width:100px;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: black;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+    color: black;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+    color: black;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+    color: black;
+    }
 
     button{
         margin-left:1em;
