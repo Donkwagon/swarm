@@ -1,9 +1,10 @@
-const express = require('express');
+const express =           require('express');
+var ObjectID =            require('mongodb').ObjectID;
+var request =             require('request');
+var cheerio =             require('cheerio');
+
 const crawler = express.Router();
 var crawler_COLLECTION = "crawlers";
-var ObjectID = require('mongodb').ObjectID;
-var request =     require('request');
-var cheerio =     require('cheerio');
 
 
 const vm = require('vm');
@@ -54,12 +55,13 @@ crawler.post("/run", function(req, res) {
   var code = req.body.code;
   var URL = req.body.url;
 
-  vm.runInThisContext(code);
-  
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
   req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
   req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
-      res.status(200).json(html);
+    res.status(200).json(html);
+    var $ = cheerio.load(html);
+    
+    vm.runInThisContext(code);
   });
 
 });
