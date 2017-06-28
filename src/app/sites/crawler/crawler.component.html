@@ -1,23 +1,43 @@
-<div class="crawler-interface c">
-  <div class="crawler-panel">
-    <form>
-      <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
-    </form>
-    <button (click)="runCode()">submit</button>
+<div class="crawler-interface r">
 
+  <div class="site-info c" *ngIf="site">
+    <img [src]="site.imgUrl"/>
+    <h2 class="ac"><b class="yellowish title">{{site.name}}</b></h2>
+    <span class="ac">{{site.url}}</span>
+    <p>{{site.description}}</p>
+    <p>{{site.created_at}}</p>
+    <p>{{site.updated_at}}</p>
   </div>
-  <div class="editor-wrapper f1">
-    <div ace-editor
-      class="f1 ace-editor"
-      [(text)]="crawler.code" 
-      [mode]="'javascript'"
-      [theme]="'eclipse'"
-      [options]="options"
-      [readOnly]="false"
-      [autoUpdateContent]="true"
-      [durationBeforeCallback]="1000"
-      (textChanged)="onChange($event)"
-      style="min-height: 200px; width:100%; overflow: auto;"></div>
 
+  <div class="crawler c f1">
+    <div class="crawler-panel">
+      <form>
+        <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+      </form>
+      <button (click)="runCode()">submit</button>
+
+    </div>
+
+    <div class="work-space f1 r">
+      <div class="editor-wrapper f162">
+        <div ace-editor
+          class="f1 ace-editor"
+          [(text)]="crawler.code" 
+          [mode]="'javascript'"
+          [theme]="'eclipse'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"></div>
+
+      </div>
+      
+      <div class="output-interface f1">
+
+      </div>
+    </div>
+    
   </div>
 </div>

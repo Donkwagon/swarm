@@ -20,7 +20,14 @@ export class CrawlerComponent implements OnInit {
   crawler: Crawler;
   siteName: string;
   sub: any;
-  constructor(private route: ActivatedRoute, private siteService: SiteService, private crawlerService: CrawlerService) { }
+  site: Site;
+
+  constructor(
+    private route: ActivatedRoute,
+    private siteService: SiteService,
+    private crawlerService: CrawlerService){
+
+  }
 
   ngOnInit() {
     this.crawler = new Crawler();
@@ -33,6 +40,7 @@ export class CrawlerComponent implements OnInit {
   getSiteInfo = () => {
     this.siteService.getSitesBySite(this.siteName).then(res => {
       console.log(res);
+      this.site = res[0];
     });
   }
 

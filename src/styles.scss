@@ -1,11 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import '_theme';
+@import '_theme';
 
+@media (min-width: 1300px) {
+  body {
+      font-size:13px;
+  }
+}
+@media (min-width: 1600px) {
+  body {
+      font-size:15px;
+  }
+}
 
 body{
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:15px;color:#FFF;
+    font-size:13px;
+    color:#FFF;
     background-image: linear-gradient(to bottom, #333 0%, darken(#333, 5%) 100%);
 }
 
@@ -22,6 +34,7 @@ a:visited {color: pink;text-decoration:none;}
 a:hover {color: pink;text-decoration:none;}
 a:active {color: pink;text-decoration:none;}
 .blue{color:$theme;}
+.yellowish{color:$yellowish};
 
 .site-list{
     padding:0.5em 1em 0.5em 0.5em;
