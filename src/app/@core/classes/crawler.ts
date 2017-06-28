@@ -9,7 +9,11 @@ export class Crawler {
     siteId: string;
     code: string;
     doc: string;
-    editHistor: any;
+    editHistory: any;
+
+    urlStrategy: any;
+
+    validation: Boolean;
 
     created_at: Date;
     updated_at: Date;

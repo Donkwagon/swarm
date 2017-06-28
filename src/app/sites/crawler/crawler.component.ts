@@ -21,6 +21,7 @@ export class CrawlerComponent implements OnInit {
   siteName: string;
   sub: any;
   site: Site;
+  urlStrategy: String[];
 
   constructor(
     private route: ActivatedRoute,

@@ -13,7 +13,12 @@ var crawlerSchema = new Schema({
   siteId: String,
   code: String,
   doc: String,
-  editHistor: Schema.Types.Mixed,
+  
+  editHistory: Schema.Types.Mixed,
+
+  urlStrategy: Schema.Types.Mixed,
+
+  validation: Boolean,
 
   created_at: Date,
   updated_at: Date

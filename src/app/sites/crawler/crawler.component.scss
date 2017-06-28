@@ -9,7 +9,7 @@ $borderColor:rgba(255,255,240,0.7);
     border-left:$borderColor solid 1px;
     border-bottom:$borderColor solid 1px;
     border-right:rgba(255,255,240,0.3) solid 1px;
-    width:270px;
+    width:16rem;
     margin:1em 0 1em 1em;
     border-top-left-radius:3px;
     border-bottom-left-radius:3px;
@@ -67,19 +67,91 @@ $borderColor:rgba(255,255,240,0.7);
 
 
 .crawler-panel{
-    padding:1em;
+    padding:0em 0em;
+    font-size:16px;
+    border-bottom:rgba(255,255,255,0.2) solid 1px;
+
+    .root-url{
+        padding:0.2em 0.5em;
+        background-color:rgba(255,255,255,0.1);
+        border-radius:3px;
+        color:#CCC;
+    }
+
+    // input{
+    //     background-color:rgba(255,255,255,0);
+    //     border:none;
+    //     font-family:$font-stack;
+    //     font-size:1em;
+
+    //     border-bottom:rgba(255,255,255,0.3) solid 1px;
+    //     padding:0.2em 0.5em;
+    //     color:$theme;
+    //     font-weight:bold;
+
+    //     &:focus{
+    //         outline:none;
+    //         border-bottom:$theme solid 1px;
+    //     }
+    // }
+
+    button{
+        margin-left:1em;
+        padding:0.2em 0.5em;
+        border:white solid 1px;
+        color:white;
+        background-color:transparent;
+        font-family:$font-stack;
+        font-size:1em;
+    }
+
+    .add-url-wrapper{
+        align-items:center;
+
+        .url-strategy{
+            padding:0.2em 0.5em;
+            background-color:rgba(255,255,255,0.2);
+            font-size:0.9em;
+            margin:0.1em;
+
+            &:hover{
+                cursor:pointer;
+                background-color:rgba(255,255,255,0.3);
+            }
+        }
+
+        .add-button{
+            padding:0.1em 0.3em;
+            background-color:$theme;
+            color:rgba(255,255,255,0.5);
+            border-radius:3px;
+
+            &:hover{
+                cursor:pointer;
+                color:white;
+            }
+        }
+    }
 }
 
 .work-space{
     align-items:stretch;
-    border-top:grey solid 1px;
 
     .editor-wrapper{
     }
 
 
     .output-interface{
-        width:300px;
+        width:360px;
         background-color:rgba(255,255,255,0.1);
+
+        .interface-module{
+            padding:0.5em;
+
+            .interface-module-body{
+                background-color:black;
+                padding:0.5em;
+            }
+        }
     }
 }

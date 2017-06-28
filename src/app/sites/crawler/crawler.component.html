@@ -10,11 +10,40 @@
   </div>
 
   <div class="crawler c f1">
-    <div class="crawler-panel">
-      <form>
+
+    <div class="crawler-panel r">
+
+      <form class="r f1" *ngIf="site">
+
+        <div class="root-url">
+          {{site.url}}
+        </div>
+
         <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+
+        <div class="add-url-wrapper r">
+          <div class="add-button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </div>
+          <div class="url-strategy">
+            CONST
+          </div>
+          <div class="url-strategy">
+            ID RANGE
+          </div>
+          <div class="url-strategy">
+            TICKER
+          </div>
+          <input placeholder="web page URL" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+          <input type="number" min="0" max="10000000000" value="0">
+          <input type="number" min="0" max="10000000000" value="0">
+        </div>
+        
+        <div class="f1"></div>
+
+        <button (click)="runCode()">submit</button>
+
       </form>
-      <button (click)="runCode()">submit</button>
 
     </div>
 
@@ -34,10 +63,16 @@
 
       </div>
       
-      <div class="output-interface f1">
+      <div class="output-interface c">
+        <div class="interface-module c">
+          <b>INPUT PARAMETERS</b>
+          <div class="interface-module-body">
 
+          </div>
+        </div>
       </div>
     </div>
     
   </div>
+  
 </div>
