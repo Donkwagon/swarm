@@ -7,6 +7,7 @@
     <p class="description">{{site.description}}</p>
     <p>{{site.created_at}}</p>
     <p>{{site.updated_at}}</p>
+    <p>{{crawler | json}}</p>
   </div>
 
   <div class="crawler c f1">
@@ -22,7 +23,7 @@
           <span>{{urlSection.url}}</span>
           <span *ngIf="urlSection.type == 'ID RANGE'">{{urlSection.min}} - {{urlSection.max}}</span>
           <span>{{urlSection.suffix}}/</span>
-          <span (click)="removeUrlSection(urlSection)">x</span>
+          <span style="color:red;" (click)="removeUrlSection(urlSection)">x</span>
         </div>
       </div>
 

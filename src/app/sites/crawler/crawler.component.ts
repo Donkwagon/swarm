@@ -65,15 +65,16 @@ export class CrawlerComponent implements OnInit {
       if(!this.crawler.urlStrategy){
         
         this.crawler.urlStrategy = {
-          root:{
-            type:"root",
-            urlSection:this.site.url
-          },
-          sections:[]
+          root: this.site.url,
+          sections: []
         };
       }
     });
   }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //url panel logic
+  ////////////////////////////////////////////////////////////////////////////
 
   selectNewUrlSectionType = (type) => {
     this.curUrlType = type;
@@ -84,7 +85,6 @@ export class CrawlerComponent implements OnInit {
   }
 
   toggleNewUrlSectionPanel = () => {
-    console.log(this.newUrlSectionPanel);
     this.resetNewInputs();
     this.newUrlSectionPanel ?
       this.newUrlSectionPanel = false :
@@ -143,6 +143,10 @@ export class CrawlerComponent implements OnInit {
     this.crawler.urlStrategy.sections.push();
   }
 
+  ////////////////////////////////////////////////////////////////////////////
+  //editor logic
+  ////////////////////////////////////////////////////////////////////////////
+  
   onChange = () => {
     console.log(this.text);
     console.log(JSON.stringify(this.text));

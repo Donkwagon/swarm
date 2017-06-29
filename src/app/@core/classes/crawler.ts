@@ -13,7 +13,7 @@ export class Crawler {
     editHistory: any;
 
     urlStrategy: {
-        root: Object,
+        root: String,
         sections: Object[]
     };
 
