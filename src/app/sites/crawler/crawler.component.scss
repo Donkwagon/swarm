@@ -5,12 +5,13 @@ $borderColor:rgba(255,255,240,0.7);
 
 .site-info{
     padding:1em 1em 1em 1em;
-    border-top:$borderColor solid 1px;
-    border-left:$borderColor solid 1px;
-    border-bottom:$borderColor solid 1px;
+    // border-top:$borderColor solid 1px;
+    // border-left:$borderColor solid 1px;
+    // border-bottom:$borderColor solid 1px;
     //border-right:rgba(255,255,240,0.3) solid 1px;
-    width:15rem;
+    width:14rem;
     margin:1em 0 1em 1em;
+    margin:0;
     border-top-left-radius:3px;
     border-bottom-left-radius:3px;
 
@@ -39,14 +40,20 @@ $borderColor:rgba(255,255,240,0.7);
     .title{
         font-weight:300;
     }
+
+    .description{
+        font-size:0.8em;
+        color:#AAA;
+    }
 }
 
 .crawler{
-    border-top:$borderColor solid 1px;
-    border-right:$borderColor solid 1px;
-    border-bottom:$borderColor solid 1px;
+    // border-top:$borderColor solid 1px;
+    // border-right:$borderColor solid 1px;
+    // border-bottom:$borderColor solid 1px;
     width:16rem;
     margin:1em 1em 1em 0;
+    margin:0;
     border-top-right-radius:3px;
     border-bottom-right-radius:3px;
 }
@@ -71,7 +78,7 @@ $borderColor:rgba(255,255,240,0.7);
     background-color:rgba(255,255,255,0.1);
     border-bottom:black solid 1px;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size:1.1em;
+    font-size:1em;
 
     .url-section-wrapper{
         background-color:#ccc;

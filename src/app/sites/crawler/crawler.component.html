@@ -4,21 +4,17 @@
     <img [src]="site.imgUrl"/>
     <h2 class="ac"><b class="yellowish title">{{site.name}}</b></h2>
     <span class="ac">{{site.url}}</span>
-    <p>{{site.description}}</p>
+    <p class="description">{{site.description}}</p>
     <p>{{site.created_at}}</p>
     <p>{{site.updated_at}}</p>
   </div>
 
   <div class="crawler c f1">
 
-    <div class="crawler-panel r">
-
-      <form class="r f1" *ngIf="site">
+    <div class="crawler-panel c" *ngIf="site">
+      <div class="r">
 
         <div class="url-section-wrapper r">
-          <div class="url-section-type">
-            ROOT:
-          </div>
           <div class="root-url">
             {{site.url}}
           </div>
@@ -38,7 +34,10 @@
             ID RANGE (1-100,000)
           </div>
         </div>
-        <div class="f1"></div>
+      </div>
+
+      <form class="r f1" >
+
 
         <div class="add-url-wrapper r">
 
@@ -63,8 +62,8 @@
         </div>
         
         <div class="f1"></div>
-
-        <button (click)="runCode()">submit</button>
+<!--
+        <button (click)="runCode()">submit</button>-->
 
       </form>
 
