@@ -85,45 +85,56 @@ export class CrawlerComponent implements OnInit {
 
   toggleNewUrlSectionPanel = () => {
     console.log(this.newUrlSectionPanel);
+    this.resetNewInputs();
     this.newUrlSectionPanel ?
       this.newUrlSectionPanel = false :
       this.newUrlSectionPanel = true;
   }
 
   addNewUrlSection = () => {
+    console.log("function binded");
 
-    if(this.newConst.editing){
+    if(this.curUrlType === "CONSTANT"){
+      this.crawler.urlStrategy.sections.push(this.newConst);
+    }
+    if(this.curUrlType == "ID RANGE"){
+      this.crawler.urlStrategy.sections.push(this.newIdRange);
 
     }
-    if(this.newIdRange.editing){
-
+    if(this.curUrlType === "TICKER"){
+      this.crawler.urlStrategy.sections.push(this.newTicker);
     }
-    if(this.newTicker.editing){
+    console.log(this.crawler);
 
-    }
+    this.resetNewInputs();
+  }
+
+  removeUrlSection = (urlSection) => {
+    var index = this.crawler.urlStrategy.sections.indexOf(urlSection);
+    this.crawler.urlStrategy.sections.splice(index,1);
   }
 
   resetNewInputs = () => {
 
       this.newConst = {
+        type:"CONSTANT",
         url: "",
         prefix: "",
-        suffix: "",
-        editing: false
+        suffix: ""
       };
 
       this.newIdRange = {
+        type:"ID RANGE",
         min: 0,
         max: 0,
         prefix: "",
-        suffix: "",
-        editing: false
+        suffix: ""
       };
 
       this.newTicker = {
+        type:"TICKER",
         prefix: "",
-        suffix: "",
-        editing: false
+        suffix: ""
       }
 
   }

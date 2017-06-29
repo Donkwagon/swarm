@@ -16,8 +16,14 @@
       <div class="url-section-wrapper r"><div class="root-url">{{site.url}}</div></div>
 
       <div class="url-section-wrapper r" *ngFor="let urlSection of crawler.urlStrategy.sections">
-        <div class="url-section-type">CONST:</div>
-        <div class="url-section">article/</div>
+        <div class="url-section-type">{{urlSection.type}}:</div>
+        <div class="url-section">
+          <span>{{urlSection.prefix}}</span>
+          <span>{{urlSection.url}}</span>
+          <span *ngIf="urlSection.type == 'ID RANGE'">{{urlSection.min}} - {{urlSection.max}}</span>
+          <span>{{urlSection.suffix}}/</span>
+          <span (click)="removeUrlSection(urlSection)">x</span>
+        </div>
       </div>
 
       <div class="add-url-section">
@@ -62,8 +68,8 @@
           </div>
 
           <div class="r">
-            <div class="confirm-button f1 c ac">Cancel</div>
-            <div class="confirm-button f1 c ac">Confirm</div>
+            <div class="confirm-button f1 c ac" (click)="toggleNewUrlSectionPanel()">Cancel</div>
+            <div class="confirm-button f1 c ac" (click)="addNewUrlSection()">Confirm</div>
           </div>
 
         </div>
