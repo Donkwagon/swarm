@@ -77,11 +77,8 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
 
   selectNewUrlSectionType = (type) => {
+    this.resetNewInputs();
     this.curUrlType = type;
-  }
-
-  clearNewUrlSectionType = () => {
-    this.curUrlType = null;
   }
 
   toggleNewUrlSectionPanel = () => {
@@ -115,32 +112,29 @@ export class CrawlerComponent implements OnInit {
   }
 
   resetNewInputs = () => {
+    this.curUrlType = null;
 
-      this.newConst = {
-        type:"CONSTANT",
-        url: "",
-        prefix: "",
-        suffix: ""
-      };
+    this.newConst = {
+      type:"CONSTANT",
+      url: "",
+      prefix: "",
+      suffix: ""
+    };
 
-      this.newIdRange = {
-        type:"ID RANGE",
-        min: 0,
-        max: 0,
-        prefix: "",
-        suffix: ""
-      };
+    this.newIdRange = {
+      type:"ID RANGE",
+      min: 0,
+      max: 0,
+      prefix: "",
+      suffix: ""
+    };
 
-      this.newTicker = {
-        type:"TICKER",
-        prefix: "",
-        suffix: ""
-      }
+    this.newTicker = {
+      type:"TICKER",
+      prefix: "",
+      suffix: ""
+    }
 
-  }
-
-  addUrlStrategy = () => {
-    this.crawler.urlStrategy.sections.push();
   }
 
   ////////////////////////////////////////////////////////////////////////////
