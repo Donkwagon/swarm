@@ -5,12 +5,7 @@ $borderColor:rgba(255,255,240,0.7);
 
 .site-info{
     padding:1em 1em 1em 1em;
-    // border-top:$borderColor solid 1px;
-    // border-left:$borderColor solid 1px;
-    // border-bottom:$borderColor solid 1px;
-    //border-right:rgba(255,255,240,0.3) solid 1px;
     width:14rem;
-    margin:1em 0 1em 1em;
     margin:0;
     border-top-left-radius:3px;
     border-bottom-left-radius:3px;
@@ -48,11 +43,6 @@ $borderColor:rgba(255,255,240,0.7);
 }
 
 .crawler{
-    // border-top:$borderColor solid 1px;
-    // border-right:$borderColor solid 1px;
-    // border-bottom:$borderColor solid 1px;
-    width:16rem;
-    margin:1em 1em 1em 0;
     margin:0;
     border-top-right-radius:3px;
     border-bottom-right-radius:3px;
@@ -71,21 +61,20 @@ $borderColor:rgba(255,255,240,0.7);
     background-color:rgba(0,0,0,0)!important;
 }
 
-
-
 .crawler-panel{
     padding:0;
-    background-color:rgba(255,255,255,0.1);
     border-bottom:black solid 1px;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size:1em;
+    font-size:1.1em;
+    padding: 0 0.5em;
+    border-left: $theme solid 1px;
+    border-bottom: $theme solid 1px;
+    border-top: $theme solid 1px;
 
     .url-section-wrapper{
-        background-color:#ccc;
 
         &:hover{
             cursor:pointer;
-            background-color:white;
         }
     }
 
@@ -99,23 +88,76 @@ $borderColor:rgba(255,255,240,0.7);
         background-color:transparent;
         color:white;
         padding:0.2em 0em 0.2em 0em;
-        color:black;
+        color:white;
     }
 
     .root-url{
         padding:0.2em 0em 0.2em 0em;
-        color:black;
+        color:white;
+    }
+
+    .add-url-section{
+        position:relative;
+
+        .dropdown-panel{
+            position:absolute;
+            top:100%;
+            left:0;
+            width:200px;
+            border-left:$theme solid 1px;
+            border-right:$theme solid 1px;
+            border-bottom:$theme solid 1px;
+            background-color:#222;
+            z-index:10;
+
+            .dropdown-list-item{
+                padding:0.2em 0.5em;
+                border-bottom:#000 solid 1px;
+            }
+
+            .type{
+
+                &:hover{
+                    cursor:pointer;
+                    background-color:$theme;
+                }
+            }
+
+            .new-url-section-inputs{
+                padding:0.5em 0.5em;
+                background-color:#333;
+                color:$orange;
+            }
+
+            .label{
+                width:40px;
+            }
+
+            .confirm-button{
+                padding:0.2em 0.5em;
+                margin:0.5em;
+                background-color:$theme;
+                text-align: center;
+                color:rgba(255,255,255,0.8);
+
+                &:hover{
+                    cursor:pointer;
+                    color:white;
+                }
+            }
+        }
     }
 
     input{
-        background-color:orange;
+        background-color:$orange;
         border:none;
+        border-bottom:rgba(0,0,0,0.1) solid 1px;
+        border-top:rgba(255,255,255,0.1) solid 1px;
         font-family:$font-stack;
         font-size:1em;
         padding:0.2em 0.5em;
         color:black;
         text-shadow:0 0 3px rgba(0,0,0,0.3);
-        box-shadow:inset 0 0 1rem rgba(0,0,0,0.2);
 
         &:focus{
             outline:none;
@@ -146,6 +188,15 @@ $borderColor:rgba(255,255,240,0.7);
         background-color:$theme;
         font-family:$font-stack;
         font-size:1em;
+    }
+
+    .add-new-button{
+        padding:0.2em 0;;
+        background-color:$theme;
+
+        &:hover{
+            cursor:pointer;
+        }
     }
 
     .add-url-wrapper{
