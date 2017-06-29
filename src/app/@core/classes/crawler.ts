@@ -17,6 +17,9 @@ export class Crawler {
         sections: Object[]
     };
 
+    crawlingStrategy: any;
+    testingStrategy: any;
+
     validation: Boolean;
 
     created_at: Date;

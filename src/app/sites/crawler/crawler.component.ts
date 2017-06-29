@@ -76,16 +76,16 @@ export class CrawlerComponent implements OnInit {
   //url panel logic
   ////////////////////////////////////////////////////////////////////////////
 
-  selectNewUrlSectionType = (type) => {
-    this.resetNewInputs();
-    this.curUrlType = type;
-  }
-
   toggleNewUrlSectionPanel = () => {
     this.resetNewInputs();
     this.newUrlSectionPanel ?
       this.newUrlSectionPanel = false :
       this.newUrlSectionPanel = true;
+  }
+
+  selectNewUrlSectionType = (type) => {
+    this.resetNewInputs();
+    this.curUrlType = type;
   }
 
   addNewUrlSection = () => {
