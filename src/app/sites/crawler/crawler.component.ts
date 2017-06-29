@@ -23,7 +23,14 @@ export class CrawlerComponent implements OnInit {
   site: Site;
   urlStrategy: String[];
   urlTypes: String[];
+
+  newUrlSectionPanel :Boolean;
   curUrlType: String;
+
+  curNewUrlSection: any;
+  newConst: any;
+  newIdRange: any;
+  newTicker: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +38,11 @@ export class CrawlerComponent implements OnInit {
     private crawlerService: CrawlerService){
 
       this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
+
+      this.newUrlSectionPanel = false;
+
+      this.resetNewInputs();
+
   }
 
   ngOnInit() {
@@ -65,11 +77,55 @@ export class CrawlerComponent implements OnInit {
 
   selectNewUrlSectionType = (type) => {
     this.curUrlType = type;
-    console.log(type);
   }
 
   clearNewUrlSectionType = () => {
     this.curUrlType = null;
+  }
+
+  toggleNewUrlSectionPanel = () => {
+    console.log(this.newUrlSectionPanel);
+    this.newUrlSectionPanel ?
+      this.newUrlSectionPanel = false :
+      this.newUrlSectionPanel = true;
+  }
+
+  addNewUrlSection = () => {
+
+    if(this.newConst.editing){
+
+    }
+    if(this.newIdRange.editing){
+
+    }
+    if(this.newTicker.editing){
+
+    }
+  }
+
+  resetNewInputs = () => {
+
+      this.newConst = {
+        url: "",
+        prefix: "",
+        suffix: "",
+        editing: false
+      };
+
+      this.newIdRange = {
+        min: 0,
+        max: 0,
+        prefix: "",
+        suffix: "",
+        editing: false
+      };
+
+      this.newTicker = {
+        prefix: "",
+        suffix: "",
+        editing: false
+      }
+
   }
 
   addUrlStrategy = () => {

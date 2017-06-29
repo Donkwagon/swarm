@@ -11,62 +11,64 @@
 
   <div class="crawler c f1">
 
-    <div class="crawler-panel c" *ngIf="site">
-      <div class="r">
+    <div class="crawler-panel r" *ngIf="site">
 
-        <div class="url-section-wrapper r">
-          <div class="root-url">
-            {{site.url}}
-          </div>
-        </div>
+      <div class="url-section-wrapper r"><div class="root-url">{{site.url}}</div></div>
 
-        <div class="url-section-wrapper r">
-          <div class="url-section-type">
-            CONST:
-          </div>
-          <div class="url-section">
-            article/
-          </div>
-        </div>
-
-        <div class="url-section-wrapper r">
-          <div class="url-section-type">
-            ID RANGE (1-100,000)
-          </div>
-        </div>
+      <div class="url-section-wrapper r" *ngFor="let urlSection of crawler.urlStrategy.sections">
+        <div class="url-section-type">CONST:</div>
+        <div class="url-section">article/</div>
       </div>
 
-      <form class="r f1" >
+      <div class="add-url-section">
 
+        <div class="add-new-button" (click)="toggleNewUrlSectionPanel()">
+          &nbsp;&nbsp;Add URL Section&nbsp;&nbsp;
+        </div>
+        
+        <div class="dropdown-panel c" *ngIf="newUrlSectionPanel">
 
-        <div class="add-url-wrapper r">
-
-          <div class="add-button">
-            <i class="fa fa-plus" aria-hidden="true"></i>
+          <div class="dropdown-list-item type"  *ngFor="let type of urlTypes"  (click)="selectNewUrlSectionType(type)">
+            + {{type}}
           </div>
 
-          <div class="url-strategy" *ngFor="let type of urlTypes"  (click)="selectNewUrlSectionType(type)">
-            {{type}}
+          <div class="new-url-section-inputs c" *ngIf="curUrlType == 'CONSTANT'">
+            <span class="caption">URL SECTION - CONSTANT</span>
+            <input placeholder="prefix" name="constPrefix" [(ngModel)]="newConst.prefix"/>
+            <input placeholder="Fixed URL component" [(ngModel)]="newConst.url" name="crawlerUrl"/>
+            <input placeholder="suffix" [(ngModel)]="newConst.suffix" name="constSuffix"/>
           </div>
-          
 
-          <input placeholder="Fixed URL component" [(ngModel)]="crawler.url" name="crawlerUrl"/>
+          <div class="new-url-section-inputs c" *ngIf="curUrlType == 'ID RANGE'">
+            <span class="caption">URL SECTION - ID RANGE</span>
+            <input placeholder="prefix" name="idRangePrefix" [(ngModel)]="newIdRange.prefix"/>
+            <div class="range-selector r">
+              <div class="label">Min:</div>
+              <input class="range-selector-input f1" type="number" min="0" max="10000000000" value="0" [(ngModel)]="newIdRange.min">
+            </div>
 
-          <div class="range-selector">
-            Min:
-            <input class="range-selector-input" type="number" min="0" max="10000000000" value="0">
-            Max:
-            <input class="range-selector-input" type="number" min="0" max="10000000000" value="0">
+            <div class="range-selector r">
+              <div class="label">Max:</div>
+              <input class="range-selector-input f1" type="number" min="0" max="10000000000" value="0" [(ngModel)]="newIdRange.max">
+            </div>
+            <input placeholder="suffix" name="idRangeSuffix" [(ngModel)]="newIdRange.suffix"/>
+          </div>
+
+          <div class="new-url-section-inputs c" *ngIf="curUrlType == 'TICKER'">
+            <span class="caption">URL SECTION - TICKER</span>
+            <input placeholder="prefix" name="crawlerUrl" [(ngModel)]="newTicker.prefix"/>
+            Ticker
+            <input placeholder="suffix" name="crawlerUrl" [(ngModel)]="newTicker.suffix"/>
+          </div>
+
+          <div class="r">
+            <div class="confirm-button f1 c ac">Cancel</div>
+            <div class="confirm-button f1 c ac">Confirm</div>
           </div>
 
         </div>
+      </div>
         
-        <div class="f1"></div>
-<!--
-        <button (click)="runCode()">submit</button>-->
-
-      </form>
-
     </div>
 
     <div class="work-space f1 r">
