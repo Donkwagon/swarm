@@ -25,6 +25,10 @@ export class Crawler {
     created_at: Date;
     updated_at: Date;
 
-    constructor(){}
-    
+    constructor(){
+        this.urlStrategy = {
+            root: "",
+            sections: []
+        };
+    }
 }

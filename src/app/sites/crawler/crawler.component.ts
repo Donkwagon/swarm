@@ -18,7 +18,6 @@ export class CrawlerComponent implements OnInit {
 
   text: any;
   crawler: Crawler;
-  siteName: string;
   @Input() site: Site;
 
   urlStrategy: String[];
@@ -42,28 +41,14 @@ export class CrawlerComponent implements OnInit {
       this.newUrlSectionPanel = false;
 
       this.resetNewInputs();
+      this.crawler = new Crawler();
 
   }
 
   ngOnInit() {
+    alert(JSON.stringify(this.crawler));
+    
 
-    this.crawler = new Crawler();
-  }
-
-  getSiteInfo = () => {
-
-    // this.siteService.getSitesBySite(this.siteName).then(res => {
-      
-    //   this.site = res[0];
-
-    //   if(!this.crawler.urlStrategy){
-        
-    //     this.crawler.urlStrategy = {
-    //       root: this.site.url,
-    //       sections: []
-    //     };
-    //   }
-    // });
   }
 
   ////////////////////////////////////////////////////////////////////////////
