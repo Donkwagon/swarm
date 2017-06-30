@@ -29,13 +29,14 @@ import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                  from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
 import { CrawlerComponent }                  from './sites/crawler/crawler.component';
+import { WebsiteComponent }                  from './sites/website/website.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent, CrawlerComponent,
-    AceEditorDirective,AceEditorComponent
+    AceEditorDirective,AceEditorComponent, WebsiteComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

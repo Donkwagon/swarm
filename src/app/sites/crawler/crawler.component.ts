@@ -49,27 +49,27 @@ export class CrawlerComponent implements OnInit {
 
     this.crawler = new Crawler();
 
-    this.sub = this.route.params.subscribe(params => {
-      this.siteName = params['siteName'];
-      this.getSiteInfo();
-    });
+    // this.sub = this.route.params.subscribe(params => {
+    //   this.siteName = params['siteName'];
+    //   this.getSiteInfo();
+    // });
 
   }
 
   getSiteInfo = () => {
 
-    this.siteService.getSitesBySite(this.siteName).then(res => {
+    // this.siteService.getSitesBySite(this.siteName).then(res => {
       
-      this.site = res[0];
+    //   this.site = res[0];
 
-      if(!this.crawler.urlStrategy){
+    //   if(!this.crawler.urlStrategy){
         
-        this.crawler.urlStrategy = {
-          root: this.site.url,
-          sections: []
-        };
-      }
-    });
+    //     this.crawler.urlStrategy = {
+    //       root: this.site.url,
+    //       sections: []
+    //     };
+    //   }
+    // });
   }
 
   ////////////////////////////////////////////////////////////////////////////

@@ -1,17 +1,10 @@
-<div class="crawler-interface r">
+<div class="crawler-interface f1 r">
 
-  <div class="site-info c" *ngIf="site">
-    <img [src]="site.imgUrl"/>
-    <h2 class="ac"><b class="yellowish title">{{site.name}}</b></h2>
-    <span class="ac">{{site.url}}</span>
-    <p class="description">{{site.description}}</p>
-    <p>{{site.created_at}}</p>
-    <p>{{site.updated_at}}</p>
-    <p>{{crawler | json}}</p>
-  </div>
 
   <div class="crawler c f1">
-
+    <div class="crawler-head r">
+      <span>Sample Crawler</span>
+    </div>
     <div class="crawler-panel r" *ngIf="site">
 
       <div class="url-section-wrapper r"><div class="root-url">{{site.url}}</div></div>
