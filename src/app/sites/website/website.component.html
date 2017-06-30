@@ -1,16 +1,27 @@
 <div class="site-interface r">
     <div class="site-info c" *ngIf="site">
+        <div class="site-info-content-wrapper c ">
 
-    <img [src]="site.imgUrl"/>
-    <h2 class="ac"><b class="yellowish title">{{site.name}}</b></h2>
-    <span class="ac">{{site.url}}</span>
-    <p class="description">{{site.description}}</p>
-    <p>{{site.created_at}}</p>
-    <p>{{site.updated_at}}</p>
-    <p>{{crawler | json}}</p>
+            <img [src]="site.imgUrl"/>
+            <h2 class="ac"><b class="yellowish title">{{site.name}}</b></h2>
+            <span class="ac">{{site.url}}</span>
+            <p class="description">{{site.description}}</p>
+            <p>{{site.created_at}}</p>
+            <p>{{site.updated_at}}</p>
+            <p>{{crawler | json}}</p>
+
+            <div class="site-info-nav" (click)="openMode('crawler')">
+                CRAWLERS
+            </div>
+
+            <div class="site-info-nav" (click)="openMode('crawler')">
+                STATUS
+            </div>
+
+        </div>
 
     </div>
 
-    <app-crawler [site]="site"></app-crawler>
+    <app-crawler *ngIf="mode === 'crawler'" [site]="site"></app-crawler>
 
 </div>

@@ -18,10 +18,15 @@ export class WebsiteComponent implements OnInit {
   siteName: string;
   site: Site;
 
+  mode: string;
+
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService,
-    private crawlerService: CrawlerService) { }
+    private crawlerService: CrawlerService) {
+
+      this.mode = null;
+  }
 
   ngOnInit() {
 
@@ -38,6 +43,10 @@ export class WebsiteComponent implements OnInit {
       
       this.site = res[0];
     });
+  }
+
+  openMode = (mode) => {
+    this.mode = mode
   }
 
 }

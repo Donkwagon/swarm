@@ -12,10 +12,8 @@
 
 .site-info{
     padding:1em 1em 1em 1em;
-    width:14rem;
-    margin:0;
-    border-top-left-radius:3px;
-    border-bottom-left-radius:3px;
+    min-width:14rem;
+    border-right:$theme solid 1px;
 
     background-image: linear-gradient(0deg,
         $n 0%, $n 9px,
@@ -33,6 +31,11 @@
         $t 49px, $t 50px);
     background-size: 50px 50px;
 
+    .site-info-content-wrapper{
+        width:300px;
+        margin:0 auto;
+    }
+
     img{
         height:5em;
         width:5em;
@@ -46,5 +49,23 @@
     .description{
         font-size:0.8em;
         color:#AAA;
+    }
+}
+
+.site-info-nav{
+    padding:1em;
+    border-radius:3px;
+    text-align:center;
+    margin-bottom:1em;
+    letter-spacing:3px;
+    font-weight:bold;
+    border:#EEE solid 1px;
+    color:#EEE;
+
+    &:hover{
+        cursor:pointer;
+        border:#FFF solid 1px;
+        color:#FFF;
+        text-shadow:0 0 1em #eee;
     }
 }

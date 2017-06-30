@@ -1,9 +1,10 @@
-<div class="crawler-interface f1 r">
+<div class="crawler-interface f2 r" *ngIf="crawler">
 
-
-  <div class="crawler c f1" *ngIf="crawler">
+  <div class="crawler c f1">
     <div class="crawler-head r">
       <span>Sample Crawler</span>
+      <div class="f1"></div>
+      <div (click)="close()">x</div>
     </div>
     <div class="crawler-panel r" *ngIf="site">
 

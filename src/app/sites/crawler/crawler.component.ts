@@ -39,18 +39,16 @@ export class CrawlerComponent implements OnInit {
       this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
 
       this.newUrlSectionPanel = false;
+      
+      this.crawler = new Crawler();
+      this.crawler.code = "\r\n///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\nvar title = null;\r\nvar author = null;\r\nvar primaryStock = null;\r\nvar username = null;\r\nvar articleId = null;\r\n\r\nvar include_stocks = null;\r\nvar summary = null;\r\nvar publish_at = null;\r\n\r\nvar article = new Article({\r\n    articleId: articleId,\r\n    title: title,\r\n    author: author,\r\n    username: username,\r\n    summary: summary,\r\n    articleUrl: URL,\r\n    includeStocks: include_stocks,\r\n    primaryStock:primaryStock,\r\n\r\n    published_at: publish_at,\r\n    created_at: new Date()\r\n});\r\n\r\nreturn article;"
 
       this.resetNewInputs();
-      this.crawler = new Crawler();
 
   }
 
-  ngOnInit() {
-    alert(JSON.stringify(this.crawler));
-    
-
-  }
-
+  ngOnInit() {}
+  
   ////////////////////////////////////////////////////////////////////////////
   //url panel logic
   ////////////////////////////////////////////////////////////////////////////
@@ -68,8 +66,6 @@ export class CrawlerComponent implements OnInit {
   }
 
   addNewUrlSection = () => {
-    console.log("function binded");
-
     if(this.curUrlType === "CONSTANT"){
       this.crawler.urlStrategy.sections.push(this.newConst);
     }
@@ -80,7 +76,6 @@ export class CrawlerComponent implements OnInit {
     if(this.curUrlType === "TICKER"){
       this.crawler.urlStrategy.sections.push(this.newTicker);
     }
-    console.log(this.crawler);
 
     this.resetNewInputs();
   }
@@ -121,8 +116,12 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
   
   onChange = () => {
-    console.log(this.text);
-    console.log(JSON.stringify(this.text));
+    console.log(typeof(this.crawler.code));
+    console.log(this.crawler.code.length);
+    console.log(this.crawler.code);
+    console.log(JSON.stringify(this.crawler.code).length);
+    console.log(JSON.stringify(this.crawler.code));
+    //console.log(JSON.stringify(this.text));
     //this.runCode();
   }
 
