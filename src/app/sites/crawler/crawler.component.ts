@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Site } from '../../@core/classes/site';
@@ -19,8 +19,8 @@ export class CrawlerComponent implements OnInit {
   text: any;
   crawler: Crawler;
   siteName: string;
-  sub: any;
-  site: Site;
+  @Input() site: Site;
+
   urlStrategy: String[];
   urlTypes: String[];
 
@@ -48,12 +48,6 @@ export class CrawlerComponent implements OnInit {
   ngOnInit() {
 
     this.crawler = new Crawler();
-
-    // this.sub = this.route.params.subscribe(params => {
-    //   this.siteName = params['siteName'];
-    //   this.getSiteInfo();
-    // });
-
   }
 
   getSiteInfo = () => {
