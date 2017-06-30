@@ -3,6 +3,21 @@ var ObjectID =            require('mongodb').ObjectID;
 var request =             require('request');
 var cheerio =             require('cheerio');
 
+var Article =             require('./models/content/article.model');
+
+var io = require('../../socket.server');
+
+console.log();
+
+// var Socket = io.on('connection', function(socket){
+//   console.log('123123123');
+//   socket.on('message', function(msg){
+//     io.emit('message', "123123");
+//     io.emit('message','in side callback')
+//   });
+//   //return socket;
+// });
+
 const crawler = express.Router();
 var crawler_COLLECTION = "crawlers";
 
@@ -15,6 +30,31 @@ function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
 }
+
+crawler.post("/run", function(req, res) {
+
+
+  var code = req.body.code;
+  var URL = req.body.url;
+
+  var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
+
+  req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
+
+  req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
+
+    //var $ = cheerio.load(html);
+
+    vm.runInThisContext(code);
+
+    
+    if(html){
+      res.status(200).json(html);
+    }else{
+      res.status(200).json("html is not defined");
+    }
+  });
+});
 
 crawler.get("", function(req, res) {
   db.collection(crawler_COLLECTION).find({}).toArray(function(err, docs) {
@@ -48,22 +88,6 @@ crawler.post("", function(req, res) {
       res.status(201).json(doc.ops[0]);
     }
   });
-});
-
-crawler.post("/run", function(req, res) {
-
-  var code = req.body.code;
-  var URL = req.body.url;
-
-  var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
-  req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
-  req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
-    res.status(200).json(html);
-    var $ = cheerio.load(html);
-    
-    vm.runInThisContext(code);
-  });
-
 });
 
 crawler.get("/:id", function(req, res) {

@@ -7,14 +7,20 @@ import { SiteService } from '../../@core/services/sites.service';
 import { Crawler } from '../../@core/classes/crawler';
 import { CrawlerService } from '../../@core/services/crawler.service';
 
+import { SocketService } from '../../@core/services/socket.service';
+
 @Component({
   selector: 'app-crawler',
   templateUrl: './crawler.component.html',
   styleUrls: ['./crawler.component.scss'],
-  providers: [SiteService,CrawlerService]
+  providers: [SiteService,CrawlerService,SocketService]
 })
 
 export class CrawlerComponent implements OnInit {
+  messages = [];
+  connection;
+  message;
+  
 
   text: any;
   crawler: Crawler;
@@ -34,21 +40,40 @@ export class CrawlerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService,
-    private crawlerService: CrawlerService){
+    private crawlerService: CrawlerService,
+    private socketService: SocketService){
 
       this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
 
       this.newUrlSectionPanel = false;
       
       this.crawler = new Crawler();
-      this.crawler.code = "\r\n///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\nvar title = null;\r\nvar author = null;\r\nvar primaryStock = null;\r\nvar username = null;\r\nvar articleId = null;\r\n\r\nvar include_stocks = null;\r\nvar summary = null;\r\nvar publish_at = null;\r\n\r\nvar article = new Article({\r\n    articleId: articleId,\r\n    title: title,\r\n    author: author,\r\n    username: username,\r\n    summary: summary,\r\n    articleUrl: URL,\r\n    includeStocks: include_stocks,\r\n    primaryStock:primaryStock,\r\n\r\n    published_at: publish_at,\r\n    created_at: new Date()\r\n});\r\n\r\nreturn article;"
+      this.crawler.code = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
 
       this.resetNewInputs();
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.connection = this.socketService.getMessages().subscribe(message => {
+      this.messages.push(message);
+      console.log("recieved a message!");
+      console.log(message);
+    })
+
+    this.message = "some messge";
+    this.sendMessage();
+  }
   
+
+  sendMessage(){
+    this.socketService.sendMessage(this.message);
+    this.message = '';
+  }
+  ngOnDestroy() {
+    this.connection.unsubscribe();
+  }
+
   ////////////////////////////////////////////////////////////////////////////
   //url panel logic
   ////////////////////////////////////////////////////////////////////////////

@@ -54,9 +54,12 @@ server.listen(process.env.PORT || 8100, function (err) {
 global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532"));
 mongoose.connect('mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532');
 
+const io = require('socket.io')();
+io.attach(server);
 
-//Start socket.io server 
-var io = require("./server/socket.server").listen(server);
+// //Start socket.io server 
+// var io = require("./server/socket.server").listen(server);
+
 
 const api = require('./server/routes/api');
 const queen = require('./server/swarm/queen');

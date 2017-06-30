@@ -1,11 +1,13 @@
 <div class="crawler-interface f2 r" *ngIf="crawler">
 
   <div class="crawler c f1">
+    
     <div class="crawler-head r">
       <span>Sample Crawler</span>
       <div class="f1"></div>
       <div (click)="close()">x</div>
     </div>
+
     <div class="crawler-panel r" *ngIf="site">
 
       <div class="url-section-wrapper r"><div class="root-url">{{site.url}}</div></div>
@@ -89,6 +91,12 @@
       </div>
       
       <div class="output-interface c">
+        <div class="interface-control-panel r">
+          <div class="interface-control-button" (click)="runCode()">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+            &nbsp;Run
+          </div>
+        </div>
         <div class="interface-module c f1">
           <b>INPUT PARAMETERS</b>
           <div class="interface-module-body ofys f1">
