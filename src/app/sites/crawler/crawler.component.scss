@@ -3,12 +3,6 @@
 
 $borderColor:rgba(255,255,240,0.7);
 
-.crawler{
-    margin:0;
-    border-top-right-radius:3px;
-    border-bottom-right-radius:3px;
-}
-
 .crawler-interface{
     height:100%;
     background-image: linear-gradient(to bottom, #222 0%, darken(#111, 5%) 100%);
@@ -18,19 +12,9 @@ $borderColor:rgba(255,255,240,0.7);
     background-color:rgba(0,0,0,0)!important;
 }
 
-.crawler-head{
-    padding:0.2em 0.5em;
-    color:$theme;
-}
-
 .crawler-panel{
-    padding:0;
     border-bottom:black solid 1px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size:1.1em;
-    padding: 0 0.5em;
-    border-bottom: $theme solid 1px;
-    border-top: $theme solid 1px;
+    padding:0.3em 0.5em;
 
     .url-section-wrapper{
 
@@ -38,7 +22,6 @@ $borderColor:rgba(255,255,240,0.7);
             cursor:pointer;
         }
     }
-
 
     .url-section-type{
         color:$orange;
@@ -59,11 +42,12 @@ $borderColor:rgba(255,255,240,0.7);
 
     .add-url-section{
         position:relative;
+        width:150px;
 
         .dropdown-panel{
             position:absolute;
             top:100%;
-            left:0;
+            right:0;
             width:200px;
             border-left:$theme solid 1px;
             border-right:$theme solid 1px;
@@ -141,40 +125,17 @@ $borderColor:rgba(255,255,240,0.7);
     color: black;
     }
 
-    button{
-        margin-left:1em;
-        padding:0.2em 0.5em;
-        color:white;
-        border:none;
-        background-color:$theme;
-        font-family:$font-stack;
-        font-size:1em;
-    }
-
-    .add-new-button{
-        padding:0.2em 0;;
-        background-color:$theme;
-
-        &:hover{
-            cursor:pointer;
-        }
-    }
 
 }
 
 .work-space{
     align-items:stretch;
 
-    .editor-wrapper{
-
-    }
-
     .output-interface{
         width:360px;
         background-color:rgba(255,255,255,0.1);
 
         .interface-module{
-            padding:0.5em;
 
             .interface-module-body{
                 background-color:black;
@@ -185,19 +146,6 @@ $borderColor:rgba(255,255,240,0.7);
         .interface-control-panel{
             padding:0.5em 1em;
             border-bottom:black solid 1px;
-
-            .interface-control-button{
-                padding:0.2em 1em;
-                color:$theme;
-                border-radius:3px;
-                border:$theme solid 1px;
-
-                &:hover{
-                    cursor:pointer;
-                    color:white;
-                    background-color:$theme;
-                }
-            }
         }
     }
 }

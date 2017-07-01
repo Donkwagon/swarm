@@ -1,12 +1,6 @@
 <div class="crawler-interface f2 r" *ngIf="crawler">
 
   <div class="crawler c f1">
-    
-    <div class="crawler-head r">
-      <span>Sample Crawler</span>
-      <div class="f1"></div>
-      <div (click)="close()">x</div>
-    </div>
 
     <div class="crawler-panel r" *ngIf="site">
 
@@ -23,10 +17,13 @@
         </div>
       </div>
 
+      <div class="f1"></div>
+
       <div class="add-url-section">
 
-        <div class="add-new-button" (click)="toggleNewUrlSectionPanel()">
-          &nbsp;&nbsp;Add URL Section&nbsp;&nbsp;
+        <div class="button -sun center" (click)="toggleNewUrlSectionPanel()">
+          <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+          &nbsp;URL Section
         </div>
         
         <div class="dropdown-panel c" *ngIf="newUrlSectionPanel">
@@ -91,13 +88,6 @@
       </div>
       
       <div class="output-interface c">
-        <div class="interface-control-panel r">
-          <div class="f1"></div>
-          <div class="interface-control-button" (click)="runCode()">
-            <i class="fa fa-caret-right" aria-hidden="true"></i>
-            &nbsp;Run
-          </div>
-        </div>
         <div class="interface-module c f1">
           <b>INPUT PARAMETERS</b>
           <div class="interface-module-body ofys f1">
@@ -114,6 +104,13 @@
           <b>DATA OUTPUT</b>
           <div class="interface-module-body ofys f1">
 
+          </div>
+        </div>
+        <div class="interface-control-panel r">
+          <div class="f1"></div>
+          <div class="button -green center" (click)="runCode()">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+            &nbsp;Run
           </div>
         </div>
       </div>
