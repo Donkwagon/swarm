@@ -4,6 +4,7 @@ var request =             require('request');
 var cheerio =             require('cheerio');
 
 var Article =             require('./models/content/article.model');
+var Security =            require('./models/content/security.model');
 
 var io = require('../../socket.server');
 
@@ -35,6 +36,7 @@ crawler.post("/run", function(req, res) {
 
 
   var code = req.body.code;
+  var URLStrategy = req.body.URLStrategy;
   var URL = req.body.url;
 
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
@@ -43,10 +45,9 @@ crawler.post("/run", function(req, res) {
 
   req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
 
-    //var $ = cheerio.load(html);
+    var $ = cheerio.load(html);
 
     vm.runInThisContext(code);
-
     
     if(html){
       res.status(200).json(html);
@@ -79,7 +80,6 @@ crawler.get("/site/:siteName", function(req, res) {
 crawler.post("", function(req, res) {
   var newcrawler = req.body;
   newcrawler.createDate = new Date();
-  console.log(req.body);
 
   db.collection(crawler_COLLECTION).insertOne(newcrawler, function(err, doc) {
     if (err) {

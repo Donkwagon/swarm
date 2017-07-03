@@ -12,6 +12,7 @@ import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                   from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
 import { WebsiteComponent }                  from './sites/website/website.component';
+import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'sites', component: SitesComponent, children: [
       { path: ':siteName', component: WebsiteComponent}
   ]},
+  { path: 'colors', component: ColorPaletteComponent},
   { path: 'cluster', component: ClusterComponent},
   { path: 'socket', component: SocketComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [

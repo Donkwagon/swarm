@@ -3,10 +3,8 @@
         <div class="site-info-content-wrapper c ">
 
             <img [src]="site.imgUrl"/>
-            <h2 class="ac"><b class="yellowish title">{{site.name}}</b></h2>
+            <p class="ac"><b class="yellowish title">{{site.name}}</b></p>
             <span class="ac">{{site.url}}</span>
-            <p>{{site.created_at}}</p>
-            <p>{{site.updated_at}}</p>
             <p>{{crawler | json}}</p>
 
             <div class="site-info-nav" (click)="openMode('crawler')">

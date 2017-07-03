@@ -30,13 +30,14 @@ import { ClusterComponent }                  from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
 import { CrawlerComponent }                  from './sites/crawler/crawler.component';
 import { WebsiteComponent }                  from './sites/website/website.component';
+import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent, CrawlerComponent,
-    AceEditorDirective,AceEditorComponent, WebsiteComponent
+    AceEditorDirective,AceEditorComponent, WebsiteComponent, ColorPaletteComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

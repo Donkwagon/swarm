@@ -3,12 +3,12 @@
 
 @media (min-width: 1300px) {
   body {
-      font-size:13px;
+      font-size:11px;
   }
 }
 @media (min-width: 1600px) {
   body {
-      font-size:15px;
+      font-size:11px;
   }
 }
 
@@ -16,9 +16,9 @@ body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:13px;
+    font-size:11px;
     color:#FFF;
-    background-image: linear-gradient(to bottom, #333 0%, darken(#333, 5%) 100%);
+    background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -94,7 +94,6 @@ a:active {color: pink;text-decoration:none;}
 .site-interface{
     position:relative;
     height:100%;
-    border-left:rgba(255,255,255,0.3) solid 1px;
 
     .site-head{
         background-color:black;
