@@ -12,6 +12,7 @@ import { CrawlerService } from '../../@core/services/crawler.service';
   styleUrls: ['./website.component.scss'],
   providers: [SiteService,CrawlerService]
 })
+
 export class WebsiteComponent implements OnInit {
 
   sub: any;

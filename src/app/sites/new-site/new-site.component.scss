@@ -1,0 +1,54 @@
+@import '../../../_theme';
+
+
+.page{
+    padding:1em;
+}
+
+.site-info-box{
+    padding:0.5em;
+    border:$CYAN_S1 solid 1px;
+    margin-right:1em;
+    border-radius:3px;
+    width:10em;
+    height:10em;
+
+    img{
+        height:1.5em;width:1.5em;
+        margin-left:0.5em;
+    }
+
+    .summary-interface{
+        //background-color:rgba(255,255,255,0.1);
+    }
+
+    &:hover{
+        box-shadow:0 0 1em $CYAN;
+    }
+}
+
+.new-site-btn{
+    align-items:center;
+    justify-content:center;
+    color:$CYAN;
+    cursor:pointer;
+
+    i{
+        font-size:3em;
+        color:$CYAN_S2;
+    }
+}
+
+.new-site-form{
+
+    .new-site-input{
+        border:none;
+        @extend .cyan;
+        margin-bottom:0.5em;
+        padding:0em 0.5em;
+        font-size:1em;
+        color:#333;
+        font-family:$font-stack;
+    }
+}
+
