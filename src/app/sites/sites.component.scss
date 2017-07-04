@@ -25,9 +25,11 @@
     width:12em;
 
     img{
+        border-radius:2px;
         height:2.4em;
+        width:2.4em;
         margin-left:0.5em;
-        border:$CYAN_S1 solid 0.5px;
+        background-color:white;
     }
 
     &:hover{

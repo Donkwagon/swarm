@@ -4,14 +4,14 @@
 
             <span class="cyan black-text title">{{site.name | uppercase}}</span>
             <br/>
-            <div class="r">
+            <a routerLink="/sites/{{site.name}}/crawlers" routerLinkActive="active" class="r">
                 <div class="site-info-nav" (click)="openMode('crawler')">
                     [ CRAWLERS ]&nbsp;
                 </div>
                 <div class="site-info-nav orange-text" (click)="openMode('crawler')" title="new crawler">
                     [ + ]
                 </div>
-            </div>
+            </a>
             <div class="f1"></div>
             <div class="site-info-nav" (click)="openMode('crawler')">
                 [ STATUS ]
@@ -19,14 +19,6 @@
 
             <div class="site-info-nav" (click)="openMode('crawler')">
                 [ MAPPING ]
-            </div>
-
-            <div class="site-info-nav" (click)="openMode('crawler')">
-                [ CONTENT TYPES ]
-            </div>
-            
-            <div class="site-info-nav" (click)="openMode('crawler')">
-                [ STATISTIC ]
             </div>
             
             <div class="site-info-nav" (click)="openMode('crawler')">
@@ -42,7 +34,6 @@
         </div>
 
     </div>
-
-    <app-crawler *ngIf="mode === 'crawler'" [site]="site"></app-crawler>
+    <router-outlet></router-outlet>
 
 </div>
