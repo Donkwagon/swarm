@@ -13,12 +13,12 @@
     </div>
   </div>
   
-  <div class="site-info-box new-site-btn c" >
+  <a routerLink="/sites/new" routerLinkActive="active" class="site-info-box new-site-btn c" >
     <i class="fa fa-plus-square-o" aria-hidden="true"></i>
     <span>NEW SITE</span>
-  </div>
+  </a>
 
-  <div class="site-info-box c">
+  <!--<div class="site-info-box c">
     <form class="new-site-form c">
       <input class="new-site-input" type="text" placeholder="site name" [(ngModel)]="newSite.name" name="siteName"/>
       <input class="new-site-input" type="text" placeholder="site URL" [(ngModel)]="newSite.url" name="siteUrl"/>
@@ -26,7 +26,7 @@
       <textarea class="new-site-input" type="text" placeholder="site description" [(ngModel)]="newSite.description" name="siteDescription"></textarea>
       <div class="button -green center" (click)="submitNewSite()">Submit</div>
     </form>
-  </div>
+  </div>-->
 
 </div>
 

@@ -12,7 +12,14 @@ import { AngularFireDatabaseModule }         from 'angularfire2/database';
 import { AngularFireAuthModule }             from 'angularfire2/auth';
 
 import { AceEditorDirective  }               from 'ng2-ace-editor';
-import { AceEditorComponent }                from 'ng2-ace-editor'; 
+import { AceEditorComponent }                from 'ng2-ace-editor';
+
+import { PerfectScrollbarModule }            from 'angular2-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface }   from 'angular2-perfect-scrollbar';
+ 
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
@@ -30,6 +37,7 @@ import { ClusterComponent }                  from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
 import { CrawlerComponent }                  from './sites/crawler/crawler.component';
 import { WebsiteComponent }                  from './sites/website/website.component';
+import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 @NgModule({
@@ -37,14 +45,16 @@ import { ColorPaletteComponent }             from './color-palette/color-palette
     AppComponent,
     SiteComponent,
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent, CrawlerComponent,
-    AceEditorDirective,AceEditorComponent, WebsiteComponent, ColorPaletteComponent
+    AceEditorDirective,AceEditorComponent, WebsiteComponent, ColorPaletteComponent, NewSiteComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
-    AngularFireAuthModule // imports firebase/auth, only needed for auth features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
+  
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

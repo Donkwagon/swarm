@@ -12,12 +12,14 @@ import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                   from './cluster/cluster.component';
 import { SitesComponent }                    from './sites/sites.component';
 import { WebsiteComponent }                  from './sites/website/website.component';
+import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'sites', component: SitesComponent, children: [
+      { path: 'new', component: NewSiteComponent},
       { path: ':siteName', component: WebsiteComponent}
   ]},
   { path: 'colors', component: ColorPaletteComponent},

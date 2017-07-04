@@ -16,6 +16,7 @@ $borderColor:rgba(255,255,240,0.7);
 .ace-monokai .ace_gutter{
     background:rgba(0,0,0,0)!important;
 }
+
 .crawler-panel{
     border-bottom:black solid 1px;
     padding:0.8em 0.5em 0.8em 0;
@@ -151,6 +152,11 @@ $borderColor:rgba(255,255,240,0.7);
                 background-image:$grid;
                 background-size:50px;
                 align-items:flex-start;
+                display:flex;
+
+                .msg{
+                    align-self:flex-start;
+                }
             }
         }
 
