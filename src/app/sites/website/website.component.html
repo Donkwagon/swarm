@@ -2,18 +2,22 @@
     <div class="site-info c" *ngIf="site">
         <div class="site-info-content-wrapper c ">
 
-            <img [src]="site.imgUrl"/>
-            <p class="ac"><b class="yellowish title">{{site.name}}</b></p>
-            <span class="ac">{{site.url}}</span>
-            <p>{{crawler | json}}</p>
-
-            <div class="site-info-nav" (click)="openMode('crawler')">
-                CRAWLERS
+            <span class="cyan black-text title">{{site.name | uppercase}}</span>
+            <br/>
+            <div class="r">
+                <div class="site-info-nav" (click)="openMode('crawler')">
+                    [ CRAWLERS ]&nbsp;
+                </div>
+                <div class="site-info-nav orange-text" (click)="openMode('crawler')" title="new crawler">
+                    [ + ]
+                </div>
             </div>
 
             <div class="site-info-nav" (click)="openMode('crawler')">
-                STATUS
+                [ STATUS ]
             </div>
+            <!--<img [src]="site.imgUrl"/>
+            <p>{{crawler | json}}</p>-->
 
         </div>
 

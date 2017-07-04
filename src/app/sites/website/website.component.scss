@@ -3,28 +3,18 @@
 
 .site-interface{
     @extend .fixed-full-screen;
-    background-color:#222;
+    background-color:rgba(0,0,0,0.93);
 }
 
 
 .site-info{
-    padding:1em 2em 1em 1em;
-    min-width:10rem;
-    //border-right:$theme solid 1px;
-    background-image: $grid;
-    background-size: 50px 50px;
+    padding:1em 1em 1em 1em;
 
     .site-info-content-wrapper{
-        width:10rem;
         margin:0 auto;
     }
 
-    img{
-        height:5em;width:5em;
-        margin:0 auto;
-    }
-
-    .title{font-weight:300;}
+    img{height:3em;width:3em;}
 
     .description{
         font-size:0.8em;
@@ -33,19 +23,12 @@
 }
 
 .site-info-nav{
-    padding:1em;
-    border-radius:3px;
-    text-align:center;
-    margin-bottom:1em;
-    letter-spacing:3px;
-    font-weight:bold;
-    border:#EEE solid 1px;
-    color:#EEE;
+    font-size:1em;
+    text-shadow:0 0 6px $CYAN;
+    color:$CYAN;
 
     &:hover{
         cursor:pointer;
-        border:#FFF solid 1px;
         color:#FFF;
-        text-shadow:0 0 1em #eee;
     }
 }

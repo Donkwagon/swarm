@@ -1,14 +1,17 @@
-<div class="crawler-interface f2 r" *ngIf="crawler">
+<div class="crawler-interface f1 r" *ngIf="crawler">
 
   <div class="crawler c f1">
 
     <div class="crawler-panel r" *ngIf="site">
 
-      <div class="url-section-wrapper r"><div class="root-url">{{site.url}}</div></div>
+      <div class="r">
+        <div class="root-url grey-text">[ URL CONFIG ]&nbsp;</div>
+        <div class="root-url cyan-text">{{site.url}}</div>
+      </div>
 
-      <div class="url-section-wrapper r" *ngFor="let urlSection of crawler.urlStrategy.sections">
+      <div class="r" *ngFor="let urlSection of crawler.urlStrategy.sections">
         <div class="url-section-type">{{urlSection.type}}:</div>
-        <div class="url-section">
+        <div class="url-section yellow-text">
           <span>{{urlSection.prefix}}</span>
           <span>{{urlSection.url}}</span>
           <span *ngIf="urlSection.type == 'ID RANGE'">{{urlSection.min}} - {{urlSection.max}}</span>
@@ -17,13 +20,10 @@
         </div>
       </div>
 
-      <div class="f1"></div>
-
       <div class="add-url-section">
 
-        <div class="button -sun center" (click)="toggleNewUrlSectionPanel()">
-          <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-          &nbsp;URL Section
+        <div class="orange-text" (click)="toggleNewUrlSectionPanel()">
+          [ + ]
         </div>
         
         <div class="dropdown-panel c" *ngIf="newUrlSectionPanel">
@@ -89,24 +89,38 @@
       
       <div class="output-interface c">
         <div class="interface-module c f1">
-          <b>INPUT PARAMETERS</b>
-          <div class="interface-module-body ofys f1">
+          <div class="interface-module-head cyan-s-2">INPUT PARAMETERS</div>
+          <div class="interface-module-body c ofys f1">
+            <div class="msg cyan black-text">
+              Test msg from server
+            </div>
+            <div class="msg cyan-text">
+              Content parsing OK
+            </div>
+            <div class="msg orange-text">
+              DATA structure validated
+            </div>
+            <div class="msg orange-text">
+              DATA structure validated
+            </div>
+            <div class="msg red-text">
+              ERROR saving data
+            </div>
+          </div>
+        </div>
+        <div class="interface-module c f1">
+          <div class="interface-module-head cyan-s-2">RESPONSE</div>
+          <div class="interface-module-body c ofys f1">
 
           </div>
         </div>
         <div class="interface-module c f1">
-          <b>RESPONSE</b>
-          <div class="interface-module-body ofys f1">
+          <div class="interface-module-head cyan-s-2">DATA OUTPUT</div>
+          <div class="interface-module-body c ofys f1">
 
           </div>
         </div>
-        <div class="interface-module c f1">
-          <b>DATA OUTPUT</b>
-          <div class="interface-module-body ofys f1">
-
-          </div>
-        </div>
-        <div class="interface-control-panel r">
+        <div class="interface-control-panel cyan-s-2 r">
           <div class="f1"></div>
           <div class="button -green center" (click)="runCode()">
             <i class="fa fa-caret-right" aria-hidden="true"></i>
