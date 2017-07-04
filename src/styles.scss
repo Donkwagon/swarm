@@ -4,12 +4,12 @@
 
 @media (min-width: 1300px) {
   body {
-      font-size:12px;
+      font-size:13px;
   }
 }
 @media (min-width: 1600px) {
   body {
-      font-size:12px;
+      font-size:13px;
   }
 }
 
@@ -17,7 +17,7 @@ body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:12px;
+    font-size:13px;
     color:#FFF;
     background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
