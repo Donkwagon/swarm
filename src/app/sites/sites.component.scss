@@ -5,16 +5,29 @@
     padding:1em;
 }
 
+.sites-panel{
+    padding:0 0.5em 0 0;
+    margin-bottom:1em;
+
+    input{
+        border:none;
+        padding:0.2em 0.5em;
+        font-size:1em;
+        font-family: $font-stack;
+    }
+}
+
 .site-info-box{
     padding:0.5em;
     border:$CYAN_S1 double 3px;
-    margin-right:1em;
+    margin:0 1em 1em 0;
     border-radius:3px;
-    width:10em;
+    width:12em;
 
     img{
-        height:1.5em;width:1.5em;
+        height:2.4em;
         margin-left:0.5em;
+        border:$CYAN_S1 solid 0.5px;
     }
 
     &:hover{
