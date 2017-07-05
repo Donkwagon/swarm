@@ -5,7 +5,7 @@
             <span class="cyan black-text title">{{site.name | uppercase}}</span>
             <br/>
             <a routerLink="/sites/{{site.name}}/crawlers" routerLinkActive="active" class="r">
-                <div class="site-info-nav" (click)="openMode('crawler')">
+                <div class="site-info-nav">
                     [ CRAWLERS ]&nbsp;
                 </div>
                 <div class="site-info-nav orange-text" (click)="openMode('crawler')" title="new crawler">
@@ -13,19 +13,19 @@
                 </div>
             </a>
             <div class="f1"></div>
-            <div class="site-info-nav" (click)="openMode('crawler')">
+            <a routerLink="/sites/{{site.name}}/status" routerLinkActive="active" class="site-info-nav" >
                 [ STATUS ]
-            </div>
+            </a>
 
-            <div class="site-info-nav" (click)="openMode('crawler')">
-                [ MAPPING ]
-            </div>
+            <a routerLink="/sites/{{site.name}}/mapper" routerLinkActive="active" class="site-info-nav">
+                [ MAPPERS ]
+            </a>
             
-            <div class="site-info-nav" (click)="openMode('crawler')">
+            <a routerLink="/sites/{{site.name}}/settings" routerLinkActive="active" class="site-info-nav">
                 [ SETTINGS ]
-            </div>
+            </a>
             
-            <div class="site-info-nav grey-text" (click)="openMode('crawler')">
+            <div class="site-info-nav grey-text">
                 <-BACK
             </div>
             <!--<img [src]="site.imgUrl"/>

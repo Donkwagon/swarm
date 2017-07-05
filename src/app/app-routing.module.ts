@@ -30,6 +30,7 @@ const routes: Routes = [
       { path: ':siteName', component: WebsiteComponent, children: [
           { path: 'crawlers', component: CrawlersComponent},
           { path: 'mappers', component: MappersComponent},
+          { path: 'status', component: StatusComponent},
           { path: 'settings', component: SettingsComponent}
         ]
       }

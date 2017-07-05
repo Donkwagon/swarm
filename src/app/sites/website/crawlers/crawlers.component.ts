@@ -58,7 +58,7 @@ export class CrawlersComponent implements OnInit {
 
   ngOnInit() {
 
-    this.sub = this.route.params.subscribe(params => {
+    this.sub = this.route.parent.params.subscribe(params => {
       this.siteName = params['siteName'];
       this.getSiteInfo();
     });
