@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Site } from '../../../@core/classes/site';
@@ -87,6 +87,7 @@ export class CrawlersComponent implements OnInit {
     this.message = '';
   }
   ngOnDestroy() {
+    this.sub.unsubscribe();
     this.connection.unsubscribe();
   }
 

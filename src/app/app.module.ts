@@ -37,7 +37,6 @@ import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                  from './cluster/cluster.component';
 
 import { SitesComponent }                    from './sites/sites.component';
-import { CrawlerComponent }                  from './sites/crawler/crawler.component';
 import { WebsiteComponent }                  from './sites/website/website.component';
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
@@ -51,7 +50,7 @@ import { ColorPaletteComponent }             from './color-palette/color-palette
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent, CrawlerComponent,
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent,
     AceEditorDirective,AceEditorComponent, WebsiteComponent, ColorPaletteComponent, NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent
   ],
   imports: [
