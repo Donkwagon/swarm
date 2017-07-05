@@ -11,6 +11,7 @@ var crawlerSchema = new Schema({
   url: String,
   site: Site,
   siteId: String,
+  type: String,
   code: String,
   doc: String,
   

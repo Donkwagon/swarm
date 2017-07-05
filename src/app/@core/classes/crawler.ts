@@ -4,8 +4,9 @@ import { Site } from './site';
 export class Crawler {
     
     _id?: string;
+    type: string; // webpage scraping, api
     name: string;
-    site: Site;
+    site: string;
     siteId: string;
     code: string;
     doc: string;

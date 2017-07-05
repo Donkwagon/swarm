@@ -38,6 +38,8 @@ export class CrawlersComponent implements OnInit {
   siteName: string;
   site: Site;
 
+  crawlers: Crawler[];
+
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService,
@@ -61,6 +63,7 @@ export class CrawlersComponent implements OnInit {
     this.sub = this.route.parent.params.subscribe(params => {
       this.siteName = params['siteName'];
       this.getSiteInfo();
+      this.getCrawlers();
     });
 
     this.connection = this.socketService.getMessages().subscribe(message => {
@@ -84,6 +87,14 @@ export class CrawlersComponent implements OnInit {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {
       this.site = res[0];
+    });
+  }
+  
+  
+  getCrawlers = () => {
+    this.crawlerService.getCrawlersBySite(this.siteName).then(res => {
+      console.log(res);
+      this.crawlers = res;
     });
   }
   

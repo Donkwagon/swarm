@@ -1,0 +1,49 @@
+
+@import '../../../../../_theme';
+
+.new-crawler-wrapper{
+    padding:1em;
+    border-radius:3px;
+    border:$CYAN_S1 double 3px;
+}
+.new-crawler-wrapper{
+    width:600px;
+    margin:0 auto;
+    align-items:flex-center;
+    justify-content:flex-center;
+
+    .new-site-input{
+        border:none;
+        border:$CYAN solid 0.5px;
+        border-radius:3px;
+        margin-bottom:1em;
+        padding:0.5em;
+        font-size:1.2em;
+        color:white;
+        background-color:rgba(0,0,0,0);
+        font-family:$font-stack;
+        color:$CYAN;
+
+        &:focus{
+            outline:none;
+        }
+    }
+
+    textarea{
+        resize:vertical;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $CYAN_S1;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: $CYAN_S1;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: $CYAN_S1;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: $CYAN_S1;
+    }
+}
+

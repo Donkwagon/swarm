@@ -68,7 +68,8 @@ crawler.get("", function(req, res) {
 });
 
 crawler.get("/site/:siteName", function(req, res) {
-  db.collection(crawler_COLLECTION).find({siteName: req.params.siteName}).toArray(function(err, docs) {
+  console.log(req.params.siteName);
+  db.collection(crawler_COLLECTION).find({site: req.params.siteName}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get crawlers.");
     } else {

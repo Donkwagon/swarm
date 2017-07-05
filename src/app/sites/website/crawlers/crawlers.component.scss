@@ -3,6 +3,10 @@
 
 $borderColor:rgba(255,255,240,0.7);
 
+.page{
+    padding:1em;
+}
+
 .crawler-interface{
     height:100%;
     align-self:stretch;
@@ -10,7 +14,6 @@ $borderColor:rgba(255,255,240,0.7);
 
 .ace-monokai{
     background-color:rgba(0,0,0,0)!important;
-
 }
 
 .ace-monokai .ace_gutter{
@@ -166,3 +169,38 @@ $borderColor:rgba(255,255,240,0.7);
         }
     }
 }
+
+.sites-panel{
+    padding:0 0.5em 0 0;
+    margin-bottom:1em;
+
+    input{
+        border:none;
+        padding:0.2em 0.5em;
+        font-size:1em;
+        font-family: $font-stack;
+    }
+}
+
+.crawler-info-box{
+    padding:0.5em;
+    border:$CYAN_S1 double 3px;
+    margin:0 1em 1em 0;
+    border-radius:3px;
+    width:12em;
+
+    img{
+        border-radius:2px;
+        height:2.4em;
+        width:2.4em;
+        margin-left:0.5em;
+        background-color:white;
+    }
+
+    &:hover{
+        cursor:pointer;
+        border:$CYAN double 3px;
+        box-shadow:0 0 1em $CYAN_S2;
+    }
+}
+

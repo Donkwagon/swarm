@@ -34,17 +34,19 @@ import { BacklogsComponent }                 from './site/backlogs/backlogs.comp
 import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                  from './cluster/cluster.component';
 
+import { ColorPaletteComponent }             from './color-palette/color-palette.component';
+
 import { SitesComponent }                    from './sites/sites.component';
+
 import { WebsiteComponent }                  from './sites/website/website.component';
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
+import { StatusComponent }                   from './sites/website/status/status.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
 import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
 import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
-import { StatusComponent }                   from './sites/website/status/status.component';
-import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
-import { ColorPaletteComponent }             from './color-palette/color-palette.component';
+import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
 @NgModule({
   declarations: [
