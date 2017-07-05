@@ -1,13 +1,11 @@
+import { Component, OnInit, OnDestroy, Input }     from '@angular/core';
+import { ActivatedRoute }                          from '@angular/router';
 
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { Site } from '../../../@core/classes/site';
-import { SiteService } from '../../../@core/services/sites.service';
-import { Crawler } from '../../../@core/classes/crawler';
-import { CrawlerService } from '../../../@core/services/crawler.service';
-
-import { SocketService } from '../../../@core/services/socket.service';
+import { Site }                              from '../../../@core/classes/site';
+import { SiteService }                       from '../../../@core/services/sites.service';
+import { Crawler }                           from '../../../@core/classes/crawler';
+import { CrawlerService }                    from '../../../@core/services/crawler.service';
+import { SocketService }                     from '../../../@core/services/socket.service';
 
 @Component({
   selector: 'app-crawlers',
@@ -17,11 +15,11 @@ import { SocketService } from '../../../@core/services/socket.service';
 })
 
 export class CrawlersComponent implements OnInit {
+
   messages = [];
   connection;
   message;
   
-
   text: any;
   crawler: Crawler;
 
@@ -51,9 +49,11 @@ export class CrawlersComponent implements OnInit {
       this.newUrlSectionPanel = false;
       
       this.crawler = new Crawler();
+
       this.crawler.code = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
 
       this.resetNewInputs();
+
     }
 
   ngOnInit() {
@@ -65,30 +65,34 @@ export class CrawlersComponent implements OnInit {
 
     this.connection = this.socketService.getMessages().subscribe(message => {
       this.messages.push(message);
-      console.log("recieved a message!");
-      console.log(message);
     })
 
     this.message = "some messge";
     this.sendMessage();
+
+  }
+  
+  ngOnDestroy() {
+
+    this.sub.unsubscribe();
+
+    this.connection.unsubscribe();
+
   }
   
   getSiteInfo = () => {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {
-      
       this.site = res[0];
     });
   }
   
 
   sendMessage(){
+
     this.socketService.sendMessage(this.message);
     this.message = '';
-  }
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-    this.connection.unsubscribe();
+
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -96,18 +100,23 @@ export class CrawlersComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
 
   toggleNewUrlSectionPanel = () => {
+
     this.resetNewInputs();
     this.newUrlSectionPanel ?
       this.newUrlSectionPanel = false :
       this.newUrlSectionPanel = true;
+
   }
 
   selectNewUrlSectionType = (type) => {
+
     this.resetNewInputs();
     this.curUrlType = type;
+
   }
 
   addNewUrlSection = () => {
+
     if(this.curUrlType === "CONSTANT"){
       this.crawler.urlStrategy.sections.push(this.newConst);
     }
@@ -123,11 +132,14 @@ export class CrawlersComponent implements OnInit {
   }
 
   removeUrlSection = (urlSection) => {
+
     var index = this.crawler.urlStrategy.sections.indexOf(urlSection);
     this.crawler.urlStrategy.sections.splice(index,1);
+
   }
 
   resetNewInputs = () => {
+    
     this.curUrlType = null;
 
     this.newConst = {

@@ -17,6 +17,8 @@ import { WebsiteComponent }                  from './sites/website/website.compo
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
+import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
+import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 import { StatusComponent }                   from './sites/website/status/status.component';
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
@@ -28,10 +30,13 @@ const routes: Routes = [
   { path: 'sites', component: SitesComponent, children: [
       { path: 'new', component: NewSiteComponent},
       { path: ':siteName', component: WebsiteComponent, children: [
-          { path: 'crawlers', component: CrawlersComponent},
           { path: 'mappers', component: MappersComponent},
           { path: 'status', component: StatusComponent},
-          { path: 'settings', component: SettingsComponent}
+          { path: 'settings', component: SettingsComponent},
+          { path: 'crawlers', component: CrawlersComponent, children: [
+            { path: 'new', component: NewCrawlerComponent},
+            { path: ':crawlerId', component: CrawlerComponent}
+          ]}
         ]
       }
   ]},

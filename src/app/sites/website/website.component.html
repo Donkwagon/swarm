@@ -1,18 +1,26 @@
+
 <div class="site-interface r">
+
     <div class="site-info c" *ngIf="site">
+
         <div class="site-info-content-wrapper c ">
 
             <span class="cyan black-text title">{{site.name | uppercase}}</span>
+
             <br/>
+
             <a routerLink="/sites/{{site.name}}/crawlers" routerLinkActive="active" class="r">
+
                 <div class="site-info-nav">
                     [ CRAWLERS ]&nbsp;
                 </div>
-                <div class="site-info-nav orange-text" (click)="openMode('crawler')" title="new crawler">
+
+                <div class="site-info-nav orange-text" title="new crawler">
                     [ + ]
                 </div>
+                
             </a>
-            <div class="f1"></div>
+
             <a routerLink="/sites/{{site.name}}/status" routerLinkActive="active" class="site-info-nav" >
                 [ STATUS ]
             </a>
@@ -28,12 +36,11 @@
             <div class="site-info-nav grey-text">
                 <-BACK
             </div>
-            <!--<img [src]="site.imgUrl"/>
-            <p>{{crawler | json}}</p>-->
 
         </div>
 
     </div>
+
     <router-outlet></router-outlet>
 
 </div>

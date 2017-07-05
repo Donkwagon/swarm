@@ -16,10 +16,8 @@ import { AceEditorComponent }                from 'ng2-ace-editor';
 
 import { PerfectScrollbarModule }            from 'angular2-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface }   from 'angular2-perfect-scrollbar';
- 
-const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
+
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
 
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
@@ -41,6 +39,8 @@ import { WebsiteComponent }                  from './sites/website/website.compo
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
+import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
+import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 import { StatusComponent }                   from './sites/website/status/status.component';
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
@@ -51,7 +51,9 @@ import { ColorPaletteComponent }             from './color-palette/color-palette
     AppComponent,
     SiteComponent,
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, SocketComponent, ClusterComponent, SitesComponent,
-    AceEditorDirective,AceEditorComponent, WebsiteComponent, ColorPaletteComponent, NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent
+    AceEditorDirective,AceEditorComponent,
+    WebsiteComponent, ColorPaletteComponent,
+    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
@@ -66,4 +68,5 @@ import { ColorPaletteComponent }             from './color-palette/color-palette
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
