@@ -1,12 +1,17 @@
 
 @import '../../../../../_theme';
 
+
+.crawler-page{
+    @extend .fixed-full-screen;
+    width: calc(100% - 12rem);
+    left:12rem;
+    background-color:black;
+}
+
 .crawler-interface{
     height:100%;
     align-self:stretch;
-}
-.ace-monokai{
-    background-color:rgba(0,0,0,0)!important;
 }
 
 .ace-monokai .ace_gutter{
@@ -135,7 +140,7 @@
         color:$ORANGE;
 
         .interface-module{
-            margin:0.5em;
+            margin:1px;
             background-color:rgba(100,100,100,0.03);
 
             .interface-module-head{
@@ -157,8 +162,8 @@
         }
 
         .interface-control-panel{
-            margin:0.5em;
-            padding:0.5em 1em;
+            margin:1px;
+            padding:0.5em 0.5em;
         }
     }
 }

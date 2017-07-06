@@ -5,20 +5,16 @@ import { Site }                              from '../../../@core/classes/site';
 import { SiteService }                       from '../../../@core/services/sites.service';
 import { Crawler }                           from '../../../@core/classes/crawler';
 import { CrawlerService }                    from '../../../@core/services/crawler.service';
-import { SocketService }                     from '../../../@core/services/socket.service';
 
 @Component({
   selector: 'app-crawlers',
   templateUrl: './crawlers.component.html',
   styleUrls: ['./crawlers.component.scss'],
-  providers: [SiteService,CrawlerService,SocketService]
+  providers: [SiteService,CrawlerService]
 })
 
 export class CrawlersComponent implements OnInit {
 
-  messages = [];
-  connection;
-  message;
 
   sub: any;
   siteName: string;
@@ -29,8 +25,7 @@ export class CrawlersComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService,
-    private crawlerService: CrawlerService,
-    private socketService: SocketService){
+    private crawlerService: CrawlerService){
     }
 
   ngOnInit() {
@@ -42,20 +37,11 @@ export class CrawlersComponent implements OnInit {
       this.getCrawlers();
     });
 
-    this.connection = this.socketService.getMessages().subscribe(message => {
-      this.messages.push(message);
-    })
-
-    this.message = "some messge";
-    this.sendMessage();
-
   }
   
   ngOnDestroy() {
 
     this.sub.unsubscribe();
-
-    this.connection.unsubscribe();
 
   }
   
@@ -78,12 +64,4 @@ export class CrawlersComponent implements OnInit {
 
   }
   
-
-  sendMessage(){
-
-    this.socketService.sendMessage(this.message);
-    this.message = '';
-
-  }
-
 }

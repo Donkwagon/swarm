@@ -6,14 +6,20 @@ import { CrawlerService }                    from '../../../../@core/services/cr
 import { Site }                              from '../../../../@core/classes/site';
 import { SiteService }                       from '../../../../@core/services/sites.service';
 
+import { SocketService }                     from '../../../../@core/services/socket.service';
+
 @Component({
   selector: 'app-crawler',
   templateUrl: './crawler.component.html',
   styleUrls: ['./crawler.component.scss'],
-  providers: [CrawlerService,SiteService]
+  providers: [CrawlerService,SiteService,SocketService]
 })
 
 export class CrawlerComponent implements OnInit {
+
+  messages = [];
+  connection;
+  message;
 
   sub_crawler:any;
   siteName: string;
@@ -39,7 +45,8 @@ export class CrawlerComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
-      private siteService: SiteService){
+      private siteService: SiteService,
+      private socketService: SocketService){
 
       this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
 
@@ -65,6 +72,21 @@ export class CrawlerComponent implements OnInit {
       this.crawlerId = params['crawlerId'];
       this.getCrawler();
     });
+
+    this.connection = this.socketService.getMessages().subscribe(message => {
+      this.messages.push(message);
+    })
+
+    this.message = "some messge";
+    this.sendMessage();
+  }
+
+  ngOnDestroy() {
+
+    this.sub.unsubscribe();
+
+    this.connection.unsubscribe();
+
   }
   
   getSiteInfo = () => {
@@ -175,5 +197,14 @@ export class CrawlerComponent implements OnInit {
     this.crawlerService.updatCrawler(this.crawler).then(res => {
     });
   }
+
+
+  sendMessage(){
+
+    this.socketService.sendMessage(this.message);
+    this.message = '';
+
+  }
+
 
 }
