@@ -137,15 +137,16 @@
 
     .output-interface{
         width:360px;
-        color:$ORANGE;
 
         .interface-module{
             margin:1px;
             background-color:rgba(100,100,100,0.03);
+            border-top:$CYAN solid 1px;
 
             .interface-module-head{
                 align-self:flex-start;
-                border-top:$cyan solid 1px;
+                color:$YELLOW;
+                font-weight:bold;
             }
 
             .interface-module-body{
@@ -155,6 +156,7 @@
                 background-size:50px;
                 display:flex;
                 align-items:flex-start;
+                font-size:13px;
 
                 .msg-wrapper{
                     width:100%;

@@ -24,16 +24,129 @@ function handleError(res, reason, message, code) {
 
 crawler.post("/run", function(req, res) {
 
-  var code = req.body.code;
+  var crawler = req.body;
   var URLStrategy = req.body.URLStrategy;
   var URL = req.body.url;
-  var URL = "https://seekingalpha.com/article/4086015-cliffs-explode";
+
+  strategyTester(crawler);
+});
+
+function strategyTester (crawler) {
+
+  var urlStrategy = crawler.urlStrategy;
+  var range_min = null;
+  var range_max = null;
+
+  if(crawler.testingStrategy){
+    var testingStrategy = crawler.testingStrategy;
+  }else{
+    var message = {
+      type: "error",
+      content: "Testing strategy undefined"
+    };
+    ws.emit('message',message);
+  }
+
+  var root = urlStrategy.root;
+
+  urlStrategy.sections.forEach(section => {
+    if(section.type === 'RANGE ID'){
+      range_min = section.min;
+      range_max = section.max;
+    }
+  });
+  
+  if(testingStrategy.type === 'single'){
+    var URL = [];
+    var url = root;
+
+    urlStrategy.sections.forEach(section => {
+
+      if(section.type === "CONSTANT"){
+        url += section.url;
+        url += "/";
+      }
+      if(section.type === "ID RANGE"){
+        url += testingStrategy.id;
+        url += "/";
+      }
+      if(section.type === "TICkER"){
+        url += "AAPL"
+        url += "/";
+      }
+
+    });
+
+    console.log(url);
+    URL.push(url);
+    crawlerTestingExecute(URL,0,2000,crawler);
+  }
+
+  if(testingStrategy.type == 'mulitple'){
+    var num = testingStrategy.num;
+    var URL = [];
+
+    var i = 0;
+    while(i < num){
+      var url = root;
+
+      urlStrategy.sections.forEach(section => {
+
+        if(section.type === "CONSTANT"){
+          url += section.url;
+          url += "/";
+        }
+        if(section.type === "ID RANGE"){
+          var id = MATH.floor(Math.random() * (range_max - range_min) + range_min);
+          url += id;
+          url += "/";
+        }
+        if(section.type === "TICkER"){
+          url += "AAPL"
+          url += "/";
+        }
+
+        URL.push(url);
+      });
+
+      i++;
+
+    }
+
+    crawlerTestingExecute(URL,0,2000,crawler);
+  }
+
+}
+
+crawlerTestingExecute = (URL, index, intv, crawler) => {
+  //URL: array of urls
+  //index: index for looping this function
+  //interval: interval for stress testing
+  console.log(JSON.stringify(URL));
+  var len = URL.length();
+
+  while(index < len){
+    var url = URL[index];
+    crawlPage(url,crawler );
+
+    setTimeout(function(){
+      index++;
+      crawlerTestingExecute(URL, index, intv, crawler);
+    }, intv);
+
+  }
+
+}
+
+crawlPage = (url, crawler) => {
+  //crawling code goes here
+  var code = crawler.code;
 
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
 
   req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
 
-  req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
+  req.get({url: url,headers: {'User-Agent': UserAgent}}, function(error, response, html){
 
     global.$ = cheerio.load(html);
     
@@ -49,9 +162,9 @@ crawler.post("/run", function(req, res) {
     if(publish_at){ws.emit('message',"publish_at ok")}else{ws.emit('message',"publish_at bad")};
 
     
-    
   });
-});
+
+}
 
 crawler.get("", function(req, res) {
   db.collection(crawler_COLLECTION).find({}).toArray(function(err, docs) {

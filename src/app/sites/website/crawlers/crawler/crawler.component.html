@@ -92,23 +92,39 @@
         
         <div class="output-interface c">
           <div class="interface-module c f1">
-            <div class="interface-module-head cyan-s-2">INPUT PARAMETERS</div>
+            <div class="interface-module-head">TESTING CONFIGURATION</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c f1">
+              <div class="config-setter" *ngFor="let section of crawler.urlStrategy.sections">
+                {{section | json}}
+              </div>
+              <div class="r">
+                <div>Sampling Type</div>
+                <input type="radio" name="gender" value="single"> Single<br>
+                <input type="radio" name="gender" value="multiple"> Multiple<br><br>
+              </div>
+              <div class="r">
+                <div>Range</div>
+                <input class="range-selector-input f1" type="number" min="0" max="100" value="0">
+              </div>
             </perfect-scrollbar>
           </div>
           <div class="interface-module c f1">
-            <div class="interface-module-head cyan-s-2">RESPONSE</div>
+            <div class="interface-module-head">Tolerance Testing</div>
+            <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
+            </perfect-scrollbar>
+          </div>
+          <div class="interface-module c f1">
+            <div class="interface-module-head">RESPONSE</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
               <div class="msg-wrapper r" *ngFor="let message of messages">
                 <div class="msg cyan black-text">
                   {{message}}
                 </div>
-                
               </div>
             </perfect-scrollbar>
           </div>
           <div class="interface-module c f1">
-            <div class="interface-module-head cyan-s-2">DATA OUTPUT</div>
+            <div class="interface-module-head">DATA OUTPUT</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
 
             </perfect-scrollbar>
