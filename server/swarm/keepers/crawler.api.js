@@ -35,9 +35,8 @@ crawler.post("/run", function(req, res) {
 
   req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
 
-    var $ = cheerio.load(html);
-    var HTML = JSON.stringify($);
-
+    global.$ = cheerio.load(html);
+    
     vm.runInThisContext(code);
 
     if(title){ws.emit('message',"title ok")}else{ws.emit('message',"title bad")};
@@ -48,6 +47,8 @@ crawler.post("/run", function(req, res) {
     if(include_stocks){ws.emit('message',"include_stocks ok")}else{ws.emit('message',"include_stocks bad")};
     if(summary){ws.emit('message',"summary ok")}else{ws.emit('message',"summary bad")};
     if(publish_at){ws.emit('message',"publish_at ok")}else{ws.emit('message',"publish_at bad")};
+
+    
     
   });
 });

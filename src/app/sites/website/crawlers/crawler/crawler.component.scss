@@ -145,6 +145,7 @@
 
             .interface-module-head{
                 align-self:flex-start;
+                border-top:$cyan solid 1px;
             }
 
             .interface-module-body{
@@ -152,11 +153,16 @@
                 padding:0.5em;
                 background-image:$grid;
                 background-size:50px;
-                align-items:flex-start;
                 display:flex;
+                align-items:flex-start;
 
-                .msg{
-                    align-self:flex-start;
+                .msg-wrapper{
+                    width:100%;
+
+                    .msg{
+                        align-self:flex-start;
+                        margin-bottom:1px;
+                    }
                 }
             }
         }

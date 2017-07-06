@@ -94,54 +94,17 @@
           <div class="interface-module c f1">
             <div class="interface-module-head cyan-s-2">INPUT PARAMETERS</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c f1">
-              <div class="msg cyan black-text">
-                Test msg from server
-              </div>
-              <div class="msg cyan-text">
-                Content parsing OK
-              </div>
-              <div class="msg orange-text">
-                DATA structure validated
-              </div>
-              <div class="msg orange-text">
-                DATA structure validated
-              </div>
-              <div class="msg red-text">
-                ERROR saving data
-              </div>
-              <div class="msg cyan black-text">
-                Test msg from server
-              </div>
-              <div class="msg cyan-text">
-                Content parsing OK
-              </div>
-              <div class="msg orange-text">
-                Big thanks to the continued hard work of mrdoob and the github community (http://mrdoob.github.com/three.js/) as well as the incredibly useful ...
-              </div>
-              <div class="msg orange-text">
-                DATA structure validated
-              </div>
-              <div class="msg red-text">
-                ERROR saving data
-              </div>
-              <div class="msg orange-text">
-                DATA structure validated
-              </div>
-              <div class="msg red-text">
-                ERROR saving data
-              </div>
-              <div class="msg cyan black-text">
-                Test msg from server
-              </div>
-              <div class="msg cyan-text">
-                Content parsing OK
-              </div>
             </perfect-scrollbar>
           </div>
           <div class="interface-module c f1">
             <div class="interface-module-head cyan-s-2">RESPONSE</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
-
+              <div class="msg-wrapper r" *ngFor="let message of messages">
+                <div class="msg cyan black-text">
+                  {{message}}
+                </div>
+                
+              </div>
             </perfect-scrollbar>
           </div>
           <div class="interface-module c f1">
