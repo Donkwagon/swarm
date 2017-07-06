@@ -1,17 +1,16 @@
 
-@import '../../../../../_theme';
+@import '../../../_theme';
 
-
-.crawler-page{
-    @extend .fixed-full-screen;
-    width: calc(100% - 12rem);
-    left:12rem;
-    background-color:black;
-}
+$borderColor:rgba(255,255,240,0.7);
 
 .crawler-interface{
     height:100%;
     align-self:stretch;
+}
+
+.ace-monokai{
+    background-color:rgba(0,0,0,0)!important;
+
 }
 
 .ace-monokai .ace_gutter{
@@ -137,16 +136,14 @@
 
     .output-interface{
         width:360px;
+        color:$ORANGE;
 
         .interface-module{
-            margin:1px;
+            margin:0.5em;
             background-color:rgba(100,100,100,0.03);
-            border-top:$CYAN solid 1px;
 
             .interface-module-head{
                 align-self:flex-start;
-                color:$YELLOW;
-                font-weight:bold;
             }
 
             .interface-module-body{
@@ -154,37 +151,18 @@
                 padding:0.5em;
                 background-image:$grid;
                 background-size:50px;
-                display:flex;
                 align-items:flex-start;
+                display:flex;
 
-                .msg-wrapper{
-                    width:100%;
-
-                    .msg{
-                        align-self:flex-start;
-                        margin-bottom:1px;
-                    }
+                .msg{
+                    align-self:flex-start;
                 }
-            }
-
-            input{
-                background-color:$CYAN;
-                border:none;
-                font-size:1em;
-                color:black;
-                font-family:$font-stack;
-            }
-
-            .config-setter{
-                background-color:$CYAN_S1;
-                padding:0.2em 0.5em;
-                margin:1px -0.5em;
             }
         }
 
         .interface-control-panel{
-            margin:1px;
-            padding:0.5em 0.5em;
+            margin:0.5em;
+            padding:0.5em 1em;
         }
     }
 }

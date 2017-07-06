@@ -26,7 +26,6 @@ crawler.post("/run", function(req, res) {
 
   var crawler = req.body;
   var URLStrategy = req.body.URLStrategy;
-  var URL = req.body.url;
 
   strategyTester(crawler);
 });
@@ -45,6 +44,7 @@ function strategyTester (crawler) {
       content: "Testing strategy undefined"
     };
     ws.emit('message',message);
+    return false;
   }
 
   var root = urlStrategy.root;
@@ -57,7 +57,8 @@ function strategyTester (crawler) {
   });
   
   if(testingStrategy.type === 'single'){
-    var URL = [];
+    var URL = new Array();
+    console.log(typeof(URL));
     var url = root;
 
     urlStrategy.sections.forEach(section => {
@@ -77,14 +78,15 @@ function strategyTester (crawler) {
 
     });
 
-    console.log(url);
+    console.log(URL);
     URL.push(url);
+    console.log(URL);
     crawlerTestingExecute(URL,0,2000,crawler);
   }
 
   if(testingStrategy.type == 'mulitple'){
     var num = testingStrategy.num;
-    var URL = [];
+    var URL = new Array();
 
     var i = 0;
     while(i < num){
@@ -122,10 +124,11 @@ crawlerTestingExecute = (URL, index, intv, crawler) => {
   //URL: array of urls
   //index: index for looping this function
   //interval: interval for stress testing
-  console.log(JSON.stringify(URL));
-  var len = URL.length();
 
-  while(index < len){
+  console.log(typeof(URL));
+  var len = URL.length;
+
+  if(index < len){
     var url = URL[index];
     crawlPage(url,crawler );
 
@@ -141,6 +144,7 @@ crawlerTestingExecute = (URL, index, intv, crawler) => {
 crawlPage = (url, crawler) => {
   //crawling code goes here
   var code = crawler.code;
+  console.log(code);
 
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
 
@@ -161,7 +165,6 @@ crawlPage = (url, crawler) => {
     if(summary){ws.emit('message',"summary ok")}else{ws.emit('message',"summary bad")};
     if(publish_at){ws.emit('message',"publish_at ok")}else{ws.emit('message',"publish_at bad")};
 
-    
   });
 
 }

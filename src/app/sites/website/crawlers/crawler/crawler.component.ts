@@ -108,6 +108,12 @@ export class CrawlerComponent implements OnInit {
       if(!this.crawler.code){
         this.crawler.code = this.codeTemplate;
       }
+      if(!this.crawler.testingStrategy){
+        this.crawler.testingStrategy = {
+          type: "single",
+          id : 1024
+        }
+      }
     });
 
   }

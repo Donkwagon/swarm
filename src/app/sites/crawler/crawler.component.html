@@ -1,0 +1,162 @@
+<div class="crawler-interface f1 r" *ngIf="crawler">
+
+  <div class="crawler c f1">
+
+    <div class="crawler-panel r" *ngIf="site">
+
+      <div class="r">
+        <div class="root-url grey-text">[ URL CONFIG ]&nbsp;</div>
+        <div class="root-url cyan-text">{{site.url}}</div>
+      </div>
+
+      <div class="r" *ngFor="let urlSection of crawler.urlStrategy.sections">
+        <div class="url-section-type">{{urlSection.type}}:</div>
+        <div class="url-section yellow-text">
+          <span>{{urlSection.prefix}}</span>
+          <span>{{urlSection.url}}</span>
+          <span *ngIf="urlSection.type == 'ID RANGE'">{{urlSection.min}} - {{urlSection.max}}</span>
+          <span>{{urlSection.suffix}}/</span>
+          <span style="color:red;" (click)="removeUrlSection(urlSection)">x</span>
+        </div>
+      </div>
+
+      <div class="add-url-section">
+
+        <div class="orange-text" (click)="toggleNewUrlSectionPanel()">
+          [ + ]
+        </div>
+        
+        <div class="dropdown-panel c" *ngIf="newUrlSectionPanel">
+
+          <div class="dropdown-list-item type"  *ngFor="let type of urlTypes"  (click)="selectNewUrlSectionType(type)">
+            + {{type}}
+          </div>
+
+          <div class="new-url-section-inputs c" *ngIf="curUrlType == 'CONSTANT'">
+            <span class="caption">URL SECTION - CONSTANT</span>
+            <input placeholder="prefix" name="constPrefix" [(ngModel)]="newConst.prefix"/>
+            <input placeholder="Fixed URL component" [(ngModel)]="newConst.url" name="crawlerUrl"/>
+            <input placeholder="suffix" [(ngModel)]="newConst.suffix" name="constSuffix"/>
+          </div>
+
+          <div class="new-url-section-inputs c" *ngIf="curUrlType == 'ID RANGE'">
+            <span class="caption">URL SECTION - ID RANGE</span>
+            <input placeholder="prefix" name="idRangePrefix" [(ngModel)]="newIdRange.prefix"/>
+            <div class="range-selector r">
+              <div class="label">Min:</div>
+              <input class="range-selector-input f1" type="number" min="0" max="10000000000" value="0" [(ngModel)]="newIdRange.min">
+            </div>
+
+            <div class="range-selector r">
+              <div class="label">Max:</div>
+              <input class="range-selector-input f1" type="number" min="0" max="10000000000" value="0" [(ngModel)]="newIdRange.max">
+            </div>
+            <input placeholder="suffix" name="idRangeSuffix" [(ngModel)]="newIdRange.suffix"/>
+          </div>
+
+          <div class="new-url-section-inputs c" *ngIf="curUrlType == 'TICKER'">
+            <span class="caption">URL SECTION - TICKER</span>
+            <input placeholder="prefix" name="crawlerUrl" [(ngModel)]="newTicker.prefix"/>
+            Ticker
+            <input placeholder="suffix" name="crawlerUrl" [(ngModel)]="newTicker.suffix"/>
+          </div>
+
+          <div class="r">
+            <div class="confirm-button f1 c ac" (click)="toggleNewUrlSectionPanel()">Cancel</div>
+            <div class="confirm-button f1 c ac" (click)="addNewUrlSection()">Confirm</div>
+          </div>
+
+        </div>
+      </div>
+        
+    </div>
+
+    <div class="work-space f1 r">
+      <div class="editor-wrapper f162">
+        <div ace-editor
+          class="f1 ace-editor"
+          [(text)]="crawler.code" 
+          [mode]="'javascript'"
+          [theme]="'twilight'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"></div>
+
+      </div>
+      
+      <div class="output-interface c">
+        <div class="interface-module c f1">
+          <div class="interface-module-head cyan-s-2">INPUT PARAMETERS</div>
+          <perfect-scrollbar [config]="config" class="interface-module-body c f1">
+            <div class="msg cyan black-text">
+              Test msg from server
+            </div>
+            <div class="msg cyan-text">
+              Content parsing OK
+            </div>
+            <div class="msg orange-text">
+              DATA structure validated
+            </div>
+            <div class="msg orange-text">
+              DATA structure validated
+            </div>
+            <div class="msg red-text">
+              ERROR saving data
+            </div>
+            <div class="msg cyan black-text">
+              Test msg from server
+            </div>
+            <div class="msg cyan-text">
+              Content parsing OK
+            </div>
+            <div class="msg orange-text">
+              Big thanks to the continued hard work of mrdoob and the github community (http://mrdoob.github.com/three.js/) as well as the incredibly useful ...
+            </div>
+            <div class="msg orange-text">
+              DATA structure validated
+            </div>
+            <div class="msg red-text">
+              ERROR saving data
+            </div>
+            <div class="msg orange-text">
+              DATA structure validated
+            </div>
+            <div class="msg red-text">
+              ERROR saving data
+            </div>
+            <div class="msg cyan black-text">
+              Test msg from server
+            </div>
+            <div class="msg cyan-text">
+              Content parsing OK
+            </div>
+          </perfect-scrollbar>
+        </div>
+        <div class="interface-module c f1">
+          <div class="interface-module-head cyan-s-2">RESPONSE</div>
+          <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
+
+          </perfect-scrollbar>
+        </div>
+        <div class="interface-module c f1">
+          <div class="interface-module-head cyan-s-2">DATA OUTPUT</div>
+          <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
+
+          </perfect-scrollbar>
+        </div>
+        <div class="interface-control-panel cyan-s-2 r">
+          <div class="f1"></div>
+          <div class="button -green center" (click)="runCode()">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+            &nbsp;Run
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
