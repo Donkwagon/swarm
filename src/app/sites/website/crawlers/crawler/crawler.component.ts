@@ -74,6 +74,8 @@ export class CrawlerComponent implements OnInit {
     });
 
     this.connection = this.socketService.getMessages().subscribe(message => {
+      console.log("jackie slkdfjasdf");
+      console.log(message);
       this.messages.push(message);
     })
 
@@ -86,7 +88,7 @@ export class CrawlerComponent implements OnInit {
     this.sub.unsubscribe();
 
     this.sub_crawler.unsubscribe();
-    
+
     this.connection.unsubscribe();
 
   }
@@ -194,6 +196,11 @@ export class CrawlerComponent implements OnInit {
 
   validateCode = () => {
   }
+
+
+  ////////////////////////////////////////////////////////////////////////////
+  //web socket shit
+  ////////////////////////////////////////////////////////////////////////////
 
   save = () => {
     this.crawlerService.updatCrawler(this.crawler).then(res => {

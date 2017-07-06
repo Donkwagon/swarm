@@ -5,19 +5,9 @@ var cheerio =             require('cheerio');
 
 var Article =             require('./models/content/article.model');
 var Security =            require('./models/content/security.model');
+var app = express();
 
-var io = require('../../socket.server');
-
-console.log();
-
-// var Socket = io.on('connection', function(socket){
-//   console.log('123123123');
-//   socket.on('message', function(msg){
-//     io.emit('message', "123123");
-//     io.emit('message','in side callback')
-//   });
-//   //return socket;
-// });
+var ws = global.io.sockets;
 
 const crawler = express.Router();
 var crawler_COLLECTION = "crawlers";
@@ -37,6 +27,7 @@ crawler.post("/run", function(req, res) {
   var code = req.body.code;
   var URLStrategy = req.body.URLStrategy;
   var URL = req.body.url;
+  var URL = "https://seekingalpha.com/article/4086015-cliffs-explode";
 
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
 
@@ -45,14 +36,19 @@ crawler.post("/run", function(req, res) {
   req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
 
     var $ = cheerio.load(html);
+    var HTML = JSON.stringify($);
 
     vm.runInThisContext(code);
+
+    if(title){ws.emit('message',"title ok")}else{ws.emit('message',"title bad")};
+    if(author){ws.emit('message',"author ok")}else{ws.emit('message',"title bad")};
+    if(primaryStock){ws.emit('message',"primaryStock ok")}else{ws.emit('message',"primaryStock bad")};
+    if(username){ws.emit('message',"username ok")}else{ws.emit('message',"username bad")};
+    if(articleId){ws.emit('message',"articleId ok")}else{ws.emit('message',"articleId bad")};
+    if(include_stocks){ws.emit('message',"include_stocks ok")}else{ws.emit('message',"include_stocks bad")};
+    if(summary){ws.emit('message',"summary ok")}else{ws.emit('message',"summary bad")};
+    if(publish_at){ws.emit('message',"publish_at ok")}else{ws.emit('message',"publish_at bad")};
     
-    if(html){
-      res.status(200).json(html);
-    }else{
-      res.status(200).json("html is not defined");
-    }
   });
 });
 
