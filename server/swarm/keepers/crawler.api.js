@@ -129,7 +129,9 @@ crawlerTestingExecute = (URL, index, intv, crawler) => {
   var len = URL.length;
 
   if(index < len){
+
     var url = URL[index];
+
     crawlPage(url,crawler );
 
     setTimeout(function(){
@@ -144,7 +146,6 @@ crawlerTestingExecute = (URL, index, intv, crawler) => {
 crawlPage = (url, crawler) => {
   //crawling code goes here
   var code = crawler.code;
-  console.log(code);
 
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
 
@@ -156,17 +157,42 @@ crawlPage = (url, crawler) => {
     
     vm.runInThisContext(code);
 
-    if(title){ws.emit('message',"title ok")}else{ws.emit('message',"title bad")};
-    if(author){ws.emit('message',"author ok")}else{ws.emit('message',"title bad")};
-    if(primaryStock){ws.emit('message',"primaryStock ok")}else{ws.emit('message',"primaryStock bad")};
-    if(username){ws.emit('message',"username ok")}else{ws.emit('message',"username bad")};
-    if(articleId){ws.emit('message',"articleId ok")}else{ws.emit('message',"articleId bad")};
-    if(include_stocks){ws.emit('message',"include_stocks ok")}else{ws.emit('message',"include_stocks bad")};
-    if(summary){ws.emit('message',"summary ok")}else{ws.emit('message',"summary bad")};
-    if(publish_at){ws.emit('message',"publish_at ok")}else{ws.emit('message',"publish_at bad")};
+    if(title){emitMsg("message","success","title ok");
+    }else{emitMsg("message","error","title bad");};
+
+    if(author){emitMsg("message","success","author ok");
+    }else{emitMsg("message","error","author bad");};
+
+    if(primaryStock){emitMsg("message","success","primaryStock ok");
+    }else{emitMsg("message","error","primaryStock bad");};
+
+    if(username){emitMsg("message","success","username ok")
+    }else{emitMsg("message","error","username bad")};
+
+    if(articleId){emitMsg("message","success","articleId ok")
+    }else{emitMsg("message","error","articleId bad")};
+  
+    if(include_stocks){emitMsg("message","success","include_stocks ok")
+    }else{emitMsg("message","error","include_stocks bad")};
+  
+    if(summary){emitMsg("message","success","summary ok")
+    }else{emitMsg("message","error","summary bad")};
+  
+    if(publish_at){emitMsg("message","success","publish_at ok")
+    }else{emitMsg("message","error","publish_at bad")};
+  
 
   });
+}
 
+function emitMsg(channel,status,content){
+
+  var msg = {
+    status: status,
+    content: content
+  }
+
+  ws.emit(channel,msg);
 }
 
 crawler.get("", function(req, res) {

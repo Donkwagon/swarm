@@ -134,8 +134,8 @@
             <div class="interface-module-head">RESPONSE</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
               <div class="msg-wrapper r" *ngFor="let message of messages">
-                <div class="msg cyan black-text">
-                  {{message}}
+                <div class="msg" [ngClass]="{'success': message.status == 'success', 'error': message.status == 'error'}">
+                  {{message.content}}
                 </div>
               </div>
             </perfect-scrollbar>

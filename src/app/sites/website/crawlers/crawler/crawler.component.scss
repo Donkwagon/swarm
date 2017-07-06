@@ -164,6 +164,14 @@
                         align-self:flex-start;
                         margin-bottom:1px;
                     }
+
+                    .success{
+                        color:$grass;
+                    }
+
+                    .error{
+                        color:$RED;
+                    }
                 }
             }
 
