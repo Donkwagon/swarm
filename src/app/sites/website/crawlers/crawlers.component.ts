@@ -37,6 +37,7 @@ export class CrawlersComponent implements OnInit {
 
     this.sub = this.route.parent.params.subscribe(params => {
       this.siteName = params['siteName'];
+      console.log(params);
       this.getSiteInfo();
       this.getCrawlers();
     });

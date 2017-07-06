@@ -18,8 +18,8 @@ export class CrawlerComponent implements OnInit {
   sub_crawler:any;
   siteName: string;
   site: Site;
-  
-  text: any;
+
+  codeTemplate: string;
 
   urlStrategy: String[];
   urlTypes: String[];
@@ -47,10 +47,11 @@ export class CrawlerComponent implements OnInit {
       
       this.crawler = new Crawler();
 
-      this.crawler.code = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
+      this.codeTemplate = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
 
+      this.resetNewInputs();
 
-      this.resetNewInputs();}
+  }
 
   ngOnInit() {
 
@@ -70,17 +71,21 @@ export class CrawlerComponent implements OnInit {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {
       this.site = res[0];
-      console.log(res);
     });
+
   }
   
   getCrawler = () => {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
       this.crawler = res;
-      console.log(res);
+      if(!this.crawler.code){
+        this.crawler.code = this.codeTemplate;
+      }
     });
+
   }
+
   ////////////////////////////////////////////////////////////////////////////
   //url panel logic
   ////////////////////////////////////////////////////////////////////////////
@@ -156,19 +161,18 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
   
   onChange = () => {
-    console.log(typeof(this.crawler.code));
-    console.log(this.crawler.code.length);
-    console.log(this.crawler.code);
-    console.log(JSON.stringify(this.crawler.code).length);
-    console.log(JSON.stringify(this.crawler.code));
-    //console.log(JSON.stringify(this.text));
-    //this.runCode();
   }
 
   runCode = () => {
-    console.log(typeof(this.crawler));
     this.crawlerService.runCode(this.crawler).then(res => {
-      console.log(res);
+    });
+  }
+
+  validateCode = () => {
+  }
+
+  save = () => {
+    this.crawlerService.updatCrawler(this.crawler).then(res => {
     });
   }
 

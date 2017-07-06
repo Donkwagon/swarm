@@ -2,8 +2,7 @@
   <form class="new-site-form c">
     <p>New Crawler</p>
     <input class="new-site-input" type="text" spellcheck="false" placeholder="crawler name" [(ngModel)]="newCrawler.name" name="crawlerName"/>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="crawler URL strategy" [(ngModel)]="newCrawler.url" name="siteUrl"/>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="crawler logoURL" [(ngModel)]="newCrawler.imgUrl" name="imgUrl"/>
+    <input class="new-site-input" type="text" spellcheck="false" placeholder="Root URL" [(ngModel)]="newCrawler.urlStrategy.root" name="rootUrl"/>
     <textarea class="new-site-input" type="text" spellcheck="false" placeholder="crawler description" [(ngModel)]="newCrawler.description" name="siteDescription"></textarea>
     <div class="button -green center" (click)="submitNewCrawler()">Submit</div>
   </form>
