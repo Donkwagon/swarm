@@ -85,6 +85,8 @@ export class CrawlerComponent implements OnInit {
 
     this.sub.unsubscribe();
 
+    this.sub_crawler.unsubscribe();
+    
     this.connection.unsubscribe();
 
   }
@@ -197,7 +199,6 @@ export class CrawlerComponent implements OnInit {
     this.crawlerService.updatCrawler(this.crawler).then(res => {
     });
   }
-
 
   sendMessage(){
 
