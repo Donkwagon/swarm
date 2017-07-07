@@ -12,13 +12,11 @@ var ws = global.io.sockets;
 const crawler = express.Router();
 var crawler_COLLECTION = "crawlers";
 
-
 const vm = require('vm');
-var _eval = require('eval')
 
-// Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
+  emitMsg("message","error",reason);
   res.status(code || 500).json({"error": message});
 }
 
@@ -28,9 +26,10 @@ crawler.post("/run", function(req, res) {
   var URLStrategy = req.body.URLStrategy;
 
   strategyTester(crawler);
+
 });
 
-function strategyTester (crawler) {
+strategyTester = (crawler) => {
 
   var urlStrategy = crawler.urlStrategy;
   var range_min = null;
@@ -39,11 +38,7 @@ function strategyTester (crawler) {
   if(crawler.testingStrategy){
     var testingStrategy = crawler.testingStrategy;
   }else{
-    var message = {
-      type: "error",
-      content: "Testing strategy undefined"
-    };
-    ws.emit('message',message);
+    emitMsg("message","error","Testing strategy undefined");
     return false;
   }
 
@@ -57,55 +52,48 @@ function strategyTester (crawler) {
   });
   
   if(testingStrategy.type === 'single'){
+
     var URL = new Array();
-    console.log(typeof(URL));
     var url = root;
 
     urlStrategy.sections.forEach(section => {
 
       if(section.type === "CONSTANT"){
-        url += section.url;
-        url += "/";
+          url += section.url + "/";
       }
       if(section.type === "ID RANGE"){
-        url += testingStrategy.id;
-        url += "/";
+        url += testingStrategy.id + "/";
       }
       if(section.type === "TICkER"){
-        url += "AAPL"
-        url += "/";
+          url += "AAPL" + "/"
       }
 
     });
-
-    console.log(URL);
     URL.push(url);
-    console.log(URL);
     crawlerTestingExecute(URL,0,2000,crawler);
   }
 
-  if(testingStrategy.type == 'mulitple'){
+  if(testingStrategy.type === 'mulitple'){
+    
     var num = testingStrategy.num;
     var URL = new Array();
 
     var i = 0;
+
     while(i < num){
       var url = root;
 
       urlStrategy.sections.forEach(section => {
 
         if(section.type === "CONSTANT"){
-          url += section.url;
-          url += "/";
+          url += section.url + "/";
         }
         if(section.type === "ID RANGE"){
           var id = MATH.floor(Math.random() * (range_max - range_min) + range_min);
-          url += id;
-          url += "/";
+          url += id + "/";
         }
         if(section.type === "TICkER"){
-          url += "AAPL"
-          url += "/";
+          url += "AAPL" + "/"
         }
 
         URL.push(url);
@@ -125,7 +113,6 @@ crawlerTestingExecute = (URL, index, intv, crawler) => {
   //index: index for looping this function
   //interval: interval for stress testing
 
-  console.log(typeof(URL));
   var len = URL.length;
 
   if(index < len){
@@ -157,35 +144,20 @@ crawlPage = (url, crawler) => {
     
     vm.runInThisContext(code);
 
-    if(title){emitMsg("message","success","title ok");
-    }else{emitMsg("message","error","title bad");};
-
-    if(author){emitMsg("message","success","author ok");
-    }else{emitMsg("message","error","author bad");};
-
-    if(primaryStock){emitMsg("message","success","primaryStock ok");
-    }else{emitMsg("message","error","primaryStock bad");};
-
-    if(username){emitMsg("message","success","username ok")
-    }else{emitMsg("message","error","username bad")};
-
-    if(articleId){emitMsg("message","success","articleId ok")
-    }else{emitMsg("message","error","articleId bad")};
+    //check if all fields are filled
+    title?          emitMsg("message","success","title ok")          :emitMsg("message","error","title bad");
+    author?         emitMsg("message","success","author ok")         :emitMsg("message","error","author bad");
+    primaryStock?   emitMsg("message","success","primaryStock ok")   :emitMsg("message","error","primaryStock bad");
+    username?       emitMsg("message","success","username ok")       :emitMsg("message","error","username bad");
+    articleId?      emitMsg("message","success","articleId ok")      :emitMsg("message","error","articleId bad");
+    include_stocks? emitMsg("message","success","include_stocks ok") :emitMsg("message","error","include_stocks bad");
+    summary?        emitMsg("message","success","summary ok")        :emitMsg("message","error","summary bad");
+    publish_at?     emitMsg("message","success","publish_at ok")     :emitMsg("message","error","publish_at bad");
   
-    if(include_stocks){emitMsg("message","success","include_stocks ok")
-    }else{emitMsg("message","error","include_stocks bad")};
-  
-    if(summary){emitMsg("message","success","summary ok")
-    }else{emitMsg("message","error","summary bad")};
-  
-    if(publish_at){emitMsg("message","success","publish_at ok")
-    }else{emitMsg("message","error","publish_at bad")};
-  
-
   });
 }
 
-function emitMsg(channel,status,content){
+emitMsg = (channel,status,content) => {
 
   var msg = {
     status: status,
@@ -194,6 +166,9 @@ function emitMsg(channel,status,content){
 
   ws.emit(channel,msg);
 }
+
+//////////////////////////////////////////////////////
+//generic apis
 
 crawler.get("", function(req, res) {
   db.collection(crawler_COLLECTION).find({}).toArray(function(err, docs) {
