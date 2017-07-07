@@ -24,7 +24,8 @@ crawler.post("/run", function(req, res) {
 
   var crawler = req.body;
   var URLStrategy = req.body.URLStrategy;
-
+  
+  emitMsg("message","normal","testing crawler");
   strategyTester(crawler);
 
 });
@@ -36,6 +37,7 @@ strategyTester = (crawler) => {
   var range_max = null;
 
   if(crawler.testingStrategy){
+    emitMsg("message","normal","testing strategy ok");
     var testingStrategy = crawler.testingStrategy;
   }else{
     emitMsg("message","error","Testing strategy undefined");
@@ -44,8 +46,11 @@ strategyTester = (crawler) => {
 
   var root = urlStrategy.root;
 
+  
+  emitMsg("message","normal","root URL obtained " + root);
+
   urlStrategy.sections.forEach(section => {
-    if(section.type === 'RANGE ID'){
+    if(section.type === 'ID RANGE'){
       range_min = section.min;
       range_max = section.max;
     }
@@ -69,11 +74,14 @@ strategyTester = (crawler) => {
       }
 
     });
+
     URL.push(url);
+    
+    emitMsg("message","normal","executing single request");
     crawlerTestingExecute(URL,0,2000,crawler);
   }
 
-  if(testingStrategy.type === 'mulitple'){
+  if(testingStrategy.type === 'multiple'){
     
     var num = testingStrategy.num;
     var URL = new Array();
@@ -89,20 +97,24 @@ strategyTester = (crawler) => {
           url += section.url + "/";
         }
         if(section.type === "ID RANGE"){
-          var id = MATH.floor(Math.random() * (range_max - range_min) + range_min);
+          var id = Math.random() * (range_max - range_min) + range_min;
+          id = parseInt(id);
           url += id + "/";
         }
         if(section.type === "TICkER"){
           url += "AAPL" + "/"
         }
-
-        URL.push(url);
+        
       });
+      
+      emitMsg("message","normal","URL generated " + url);
+      URL.push(url);
 
       i++;
 
     }
 
+    emitMsg("message","normal","executing multiple requests");
     crawlerTestingExecute(URL,0,2000,crawler);
   }
 
@@ -133,6 +145,7 @@ crawlerTestingExecute = (URL, index, intv, crawler) => {
 crawlPage = (url, crawler) => {
   //crawling code goes here
   var code = crawler.code;
+  emitMsg("message","normal","crawling " + url);
 
   var UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36';
 
@@ -145,14 +158,14 @@ crawlPage = (url, crawler) => {
     vm.runInThisContext(code);
 
     //check if all fields are filled
-    title?          emitMsg("message","success","title ok")          :emitMsg("message","error","title bad");
-    author?         emitMsg("message","success","author ok")         :emitMsg("message","error","author bad");
-    primaryStock?   emitMsg("message","success","primaryStock ok")   :emitMsg("message","error","primaryStock bad");
-    username?       emitMsg("message","success","username ok")       :emitMsg("message","error","username bad");
-    articleId?      emitMsg("message","success","articleId ok")      :emitMsg("message","error","articleId bad");
-    include_stocks? emitMsg("message","success","include_stocks ok") :emitMsg("message","error","include_stocks bad");
-    summary?        emitMsg("message","success","summary ok")        :emitMsg("message","error","summary bad");
-    publish_at?     emitMsg("message","success","publish_at ok")     :emitMsg("message","error","publish_at bad");
+    title ?          emitMsg("message","success","title ok")          : emitMsg("message","error","title bad");
+    author ?         emitMsg("message","success","author ok")         : emitMsg("message","error","author bad");
+    primaryStock ?   emitMsg("message","success","primaryStock ok")   : emitMsg("message","error","primaryStock bad");
+    username ?       emitMsg("message","success","username ok")       : emitMsg("message","error","username bad");
+    articleId ?      emitMsg("message","success","articleId ok")      : emitMsg("message","error","articleId bad");
+    include_stocks ? emitMsg("message","success","include_stocks ok") : emitMsg("message","error","include_stocks bad");
+    summary ?        emitMsg("message","success","summary ok")        : emitMsg("message","error","summary bad");
+    publish_at ?     emitMsg("message","success","publish_at ok")     : emitMsg("message","error","publish_at bad");
   
   });
 }
@@ -169,6 +182,7 @@ emitMsg = (channel,status,content) => {
 
 //////////////////////////////////////////////////////
 //generic apis
+//////////////////////////////////////////////////////
 
 crawler.get("", function(req, res) {
   db.collection(crawler_COLLECTION).find({}).toArray(function(err, docs) {
@@ -181,7 +195,6 @@ crawler.get("", function(req, res) {
 });
 
 crawler.get("/site/:siteName", function(req, res) {
-  console.log(req.params.siteName);
   db.collection(crawler_COLLECTION).find({site: req.params.siteName}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get crawlers.");

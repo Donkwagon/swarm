@@ -38,6 +38,8 @@ export class CrawlerComponent implements OnInit {
   newIdRange: any;
   newTicker: any;
 
+  testingStrategy: string;
+
   sub: any;
   crawlerId: string;
   crawler: Crawler;
@@ -74,8 +76,6 @@ export class CrawlerComponent implements OnInit {
     });
 
     this.connection = this.socketService.getMessages().subscribe(message => {
-      console.log("jackie slkdfjasdf");
-      console.log(message);
       this.messages.push(message);
     })
 
@@ -191,7 +191,22 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
   //editor logic
   ////////////////////////////////////////////////////////////////////////////
-  
+  setTestingStrategy = () => {
+    if(this.testingStrategy === 'single'){
+        this.crawler.testingStrategy = {
+          type: "single",
+          id : 1024
+        }
+    }
+    if(this.testingStrategy === 'multiple'){
+        this.crawler.testingStrategy = {
+          type: "multiple",
+          num : 1024
+        }
+    }
+  }
+
+
   onChange = () => {
   }
 

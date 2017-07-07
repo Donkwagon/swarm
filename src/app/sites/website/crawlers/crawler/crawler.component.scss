@@ -50,8 +50,7 @@
 
         .dropdown-panel{
             position:absolute;
-            top:100%;
-            right:0;
+            top:100%;right:0;
             width:200px;
             border-left:$theme solid 1px;
             border-right:$theme solid 1px;
@@ -165,13 +164,9 @@
                         margin-bottom:1px;
                     }
 
-                    .success{
-                        color:$CYAN;
-                    }
-
-                    .error{
-                        color:$RED;
-                    }
+                    .success{color:$CYAN;}
+                    .error{color:$RED;}
+                    .error{color:$GREY;}
                 }
             }
 
