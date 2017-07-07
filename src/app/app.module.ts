@@ -14,6 +14,8 @@ import { AngularFireAuthModule }             from 'angularfire2/auth';
 import { AceEditorDirective  }               from 'ng2-ace-editor';
 import { AceEditorComponent }                from 'ng2-ace-editor';
 
+import { ChartsModule }                      from 'ng2-charts/ng2-charts';
+
 import { PerfectScrollbarModule }            from 'angular2-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface }   from 'angular2-perfect-scrollbar';
 
@@ -63,7 +65,8 @@ import { NewSiteComponent }                  from './sites/new-site/new-site.com
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
+    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
+    ChartsModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

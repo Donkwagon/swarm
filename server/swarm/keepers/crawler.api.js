@@ -106,7 +106,7 @@ strategyTester = (crawler) => {
         }
         
       });
-      
+
       emitMsg("message","normal","URL generated " + url);
       URL.push(url);
 
@@ -166,7 +166,12 @@ crawlPage = (url, crawler) => {
     include_stocks ? emitMsg("message","success","include_stocks ok") : emitMsg("message","error","include_stocks bad");
     summary ?        emitMsg("message","success","summary ok")        : emitMsg("message","error","summary bad");
     publish_at ?     emitMsg("message","success","publish_at ok")     : emitMsg("message","error","publish_at bad");
-  
+    
+    if(title && author && username && articleId && publish_at){
+      emitMsg("data","success",articleId);
+    }else{
+      emitMsg("data","error",parseInt(articleId));
+    }
   });
 }
 

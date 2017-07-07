@@ -19,6 +19,8 @@ export class CrawlerComponent implements OnInit {
 
   messages = [];
   connection;
+  testingDataOutput;
+  testingData = [];
   message;
 
   sub_crawler:any;
@@ -43,6 +45,9 @@ export class CrawlerComponent implements OnInit {
   sub: any;
   crawlerId: string;
   crawler: Crawler;
+
+  max: number;
+  min: number;
 
   constructor(
       private route: ActivatedRoute,
@@ -79,8 +84,13 @@ export class CrawlerComponent implements OnInit {
       this.messages.push(message);
     })
 
+    this.testingDataOutput = this.socketService.getMessages().subscribe(data => {
+      this.testingData.push(data);
+    })
+
     this.message = "some messge";
     this.sendMessage();
+
   }
 
   ngOnDestroy() {
@@ -90,6 +100,7 @@ export class CrawlerComponent implements OnInit {
     this.sub_crawler.unsubscribe();
 
     this.connection.unsubscribe();
+    this.testingDataOutput.unsubscribe();
 
   }
   
@@ -191,6 +202,7 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
   //editor logic
   ////////////////////////////////////////////////////////////////////////////
+
   setTestingStrategy = () => {
     if(this.testingStrategy === 'single'){
         this.crawler.testingStrategy = {
@@ -206,7 +218,6 @@ export class CrawlerComponent implements OnInit {
     }
   }
 
-
   onChange = () => {
   }
 
@@ -217,7 +228,6 @@ export class CrawlerComponent implements OnInit {
 
   validateCode = () => {
   }
-
 
   ////////////////////////////////////////////////////////////////////////////
   //web socket shit
@@ -235,5 +245,5 @@ export class CrawlerComponent implements OnInit {
 
   }
 
-
+ 
 }
