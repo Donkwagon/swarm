@@ -67,13 +67,15 @@ strategyTester = (crawler) => {
           url += section.url + "/";
       }
       if(section.type === "ID RANGE"){
-        url += testingStrategy.id + "/";
+        url += section.prefix + testingStrategy.id + section.suffix + "/";
       }
       if(section.type === "TICkER"){
-          url += "AAPL" + "/"
+          url += section.prefix + "AAPL" + section.suffix + "/"
       }
 
     });
+    
+    url = url.substring(0, url.length - 1);
 
     URL.push(url);
     
@@ -99,15 +101,17 @@ strategyTester = (crawler) => {
         if(section.type === "ID RANGE"){
           var id = Math.random() * (range_max - range_min) + range_min;
           id = parseInt(id);
-          url += id + "/";
+          url += section.prefix + id + section.suffix + "/";
         }
         if(section.type === "TICkER"){
-          url += "AAPL" + "/"
+          url += section.prefix + "AAPL" + section.suffix + "/"
         }
         
       });
+      url = url.substring(0, url.length - 1);
 
       emitMsg("message","normal","URL generated " + url);
+      
       URL.push(url);
 
       i++;
@@ -154,7 +158,7 @@ crawlPage = (url, crawler) => {
   req.get({url: url,headers: {'User-Agent': UserAgent}}, function(error, response, html){
 
     global.$ = cheerio.load(html);
-    
+    emitMsg("message","normal",html);
     vm.runInThisContext(code);
 
     //check if all fields are filled
