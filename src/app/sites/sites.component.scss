@@ -3,6 +3,7 @@
 
 .page{
     padding:1em;
+    height:100%;
 }
 
 .sites-panel{
@@ -18,23 +19,31 @@
 }
 
 .site-info-box{
+    position:relative;
     padding:0.5em;
-    border:$CYAN_S1 double 3px;
-    margin:0 1em 1em 0;
-    border-radius:3px;
-    width:12em;
+    border:transparent solid 1px;
+    width:10em;
+    height:10em;
+    overflow:hidden;
 
     img{
-        border-radius:2px;
-        height:2.4em;
-        width:2.4em;
-        margin-left:0.5em;
+        position:absolute;
+        width:110%;height:110%;
+        top:-5%;left:-5%;
         background-color:white;
+        filter:blur(2px)brightness(0.2);
+    }
+
+    .foreground{
+        position:absolute;
+        top:0;left:0;
+        width:100%;height:100%;
+        padding:0.5em;
     }
 
     &:hover{
         cursor:pointer;
-        border:$CYAN double 3px;
+        border:$CYAN solid 1px;
         box-shadow:0 0 1em $CYAN_S2;
     }
 }

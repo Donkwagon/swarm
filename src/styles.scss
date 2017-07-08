@@ -84,6 +84,7 @@ a:active {color: $CYAN;text-decoration:none;}
 .main{
     @extend .fixed-full-screen;
     justify-content:stretch;
+    align-items:stretch;
 }
 
 .site-interface{
@@ -205,11 +206,12 @@ table{
 }
 
 
-app-site{flex:1;}
+app-site{flex:1;flex-direction:column;}
 
 app-cluster, app-sites{
     flex:1;
     flex-direction:column;
+    justify-content:stretch;
 }
 
 app-crawler{
