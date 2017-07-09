@@ -12,14 +12,16 @@ import * as firebase from 'firebase/app';
 
 export class AppComponent {
 
-  user: Observable<firebase.User>;
+  developer: Observable<firebase.User>;
 
   constructor(db: AngularFireDatabase,public afAuth: AngularFireAuth) {
     var audio = new Audio();
     audio.src = "http://www.bigsoundbank.com/sounds/mp3/0945.mp3";
     audio.load();
     audio.play();
-    this.user = afAuth.authState;
+    afAuth.auth.onAuthStateChanged(res =>{
+      this.developer = res;
+    });
   }
 
   login() {
