@@ -8,16 +8,18 @@ var Site = require('./site.model');
 var crawlerSchema = new Schema({
 
   name: String,
+  type: String,
   url: String,
   site: Site,
   siteId: String,
-  type: String,
   code: String,
   doc: String,
   
   editHistory: Schema.Types.Mixed,
 
   urlStrategy: Schema.Types.Mixed,
+  crawlingStrategy: Schema.Types.Mixed,
+  testingStrategy: Schema.Types.Mixed,
 
   validation: Boolean,
 

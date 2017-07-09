@@ -158,7 +158,6 @@ crawlPage = (url, crawler) => {
   req.get({url: url,headers: {'User-Agent': UserAgent}}, function(error, response, html){
 
     global.$ = cheerio.load(html);
-    emitMsg("message","normal",html);
     vm.runInThisContext(code);
 
     //check if all fields are filled

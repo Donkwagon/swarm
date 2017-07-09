@@ -73,7 +73,13 @@
           
       </div>
 
-      <div class="work-space f1 r">
+      <div class="crawler-nav r">
+        <span class="crawler-panel-nav" (click)="selectmode('code')" ngClass="{active:mode == 'code'}">Code</span>
+        <span class="crawler-panel-nav" (click)="selectmode('doc')" ngClass="{active:mode == 'doc'}">Documentation</span>
+        <span class="crawler-panel-nav" (click)="selectmode('settings')" ngClass="{active:mode == 'settings'}">Settings</span>
+      </div>
+
+      <div class="work-space f1 r" *ngIf="mode == 'code'">
 
         <div class="editor-wrapper f1">
           <div ace-editor
@@ -91,6 +97,16 @@
         </div>
         
         <div class="output-interface c">
+
+          <div class="interface-module f1 c">
+            <div class="interface-module-head"></div>
+            <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
+              {{crawler.name}}
+              {{crawler.type}}
+              {{crawler.validation}}
+            </perfect-scrollbar>
+          </div>
+
           <div class="interface-module c" *ngIf="crawler.testingStrategy">
             <div class="interface-module-head">TESTING CONFIGURATION</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c f1">
@@ -120,11 +136,13 @@
               </div>
             </perfect-scrollbar>
           </div>
+
           <div class="interface-module c">
             <div class="interface-module-head">Tolerance Testing</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
             </perfect-scrollbar>
           </div>
+
           <div class="interface-module c f2">
             <div class="interface-module-head">RESPONSE</div>
             <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
@@ -153,6 +171,10 @@
             </div>
           </div>
         </div>
+
+      </div>
+
+      <div class="work-space f1 r" *ngIf="mode == 'settings'">
 
       </div>
       

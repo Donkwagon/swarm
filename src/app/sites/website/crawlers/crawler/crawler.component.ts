@@ -23,6 +23,8 @@ export class CrawlerComponent implements OnInit {
   testingData = [];
   message;
 
+  mode: string;
+
   sub_crawler:any;
   siteName: string;
   site: Site;
@@ -64,7 +66,7 @@ export class CrawlerComponent implements OnInit {
       this.codeTemplate = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
 
       this.resetNewInputs();
-
+      this.mode = "settings";
   }
 
   ngOnInit() {
@@ -102,6 +104,10 @@ export class CrawlerComponent implements OnInit {
     this.connection.unsubscribe();
     this.testingDataOutput.unsubscribe();
 
+  }
+
+  selectmode = (mode) => {
+    this.mode = mode;
   }
   
   getSiteInfo = () => {
