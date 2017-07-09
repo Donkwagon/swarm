@@ -1,46 +1,4 @@
-
-$CYAN:rgba(89, 234, 255,0.9);
-$CYAN_S1:rgba(83, 122, 127,0.9);
-$CYAN_S2:rgba(83, 122, 127,0.6);
-
-$BLUE:rgba(0, 127, 232,0.9);
-
-$ORANGE:rgba(224, 123, 61, 0.9);
-$RED:rgba(235, 29, 29, 0.9);
-$WHITE:rgba(245,245, 245, 0.9);
-$GREY:rgba(120,120, 120, 0.9);
-$YELLOW:rgba(237, 204, 42, 0.9);
-$PURPLE:rgba(175, 41, 237,0.9);
-
-.cyan{background-color:$CYAN;box-shadow: 0 0 9px $CYAN;}
-.cyan-text{color:$CYAN;}
-
-.cyan-s-1{background-color:$CYAN_S1;box-shadow: 0 0 9px $CYAN_S1;}
-.cyan-s-1-text{color:$CYAN_S1;}
-
-.cyan-s-2{background-color:$CYAN_S2;box-shadow: 0 0 9px $CYAN_S2;}
-.cyan-s-2-text{color:$CYAN_S2;}
-
-.orange{background-color:$ORANGE;box-shadow: 0 0 9px $ORANGE;}
-.orange-text{color:$ORANGE;}
-
-.red{background-color:$RED;box-shadow: 0 0 9px $RED;}
-.red-text{color:$RED;}
-
-.white{background-color:$WHITE;box-shadow: 0 0 9px $WHITE;}
-.white-text{color:$WHITE;}
-
-.grey{background-color:$GREY;box-shadow: 0 0 9px $GREY;}
-.grey-text{color:$GREY;}
-
-.yellow{background-color:$YELLOW;box-shadow: 0 0 9px $YELLOW;}
-.yellow-text{color:$YELLOW;}
-
-.purple{background-color:$PURPLE;box-shadow: 0 0 9px $PURPLE;}
-.purple-text{color:$PURPLE};
-
-.blue{background-color:$BLUE;box-shadow: 0 0 9px $BLUE;}
-.blue-text{color:$BLUE};
+@import '../../_theme';
 
 
 .palette{
