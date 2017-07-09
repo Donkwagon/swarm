@@ -9,7 +9,6 @@ import { LogsComponent }                     from './site/logs/logs.component';
 import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 
-import { SocketComponent }                   from './socket/socket.component';
 import { ClusterComponent }                  from './cluster/cluster.component';
 
 import { SitesComponent }                    from './sites/sites.component';
@@ -42,7 +41,6 @@ const routes: Routes = [
   ]},
   { path: 'colors', component: ColorPaletteComponent},
   { path: 'cluster', component: ClusterComponent},
-  { path: 'socket', component: SocketComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [
       { path: '', redirectTo: 'site', pathMatch: 'full' },
       { path: 'sitemap', component: SitemapComponent},
