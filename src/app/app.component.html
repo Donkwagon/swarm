@@ -39,7 +39,7 @@
 
   <router-outlet></router-outlet>
 
-  <div id="developer-panel">
+  <div id="developer-panel" *ngIf="developer">
     <div class="c">
       <div class="img-wrapper">
         <img [src]="developer.photoURL">

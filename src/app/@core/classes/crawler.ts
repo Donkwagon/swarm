@@ -18,6 +18,8 @@ export class Crawler {
 
     crawlingStrategy: any;
     testingStrategy: any;
+    
+    created_by: string;
 
     validation: Boolean;
 

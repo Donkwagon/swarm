@@ -23,6 +23,8 @@ var crawlerSchema = new Schema({
   testingStrategy: Schema.Types.Mixed,
 
   validation: Boolean,
+  
+  created_by: String,
 
   created_at: Date,
   updated_at: Date

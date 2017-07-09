@@ -16,13 +16,6 @@ export class DeveloperService {
                  .catch(this.handleError);
     }
 
-    getDevelopersByType(type: String): Promise<Developer[]> {
-      return this.http.get(this.developersUrl + '/type/' + type)
-                 .toPromise()
-                 .then(response => response.json() as Developer[])
-                 .catch(this.handleError);
-    }
-
     getDeveloper(developerId: String): Promise<Developer> {
       return this.http.get(this.developersUrl + '/' + developerId)
                  .toPromise()
