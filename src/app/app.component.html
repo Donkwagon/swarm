@@ -24,10 +24,22 @@
       <a class="site-list-item" routerLink="/site/SA" routerLinkActive="active">
         Seeking Alpha
       </a>
-      <a class="site-list-item" (click)="login()">
+
+      <div id="developer-panel" *ngIf="developer">
+        <div class="c">
+          <div class="img-wrapper">
+            <img [src]="developer.photoURL">
+          </div>
+          <div class="developer-info c">
+            {{developer.displayName}}
+
+          </div>
+        </div>
+      </div>
+      <a class="site-list-item" (click)="login()" *ngIf="!developer.displayName">
         Login
       </a>
-      <a class="site-list-item" (click)="logout()">
+      <a class="site-list-item" (click)="logout()" *ngIf="developer.displayName">
         Logout
       </a>
 
@@ -35,16 +47,4 @@
   </div>
 
   <router-outlet></router-outlet>
-
-  <div id="developer-panel" *ngIf="developer">
-    <div class="c">
-      <div class="img-wrapper">
-        <img [src]="developer.photoURL">
-      </div>
-      <div class="developer-info c">
-        {{developer.displayName}}
-
-      </div>
-    </div>
-  </div>
 </div>
