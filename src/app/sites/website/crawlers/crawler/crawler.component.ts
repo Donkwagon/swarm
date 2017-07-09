@@ -131,6 +131,21 @@ export class CrawlerComponent implements OnInit {
           id : 1024
         }
       }
+      if(!this.crawler.validation){
+        this.crawler.validation = false;
+      }
+      if(!this.crawler.type){
+        this.crawler.type = "default";
+      }
+      if(!this.crawler.editHistory){
+        this.crawler.editHistory = [];
+      }
+      if(!this.crawler.created_at){
+        this.crawler.created_at = new Date();
+      }
+      if(!this.crawler.updated_at){
+        this.crawler.updated_at = new Date();
+      }
     });
 
   }

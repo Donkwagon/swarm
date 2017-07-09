@@ -157,9 +157,8 @@
         width:20rem;
 
         .interface-module{
-            margin:1px;
             background-color:rgba(100,100,100,0.03);
-            border-top:$CYAN solid 1px;
+            border-top:$CYAN_S1 solid 1px;
 
             .interface-module-head{
                 align-self:flex-start;
@@ -168,7 +167,6 @@
             }
 
             .interface-module-body{
-                border-left:$CYAN_S2 solid 0.5px;
                 padding:0.5em;
                 background-image:$grid;
                 background-size:50px;
@@ -220,6 +218,30 @@
         .interface-control-panel{
             background-color:#000;
             padding:0 0.5em;
+        }
+    }
+
+    .crawler-settings-form{
+        padding:0.5em;
+
+        .input-label{
+            width:10em;
+        }
+
+        .settings-input-row{
+            padding:0.5em;
+            
+            input{
+                border:none;
+                font-size:1em;
+                color:black;
+                background-color:$CYAN;
+                font-family:$font-stack;
+
+                &:focus{
+                    outline:none;
+                }
+            }
         }
     }
 }
