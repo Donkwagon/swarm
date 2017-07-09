@@ -60,9 +60,9 @@ export class CrawlerComponent implements OnInit {
       this.newUrlSectionPanel = false;
       
       this.crawler = new Crawler();
-
       this.resetNewInputs();
       this.mode = "settings";
+
   }
 
   ngOnInit() {
@@ -210,8 +210,7 @@ export class CrawlerComponent implements OnInit {
     }
   }
 
-  onChange = () => {
-  }
+  onChange = () => {}
 
   runCode = () => {
     this.crawlerService.runCode(this.crawler).then(res => {
@@ -226,8 +225,7 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
 
   save = () => {
-    this.crawlerService.updatCrawler(this.crawler).then(res => {
-    });
+    this.crawlerService.updatCrawler(this.crawler).then(res => {});
   }
 
   sendMessage(){
@@ -236,6 +234,5 @@ export class CrawlerComponent implements OnInit {
     this.message = '';
 
   }
-
- 
+  
 }

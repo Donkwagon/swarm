@@ -32,4 +32,7 @@
   </div>
 
   <router-outlet></router-outlet>
+    <div> {{ (user | async) | json }} </div>
+  <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
 </div>
