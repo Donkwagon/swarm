@@ -14,6 +14,7 @@ var crawlerSchema = new Schema({
   siteId: String,
   code: String,
   doc: String,
+  description: String,
   
   editHistory: Schema.Types.Mixed,
 

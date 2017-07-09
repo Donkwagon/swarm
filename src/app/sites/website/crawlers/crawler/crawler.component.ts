@@ -29,8 +29,6 @@ export class CrawlerComponent implements OnInit {
   siteName: string;
   site: Site;
 
-  codeTemplate: string;
-
   urlStrategy: String[];
   urlTypes: String[];
 
@@ -63,8 +61,6 @@ export class CrawlerComponent implements OnInit {
       
       this.crawler = new Crawler();
 
-      this.codeTemplate = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
-
       this.resetNewInputs();
       this.mode = "settings";
   }
@@ -75,7 +71,6 @@ export class CrawlerComponent implements OnInit {
       this.siteName = params['siteName'];
       this.getSiteInfo();
     });
-
 
     this.sub_crawler = this.route.params.subscribe(params => {
       this.crawlerId = params['crawlerId'];
@@ -106,9 +101,7 @@ export class CrawlerComponent implements OnInit {
 
   }
 
-  selectmode = (mode) => {
-    this.mode = mode;
-  }
+  selectmode = (mode) => {this.mode = mode;}
   
   getSiteInfo = () => {
 
@@ -121,31 +114,9 @@ export class CrawlerComponent implements OnInit {
   getCrawler = () => {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
+
       this.crawler = res;
-      if(!this.crawler.code){
-        this.crawler.code = this.codeTemplate;
-      }
-      if(!this.crawler.testingStrategy){
-        this.crawler.testingStrategy = {
-          type: "single",
-          id : 1024
-        }
-      }
-      if(!this.crawler.validation){
-        this.crawler.validation = false;
-      }
-      if(!this.crawler.type){
-        this.crawler.type = "default";
-      }
-      if(!this.crawler.editHistory){
-        this.crawler.editHistory = [];
-      }
-      if(!this.crawler.created_at){
-        this.crawler.created_at = new Date();
-      }
-      if(!this.crawler.updated_at){
-        this.crawler.updated_at = new Date();
-      }
+
     });
 
   }
