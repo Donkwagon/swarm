@@ -4,12 +4,12 @@
 
 @media (min-width: 1300px) {
   body {
-      font-size:13px;
+      font-size:11px;
   }
 }
 @media (min-width: 1600px) {
   body {
-      font-size:13px;
+      font-size:11px;
   }
 }
 
@@ -17,7 +17,7 @@ body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:13px;
+    font-size:11px;
     color:#FFF;
     background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
@@ -41,6 +41,10 @@ a:active {color: $CYAN;text-decoration:none;}
 .yellowish{color:$yellowish};
 .caption{color:grey;}
 
+.page{
+    padding:1em;
+    height:100%;
+}
 
 .app-background{
     @extend .fixed-full-screen;

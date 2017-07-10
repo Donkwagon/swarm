@@ -1,9 +1,13 @@
 @import '../_theme';
 
 #developer-panel{
-    height:6.5em;
+    position:fixed;
+    left:0;bottom:0;
+    height:10em;
+    width:10em;
     z-index:50;
     color:$CYAN;
+    background-color:$CYAN_S2;
 
     .img-wrapper{
         width:100%;
@@ -24,7 +28,6 @@
 }
 
 .site-list{
-    padding:1em 1em 0.5em 0.5em;
     width:10em;
 
     .site-list-item-wrapper{
@@ -34,16 +37,21 @@
 
     .site-list-item{
         padding:0.3em 0.5em;
+        color:$CYAN;
+
+        &:hover{
+            cursor:pointer;
+            background-color:$CYAN;
+            color:black;
+        }
     }
 
     .swarm-hive{
         padding:0.5em;
         align-items:center;
-        letter-spacing:6px;
+        letter-spacing:4px;
         text-shadow:0 0 1em $CYAN;
-        border-bottom:$CYAN solid 0.5px;
-        border-top:$CYAN solid 0.5px;
-        margin-bottom:0.5em;
+        border-bottom:$CYAN_S1 solid 1px;
         font-size:1.2em;
         background-color:$CYAN_S2;
 
