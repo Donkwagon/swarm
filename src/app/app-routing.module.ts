@@ -23,6 +23,8 @@ import { NewSiteComponent }                  from './sites/new-site/new-site.com
 
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
+import { DeveloperComponent }                from './developer/developer.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
@@ -40,6 +42,7 @@ const routes: Routes = [
       }
   ]},
   { path: 'colors', component: ColorPaletteComponent},
+  { path: 'developer', component: DeveloperComponent},
   { path: 'cluster', component: ClusterComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [
       { path: '', redirectTo: 'site', pathMatch: 'full' },

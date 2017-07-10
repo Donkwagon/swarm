@@ -48,6 +48,7 @@ import { NewCrawlerComponent }               from './sites/website/crawlers/new-
 import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
+import { DeveloperComponent }                from './developer/developer.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { NewSiteComponent }                  from './sites/new-site/new-site.com
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,
     AceEditorDirective,AceEditorComponent,
     WebsiteComponent, ColorPaletteComponent,
-    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent
+    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

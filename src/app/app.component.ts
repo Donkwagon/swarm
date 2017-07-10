@@ -56,5 +56,6 @@ export class AppComponent {
 
   logout() {
     this.afAuth.auth.signOut();
+    this.developer = null;
   }
 }

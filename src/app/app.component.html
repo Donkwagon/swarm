@@ -34,7 +34,7 @@
 
 <div class="app-background"></div>
 
-<div class="main r">
+<div class="main r" *ngIf="developer.displayName">
 
   <div class="site-list c">
     <a class="swarm-hive r" routerLink="/" routerLinkActive="active">
@@ -62,8 +62,8 @@
     </div>
   </div>
 
-  <div id="developer-panel" *ngIf="developer">
-    <div class="c">
+  <a id="developer-panel" routerLink="/developer" *ngIf="developer">
+    <div class="r">
       <div class="img-wrapper">
         <img [src]="developer.photoURL">
       </div>
@@ -71,7 +71,7 @@
         {{developer.displayName}}
       </div>
     </div>
-  </div>
+  </a>
 
   <router-outlet></router-outlet>
 

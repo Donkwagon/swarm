@@ -48,9 +48,10 @@ a:active {color: $CYAN;text-decoration:none;}
 
 .app-background{
     @extend .fixed-full-screen;
-    background-color:#000;
+    background-color:#111;
     background-image:$grid;
     background-size: 50px 50px;
+    box-shadow:inset 900px #000;
 }
 
 .main{
