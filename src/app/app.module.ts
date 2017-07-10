@@ -11,8 +11,7 @@ import { AngularFireModule }                 from 'angularfire2';
 import { AngularFireDatabaseModule }         from 'angularfire2/database';
 import { AngularFireAuthModule }             from 'angularfire2/auth';
 
-import { AceEditorDirective  }               from 'ng2-ace-editor';
-import { AceEditorComponent }                from 'ng2-ace-editor';
+import { AceEditorDirective }                from 'ng2-ace-editor';
 
 import { ChartsModule }                      from 'ng2-charts/ng2-charts';
 
@@ -54,8 +53,7 @@ import { DeveloperComponent }                from './developer/developer.compone
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,
-    AceEditorDirective,AceEditorComponent,
+    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,AceEditorDirective,
     WebsiteComponent, ColorPaletteComponent,
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent
   ],

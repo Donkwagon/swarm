@@ -8,6 +8,7 @@ import { Crawler } from '../../@core/classes/crawler';
 import { CrawlerService } from '../../@core/services/crawler.service';
 
 import { SocketService } from '../../@core/services/socket.service';
+import { AceEditorDirective  }               from 'ng2-ace-editor';
 
 @Component({
   selector: 'app-crawler',
