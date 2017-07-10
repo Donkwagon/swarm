@@ -1,10 +1,40 @@
+<div class="app-cover c">
 
-<div class="app-background">
-  <!--<img src="https://i.ytimg.com/vi/MVbeoSPqRs4/maxresdefault.jpg"/>
-  -->
+  <div class="entrance-box c">
+    <h1>SWARM</h1>
+    <p>Nvest External Data Management System</p>
+    <p>*Internal Personnel Only</p>
+    <form class="c">
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <div class="login-btn">
+        Login
+      </div>
+      <div class="social-login c">
+        --------------
+        &nbsp;&nbsp;Authenticated Social Login&nbsp;&nbsp;
+        --------------
+        <div class="social-login-options r">
+          <div class="social-login-option">
+              <i class="fa fa-google" aria-hidden="true"></i>
+          </div>
+          <div class="social-login-option">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+          </div>
+          <div class="social-login-option">
+              <i class="fa fa-github" aria-hidden="true"></i>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
 </div>
 
+<div class="app-background"></div>
+
 <div class="main r">
+
   <div class="site-list c">
     <a class="swarm-hive r" routerLink="/" routerLinkActive="active">
       <img src="https://s3.amazonaws.com/nvest/logonobg.png"/>
@@ -41,10 +71,10 @@
       </div>
       <div class="developer-info c">
         {{developer.displayName}}
-
       </div>
     </div>
   </div>
 
   <router-outlet></router-outlet>
+
 </div>

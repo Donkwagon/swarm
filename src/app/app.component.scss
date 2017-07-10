@@ -152,3 +152,83 @@
         }
     }
 }
+
+.app-cover{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background-color:rgba(245,245,242,0.99);
+    box-shadow:0 0 inset 900px rgba(200,200,200,0.87);
+    z-index:99;
+    justify-content:center;
+    color:#333;
+
+    .entrance-box{
+        align-self:center;
+        width:40em;
+
+        h1,p{
+            margin:0;
+            line-height:1.5;
+            font-weight:300;
+            color:#333;
+            text-align:center;
+            text-shadow:0 0 3em rgba(0,0,0,0.1);
+        }
+
+        h1{
+            letter-spacing:8px;
+        }
+
+        p{
+            color:#555;
+        }
+
+        form{
+            align-items:center;
+            padding-bottom:7em;
+
+            input{
+                width:64%;
+                margin-top:1em;
+                font-family: $font-stack;
+                text-align:center;
+            }
+
+            .login-btn{
+                padding:0.5em 2em;
+                background-color:#333;
+                margin-top:1em;
+                color:rgba(245,245,242,1);
+
+
+                &:hover{
+                    cursor:pointer;
+                    background-color:#000;
+                    color:#fff;
+                }
+            }
+        }
+
+        .social-login{
+            padding:2em 0;
+            color:#555;
+            font-weight:300;
+
+            .social-login-options{
+                justify-content:center;
+
+                .social-login-option{
+                    padding:1em;
+                    font-size:1.5em;
+                    color:#999;
+
+                    &:hover{
+                        cursor:pointer;
+                        color:#333;
+                    }
+                }
+            }
+        }
+    }
+}
