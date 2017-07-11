@@ -16,6 +16,7 @@ export class ClusterComponent implements OnInit {
   servers: FirebaseListObservable<any>;
   heroImages: String[];
   time: any;
+  serverNum: Number;
   queueLength: Number;
 
   constructor(private db: AngularFireDatabase) {

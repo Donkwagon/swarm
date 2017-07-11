@@ -11,7 +11,7 @@ import { AngularFireModule }                 from 'angularfire2';
 import { AngularFireDatabaseModule }         from 'angularfire2/database';
 import { AngularFireAuthModule }             from 'angularfire2/auth';
 
-import { AceEditorDirective }                from 'ng2-ace-editor';
+import { AceEditorModule } from 'ng2-ace-editor';
 
 import { ChartsModule }                      from 'ng2-charts/ng2-charts';
 
@@ -55,7 +55,7 @@ import { DeveloperActivitiesComponent }      from './developer/developer-activit
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent, AceEditorDirective,
+    PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent
   ],
@@ -66,7 +66,8 @@ import { DeveloperActivitiesComponent }      from './developer/developer-activit
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
-    ChartsModule
+    ChartsModule,
+    AceEditorModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute }                          from '@angular/router';
 
 import { Crawler }                           from '../../../../@core/classes/crawler';
@@ -7,6 +7,7 @@ import { Site }                              from '../../../../@core/classes/sit
 import { SiteService }                       from '../../../../@core/services/sites.service';
 
 import { SocketService }                     from '../../../../@core/services/socket.service';
+import { AceEditorComponent } from 'ng2-ace-editor'; 
 
 @Component({
   selector: 'app-crawler',
@@ -17,6 +18,7 @@ import { SocketService }                     from '../../../../@core/services/so
 
 export class CrawlerComponent implements OnInit {
 
+  @ViewChild('editor') editor;
   messages = [];
   connection;
   testingDataOutput;

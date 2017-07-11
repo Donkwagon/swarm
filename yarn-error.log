@@ -1,0 +1,101 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs\;C:\PostgreSQL\pg96\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Amazon\AWSCLI\;C:\Program Files\PuTTY\;C:\Users\james\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\james\AppData\Local\Programs\Python\Python36-32\;C:\RailsInstaller\Ruby2.3.0\bin;C:\RailsInstaller\Git\cmd;C:\Users\james\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\james\AppData\Local\Yarn\.bin;C:\Program Files\Heroku\bin;C:\Users\james\AppData\Roaming\npm;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  6.10.1
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "swarm",
+    "version": "0.0.5",
+    "license": "MIT",
+    "scripts": {
+      "ng": "ng",
+      "start": "node server.js",
+      "build": "ng build",
+      "test": "ng test",
+      "lint": "ng lint",
+      "e2e": "ng e2e",
+      "postinstall": "ng build --aot -prod"
+    },
+    "engines": {
+      "node": "6.10.1",
+      "npm": "3.10.10"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/cli": "1.0.0",
+      "@angular/common": "^4.0.0",
+      "@angular/compiler": "^4.0.0",
+      "@angular/compiler-cli": "^4.0.0",
+      "@angular/core": "^4.0.0",
+      "@angular/forms": "^4.0.0",
+      "@angular/http": "^4.0.0",
+      "@angular/platform-browser": "^4.0.0",
+      "@angular/platform-browser-dynamic": "^4.0.0",
+      "@angular/router": "^4.0.0",
+      "angularfire2": "^4.0.0-rc.0",
+      "angular2-perfect-scrollbar": "^2.0.6",
+      "body-parser": "^1.17.1",
+      "chalk": "^1.1.3",
+      "chart.js": "^2.6.0",
+      "cheerio": "^0.22.0",
+      "colors": "^1.1.2",
+      "core-js": "^2.4.1",
+      "dotenv": "^4.0.0",
+      "eval": "^0.1.2",
+      "express": "^4.15.3",
+      "firebase": "^4.0.0",
+      "firebase-admin": "^5.0.0",
+      "mongodb": "^2.2.26",
+      "mongoose": "^4.9.9",
+      "ng2-ace-editor": "^0.2.3",
+      "ng2-charts": "^1.6.0",
+      "pg-promise": "^5.9.0",
+      "promise-polyfill": "^6.0.2",
+      "request": "^2.81.0",
+      "rxjs": "^5.1.0",
+      "socket.io": "^2.0.1",
+      "socket.io-client": "^2.0.1",
+      "ws": "^3.0.0",
+      "zone.js": "^0.8.4"
+    },
+    "devDependencies": {
+      "@angular/cli": "1.0.0",
+      "@angular/compiler-cli": "^4.0.0",
+      "@types/jasmine": "2.5.38",
+      "@types/node": "~6.0.60",
+      "codelyzer": "~2.0.0",
+      "jasmine-core": "~2.5.2",
+      "jasmine-spec-reporter": "~3.2.0",
+      "karma": "~1.4.1",
+      "karma-chrome-launcher": "~2.0.0",
+      "karma-cli": "~1.0.1",
+      "karma-coverage-istanbul-reporter": "^0.2.0",
+      "karma-jasmine": "~1.1.0",
+      "karma-jasmine-html-reporter": "^0.2.2",
+      "protractor": "~5.1.0",
+      "ts-node": "~2.0.0",
+      "tslint": "~4.5.0",
+      "typescript": "~2.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EBUSY: resource busy or locked, open 'C:\Users\james\Documents\GitHub\swarm\node_modules\uws\uws_win32_48.node'
+      at Error (native)
