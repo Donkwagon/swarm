@@ -24,6 +24,8 @@ import { NewSiteComponent }                  from './sites/new-site/new-site.com
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 import { DeveloperComponent }                from './developer/developer.component';
+import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
+import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 
 
 const routes: Routes = [
@@ -42,7 +44,10 @@ const routes: Routes = [
       }
   ]},
   { path: 'colors', component: ColorPaletteComponent},
-  { path: 'developer', component: DeveloperComponent},
+  { path: 'developer', component: DeveloperComponent, children: [
+      { path: 'settings', component: DeveloperSettingsComponent},
+      { path: 'activities', component: DeveloperActivitiesComponent}
+  ]},
   { path: 'cluster', component: ClusterComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [
       { path: '', redirectTo: 'site', pathMatch: 'full' },

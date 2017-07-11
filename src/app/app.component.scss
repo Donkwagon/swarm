@@ -38,6 +38,8 @@
 
     .site-list-item-wrapper{
         padding:0.5em 0;
+        border-bottom-left-radius:3px;
+        border-bottom-right-radius:3px;
         background-color:$CYAN_S2;
     }
 
@@ -57,14 +59,16 @@
         align-items:center;
         letter-spacing:4px;
         text-shadow:0 0 1em $CYAN;
+        border-top-left-radius:3px;
+        border-top-right-radius:3px;
         font-size:1.2em;
         background-color:$CYAN_S2;
+        font-weight:300;
 
         img{
             height:1rem;width:1rem;
-            background-color:$CYAN;
+            background-color:#333;
             padding:0.3em;
-            filter: invert(100%);
         }
     }
 }

@@ -10,6 +10,7 @@
 .site-info{
     padding:1em 1em 1em 0.5em;
     width:8rem;
+    background-color:$CYAN_S2;
 
     .site-info-content-wrapper{
         //margin:0 auto;
@@ -26,7 +27,6 @@
 .site-info-nav{
     font-size:1em;
     margin-top:0.5em;
-    text-shadow:0 0 6px $CYAN;
     color:$CYAN;
 
     &:hover{

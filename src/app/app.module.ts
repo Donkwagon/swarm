@@ -48,6 +48,8 @@ import { CrawlerComponent }                  from './sites/website/crawlers/craw
 
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 import { DeveloperComponent }                from './developer/developer.component';
+import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
+import { DeveloperActivitiesComponent } from './developer/developer-activities/developer-activities.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { DeveloperComponent }                from './developer/developer.compone
     SiteComponent,
     PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,AceEditorDirective,
     WebsiteComponent, ColorPaletteComponent,
-    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent
+    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
