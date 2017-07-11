@@ -28,7 +28,6 @@ import { PostsComponent }                    from './site/posts/posts.component'
 
 import { AuthorsComponent }                  from './site/authors/authors.component';
 import { EntrancesComponent }                from './site/entrances/entrances.component';
-import { LogsComponent }                     from './site/logs/logs.component';
 import { SitemapComponent }                  from './site/sitemap/sitemap.component';
 import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
 
@@ -47,15 +46,16 @@ import { NewCrawlerComponent }               from './sites/website/crawlers/new-
 import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
+
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
-import { DeveloperActivitiesComponent } from './developer/developer-activities/developer-activities.component';
+import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent,AuthorsComponent,EntrancesComponent,LogsComponent,SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,AceEditorDirective,
+    PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent, AceEditorDirective,
     WebsiteComponent, ColorPaletteComponent,
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent
   ],
