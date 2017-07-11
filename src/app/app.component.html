@@ -38,42 +38,52 @@
 <div class="main r" *ngIf="developer.displayName">
 
   <div class="site-list c">
-    <a class="swarm-hive r" routerLink="/" routerLinkActive="active">
+    
+    <a class="swarm-hive r" routerLink="/" routerLinkActive="active" (mouseover)="menuExpand()">
       <img src="https://s3.amazonaws.com/nvest/logonobg.png"/>
       &nbsp;SWARM
     </a>
 
-    <div class="site-list-item-wrapper c">
-      <a class="site-list-item" routerLink="/sites" routerLinkActive="active">
-        Sites
-      </a>
-      <a class="site-list-item" routerLink="/colors" routerLinkActive="active">
-        Color Palette
-      </a>
-      <a class="site-list-item" routerLink="/cluster" routerLinkActive="active">
-        Cluster
-      </a>
-      <a class="site-list-item" routerLink="/site/SA" routerLinkActive="active">
-        Seeking Alpha
-      </a>
-      <a class="site-list-item" (click)="logout()" *ngIf="developer.displayName">
-        Logout
-      </a>
+    <div class="app-menu c" *ngIf="menuDisplay" (mouseover)="menuExpand()">
+      <div class="app-menu-component c">
+        <div class="app-menu-component-header">Functions</div>
+        <div class="app-nav-list r wr">
+          <a class="site-list-item c" routerLink="/sites" routerLinkActive="active">
+            <i class="fa fa-sitemap" aria-hidden="true"></i>
+            <div class="f1"></div>
+            Sites
+          </a>
+          <a class="site-list-item c" routerLink="/colors" routerLinkActive="active">
+            <i class="fa fa-paint-brush" aria-hidden="true"></i>
+            <div class="f1"></div>
+            UI Guidelines
+          </a>
+          <a class="site-list-item c" routerLink="/cluster" routerLinkActive="active">
+            <i class="fa fa-connectdevelop" aria-hidden="true"></i>
+            <div class="f1"></div>
+            Cluster
+          </a>
+          <!-- <a class="site-list-item" (click)="logout()" *ngIf="developer.displayName">
+            Logout
+          </a> -->
+
+        </div>
+      </div>
+
+
+      <div class="app-menu-component c" *ngIf="developer">
+        <div class="app-menu-component-header">Profile</div>
+        <div class="profile-row r">
+          <img class="profile-img" [src]="developer.photoURL"/>
+          <a routerLink="/developer">{{developer.displayName}}</a>
+        </div>
+      </div>
 
     </div>
+
+    <div class="menu-app-mask" *ngIf="menuDisplay" (click)="menuCollapse()"></div>
+
   </div>
-
-  <a id="developer-panel" routerLink="/developer" *ngIf="developer">
-    <div class="r">
-      <div class="img-wrapper">
-        <img [src]="developer.photoURL">
-      </div>
-      <div class="developer-info c">
-        {{developer.displayName}}
-      </div>
-    </div>
-  </a>
-
   <router-outlet></router-outlet>
 
 </div>

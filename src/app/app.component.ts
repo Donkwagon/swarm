@@ -18,6 +18,7 @@ import { DeveloperService } from './@core/services/developer.service';
 export class AppComponent {
 
   developer: Developer;
+  menuDisplay: boolean;
 
   constructor(
     db: AngularFireDatabase,
@@ -30,6 +31,8 @@ export class AppComponent {
     audio.play();
 
     this.developer = new Developer();
+
+    this.menuDisplay = false;
 
     afAuth.auth.onAuthStateChanged(res =>{
       this.developer = res;
@@ -47,6 +50,14 @@ export class AppComponent {
         });
       }
     });
+  }
+
+  menuExpand = () => {
+    this.menuDisplay = true;
+  }
+
+  menuCollapse = () => {
+    this.menuDisplay = false;
   }
 
 
