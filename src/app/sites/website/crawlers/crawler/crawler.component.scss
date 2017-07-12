@@ -4,8 +4,9 @@
 
 .crawler-page{
     @extend .fixed-full-screen;
-    width: calc(100% - 9.5rem);
-    left:9.5rem;
+    width: calc(100% - 8rem);
+    left:8rem;
+    border-left:$CYAN_S2 solid 1px;
     background-color:black;
 }
 

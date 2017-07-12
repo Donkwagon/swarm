@@ -8,26 +8,21 @@
 
 
 .site-info{
-    padding:1em 1em 1em 0.5em;
+    margin-top:3.6em;
     width:8rem;
-    background-color:$CYAN_S2;
 
-    .site-info-content-wrapper{
-        //margin:0 auto;
+    .title{
+        padding:0 0.5em;
     }
 
     img{height:3em;width:3em;}
 
-    .description{
-        font-size:0.8em;
-        color:#AAA;
-    }
 }
 
 .site-info-nav{
     font-size:1em;
     margin-top:0.5em;
-    color:$CYAN;
+    color:$WHITE;
 
     &:hover{
         cursor:pointer;
