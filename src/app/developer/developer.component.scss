@@ -1,35 +1,6 @@
 @import '../../_theme';
 
-.app-page{
-    @extend .fixed-full-screen;
-}
 
-.page-cover{
-    padding-top:1.1em;
-    font-size:1.2em;
-
-    .page-cover-info{
-        padding:0.5em 1em;
-    }
-    
-    .page-cover-nav-wrapper{
-        border-top:grey solid 1px;
-        border-bottom:grey solid 1px;
-
-        .page-cover-nav{
-            padding:0.2em 1em;
-
-            &:hover{
-                cursor:pointer;
-                background-color:$CYAN_S2;
-            }
-        }
-    }
-}
-
-.page-body{
-    padding:0.5em 1em;
-}
 
 .page-cover-developer{
 
@@ -38,7 +9,4 @@
         border-radius:2px;
         margin-right:0.5em;
     }
-}
-
-.developer-profile{
 }

@@ -1,9 +1,26 @@
-<div class="page f1 c">
-  <div class="sites-panel cyan-s-2 r">
-    <input class="cyan" placeholder="search"/>
+
+<div class="app-page f1 c">
+
+  <div class="page-cover c">
+    <div class="page-cover-info r">
+      <div class="c">
+        <span>Sites</span>
+      </div>
+    </div>
+
+    <div class="page-cover-nav-wrapper r">
+      <input class="cyan" placeholder="search"/>
+      <a  routerLink="/sites/new" routerLinkActive="active"  class="page-cover-nav">
+        New Site
+      </a>
+      <a  routerLink="/sites/new" routerLinkActive="active"  class="page-cover-nav">
+        Categories
+      </a>
   </div>
 
-  <perfect-scrollbar class="f1">
+  </div>
+  <perfect-scrollbar class="page-body c f1">
+
     <div class="r wr w100">
       <a routerLink="/sites/{{site.name}}" routerLinkActive="active" class="site-info-box c" *ngFor="let site of sites">
         <img [src]="site.imgUrl"/>
@@ -16,16 +33,11 @@
         </div>
 
       </a>
-      
-      <a routerLink="/sites/new" routerLinkActive="active" class="site-info-box new-site-btn c" >
-        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-        <span>NEW SITE</span>
-      </a>
-
     </div>
-    
+
+    <router-outlet></router-outlet>
+
   </perfect-scrollbar>
 
-</div>
 
-<router-outlet></router-outlet>
+</div>

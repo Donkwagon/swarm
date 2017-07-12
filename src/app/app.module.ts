@@ -61,9 +61,13 @@ import { SharedModule }                      from './@core/shared/shared.module'
   declarations: [
     AppComponent,
     SiteComponent,
-    PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,
+    PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent,
+    BacklogsComponent, ClusterComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
-    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent, DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent
+    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
+    StatusComponent, NewCrawlerComponent, CrawlerComponent,
+    DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
+    DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
