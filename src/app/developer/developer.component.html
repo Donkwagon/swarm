@@ -1,3 +1,4 @@
+
 <div class="app-page f1 c">
 
   <div class="page-cover c">
@@ -10,21 +11,24 @@
     </div>
 
     <div class="page-cover-nav-wrapper r">
-      <div class="page-cover-nav">
+      <a routerLink="/developer/profile"  class="page-cover-nav">
         Profile
-      </div>
-      <div class="page-cover-nav">
-        Activities
-      </div>
-      <div class="page-cover-nav">
+      </a>
+      <a routerLink="/developer/settings" routerLinkActive="active" class="page-cover-nav">
         Settings
-      </div>
-      <div class="page-cover-nav">
+      </a>
+      <a routerLink="/developer/activities" class="page-cover-nav">
+        Activities
+      </a>
+      <a routerLink="/developer/roles" class="page-cover-nav">
         Roles
-      </div>
-      <div class="page-cover-nav">
+      </a>
+      <a routerLink="/developer/tasks" class="page-cover-nav">
         Tasks
-      </div>
+      </a>
+      <a routerLink="/developer/inbox" class="page-cover-nav">
+        Inbox
+      </a>
     </div>
 
   </div>
@@ -41,6 +45,7 @@
     <span>{{developer.authDomain}}</span>
     <span>{{developer.created_at}}</span>
     <span>{{developer.updated_at}}</span>
+    <router-outlet></router-outlet>
   </div>
 
 </div>

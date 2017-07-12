@@ -37,6 +37,30 @@
 
 <div class="main r" *ngIf="developer.displayName &&  appReady">
 
+  <div class="app-nav-bar r">
+    <div class="app-nav-bar-bo">
+      App
+      <span>
+        &nbsp;
+        <i class="fa fa-caret-right" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="app-nav-bar-bo">
+      Developer
+      <span>
+        &nbsp;
+        <i class="fa fa-caret-right" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="app-nav-bar-bo">
+      Settings
+      <span>
+        &nbsp;
+        <i class="fa fa-caret-right" aria-hidden="true"></i>
+      </span>
+    </div>
+  </div>
+
   <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
     <router-outlet></router-outlet>
   </div>

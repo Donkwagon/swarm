@@ -52,6 +52,7 @@ import { DeveloperSettingsComponent }        from './developer/developer-setting
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
+import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
 import { SharedModule }                      from './@core/shared/shared.module';
 
@@ -62,7 +63,7 @@ import { SharedModule }                      from './@core/shared/shared.module'
     SiteComponent,
     PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
-    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent, DeveloperProfileComponent, DeveloperTasksComponent
+    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent, DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

@@ -27,6 +27,7 @@ import { DeveloperSettingsComponent }        from './developer/developer-setting
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
+import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
 
 const routes: Routes = [
@@ -49,7 +50,8 @@ const routes: Routes = [
       { path: 'settings', component: DeveloperSettingsComponent},
       { path: 'activities', component: DeveloperActivitiesComponent},
       { path: 'profile', component: DeveloperProfileComponent},
-      { path: 'tasks', component: DeveloperTasksComponent}
+      { path: 'tasks', component: DeveloperTasksComponent},
+      { path: 'inbox', component: DeveloperInboxComponent}
   ]},
   { path: 'cluster', component: ClusterComponent},
   { path: 'site/:sitename', component: SiteComponent, children: [

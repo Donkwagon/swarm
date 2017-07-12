@@ -320,3 +320,29 @@
 .background-blur{
     filter:blur(1em) brightness(0.8) sepia(0.2);
 }
+
+.app-nav-bar{
+    position:fixed;
+    top:0;left:0;
+    z-index:90;
+    width:100%;
+    font-size:1em;
+    background:linear-gradient(to right, rgba(200,200,200,1) 0%, rgba(200,200,200,0.3) 55%, rgba(180,180,180,0) 100%);
+
+    .app-nav-bar-bo{
+        color:#111;
+        padding:0 0.5em;
+        padding-bottom:0.1em;
+        background-color:#aaa;
+        border-right:rgba(0,0,0,0.2) solid 1px;
+
+        i{
+            color:#777;
+        }
+
+        &:hover{
+            cursor:pointer;
+            background-color:#EEE;
+        }
+    }
+}
