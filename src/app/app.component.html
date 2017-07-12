@@ -35,7 +35,11 @@
 
 <div class="app-background"></div>
 
-<div class="main r" *ngIf="developer.displayName">
+<div class="main r" *ngIf="developer.displayName &&  appReady">
+
+  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
+    <router-outlet></router-outlet>
+  </div>
 
   <div class="site-list c">
     
@@ -65,9 +69,6 @@
             <div class="f1"></div>
             Cluster
           </a>
-          <!-- <a class="site-list-item" (click)="logout()" *ngIf="developer.displayName">
-            Logout
-          </a> -->
 
         </div>
       </div>
@@ -78,6 +79,8 @@
         <div class="profile-row r">
           <img class="profile-img" [src]="developer.photoURL"/>
           <a routerLink="/developer">{{developer.displayName}}</a>
+          <div class="f1"></div>
+          <i class="fa fa-sign-out" aria-hidden="true" (click)="logout()"></i>
         </div>
       </div>
 
@@ -85,10 +88,6 @@
 
     <div class="menu-app-mask" *ngIf="menuDisplay" (click)="menuCollapse()"></div>
 
-  </div>
-
-  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
-    <router-outlet></router-outlet>
   </div>
   
 </div>

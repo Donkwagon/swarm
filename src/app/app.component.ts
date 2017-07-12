@@ -20,6 +20,7 @@ export class AppComponent {
 
   developer: Developer;
   menuDisplay: boolean;
+  appReady: boolean;
 
   constructor(
     db: AngularFireDatabase,
@@ -51,16 +52,16 @@ export class AppComponent {
   registerDeveloper = (developer) => {
     
     this.developerService.getDeveloper(developer.uid).then(res => {
-      console.log(res);
-      this.developerService.setDeveloper(res);
-      console.log(this.developerService.developer);
-      if(!res){
+
+      if(res){
+        this.developerService.setDeveloper(res);
+        this.appReady = true;
+      }else{
         this.developerService.createDeveloper(developer).then(res => {
-          console.log(res);
-          console.log(res);
           this.developerService.setDeveloper(res);
         });
       }
+      
     });
   }
 
