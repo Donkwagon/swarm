@@ -33,9 +33,15 @@
         height:100%;
         padding:3.5em 0.1em;
         background-color:rgba(12,12,12,0.93);
-        z-index:50;
         border-right:rgba(255,255,255,0.1) solid 1px;
+        transition: $transition-fast;
+        opacity:0;
+        z-index:0;
+    }
 
+    .menu-expand{
+        opacity:1;
+        z-index:50;
     }
 
     .site-list-item{
@@ -76,19 +82,23 @@
 
         img{
             margin-right:0.5em;
-            height:1.8em;width:1.8em;
+            height:1.5em;width:1.5em;
             background-color:$CYAN_S2;
             padding:7px;
         }
 
         h1, h2{font-size:1em;font-weight:300;margin:0;}
         h1{
-            letter-spacing:6px;
-            font-size:1.2em;
+            letter-spacing:3px;
+            font-size:1em;
         }
 
         h2{
             color:$CYAN_S1;
+        }
+
+        &:hover{
+            cursor:pointer;
         }
     }
 }
@@ -273,4 +283,12 @@
             }
         }
     }
+}
+
+.app-main-wrapper{
+    transition:$transition-fast;
+}
+
+.background-blur{
+    filter:blur(3px);
 }

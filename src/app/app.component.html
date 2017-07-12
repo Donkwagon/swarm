@@ -39,15 +39,15 @@
 
   <div class="site-list c">
     
-    <a class="swarm-hive r" routerLink="/" routerLinkActive="active" (mouseover)="menuExpand()">
+    <a class="swarm-hive r" (click)="menuExpand()">
       <img src="https://s3.amazonaws.com/nvest/logonobg.png"/>
       <div class="c f1">
         <h1>SWARM</h1>
-        <h2>Crawler Management System</h2>
+        <h2 *ngIf="menuDisplay">Crawler Management System</h2>
       </div>
     </a>
 
-    <div class="app-menu c" *ngIf="menuDisplay" (mouseover)="menuExpand()">
+    <div class="app-menu c" [ngClass]="{'menu-expand': menuDisplay}" >
       <div class="app-menu-component c">
         <div class="app-menu-component-header">Functions</div>
         <div class="app-nav-list r wr">
@@ -87,6 +87,9 @@
     <div class="menu-app-mask" *ngIf="menuDisplay" (click)="menuCollapse()"></div>
 
   </div>
-  <router-outlet></router-outlet>
 
+  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
+    <router-outlet></router-outlet>
+  </div>
+  
 </div>
