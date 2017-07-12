@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import { Component }                                    from '@angular/core';
+import { Router, NavigationStart }                       from '@angular/router';
 
-import { Developer } from './@core/classes/developer';
-import { DeveloperService } from './@core/services/developer.service';
+import { AngularFireDatabase, FirebaseListObservable }  from 'angularfire2/database';
+import { Observable }                                   from 'rxjs/Observable';
+import { AngularFireAuth }                              from 'angularfire2/auth';
+import * as firebase                                    from 'firebase/app';
+
+import { Developer }                                    from './@core/classes/developer';
+import { DeveloperService }                             from './@core/services/developer.service';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class AppComponent {
 
   constructor(
     db: AngularFireDatabase,
+    private router: Router,
     public afAuth: AngularFireAuth,
     private developerService: DeveloperService) {
     
@@ -37,6 +40,12 @@ export class AppComponent {
     afAuth.auth.onAuthStateChanged(res =>{
       this.developer = res;
       this.registerDeveloper(this.developer);
+    });
+
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        this.menuDisplay = false;
+      }
     });
   }
 

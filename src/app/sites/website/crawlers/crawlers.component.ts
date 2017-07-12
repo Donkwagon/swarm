@@ -26,7 +26,7 @@ export class CrawlersComponent implements OnInit {
     private route: ActivatedRoute,
     private siteService: SiteService,
     private crawlerService: CrawlerService){
-    }
+  }
 
   ngOnInit() {
 
