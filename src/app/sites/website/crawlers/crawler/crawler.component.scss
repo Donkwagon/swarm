@@ -2,13 +2,13 @@
 @import '../../../../../_theme';
 
 
-.crawler-page{
-    @extend .fixed-full-screen;
-    width: calc(100% - 8rem);
-    left:8rem;
-    border-left:$CYAN_S2 solid 1px;
-    background-color:black;
-}
+// .crawler-page{
+//     @extend .fixed-full-screen;
+//     width: calc(100% - 8rem);
+//     left:8rem;
+//     border-left:$CYAN_S2 solid 1px;
+//     background-color:black;
+// }
 
 .crawler-interface{
     height:100%;

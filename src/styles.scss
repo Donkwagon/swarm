@@ -58,8 +58,10 @@ a:active {color: $CYAN;text-decoration:none;}
     @extend .fixed-full-screen;
     justify-content:stretch;
     align-items:stretch;
-}.app-page{
+}
+.app-page{
     @extend .fixed-full-screen;
+    background-color:#111;
 }
 
 .page-cover{

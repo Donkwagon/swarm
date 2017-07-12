@@ -1,42 +1,35 @@
 
-<div class="site-interface r">
+<div class="app-page f1 c">
 
-    <div class="site-info c" *ngIf="site">
-
-        <div class="site-info-content-wrapper c ">
-
-            <span class="cyan black-text title">{{site.name | uppercase}}</span>
-
-
-            <a routerLink="/sites/{{site.name}}/crawlers" routerLinkActive="active" class="r">
-
-                <div class="site-info-nav">
-                    Crawlers&nbsp;
-                </div>
-
-                <div class="site-info-nav orange-text" title="new crawler">
-                    [ + ]
-                </div>
-                
-            </a>
-
-            <a routerLink="/sites/{{site.name}}/status" routerLinkActive="active" class="site-info-nav" >
-                Status
-            </a>
-
-            <a routerLink="/sites/{{site.name}}/mappers" routerLinkActive="active" class="site-info-nav">
-                Mappers
-            </a>
-            
-            <a routerLink="/sites/{{site.name}}/settings" routerLinkActive="active" class="site-info-nav">
-                Settings
-            </a>
-            
-
-        </div>
-
+  <div class="page-cover c">
+    <div class="page-cover-info page-cover-website r">
+      <img [src]="site.imgUrl"/>
+      <div class="c">
+        <span>{{site.name | uppercase}}</span>
+        <span>{{site.url}}</span>
+      </div>
     </div>
 
-    <router-outlet></router-outlet>
+    <div class="page-cover-nav-wrapper r">
+      <input class="cyan" placeholder="search"/>
+      <a routerLink="/sites/{{site.name}}/crawlers"  class="page-cover-nav">
+        Crawlers
+      </a>
+      <a routerLink="/sites/{{site.name}}/status" class="page-cover-nav">
+        Status
+      </a>
+      <a routerLink="/sites/{{site.name}}/mappers" routerLinkActive="active" class="page-cover-nav">
+        Mappers
+      </a>
+      <a routerLink="/sites/{{site.name}}/settings" class="page-cover-nav">
+        Settings
+      </a>
+    </div>
 
+  </div>
+
+  <div class="page-body c">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+

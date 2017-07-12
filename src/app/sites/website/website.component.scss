@@ -1,31 +1,11 @@
 
 @import '../../../_theme';
 
-.site-interface{
-    @extend .fixed-full-screen;
-    background-color:rgba(0,0,0,0.93);
-}
+.page-cover-website{
 
-
-.site-info{
-    margin-top:3.6em;
-    width:8rem;
-
-    .title{
-        padding:0 0.5em;
-    }
-
-    img{height:3em;width:3em;}
-
-}
-
-.site-info-nav{
-    font-size:1em;
-    margin-top:0.5em;
-    color:$WHITE;
-
-    &:hover{
-        cursor:pointer;
-        color:#FFF;
+    img{
+        height:2.4em;width:2.4em;
+        border-radius:2px;
+        margin-right:0.5em;
     }
 }

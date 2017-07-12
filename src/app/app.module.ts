@@ -36,14 +36,18 @@ import { ClusterComponent }                  from './cluster/cluster.component';
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 import { SitesComponent }                    from './sites/sites.component';
+import { SitesOverallComponent }             from './sites/sites-overall/sites-overall.component';
 
 import { WebsiteComponent }                  from './sites/website/website.component';
+import { WebsiteOverallComponent }           from './sites/website/website-overall/website-overall.component';
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
 import { StatusComponent }                   from './sites/website/status/status.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
+import { CrawlersOverallComponent }          from './sites/website/crawlers/crawlers-overall/crawlers-overall.component';
 import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
 import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
+import { CrawlerOverallComponent }           from './sites/website/crawlers/crawler/crawler-overall/crawler-overall.component';
 
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
@@ -53,8 +57,13 @@ import { DeveloperActivitiesComponent }      from './developer/developer-activit
 import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
+import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
 
 import { SharedModule }                      from './@core/shared/shared.module';
+import { CrawlerDocumentationComponent }     from './sites/website/crawlers/crawler/crawler-documentation/crawler-documentation.component';
+import { CrawlerSettingsComponent }          from './sites/website/crawlers/crawler/crawler-settings/crawler-settings.component';
+import { CrawlerCodeComponent }              from './sites/website/crawlers/crawler/crawler-code/crawler-code.component';
+
 
 
 @NgModule({
@@ -67,7 +76,9 @@ import { SharedModule }                      from './@core/shared/shared.module'
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
     DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
-    DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent
+    DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent, DeveloperOverallComponent,
+    SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
+    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
