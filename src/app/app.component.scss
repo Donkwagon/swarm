@@ -29,12 +29,27 @@
             }
         }
     }
+
+    input{
+        background-color:rgba(255,255,255,0.1);
+        padding:0.2em 0.5em;
+        font-family:$font-stack;
+        border:none;
+        color:#fff;
+        
+        &:focus{
+            outline:none;
+            background-color:$CYAN;
+            color:#000;
+        }
+    }
 }
 
 .site-list{
     width:10em;
     margin:0;
     transition:$transition;
+    align-items:flex-end;
 
     *{transition:$transition-very-fast;}
 
@@ -43,7 +58,7 @@
         right:0;top:0;
         width:22em;
         height: 100%;
-        padding:3.5em 0.1em;
+        padding:3.5em 0.5em;
         background-color:rgba(12,12,12,0.5);
         border-left:rgba(255,255,255,0.15) solid 1px;
         transition: $transition-fast;
@@ -86,7 +101,6 @@
 
     .swarm-hive{
         padding:0 0;
-        width:10em;
         height:3.5em;
         align-items:center;
         font-weight:300;

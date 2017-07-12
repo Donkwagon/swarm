@@ -50,8 +50,10 @@ import { NewSiteComponent }                  from './sites/new-site/new-site.com
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
+import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
+import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 
-import { SharedModule }      from './@core/shared/shared.module';
+import { SharedModule }                      from './@core/shared/shared.module';
 
 
 @NgModule({
@@ -60,7 +62,7 @@ import { SharedModule }      from './@core/shared/shared.module';
     SiteComponent,
     PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent, BacklogsComponent, ClusterComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
-    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent
+    NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent, StatusComponent, NewCrawlerComponent, CrawlerComponent, DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent, DeveloperProfileComponent, DeveloperTasksComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

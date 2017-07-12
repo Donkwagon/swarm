@@ -2,13 +2,42 @@
 
 .app-page{
     @extend .fixed-full-screen;
-    padding:1em;
+}
+
+.page-cover{
+    font-size:1.2em;
+
+    .page-cover-info{
+        padding:0.5em;
+    }
+    
+    .page-cover-nav-wrapper{
+        border-top:grey solid 1px;
+        border-bottom:grey solid 1px;
+
+        .page-cover-nav{
+            padding:0.2em 0.5em;
+
+            &:hover{
+                cursor:pointer;
+                background-color:$CYAN_S2;
+            }
+        }
+    }
+}
+
+.page-body{
+    padding:0.5em;
+}
+
+.page-cover-developer{
+    img{
+        height:2.4em;width:2.4em;
+        border-radius:3px;
+        margin-right:0.5em;
+    }
+
 }
 
 .developer-profile{
-    img{
-        height:5em;width:5em;
-        border-radius:3px;
-        border:$WHITE solid 3px;
-    }
 }
