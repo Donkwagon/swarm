@@ -15,10 +15,8 @@ export class DeveloperComponent implements OnInit {
 
 
   constructor(private developerService: DeveloperService) {
-    console.log(developerService.developer);
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
-    console.log(this.developer);
 
   }
 

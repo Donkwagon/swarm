@@ -12,11 +12,21 @@
 
     .profile-row{
         align-items:center;
+        padding-right:0.5em;
 
         .profile-img{
             height:2em;width:2em;
             margin-right:0.5em;
             border-radius:1em;
+        }
+
+        i{
+            color:$CYAN_S2;
+
+            &:hover{
+                cursor:pointer;
+                color:$CYAN;
+            }
         }
     }
 }
@@ -30,12 +40,12 @@
 
     .app-menu{
         position:fixed;
-        left:0;top:0;
+        right:0;top:0;
         width:22em;
-        height:100%;
+        height: 100%;
         padding:3.5em 0.1em;
         background-color:rgba(12,12,12,0.5);
-        border-right:rgba(255,255,255,0.15) solid 1px;
+        border-left:rgba(255,255,255,0.15) solid 1px;
         transition: $transition-fast;
         opacity:0;
         z-index:0;

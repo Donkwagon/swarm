@@ -2,12 +2,13 @@
 
 .app-page{
     @extend .fixed-full-screen;
-    width: calc(100% - 8rem);
-    left:8rem;
     padding:1em;
-    border-left:$CYAN solid 1px;
 }
 
 .developer-profile{
-    img{height:5em;width:5em;}
+    img{
+        height:5em;width:5em;
+        border-radius:3px;
+        border:$WHITE solid 3px;
+    }
 }
