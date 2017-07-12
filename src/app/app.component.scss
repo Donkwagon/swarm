@@ -3,7 +3,7 @@
 
 .app-menu-component{
     //background-color:#222;
-    margin-top:1em;
+    margin-top:0.5em;
 
     .app-menu-component-header{
         color:$GREY;
@@ -31,7 +31,7 @@
         left:0;top:0;
         width:22em;
         height:100%;
-        padding:3em 0.1em;
+        padding:3.5em 0.1em;
         background-color:rgba(12,12,12,0.93);
         z-index:50;
         border-right:rgba(255,255,255,0.1) solid 1px;
@@ -39,7 +39,7 @@
     }
 
     .site-list-item{
-        padding:0.5em;
+        padding:0.3em 0.5em;
         width:6em;
         height:4em;
         color:$WHITE;
@@ -67,19 +67,28 @@
     }
 
     .swarm-hive{
-        padding:0.5em 0;
+        padding:0 0;
+        width:22em;
+        height:3.5em;
         align-items:center;
-        letter-spacing:4px;
-        text-shadow:0 0 1em $CYAN;
-        font-size:1.2em;
-        //background-color:$CYAN_S2;
         font-weight:300;
         z-index:51;
 
         img{
-            height:1rem;width:1rem;
-            background-color:#333;
-            padding:0.3em;
+            margin-right:0.5em;
+            height:1.8em;width:1.8em;
+            background-color:$CYAN_S2;
+            padding:7px;
+        }
+
+        h1, h2{font-size:1em;font-weight:300;margin:0;}
+        h1{
+            letter-spacing:6px;
+            font-size:1.2em;
+        }
+
+        h2{
+            color:$CYAN_S1;
         }
     }
 }
