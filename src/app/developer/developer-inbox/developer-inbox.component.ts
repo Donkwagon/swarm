@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Developer } from '../../@core/classes/developer';
+import { DeveloperService } from '../../@core/shared/developer.service';
 
 @Component({
   selector: 'app-developer-inbox',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeveloperInboxComponent implements OnInit {
 
-  constructor() { }
+  developer: Developer;
+
+  constructor(private developerService: DeveloperService) {
+    this.developer = new Developer();
+    this.developer = developerService.accessDeveloper();
+  }
 
   ngOnInit() {
   }

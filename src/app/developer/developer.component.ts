@@ -13,11 +13,9 @@ export class DeveloperComponent implements OnInit {
 
   developer: Developer;
 
-
   constructor(private developerService: DeveloperService) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
-
   }
 
   ngOnInit() {

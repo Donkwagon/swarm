@@ -47,6 +47,7 @@ const routes: Routes = [
   ]},
   { path: 'colors', component: ColorPaletteComponent},
   { path: 'developer', component: DeveloperComponent, children: [
+      { path: '', redirectTo: 'profile', pathMatch: 'full' },
       { path: 'settings', component: DeveloperSettingsComponent},
       { path: 'activities', component: DeveloperActivitiesComponent},
       { path: 'profile', component: DeveloperProfileComponent},
