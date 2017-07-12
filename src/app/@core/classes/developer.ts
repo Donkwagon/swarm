@@ -23,6 +23,8 @@ export class Developer {
     created_at: Date;
     updated_at: Date;
 
+    acitivities: any[];
+
     constructor(){
     }
 }

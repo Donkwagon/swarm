@@ -17,12 +17,14 @@
 .site-info-box{
     position:relative;padding:0.5em;
     border:transparent solid 1px;
-    width:10em;height:10em;
+    width:10em;height:6.4em;
     overflow:hidden;
+    transition:$transition-very-fast;
 
     img{
         position:absolute;
-        width:110%;height:110%;
+        width:110%;
+        height:auto;
         top:-5%;left:-5%;
         background-color:white;
         filter:blur(2px)brightness(0.2);

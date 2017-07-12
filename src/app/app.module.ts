@@ -51,6 +51,9 @@ import { DeveloperComponent }                from './developer/developer.compone
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 
+import { SharedModule }      from './@core/shared/shared.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,8 @@ import { DeveloperActivitiesComponent }      from './developer/developer-activit
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     ChartsModule,
-    AceEditorModule
+    AceEditorModule,
+    SharedModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

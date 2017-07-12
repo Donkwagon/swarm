@@ -7,14 +7,13 @@ import { AngularFireAuth }                              from 'angularfire2/auth'
 import * as firebase                                    from 'firebase/app';
 
 import { Developer }                                    from './@core/classes/developer';
-import { DeveloperService }                             from './@core/services/developer.service';
+import { DeveloperService }                             from './@core/shared/developer.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [ DeveloperService ]
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
@@ -32,7 +31,7 @@ export class AppComponent {
     audio.src = "http://www.bigsoundbank.com/sounds/mp3/0945.mp3";
     audio.load();
     audio.play();
-
+    
     this.developer = new Developer();
 
     this.menuDisplay = false;
@@ -53,9 +52,13 @@ export class AppComponent {
     
     this.developerService.getDeveloper(developer.uid).then(res => {
       console.log(res);
+      this.developerService.setDeveloper(res);
+      console.log(this.developerService.developer);
       if(!res){
         this.developerService.createDeveloper(developer).then(res => {
           console.log(res);
+          console.log(res);
+          this.developerService.setDeveloper(res);
         });
       }
     });

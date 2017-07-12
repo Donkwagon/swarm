@@ -2,12 +2,24 @@ import { Injectable } from '@angular/core';
 import { Developer } from '../classes/developer';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
 
 @Injectable()
 export class DeveloperService {
     private developersUrl = '/queen/developer';
+    public developer: Developer;
 
-    constructor (private http: Http) {}
+    constructor (private http: Http) {
+    }
+
+    setDeveloper(developer) {
+      this.developer = developer;
+    }
+
+    accessDeveloper() {
+      return this.developer;
+    }
 
     getDevelopers(): Promise<Developer[]> {
       return this.http.get(this.developersUrl)

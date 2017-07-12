@@ -16,6 +16,8 @@ var developerSchema = new Schema({
     phoneNumber: String,
     isAnomymous: Boolean,
 
+    acitivities: Schema.Types.Mixed,
+
     providerData: {
         uid: string,
         displayName: string,

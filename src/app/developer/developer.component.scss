@@ -1,0 +1,13 @@
+@import '../../_theme';
+
+.app-page{
+    @extend .fixed-full-screen;
+    width: calc(100% - 8rem);
+    left:8rem;
+    padding:1em;
+    border-left:$CYAN solid 1px;
+}
+
+.developer-profile{
+    img{height:5em;width:5em;}
+}
