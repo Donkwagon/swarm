@@ -1,0 +1,25 @@
+
+@import '../../../../../../_theme';
+.crawler-settings-form{
+    padding:0.5em;
+
+    .input-label{
+        width:10em;
+    }
+
+    .settings-input-row{
+        padding:0.5em;
+        
+        input{
+            border:none;
+            font-size:1em;
+            color:black;
+            background-color:$CYAN;
+            font-family:$font-stack;
+
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+}
