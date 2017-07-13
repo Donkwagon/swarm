@@ -3,6 +3,7 @@ export class Developer {
     _id?: string;
     uid: string;
     displayName: string;
+    enabled: boolean;
     username: string;
     photoURL : string;
     email: string;

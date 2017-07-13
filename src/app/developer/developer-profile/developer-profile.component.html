@@ -1,4 +1,40 @@
 <div class="c">
+  <form class="settings-form c">
+
+    <div class="settings-input-row r">
+      <div>Initialize Account</div>
+    </div>
+
+    <div class="settings-input-row r">
+      <div class="input-label">User Name</div>
+      <input type="text" spellcheck="false" [(ngModel)]="developer.username" name="username"/>
+    </div>
+
+    <div class="settings-input-row r">
+      <div class="input-label">New Password</div>
+      <input type="password" spellcheck="false" [(ngModel)]="developer.password" name="newPassword"/>
+    </div>
+
+    <div class="settings-input-row r">
+      <div class="input-label">New Password</div>
+      <input type="password" spellcheck="false" [(ngModel)]="developer.passordConfirm" name="newPassword"/>
+    </div>
+    
+    <div class="r">
+      <div class="f1"></div>
+      <div class="button -salmon center" (click)="discardChanges()">
+        Discard
+      </div>
+      &nbsp;
+      &nbsp;
+      <div class="button -green center" (click)="initializeAccount()">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        &nbsp;Save
+      </div>
+    </div>
+    
+  </form>
+
   <span>{{developer._id}}</span>
   <span>{{developer.uid}}</span>
   <span>{{developer.photoURL}}</span>

@@ -47,6 +47,75 @@ developer.get("/:uid", function(req, res) {
   });
 });
 
+developer.put("/initialize/:_id", function(req, res) {
+  var updateDoc = req.body;
+  
+
+  db.collection(DEVELOPER_COLLECTION).findOne({_id: updateDoc._id}, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to find developer");
+    } else {
+              
+      bcrypt.genSalt(saltRounds, function(err, salt) {
+        
+        bcrypt.hash(updateDoc.password, salt, function(err, hash) {
+            updateDoc.password = hash;
+
+            console.log(JSON.stringify(updateDoc));
+
+            db.collection(DEVELOPER_COLLECTION).updateOne({_id: updateDoc._id}, updateDoc, function(err, doc) {
+              if (err) {
+                handleError(res, err.message, "Failed to update developer");
+              } else {
+                res.status(200).json(updateDoc);
+              }
+            });
+        });
+
+      });
+    }
+  });
+
+
+
+});
+developer.put("/:_id", function(req, res) {
+  var updateDoc = req.body;
+        
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+
+    db.collection(DEVELOPER_COLLECTION).findOne({_id: updateDoc._id}, function(err, doc) {
+
+      if (err) {
+        handleError(res, err.message, "Unable to find the developer info");
+      } else {
+
+        bcrypt.compare(updateDoc.oldPassword, updateDoc.password, function(err, res) {
+            if(res === true){
+              bcrypt.genSalt(saltRounds, function(err, salt) {
+                  bcrypt.hash(updateDoc.password, salt, function(err, hash) {
+                    updateDoc.password = hash;
+                    db.collection(DEVELOPER_COLLECTION).updateOne({_id: updateDoc._id}, updateDoc, function(err, doc) {
+                      if (err) {
+                        handleError(res, err.message, "Failed to update developer");
+                      } else {
+                        res.status(200).json(updateDoc);
+                      }
+                    });
+                  });
+              });
+            }else{
+              console.log(err);
+            }
+        });
+                  
+      }
+    });
+      
+  });
+
+
+});
 developer.put("/:_id", function(req, res) {
   var updateDoc = req.body;
         

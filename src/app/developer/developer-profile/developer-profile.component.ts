@@ -19,4 +19,10 @@ export class DeveloperProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  initializeAccount () {
+    this.developerService.initializeDeveloper(this.developer).then(res => {
+      console.log(res);
+    });
+  }
+
 }

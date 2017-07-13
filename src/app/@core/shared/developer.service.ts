@@ -50,6 +50,14 @@ export class DeveloperService {
                  .catch(this.handleError);
     }
 
+    initializeDeveloper(putdeveloper: Developer): Promise<Developer> {
+      var putUrl = this.developersUrl + '/initialize/' + putdeveloper._id;
+      return this.http.put(putUrl, putdeveloper)
+                 .toPromise()
+                 .then(response => response.json() as Developer)
+                 .catch(this.handleError);
+    }
+
     updateDeveloper(putdeveloper: Developer): Promise<Developer> {
       var putUrl = this.developersUrl + '/' + putdeveloper._id;
       return this.http.put(putUrl, putdeveloper)
