@@ -41,6 +41,8 @@ import { SitesOverallComponent }             from './sites/sites-overall/sites-o
 import { WebsiteComponent }                  from './sites/website/website.component';
 import { WebsiteOverallComponent }           from './sites/website/website-overall/website-overall.component';
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
+import { WebsiteDataComponent }              from './sites/website/website-data/website-data.component';
+import { WebsiteUsersComponent }             from './sites/website/website-users/website-users.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
 import { StatusComponent }                   from './sites/website/status/status.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
@@ -67,6 +69,7 @@ import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/craw
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +82,7 @@ import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/craw
     DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
     DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent, DeveloperOverallComponent,
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
-    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent, CrawlerEditHistoryComponent
+    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent, CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

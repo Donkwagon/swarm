@@ -17,6 +17,8 @@ import { NewSiteComponent }                  from './sites/new-site/new-site.com
 
 import { WebsiteComponent }                  from './sites/website/website.component';
 import { WebsiteOverallComponent }           from './sites/website/website-overall/website-overall.component';
+import { WebsiteDataComponent }              from './sites/website/website-data/website-data.component';
+import { WebsiteUsersComponent }             from './sites/website/website-users/website-users.component';
 import { MappersComponent }                  from './sites/website/mappers/mappers.component';
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
@@ -54,6 +56,8 @@ const routes: Routes = [
           { path: 'overall', component: WebsiteOverallComponent},
           { path: 'mappers', component: MappersComponent},
           { path: 'status', component: StatusComponent},
+          { path: 'data', component: WebsiteDataComponent},
+          { path: 'users', component: WebsiteUsersComponent},
           { path: 'settings', component: SettingsComponent},
           { path: 'crawlers', component: CrawlersComponent, children: [
             { path: '', redirectTo: 'overall', pathMatch: 'full' },
