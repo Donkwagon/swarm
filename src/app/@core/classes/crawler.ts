@@ -5,6 +5,8 @@ export class Crawler {
     
     _id?: string;
     type: string; // webpage scraping, api
+    inputDataType: string;
+    outputDataType: string;
     name: string;
     site: string;
     siteId: string;

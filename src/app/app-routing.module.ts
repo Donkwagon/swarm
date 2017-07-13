@@ -26,6 +26,7 @@ import { CrawlerDocumentationComponent }     from './sites/website/crawlers/craw
 import { CrawlerSettingsComponent }          from './sites/website/crawlers/crawler/crawler-settings/crawler-settings.component';
 import { CrawlerOverallComponent }           from './sites/website/crawlers/crawler/crawler-overall/crawler-overall.component';
 import { CrawlerCodeComponent }              from './sites/website/crawlers/crawler/crawler-code/crawler-code.component';
+import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/crawler/crawler-edit-history/crawler-edit-history.component';
 
 
 import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
@@ -63,7 +64,8 @@ const routes: Routes = [
               { path: 'overall', component: CrawlerOverallComponent},
               { path: 'code', component: CrawlerCodeComponent},
               { path: 'documentation', component: CrawlerDocumentationComponent},
-              { path: 'settings', component: CrawlerSettingsComponent}
+              { path: 'settings', component: CrawlerSettingsComponent},
+              { path: 'history', component: CrawlerEditHistoryComponent}
             ]}
           ]}
         ]

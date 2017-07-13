@@ -227,7 +227,7 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
 
   save = () => {
-    this.crawlerService.updatCrawler(this.crawler).then(res => {});
+    this.crawlerService.updateCrawler(this.crawler).then(res => {});
   }
 
   sendMessage(){

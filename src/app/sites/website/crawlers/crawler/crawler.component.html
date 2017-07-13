@@ -1,17 +1,26 @@
 
   <div class="page-secondary-nav-wrapper r" *ngIf="site">
+
     <a routerLink="/sites/{{site.name}}/crawlers/{{crawlerId}}/overall" class="page-secondary-nav">
       {{crawler.name}}
     </a>
+
     <a routerLink="/sites/{{site.name}}/crawlers/{{crawlerId}}/code" class="page-secondary-nav">
       Code
     </a>
+
     <a routerLink="/sites/{{site.name}}/crawlers/{{crawlerId}}/documentation" class="page-secondary-nav">
-      Docs
+      Documentation
     </a>
+
     <a routerLink="/sites/{{site.name}}/crawlers/{{crawlerId}}/settings" class="page-secondary-nav">
-      Settings
+      Crawler Settings
     </a>
+
+    <a routerLink="/sites/{{site.name}}/crawlers/{{crawlerId}}/history" class="page-secondary-nav">
+      Edit History
+    </a>
+    
   </div>
 
   <router-outlet></router-outlet>

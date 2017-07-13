@@ -91,13 +91,10 @@
     input{
         background-color:$orange;
         border:none;
-        border-bottom:rgba(0,0,0,0.1) solid 1px;
-        border-top:rgba(255,255,255,0.1) solid 1px;
         font-family:$font-stack;
         font-size:1em;
         padding:0.2em 0.5em;
         color:black;
-        text-shadow:0 0 3px rgba(0,0,0,0.3);
 
         &:focus{
             outline:none;
@@ -120,7 +117,6 @@
     color: black;
     }
 
-
 }
 
 
@@ -128,7 +124,7 @@
     align-items:stretch;
 
     .output-interface{
-        width:20rem;
+        width:25rem;
 
         .interface-module{
             background-color:rgba(100,100,100,0.03);

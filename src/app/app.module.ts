@@ -63,6 +63,7 @@ import { SharedModule }                      from './@core/shared/shared.module'
 import { CrawlerDocumentationComponent }     from './sites/website/crawlers/crawler/crawler-documentation/crawler-documentation.component';
 import { CrawlerSettingsComponent }          from './sites/website/crawlers/crawler/crawler-settings/crawler-settings.component';
 import { CrawlerCodeComponent }              from './sites/website/crawlers/crawler/crawler-code/crawler-code.component';
+import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/crawler/crawler-edit-history/crawler-edit-history.component';
 
 
 
@@ -78,7 +79,7 @@ import { CrawlerCodeComponent }              from './sites/website/crawlers/craw
     DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
     DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent, DeveloperOverallComponent,
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
-    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent
+    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent, CrawlerEditHistoryComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

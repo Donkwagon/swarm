@@ -3,13 +3,7 @@
   <form class="c crawler-settings-form">
 
     <div class="settings-input-row r">
-      <div class="input-label">Site Name</div>
-      <div>{{siteName}}</div>
-    </div>
-
-    <div class="settings-input-row r">
-      <div class="input-label">Crawler ID</div>
-      <div>{{crawler._id}}</div>
+      <div>{{siteName}}/{{crawler._id}}</div>
     </div>
 
     <div class="settings-input-row r">
@@ -18,8 +12,31 @@
     </div>
 
     <div class="settings-input-row r">
-      <div class="input-label">Crawler Type</div>
-      <input type="text" spellcheck="false" [(ngModel)]="crawler.type" name="crawlerType"/>
+      <div class="input-label">Crawler Description</div>
+      <textarea type="text" spellcheck="false" [(ngModel)]="crawler.description" name="crawlerDescription"></textarea>
+    </div>
+
+    <div class="settings-input-row r">
+      <div class="input-label">Crawler Documentations</div>
+      <textarea type="text" spellcheck="false" [(ngModel)]="crawler.doc" name="crawlerDoc"></textarea>
+    </div>
+
+    <div class="settings-input-row r">
+      <div class="input-label">Crawler Input Data Type</div>
+      <input type="radio" [(ngModel)]="crawler.inputDataType" name="inputDataType" (change)="setInputDataType('HTML')" value="HTML" [checked]="crawler.inputDataType === 'HTML'"> HTML
+      <input type="radio" [(ngModel)]="crawler.inputDataType" name="inputDataType" (change)="setInputDataType('JSON')" value="JSON"  [checked]="crawler.inputDataType === 'JSON'"> JSON
+      <input type="radio" [(ngModel)]="crawler.inputDataType" name="inputDataType" (change)="setInputDataType('TXT')" value="TXT"  [checked]="crawler.inputDataType === 'TXT'"> TXT
+      <input type="radio" [(ngModel)]="crawler.inputDataType" name="inputDataType" (change)="setInputDataType('XML')" value="XML"  [checked]="crawler.inputDataType === 'XML'"> XML
+      <input type="radio" [(ngModel)]="crawler.inputDataType" name="inputDataType" (change)="setInputDataType('CSV')" value="CSV"  [checked]="crawler.inputDataType === 'CSV'"> CSV
+      {{crawler.inputDataType}}
+    </div>
+
+    <div class="settings-input-row r">
+      <div class="input-label">Crawler Output Data Type</div>
+      <input type="radio" name="outputDataType" [(ngModel)]="crawler.outputDataType"  (change)="setOutputDataType('Post')" value="Post" [checked]="crawler.outputDataType === 'Post'"> Post
+      <input type="radio" name="outputDataType" [(ngModel)]="crawler.outputDataType"  (change)="setOutputDataType('User')" value="User" [checked]="crawler.outputDataType === 'User'"> User
+      <input type="radio" name="outputDataType" [(ngModel)]="crawler.outputDataType"  (change)="setOutputDataType('Others')" value="Others" [checked]="crawler.outputDataType === 'Others'"> Others
+      {{crawler.outputDataType}}
     </div>
 
     <div class="settings-input-row r">
@@ -36,7 +53,19 @@
       <div class="input-label">Updated at</div>
       <div>{{crawler.updated_at}}</div>
     </div>
-    
+    <br>
+    <div class="r">
+      <div class="f1"></div>
+      <div class="button -salmon center" (click)="discardChanges()">
+        Discard
+      </div>
+      &nbsp;
+      &nbsp;
+      <div class="button -green center" (click)="saveChanges()">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        &nbsp;Save
+      </div>
+    </div>
   </form>
 
 </div>

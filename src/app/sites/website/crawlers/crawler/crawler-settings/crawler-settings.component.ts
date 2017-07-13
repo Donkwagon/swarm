@@ -69,4 +69,23 @@ export class CrawlerSettingsComponent implements OnInit {
 
   }
 
+  setInputDataType(dataType) {
+    this.crawler.inputDataType = dataType;
+  }
+
+  setOutputDataType(dataType) {
+    this.crawler.outputDataType = dataType;
+  }
+
+
+  discardChanges() {
+    return;
+  }
+
+  saveChanges() {
+
+    this.crawlerService.updateCrawler(this.crawler).then(res => {
+      console.log(res);
+    });
+  }
 }

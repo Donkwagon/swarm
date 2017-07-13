@@ -4,13 +4,15 @@
     padding:0.5em $padding-side;
 
     .input-label{
-        width:10em;
+        width:15em;
+        color:$ORANGE;
     }
 
     .settings-input-row{
         padding:0.5em 0;
+        border-bottom:$GREY solid 1px;
         
-        input{
+        input, textarea{
             border:none;
             font-size:1em;
             color:black;

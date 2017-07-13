@@ -69,7 +69,7 @@ export class CrawlerService {
     }
 
     // put("/Crawler/Crawlers/:id")
-    updatCrawler(putCrawler: Crawler): Promise<Crawler> {
+    updateCrawler(putCrawler: Crawler): Promise<Crawler> {
       var putUrl = this.CrawlersUrl + '/' + putCrawler._id;
       return this.http.put(putUrl, putCrawler)
                  .toPromise()
