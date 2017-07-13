@@ -3,6 +3,11 @@ const developer = express.Router();
 var DEVELOPER_COLLECTION = "developers";
 var ObjectID = require('mongodb').ObjectID;
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
+
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
@@ -42,18 +47,42 @@ developer.get("/:uid", function(req, res) {
   });
 });
 
-developer.put("/:uid", function(req, res) {
+developer.put("/:_id", function(req, res) {
   var updateDoc = req.body;
-  delete updateDoc._id;
+        
+  bcrypt.genSalt(saltRounds, function(err, salt) {
 
-  db.collection(DEVELOPER_COLLECTION).updateOne({uid: req.params.uid}, updateDoc, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to update developer");
-    } else {
-      updateDoc._id = req.params.id;
-      res.status(200).json(updateDoc);
-    }
+    db.collection(DEVELOPER_COLLECTION).findOne({_id: updateDoc._id}, function(err, doc) {
+
+      if (err) {
+        handleError(res, err.message, "Unable to find the developer info");
+      } else {
+
+        bcrypt.compare(updateDoc.oldPassword, updateDoc.password, function(err, res) {
+            if(res === true){
+              bcrypt.genSalt(saltRounds, function(err, salt) {
+                  bcrypt.hash(updateDoc.password, salt, function(err, hash) {
+                    updateDoc.password = hash;
+                    db.collection(DEVELOPER_COLLECTION).updateOne({_id: updateDoc._id}, updateDoc, function(err, doc) {
+                      if (err) {
+                        handleError(res, err.message, "Failed to update developer");
+                      } else {
+                        res.status(200).json(updateDoc);
+                      }
+                    });
+                  });
+              });
+            }else{
+              console.log(err);
+            }
+        });
+                  
+      }
+    });
+      
   });
+
+
 });
 
 developer.delete("/:uid", function(req, res) {

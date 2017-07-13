@@ -10,31 +10,15 @@ var chalk =           require('chalk');
  
 var serviceAccount =  require("./server/firebase/swarm-c0b98-firebase-adminsdk-q66u1-685dfe1150");
 
-  // adapter: postgresql
-  // database: nvestdb
-  // username: nvestdb
-  // password: nvest12345
-  // host: nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com
+// adapter: postgresql
+// database: nvestdb
+// username: nvestdb
+// password: nvest12345
+// host: nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com
 
 // var pgp = require('pg-promise')();
 // const conString = 'postgres://nvestdb:nvest12345@nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com:5432/nvestdb?ssl=true';
-// var pgDb = pgp(conString);
-// console.log(pgDb);
-// pgDb.none('CREATE TABLE items(id SERIAL PRIMARY KEY, text VARCHAR(40) not null, complete BOOLEAN)')
-//     .then(() => {
-//         console.log("inserted???");
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });
-    
-// pgDb.none('INSERT INTO items(text, complete) VALUES($1, $2)', ['John', true])
-//     .then(() => {
-//         console.log("inserted???");
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -54,27 +38,28 @@ server.listen(process.env.PORT || 8100, function (err) {
 global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532"));
 mongoose.connect('mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532');
 
+//////////////////////////////////////////
+//Connect to io
 var io = require('socket.io').listen(server.listen(8100));
+
 io.sockets.on('connection', function (socket) {
     console.log('client connect');
     socket.on('echo', function (data) {
         io.sockets.emit('message', data);
     });
 });
-//io.attach(server);
 
 global.io = io;
 
-
-// //Start socket.io server 
-// var io = require("./server/socket.server").listen(server);
-
-
+//////////////////////////////////////////
+//Routing
 const api = require('./server/routes/api');
 const queen = require('./server/swarm/queen');
+const system = require('./server/system/system');
 
 app.use('/api', api);
 app.use('/queen',queen);
+app.use('/system',system);
 
 
 

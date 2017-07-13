@@ -4,7 +4,6 @@ export class Developer {
     uid: string;
     displayName: string;
     username: string;
-    password: string;
     photoURL : string;
     email: string;
     emailVerified: string;
@@ -18,6 +17,9 @@ export class Developer {
         email: string,
         providerId: string
     }[];
+
+    oldPassword: string;
+    password: string;
 
     apiKey: string;
     authDomain: string;
