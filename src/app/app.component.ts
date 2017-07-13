@@ -54,6 +54,7 @@ export class AppComponent {
     this.developerService.getDeveloper(developer.uid).then(res => {
 
       if(res){
+        console.log(res);
         this.developerService.setDeveloper(res);
         this.appReady = true;
       }else{

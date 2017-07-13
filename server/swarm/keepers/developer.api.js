@@ -47,29 +47,29 @@ developer.get("/:uid", function(req, res) {
   });
 });
 
-developer.put("/initialize/:_id", function(req, res) {
+developer.put("/initialize/:id", function(req, res) {
   var updateDoc = req.body;
   
-
-  db.collection(DEVELOPER_COLLECTION).findOne({_id: updateDoc._id}, function(err, doc) {
+  db.collection(DEVELOPER_COLLECTION).findOne({_id: new ObjectID(req.params.id)}, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to find developer");
     } else {
+      console.log(JSON.stringify(doc));
               
       bcrypt.genSalt(saltRounds, function(err, salt) {
         
         bcrypt.hash(updateDoc.password, salt, function(err, hash) {
-            updateDoc.password = hash;
-
-            console.log(JSON.stringify(updateDoc));
-
-            db.collection(DEVELOPER_COLLECTION).updateOne({_id: updateDoc._id}, updateDoc, function(err, doc) {
-              if (err) {
-                handleError(res, err.message, "Failed to update developer");
-              } else {
-                res.status(200).json(updateDoc);
-              }
-            });
+          updateDoc.password = hash;
+          updateDoc.enabled = true;
+          console.log(updateDoc.username);
+          db.collection(DEVELOPER_COLLECTION).update({_id: new ObjectID(req.params.id)}, {$set:{username:updateDoc.username,password:hash,enabled:true}}, function(err, doc) {
+            if (err) {
+              handleError(res, err.message, "Failed to update developer");
+            } else {
+              console.log(JSON.stringify(doc));
+              res.status(200).json(doc);
+            }
+          });
         });
 
       });

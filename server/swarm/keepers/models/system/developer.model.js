@@ -11,6 +11,7 @@ var developerSchema = new Schema({
     uid: String,
     displayName: String,
     username: String,
+    enabled: Boolean,
     password: String,
     photoURL : String,
     email: String,
