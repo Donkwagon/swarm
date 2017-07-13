@@ -1,11 +1,11 @@
 
-<div class="app-page f1 c">
+<div class="app-page f1 c" *ngIf="site">
 
   <div class="page-cover c">
     <div class="page-cover-info page-cover-website r">
       <img [src]="site.imgUrl"/>
       <div class="c">
-        <span>{{site.name | uppercase}}</span>
+        <a routerLink="/sites/{{site.name}}/overall">{{site.name | uppercase}}</a>
         <span>{{site.url}}</span>
       </div>
     </div>

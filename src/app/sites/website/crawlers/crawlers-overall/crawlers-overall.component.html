@@ -1,3 +1,17 @@
-<p>
-  crawlers-overall works!
-</p>
+<div class="f1 r wr">
+
+  <a routerLink="/sites/{{siteName}}/crawlers/{{crawler._id}}" routerLinkActive="active" class="crawler-info-box c" *ngFor="let crawler of crawlers">
+    <div class="r">
+      <div class="c">
+        <span>{{crawler.name}}</span>
+      </div>
+      <div class="f1"></div>
+    </div>
+  </a>
+  
+  <a routerLink="/sites/{{siteName}}/crawlers/new" routerLinkActive="active" class="site-info-box new-site-btn c" >
+    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+    <span>NEW CRAWLER</span>
+  </a>
+  
+</div>

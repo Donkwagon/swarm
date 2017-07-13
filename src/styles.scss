@@ -134,23 +134,23 @@ table{
 }
 
 
-app-site{flex:1;flex-direction:column;}
+// app-site{flex:1;flex-direction:column;}
 
-app-cluster, app-sites{
-    flex:1;
-    flex-direction:column;
-    justify-content:stretch;
-}
+// app-cluster, app-sites{
+//     flex:1;
+//     flex-direction:column;
+//     justify-content:stretch;
+// }
 
-app-crawler{
-    flex:1;
-    flex-direction:row;
-}
-app-crawlers{
-    flex:1;
-    flex-direction:row;
-}
+// app-crawler{
+//     flex:1;
+//     flex-direction:row;
+// }
+// app-crawlers{
+//     flex:1;
+//     flex-direction:row;
+// }
 
-app-crawler{
-    flex:1;
-}
+// app-crawler{
+//     flex:1;
+// }
