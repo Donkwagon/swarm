@@ -26,8 +26,6 @@ export class CrawlerCodeComponent implements OnInit {
   testingData = [];
   message;
 
-  mode: string;
-
   sub_crawler:any;
   siteName: string;
   site: Site;
@@ -64,9 +62,9 @@ export class CrawlerCodeComponent implements OnInit {
       
       this.crawler = new Crawler();
       this.resetNewInputs();
-      this.mode = "settings";
 
   }
+
   ngOnInit() {
 
     this.sub = this.route.parent.parent.parent.params.subscribe(params => {
@@ -103,8 +101,6 @@ export class CrawlerCodeComponent implements OnInit {
 
   }
 
-  selectmode = (mode) => {this.mode = mode;}
-  
   getSiteInfo = () => {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {

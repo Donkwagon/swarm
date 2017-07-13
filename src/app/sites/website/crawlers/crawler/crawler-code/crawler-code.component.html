@@ -5,7 +5,7 @@
 
       <div class="r">
         <div class="root-url grey-text">[ URL CONFIG ]&nbsp;</div>
-        <div class="root-url cyan-text">{{crawler.urlStrategy.root}}</div>
+        <div class="root-url">{{crawler.urlStrategy.root}}</div>
       </div>
 
       <div class="r" *ngFor="let urlSection of crawler.urlStrategy.sections">
@@ -70,8 +70,7 @@
         
     </div>
 
-
-    <div class="work-space f1 r" *ngIf="mode == 'code'">
+    <div class="work-space f1 r">
 
       <div class="editor-wrapper f1">
         <ace-editor #editor
@@ -165,8 +164,6 @@
       </div>
 
     </div>
-
-
     
   </div>
 

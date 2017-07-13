@@ -69,7 +69,6 @@ a:active {color: $CYAN;text-decoration:none;}
     }
     
     .page-cover-nav-wrapper{
-        //border-top:grey solid 1px;
         border-bottom:$CYAN_S1 solid 1px;
 
         .page-cover-nav{
@@ -124,9 +123,7 @@ a:active {color: $CYAN;text-decoration:none;}
     }
 }
 
-.page-body{
-}
-
+.page-body{flex:1;}
 
 .option-bar{
     align-items:center;
@@ -155,4 +152,10 @@ table{
         border-collapse: collapse;
         background-color:#24457C;
     }
+}
+
+app-crawlers,app-crawler,app-crawler-code{
+    display:flex;
+    flex-direction:column;
+    flex:1;
 }

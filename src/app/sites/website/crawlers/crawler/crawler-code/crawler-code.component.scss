@@ -1,18 +1,13 @@
 
 @import '../../../../../../_theme';
 
-.crawler-interface{
-    height:100%;
-    align-self:stretch;
-}
 
 .ace-monokai .ace_gutter{
     background:rgba(0,0,0,0)!important;
 }
 
 .crawler-panel{
-    padding:0.2em 1em 0.2em 1em;
-    background-color:$CYAN_S2;
+    padding:0.1em 1em 0.1em 1em;
 
     .active{
         background-color:$CYAN;

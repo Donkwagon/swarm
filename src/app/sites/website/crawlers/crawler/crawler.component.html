@@ -1,5 +1,5 @@
 
-  <div class="page-secondary-nav-wrapper r">
+  <div class="page-secondary-nav-wrapper r" *ngIf="site">
     <a routerLink="/sites/{{site.name}}/crawlers/{{crawlerId}}/overall" class="page-secondary-nav">
       Overall
     </a>
