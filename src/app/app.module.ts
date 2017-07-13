@@ -67,6 +67,8 @@ import { CrawlerSettingsComponent }          from './sites/website/crawlers/craw
 import { CrawlerCodeComponent }              from './sites/website/crawlers/crawler/crawler-code/crawler-code.component';
 import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/crawler/crawler-edit-history/crawler-edit-history.component';
 
+import { ResourcesComponent }                from './resources/resources.component';
+
 
 
 
@@ -82,7 +84,8 @@ import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/craw
     DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
     DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent, DeveloperOverallComponent,
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
-    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent, CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent
+    CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
+     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent, ResourcesComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

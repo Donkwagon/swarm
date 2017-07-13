@@ -45,6 +45,8 @@ import { DeveloperProfileComponent }         from './developer/developer-profile
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
+import { ResourcesComponent }                from './resources/resources.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'sites', component: SitesComponent, children: [
@@ -76,6 +78,7 @@ const routes: Routes = [
       }
   ]},
   { path: 'colors', component: ColorPaletteComponent},
+  { path: 'resources', component: ResourcesComponent},
   { path: 'developer', component: DeveloperComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: DeveloperOverallComponent},
