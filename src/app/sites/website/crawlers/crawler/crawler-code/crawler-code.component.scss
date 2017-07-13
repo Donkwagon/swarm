@@ -1,0 +1,239 @@
+
+@import '../../../../../../_theme';
+
+.crawler-interface{
+    height:100%;
+    align-self:stretch;
+}
+
+.ace-monokai .ace_gutter{
+    background:rgba(0,0,0,0)!important;
+}
+
+.crawler-panel{
+    padding:0.2em 1em 0.2em 1em;
+    background-color:$CYAN_S2;
+
+    .active{
+        background-color:$CYAN;
+        color:#000;
+    }
+
+    .url-section-type{
+        color:$orange;
+        padding:0.2em 0.3em;
+    }
+
+    .url-section{
+        background-color:transparent;
+        color:white;
+        padding:0.2em 0em 0.2em 0em;
+        color:white;
+    }
+
+    .root-url{
+        padding:0.2em 0em 0.2em 0em;
+        color:white;
+    }
+
+    .add-url-section{
+        position:relative;
+        padding:0.2em 0.3em;
+        width:150px;
+
+        &:hover{
+            cursor:pointer;
+        }
+
+        .dropdown-panel{
+            position:absolute;
+            top:100%;right:0;
+            width:200px;
+            border-left:$theme solid 1px;
+            border-right:$theme solid 1px;
+            border-bottom:$theme solid 1px;
+            background-color:#222;
+            z-index:10;
+
+            .dropdown-list-item{
+                padding:0.2em 0.5em;
+                border-bottom:#000 solid 1px;
+            }
+
+            .type{
+
+                &:hover{
+                    cursor:pointer;
+                    background-color:$theme;
+                }
+            }
+
+            .new-url-section-inputs{
+                padding:0.5em 0.5em;
+                background-color:#333;
+                color:$orange;
+            }
+
+            .label{
+                width:40px;
+            }
+
+            .confirm-button{
+                padding:0.2em 0.5em;
+                margin:0.5em;
+                background-color:$theme;
+                text-align: center;
+                color:rgba(255,255,255,0.8);
+
+                &:hover{
+                    cursor:pointer;
+                    color:white;
+                }
+            }
+        }
+    }
+
+    input{
+        background-color:$orange;
+        border:none;
+        border-bottom:rgba(0,0,0,0.1) solid 1px;
+        border-top:rgba(255,255,255,0.1) solid 1px;
+        font-family:$font-stack;
+        font-size:1em;
+        padding:0.2em 0.5em;
+        color:black;
+        text-shadow:0 0 3px rgba(0,0,0,0.3);
+
+        &:focus{
+            outline:none;
+        }
+    }
+
+    .range-selector-input{
+        width:100px;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: black;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+    color: black;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+    color: black;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+    color: black;
+    }
+
+
+}
+
+.crawler-nav{
+    background-color:$RED;
+
+    .crawler-panel-nav{
+        padding:0.2em 1em;
+        
+        &:hover{
+            cursor:pointer;
+            background-color:$CYAN;
+            color:#000;
+        }
+    }
+}
+
+.work-space{
+    align-items:stretch;
+
+    .output-interface{
+        width:20rem;
+
+        .interface-module{
+            background-color:rgba(100,100,100,0.03);
+            border-top:$CYAN_S1 solid 1px;
+
+            .interface-module-head{
+                align-self:flex-start;
+                color:$YELLOW;
+                font-weight:bold;
+            }
+
+            .interface-module-body{
+                padding:0.5em;
+                background-image:$grid;
+                background-size:50px;
+                display:flex;
+                align-items:flex-start;
+
+                .msg-wrapper{
+                    width:100%;
+
+                    .msg{
+                        align-self:flex-start;
+                        word-wrap: break-word;
+                        margin-bottom:1px;
+                    }
+
+                    .success{color:$CYAN;}
+                    .error{color:$RED;}
+                    .error{color:$GREY;}
+                }
+            }
+
+            input{
+                background-color:$CYAN;
+                border:none;
+                font-size:1em;
+                color:black;
+                font-family:$font-stack;
+            }
+
+            .config-setter{
+                background-color:$CYAN_S1;
+                padding:0.2em 0.5em;
+                margin:1px -0.5em;
+            }
+            
+            .chart{
+                height:300px;
+                position:relative;
+                background-color:rgba(255,255,255,0.1);
+
+                .data-point{
+                    position:absolute;
+                    height:10px;width:2px;
+                    background-color:red;
+                }
+            }
+        }
+
+        .interface-control-panel{
+            background-color:#000;
+            padding:0 0.5em;
+        }
+    }
+
+    .crawler-settings-form{
+        padding:0.5em;
+
+        .input-label{
+            width:10em;
+        }
+
+        .settings-input-row{
+            padding:0.5em;
+            
+            input{
+                border:none;
+                font-size:1em;
+                color:black;
+                background-color:$CYAN;
+                font-family:$font-stack;
+
+                &:focus{
+                    outline:none;
+                }
+            }
+        }
+    }
+}

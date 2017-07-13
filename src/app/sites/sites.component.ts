@@ -20,13 +20,7 @@ export class SitesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSiteList();
   }
 
-  getSiteList = () => {
-    this.siteService.getSites().then(res => {
-      this.sites = res;
-    });
-  }
 
 }

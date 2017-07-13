@@ -20,8 +20,6 @@ export class CrawlersComponent implements OnInit {
   siteName: string;
   site: Site;
 
-  crawlers: Crawler[];
-
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService,
@@ -34,7 +32,6 @@ export class CrawlersComponent implements OnInit {
       this.siteName = params['siteName'];
       console.log(params);
       this.getSiteInfo();
-      this.getCrawlers();
     });
 
   }
@@ -50,18 +47,6 @@ export class CrawlersComponent implements OnInit {
     this.siteService.getSitesBySite(this.siteName).then(res => {
       this.site = res[0];
     });
-  }
-  
-  
-  getCrawlers = () => {
-
-    this.crawlerService.getCrawlersBySite(this.siteName).then(res => {
-
-      console.log(res);
-      this.crawlers = res;
-      
-    });
-
   }
   
 }

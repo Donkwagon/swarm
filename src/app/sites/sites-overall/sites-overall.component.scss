@@ -1,0 +1,36 @@
+@import '../../../_theme';
+
+
+
+
+.site-info-box{
+    position:relative;padding:0.5em;
+    border:transparent solid 1px;
+    width:10em;height:6.4em;
+    overflow:hidden;
+    transition:$transition-very-fast;
+
+    img{
+        position:absolute;
+        width:110%;
+        height:auto;
+        top:-5%;left:-5%;
+        background-color:white;
+        filter:blur(2px)brightness(0.2);
+    }
+
+    .foreground{
+        position:absolute;
+        top:0;left:0;
+        width:100%;height:100%;
+        padding:0.5em;
+    }
+
+    &:hover{
+        cursor:pointer;
+        border:$CYAN solid 1px;
+        box-shadow:0 0 1em $CYAN_S2;
+    }
+}
+
+

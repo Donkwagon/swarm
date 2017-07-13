@@ -19,21 +19,8 @@
   </div>
 
   </div>
+
   <perfect-scrollbar class="page-body c f1">
-
-    <div class="r wr w100">
-      <a routerLink="/sites/{{site.name}}" routerLinkActive="active" class="site-info-box c" *ngFor="let site of sites">
-        <img [src]="site.imgUrl"/>
-        <div class="r foreground">
-          <div class="c">
-            <span>{{site.name}}</span>
-            <span class="cyan-s-1-text">[ 0 Crawler ]</span>
-          </div>
-          <div class="f1"></div>
-        </div>
-
-      </a>
-    </div>
 
     <router-outlet></router-outlet>
 
