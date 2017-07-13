@@ -10,6 +10,8 @@ var developerSchema = new Schema({
 
     uid: String,
     displayName: String,
+    username: String,
+    password: String,
     photoURL : String,
     email: String,
     emailVerified: String,

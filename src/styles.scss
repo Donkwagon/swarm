@@ -26,6 +26,32 @@ body{
     font-weight:bold;
 }
 
+.settings-form{
+    padding:0.5em $padding-side;
+    
+    .input-label{
+        width:15em;
+        color:$ORANGE;
+    }
+
+    .settings-input-row{
+        padding:0.5em 0;
+        border-bottom:$GREY solid 1px;
+        
+        input, textarea{
+            border:none;
+            font-size:1em;
+            color:black;
+            background-color:$CYAN;
+            font-family:$font-stack;
+
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////
 /* Frequently used css properties */
 .r{display:flex;flex-direction:row;}.c{display:flex;flex-direction:column;}.wr{flex-wrap:wrap;}

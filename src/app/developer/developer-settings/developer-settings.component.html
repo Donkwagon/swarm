@@ -1,3 +1,31 @@
-<p>
-  developer-settings works!
-</p>
+<form class="settings-form c">
+
+  <div class="settings-input-row r">
+    <div class="input-label">Display Name</div>
+    <input type="text" spellcheck="false" [(ngModel)]="developer.displayName" name="displayName"/>
+  </div>
+
+  <div class="settings-input-row r">
+    <div class="input-label">User Name</div>
+    <input type="text" spellcheck="false" [(ngModel)]="developer.username" name="username"/>
+  </div>
+
+  <div class="settings-input-row r">
+    <div class="input-label">Password</div>
+    <input type="text" spellcheck="false" [(ngModel)]="developer.username" name=""/>
+  </div>
+  <div class="r">
+    <div class="f1"></div>
+    <div class="button -salmon center" (click)="discardChanges()">
+      Discard
+    </div>
+    &nbsp;
+    &nbsp;
+    <div class="button -green center" (click)="saveChanges()">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+      &nbsp;Save
+    </div>
+  </div>
+  
+
+</form>

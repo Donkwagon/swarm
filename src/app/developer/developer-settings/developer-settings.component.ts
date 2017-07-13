@@ -19,4 +19,14 @@ export class DeveloperSettingsComponent implements OnInit {
   ngOnInit() {
   }
 
+  discardChanges() {
+    return;
+  }
+
+  saveChanges() {
+    this.developerService.updateDeveloper(this.developer).then(res =>{
+      console.log(res);
+    });
+  }
+
 }
