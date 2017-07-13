@@ -38,7 +38,7 @@ developer.post("", function(req, res) {
 });
 
 developer.get("/:uid", function(req, res) {
-  db.collection(DEVELOPER_COLLECTION).findOne({ uid: req.params.uid }, function(err, doc) {
+  db.collection(DEVELOPER_COLLECTION).findOne({ uid: req.params.uid }, { password: 0}, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get developer");
     } else {
@@ -54,19 +54,16 @@ developer.put("/initialize/:id", function(req, res) {
     if (err) {
       handleError(res, err.message, "Failed to find developer");
     } else {
-      console.log(JSON.stringify(doc));
               
       bcrypt.genSalt(saltRounds, function(err, salt) {
         
         bcrypt.hash(updateDoc.password, salt, function(err, hash) {
           updateDoc.password = hash;
           updateDoc.enabled = true;
-          console.log(updateDoc.username);
           db.collection(DEVELOPER_COLLECTION).update({_id: new ObjectID(req.params.id)}, {$set:{username:updateDoc.username,password:hash,enabled:true}}, function(err, doc) {
             if (err) {
               handleError(res, err.message, "Failed to update developer");
             } else {
-              console.log(JSON.stringify(doc));
               res.status(200).json(doc);
             }
           });
