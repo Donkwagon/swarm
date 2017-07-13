@@ -6,8 +6,9 @@
     margin-top:0.5em;
 
     .app-menu-component-header{
-        color:$GREY;
         padding:0.5em 0;
+        color:$WHITE;
+        font-size:1.2em;
     }
 
     .profile-row{
@@ -58,13 +59,19 @@
         right:0;top:0;
         width:22em;
         height: 100%;
-        padding:3.5em 0.5em;
+        padding:0em 0.5em;
         background-color:rgba(12,12,12,0.5);
         border-left:rgba(255,255,255,0.15) solid 1px;
         transition: $transition-fast;
         opacity:0;
         z-index:0;
         display:none;
+
+        .app-menu-title{
+            padding:1em 0 0.5em 0;
+            font-size:1.2em;
+            font-weight:bold;
+        }
     }
 
     .menu-expand{

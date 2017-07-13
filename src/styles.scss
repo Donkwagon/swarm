@@ -22,6 +22,9 @@ body{
     background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
 
+.active{
+    font-weight:bold;
+}
 
 ////////////////////////////////////////////////////////////////////////
 /* Frequently used css properties */
