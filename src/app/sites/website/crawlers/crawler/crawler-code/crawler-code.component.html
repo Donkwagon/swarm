@@ -89,15 +89,6 @@
       
       <div class="output-interface c">
 
-        <div class="interface-module c">
-          <div class="interface-module-head"></div>
-          <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
-            {{crawler.name}}
-            {{crawler.type}}
-            {{crawler.validation}}
-          </perfect-scrollbar>
-        </div>
-
         <div class="interface-module c" *ngIf="crawler.testingStrategy">
           <div class="interface-module-head">TESTING CONFIGURATION</div>
           <perfect-scrollbar [config]="config" class="interface-module-body c f1">
@@ -119,11 +110,6 @@
                 Num:
                 <input class="range-selector-input f1" type="number" min="0" max="1000" value="0" [(ngModel)]="crawler.testingStrategy.num"/>
               </div>
-              <!--<div class="chart">
-                <div class="data-point" style="left:50%;bottom:10px;"></div>
-                <div class="data-point" *ngFor="let point of testingData" style="">
-                {{point.content}}</div>
-              </div>-->
             </div>
           </perfect-scrollbar>
         </div>

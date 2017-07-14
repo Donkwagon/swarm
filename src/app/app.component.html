@@ -52,6 +52,14 @@
       </div>
 
     </div>
+
+    <div class="f1"></div>
+    <div class="nav-btn">
+      Msg
+    </div>
+    <div class="nav-btn" (click)="menuToggle()">
+      Menu
+    </div>
   </div>
 
   <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
@@ -59,10 +67,10 @@
   </div>
 
   <div class="site-list c">
-    
+<!--     
     <a class="swarm-hive r" (click)="menuToggle()" *ngIf="!menuDisplay">
       <img src="https://s3.amazonaws.com/nvest/logonobg.png"/>
-    </a>
+    </a> -->
 
     <div class="app-menu c" [ngClass]="{'menu-expand': menuDisplay}" >
       <div class="app-menu-title">

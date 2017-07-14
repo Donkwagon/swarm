@@ -125,21 +125,19 @@
 
     .output-interface{
         width:25rem;
+        border-top:$CYAN_S1 solid 1px;
 
         .interface-module{
-            background-color:rgba(100,100,100,0.03);
-            border-top:$CYAN_S1 solid 1px;
 
             .interface-module-head{
                 align-self:flex-start;
-                color:$YELLOW;
-                font-weight:bold;
+                color:$WHITE;
+                padding:0.2em 0.5em;
+                background-color:rgba(255,255,255,0.2);
             }
 
             .interface-module-body{
                 padding:0.5em;
-                background-image:$grid;
-                background-size:50px;
                 display:flex;
                 align-items:flex-start;
 
@@ -172,22 +170,12 @@
                 margin:1px -0.5em;
             }
             
-            .chart{
-                height:300px;
-                position:relative;
-                background-color:rgba(255,255,255,0.1);
-
-                .data-point{
-                    position:absolute;
-                    height:10px;width:2px;
-                    background-color:red;
-                }
-            }
         }
 
         .interface-control-panel{
-            background-color:#000;
-            padding:0 0.5em;
+            background-color:$CYAN_S2;
+            border-top:$CYAN_S1 solid 1px;
+            padding:0.2em 0.5em;
         }
     }
 }

@@ -94,7 +94,7 @@ a:active {color: $CYAN;text-decoration:none;}
     font-size:1.1em;
 
     .page-cover-info{
-        padding:0.2em $padding-side;
+        padding:0.8em $padding-side 0.5em $padding-side;
     }
     
     .page-cover-nav-wrapper{
@@ -115,9 +115,12 @@ a:active {color: $CYAN;text-decoration:none;}
 
         input{
             border:none;
+            margin-bottom:-1px;
+            border-bottom:$CYAN solid 1px;
             padding:0.2em $padding-side;
             font-size:1em;
             font-family: $font-stack;
+            background-color:$CYAN;
 
             &:focus{
                 outline:none;
