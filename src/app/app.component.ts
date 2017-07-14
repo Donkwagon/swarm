@@ -38,22 +38,23 @@ export class AppComponent {
     this.menuDisplay = false;
 
     afAuth.auth.onAuthStateChanged(res =>{
+
       this.developer = res;
       this.registerDeveloper(this.developer);
+      
     });
 
     this.routerMapper = new RouterMapper("SWARM",router.config);
-    console.log(this.routerMapper);
 
     this.router.events.subscribe(event => {
+
       if(event instanceof NavigationStart) {
+
         this.menuDisplay = false;
         this.routerMapper.mapUrl(event.url);
-        console.log("full mapper");
-        console.log(this.routerMapper.map.length);
-        console.log(JSON.stringify(this.routerMapper.map));
 
       }
+
     });
   }
 

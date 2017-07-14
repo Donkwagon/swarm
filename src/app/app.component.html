@@ -39,16 +39,16 @@
 
   <div class="app-nav-bar r">
     <div class="app-nav-bar-bo" *ngFor="let node of this.routerMapper.map">
-      {{node.name}}
+      <a routerLink="{{node.url}}">{{node.name}}</a>
       <span *ngIf="node.children.length">
         &nbsp;
         <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
 
       <div class="app-nav-dropdown c">
-        <div class="app-nav-dropdown-item" *ngFor="let child of node.children">
+        <a class="app-nav-dropdown-item" routerLink="{{child.url}}" *ngFor="let child of node.children">
           {{child.name}}
-        </div>
+        </a>
       </div>
 
     </div>
