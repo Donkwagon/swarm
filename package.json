@@ -46,6 +46,7 @@
     "mongoose": "^4.9.9",
     "ng2-ace-editor": "^0.2.3",
     "ng2-charts": "^1.6.0",
+    "ng2-ckeditor": "^1.1.9",
     "pg-promise": "^5.9.0",
     "promise-polyfill": "^6.0.2",
     "request": "^2.81.0",

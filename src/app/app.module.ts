@@ -20,6 +20,8 @@ import { PerfectScrollbarConfigInterface }   from 'angular2-perfect-scrollbar';
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
 
+import { CKEditorModule } from 'ng2-ckeditor';
+
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
 
@@ -96,6 +98,7 @@ import { ResourcesComponent }                from './resources/resources.compone
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     ChartsModule,
     AceEditorModule,
+    CKEditorModule,
     SharedModule
   ],
   providers: [
