@@ -50,7 +50,7 @@ import { ResourcesComponent }                from './resources/resources.compone
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'sites', component: SitesComponent, children: [
-      //{ path: '', redirectTo: 'overall', pathMatch: 'full' },
+      { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: SitesOverallComponent},
       { path: 'new', component: NewSiteComponent},
       { path: ':siteName', component: WebsiteComponent, children: [

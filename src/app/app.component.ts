@@ -25,17 +25,13 @@ export class AppComponent {
   appReady: boolean;
 
   routerMapper: RouterMapper;
+  curentRouteMapper: any[];
 
   constructor(
     db: AngularFireDatabase,
     private router: Router,
     public afAuth: AngularFireAuth,
     private developerService: DeveloperService) {
-    
-    var audio = new Audio();
-    audio.src = "http://www.bigsoundbank.com/sounds/mp3/0945.mp3";
-    audio.load();
-    audio.play();
     
     this.developer = new Developer();
 
@@ -52,8 +48,16 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if(event instanceof NavigationStart) {
         this.menuDisplay = false;
+        this.routerMapper.mapUrl(event.url);
       }
     });
+  }
+
+  playAudio() {
+    var audio = new Audio();
+    audio.src = "http://www.bigsoundbank.com/sounds/mp3/0945.mp3";
+    audio.load();
+    audio.play();
   }
 
   registerDeveloper = (developer) => {
@@ -72,14 +76,9 @@ export class AppComponent {
     });
   }
 
-  menuExpand = () => {
-    this.menuDisplay = true;
+  menuToggle = () => {
+    this.menuDisplay = !this.menuDisplay;
   }
-
-  menuCollapse = () => {
-    this.menuDisplay = false;
-  }
-
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());

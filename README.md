@@ -1,6 +1,6 @@
 # Swarm
 
-![alt text](https://hydra-media.cursecdn.com/overwatch.gamepedia.com/1/1b/King%27s_Row_concept.jpg?version=a1980cbe7788946395dee7d669389c24 "Kings Row")
+![alt text](http://hydra-media.cursecdn.com/overwatch.gamepedia.com/1/1b/King%27s_Row_concept.jpg?version=a1980cbe7788946395dee7d669389c24 "Kings Row")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 

@@ -126,7 +126,7 @@
 
   <div class="site-list c">
     
-    <a class="swarm-hive r" (click)="menuExpand()" *ngIf="!menuDisplay">
+    <a class="swarm-hive r" (click)="menuToggle()" *ngIf="!menuDisplay">
       <img src="https://s3.amazonaws.com/nvest/logonobg.png"/>
     </a>
 
@@ -183,7 +183,7 @@
 
     </div>
 
-    <div class="menu-app-mask" *ngIf="menuDisplay" (click)="menuCollapse()"></div>
+    <div class="menu-app-mask" *ngIf="menuDisplay" (click)="menuToggle()"></div>
 
   </div>
   

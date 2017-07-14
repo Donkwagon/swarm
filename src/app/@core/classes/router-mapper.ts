@@ -2,6 +2,7 @@ export class RouterMapper {
     name: string;
     children: any;
     count: number;
+    map: any[];
 
     constructor(name,routerConfig){
         this.name = name;
@@ -17,12 +18,14 @@ export class RouterMapper {
         //recursively get all child nodes of all nodes
 
         if(routerNode.path){
+
             var node = {
                 name: routerNode.path,
                 children: []
             };
             this.count++;
             mapperNode.children.push(node);
+            
             if(routerNode.children){
                 routerNode.children.forEach(child => {
                     this.getChildren(child,node);
@@ -30,5 +33,30 @@ export class RouterMapper {
             }
 
         }
+    }
+
+    mapUrl(url) {
+        url = url.split("/");
+        console.log("map url");
+        console.log(url);
+
+        var mapSection = {
+            name: this.name,
+            children:[]
+        };
+
+        url.forEach(e => {
+            this.children.forEach(el => {
+                if(e === el.name){
+                    var sectionChildren = [];
+                    el.children.forEach(child => {
+                        sectionChildren.push
+                    });
+                    var mapSection = {
+
+                    }
+                }
+            });
+        });
     }
 }
