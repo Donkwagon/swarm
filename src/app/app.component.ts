@@ -45,7 +45,9 @@ export class AppComponent {
       this.developer = res;
       this.registerDeveloper(this.developer);
     });
-    this.routerMapper = new RouterMapper(router.config);
+
+    this.routerMapper = new RouterMapper("SWARM",router.config);
+    console.log(this.routerMapper);
 
     this.router.events.subscribe(event => {
       if(event instanceof RoutesRecognized ){
