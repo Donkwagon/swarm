@@ -50,9 +50,6 @@ export class AppComponent {
     console.log(this.routerMapper);
 
     this.router.events.subscribe(event => {
-      if(event instanceof RoutesRecognized ){
-        
-      }
       if(event instanceof NavigationStart) {
         this.menuDisplay = false;
       }
@@ -64,7 +61,6 @@ export class AppComponent {
     this.developerService.getDeveloper(developer.uid).then(res => {
 
       if(res){
-        console.log(res);
         this.developerService.setDeveloper(res);
         this.appReady = true;
       }else{
