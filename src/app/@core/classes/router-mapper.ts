@@ -56,6 +56,7 @@ export class RouterMapper {
 
         url = url.split("/");
         url.shift();
+        console.log(url);
         
         var len = url.length;
         var i = 0;
@@ -66,7 +67,8 @@ export class RouterMapper {
 
         while(i < len){
 
-            nodeUrl += "/" + url[i]
+            nodeUrl += "/" + url[i];
+            nodeUrl = decodeURI(nodeUrl);
 
             var mapped = false;
 
@@ -104,9 +106,9 @@ export class RouterMapper {
                 pathDictionary.forEach(node => {
                     
                     if(node.name.charAt(0) === ":"){
-                        
+                        var nodeName = decodeURI(url[i]);
                         mapperNode = {
-                            name: decodeURI(url[i]),
+                            name: nodeName,
                             url: nodeUrl,
                             children: []
                         }
