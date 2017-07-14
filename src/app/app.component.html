@@ -38,85 +38,19 @@
 <div class="main r" *ngIf="developer.displayName &&  appReady">
 
   <div class="app-nav-bar r">
-    <div class="app-nav-bar-bo">
-      SWARM
-      <span>
+    <div class="app-nav-bar-bo" *ngFor="let node of this.routerMapper.map">
+      {{node.name}}
+      <span *ngIf="node.children.length">
         &nbsp;
         <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
 
       <div class="app-nav-dropdown c">
-        <div class="app-nav-dropdown-item">
-          Sites
-        </div>
-        <div class="app-nav-dropdown-item">
-          Cluster
-        </div>
-        <div class="app-nav-dropdown-item">
-          Settings
+        <div class="app-nav-dropdown-item" *ngFor="let child of node.children">
+          {{child.name}}
         </div>
       </div>
 
-    </div>
-    <div class="app-nav-bar-bo">
-      Sites/Seeking Alpha
-      <span>
-        &nbsp;
-        <i class="fa fa-caret-right" aria-hidden="true"></i>
-      </span>
-
-      <div class="app-nav-dropdown c">
-        <div class="app-nav-dropdown-item">
-          Sites
-        </div>
-        <div class="app-nav-dropdown-item">
-          Cluster
-        </div>
-        <div class="app-nav-dropdown-item">
-          Settings
-        </div>
-      </div>
-      
-    </div>
-    <div class="app-nav-bar-bo">
-      Crawlers
-      <span>
-        &nbsp;
-        <i class="fa fa-caret-right" aria-hidden="true"></i>
-      </span>
-
-      <div class="app-nav-dropdown c">
-        <div class="app-nav-dropdown-item">
-          Sites
-        </div>
-        <div class="app-nav-dropdown-item">
-          Cluster
-        </div>
-        <div class="app-nav-dropdown-item">
-          Settings
-        </div>
-      </div>
-      
-    </div>
-    <div class="app-nav-bar-bo">
-      article crawler
-      <span>
-        &nbsp;
-        <i class="fa fa-caret-right" aria-hidden="true"></i>
-      </span>
-
-      <div class="app-nav-dropdown c">
-        <div class="app-nav-dropdown-item">
-          Sites
-        </div>
-        <div class="app-nav-dropdown-item">
-          Cluster
-        </div>
-        <div class="app-nav-dropdown-item">
-          Settings
-        </div>
-      </div>
-      
     </div>
   </div>
 

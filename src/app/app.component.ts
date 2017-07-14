@@ -49,6 +49,10 @@ export class AppComponent {
       if(event instanceof NavigationStart) {
         this.menuDisplay = false;
         this.routerMapper.mapUrl(event.url);
+        console.log("full mapper");
+        console.log(this.routerMapper.map.length);
+        console.log(JSON.stringify(this.routerMapper.map));
+
       }
     });
   }
