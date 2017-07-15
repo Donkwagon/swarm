@@ -24,6 +24,7 @@ body{
 
 .active{
     font-weight:bold;
+    background-color:$CYAN_S1;
 }
 
 .settings-form{
@@ -130,11 +131,11 @@ a:active {color: $CYAN;text-decoration:none;}
 }
 
 .page-secondary-nav-wrapper{
+    background-image: linear-gradient(to bottom, rgba(50,50,60,1) 0%, rgba(40,40,50,1) 100%);
     border-bottom:$CYAN_S1 solid 1px;
 
     .page-secondary-nav{
         padding:0.1em $padding-side;
-        border-right:$CYAN_S2 solid 1px;
 
         &:hover{
             cursor:pointer;
@@ -155,7 +156,14 @@ a:active {color: $CYAN;text-decoration:none;}
     }
 }
 
-.page-body{flex:1;}
+.page-body{
+    flex:1;
+    border-left:$CYAN_S1 solid 1px;
+    border-right:$CYAN_S1 solid 1px;
+    border-bottom:$CYAN_S1 solid 1px;
+    background-color:rgba(73, 112, 137,0.05);
+    background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.1) 0%, rgba(73, 112, 137,0.01) 100%);
+}
 
 .option-bar{
     align-items:center;
@@ -184,6 +192,13 @@ table{
         border-collapse: collapse;
         background-color:#24457C;
     }
+}
+
+input, textarea{
+    background-color:$CYAN;
+    border:none;
+    color:#000;
+    font-size:1em;
 }
 
 app-crawlers,app-crawler,app-crawler-code{
