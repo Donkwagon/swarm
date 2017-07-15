@@ -38,6 +38,12 @@
 <div class="main r" *ngIf="developer.displayName &&  appReady">
 
   <div class="app-nav-bar r">
+    <div class="nav-btn">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </div>
+    <div class="nav-btn">
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </div>
     <div class="app-nav-bar-bo" *ngFor="let node of this.routerMapper.map">
       <a routerLink="{{node.url}}">{{node.name}}</a>
       <span *ngIf="node.children.length">
@@ -55,7 +61,7 @@
 
     <div class="f1"></div>
     <div class="nav-btn">
-      Msg
+      Message
     </div>
     <div class="nav-btn" (click)="menuToggle()">
       Menu

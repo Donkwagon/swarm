@@ -4,12 +4,12 @@
 
 @media (min-width: 1300px) {
   body {
-      font-size:14px;
+      font-size:15px;
   }
 }
 @media (min-width: 1600px) {
   body {
-      font-size:14px;
+      font-size:15px;
   }
 }
 
@@ -17,7 +17,7 @@ body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:14px;
+    font-size:15px;
     color:#FFF;
     background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
@@ -94,17 +94,17 @@ a:active {color: $CYAN;text-decoration:none;}
     font-size:1.1em;
 
     .page-cover-info{
-        padding:0.8em $padding-side 0.5em $padding-side;
+        padding:0.5em 0 0.2em 0;
     }
     
     .page-cover-nav-wrapper{
         border-bottom:$CYAN_S1 solid 1px;
+        border-top:$CYAN_S2 solid 1px;
+        background-color:$CYAN_S2;
 
         .page-cover-nav{
-            padding:0.2em $padding-side;
+            padding:0.1em $padding-side;
             border-right:$CYAN_S2 solid 1px;
-            border-top:$CYAN_S2 solid 1px;
-            background-color:$CYAN_S2;
 
             &:hover{
                 cursor:pointer;
@@ -115,9 +115,9 @@ a:active {color: $CYAN;text-decoration:none;}
 
         input{
             border:none;
-            margin-bottom:-1px;
+            //margin-bottom:-1px;
             border-bottom:$CYAN solid 1px;
-            padding:0.2em $padding-side;
+            padding:0.1em $padding-side;
             font-size:1em;
             font-family: $font-stack;
             background-color:$CYAN;
@@ -133,7 +133,7 @@ a:active {color: $CYAN;text-decoration:none;}
     border-bottom:$CYAN_S1 solid 1px;
 
     .page-secondary-nav{
-        padding:0.2em $padding-side;
+        padding:0.1em $padding-side;
         border-right:$CYAN_S2 solid 1px;
 
         &:hover{

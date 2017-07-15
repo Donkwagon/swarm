@@ -335,7 +335,9 @@
     top:0;left:0;
     z-index:30;
     width:100%;
-    background-color:#505050;
+    background-color:rgba(60,60,70,1);
+    padding:0.1em 0;
+    border-bottom:rgba(100,100,110,0.1) solid 1px;
 
     a:link {color: #000;text-decoration:none;}
     a:visited {color: #000;text-decoration:none;}
@@ -345,10 +347,10 @@
     .app-nav-bar-bo{
         position:relative;
         color:#111;
-        padding:0 0.5em;
-        padding-bottom:0.1em;
-        background-color:#aaa;
-        border-right:rgba(0,0,0,0.2) solid 1px;
+        padding:0 0.2em 0 0.2em;
+        margin-right:0.25em;
+        background-image:linear-gradient(to bottom, #eee 0%, #bbb 100%);
+        border-radius:1px;
 
         i{
             color:#777;
@@ -385,9 +387,7 @@
 
     .nav-btn{
         padding:0 0.5em;
-        padding-bottom:0.1em;
-        color:#CCC;
-        border-left:#444 solid 1px;
+        color:#fff;
 
         &:hover{
             cursor:pointer;
