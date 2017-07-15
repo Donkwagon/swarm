@@ -93,11 +93,11 @@
       
       <div class="output-interface c">
         <div class="interface-tabs-wrapper r">
-          <div class="interface-tab">Testing Config</div>
-          <div class="interface-tab">Tolerance</div>
-          <div class="interface-tab">Response</div>
+          <div class="interface-tab" (click)="selectConsoleMode('testingStrategy')">Testing Config</div>
+          <div class="interface-tab" (click)="selectConsoleMode('tolerance')">Tolerance</div>
+          <div class="interface-tab" (click)="selectConsoleMode('response')">Response</div>
         </div>
-        <div class="interface-module c" *ngIf="crawler.testingStrategy">
+        <div class="interface-module c f1" *ngIf="consoleMode === 'testingStrategy'">
           <div class="interface-module-head">TESTING CONFIGURATION</div>
           <perfect-scrollbar [config]="config" class="interface-module-body c f1">
             <div class="msg-wrapper c">
@@ -122,13 +122,13 @@
           </perfect-scrollbar>
         </div>
 
-        <div class="interface-module c">
+        <div class="interface-module c f1" *ngIf="consoleMode === 'tolerance'">
           <div class="interface-module-head">Tolerance Testing</div>
           <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
           </perfect-scrollbar>
         </div>
 
-        <div class="interface-module c f2">
+        <div class="interface-module c f1"*ngIf="consoleMode === 'response'">
           <div class="interface-module-head">RESPONSE</div>
           <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
             <div class="msg-wrapper r" *ngFor="let message of messages">

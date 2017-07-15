@@ -50,6 +50,8 @@ export class CrawlerCodeComponent implements OnInit {
   max: number;
   min: number;
 
+  consoleMode: string;
+
   constructor(
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
@@ -62,6 +64,8 @@ export class CrawlerCodeComponent implements OnInit {
       
       this.crawler = new Crawler();
       this.resetNewInputs();
+
+      this.consoleMode = "response";
 
   }
 
@@ -194,18 +198,21 @@ export class CrawlerCodeComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
 
   setTestingStrategy = () => {
+
     if(this.testingStrategy === 'single'){
         this.crawler.testingStrategy = {
           type: "single",
           id : 1024
         }
     }
+
     if(this.testingStrategy === 'multiple'){
         this.crawler.testingStrategy = {
           type: "multiple",
           num : 1024
         }
     }
+
   }
 
   onChange = () => {}
@@ -216,6 +223,14 @@ export class CrawlerCodeComponent implements OnInit {
   }
 
   validateCode = () => {
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //Ouput Interface logic
+  ////////////////////////////////////////////////////////////////////////////
+
+  selectConsoleMode = (consoleMode) => {
+    this.consoleMode = consoleMode;
   }
 
   ////////////////////////////////////////////////////////////////////////////

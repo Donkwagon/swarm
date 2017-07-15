@@ -125,6 +125,9 @@
     .output-interface{
         width:25rem;
         border-left:$CYAN_S1 solid 1px;
+        background-color:$CYAN_S1;
+        border:rgba(0,0,0,0.5) solid 2px;
+        font-size:0.85rem;
 
         .interface-tabs-wrapper{
             border-bottom:$CYAN_S1 solid 1px;
