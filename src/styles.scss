@@ -91,11 +91,12 @@ a:active {color: $CYAN;text-decoration:none;}
 }
 
 .page-cover{
-    padding-top:1.1em;
+    padding-top:1.3em;
     font-size:1.1em;
 
     .page-cover-info{
-        padding:0.5em 0 0.2em 0;
+        padding:0.1em 0 0.1em 0;
+        align-items:center;
     }
     
     .page-cover-nav-wrapper{
