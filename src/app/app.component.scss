@@ -298,11 +298,6 @@
     padding:0.1em 0 0 1px;
     border-bottom:rgba(60,60,60,0.05) solid 1px;
 
-    a:link {color: #000;text-decoration:none;}
-    a:visited {color: #000;text-decoration:none;}
-    a:hover {color: #000;text-decoration:none;}
-    a:active {color: #000;text-decoration:none;}
-
     .app-nav-bar-bo{
         position:relative;
         color:#111;
@@ -310,6 +305,12 @@
         margin-right:0.2em;
         background-image:linear-gradient(to bottom, #eee 0%, #bbb 100%);
         border-radius:1px;
+
+        a:link {color: #000;text-decoration:none;}
+        a:visited {color: #000;text-decoration:none;}
+        a:hover {color: #000;text-decoration:none;}
+        a:active {color: #000;text-decoration:none;}
+
 
         i{
             color:#777;
@@ -346,7 +347,7 @@
 
     .nav-btn{
         padding:0 0.5em;
-        color:#fff;
+        color:$WHITE!important;
 
         &:hover{
             cursor:pointer;

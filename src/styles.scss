@@ -18,39 +18,13 @@ body{
     padding:0;margin:0;
     font-family: $font-stack;
     font-size:15px;
-    color:#FFF;
+    color:$WHITE;
     background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
 
 .active{
     font-weight:bold;
     background-color:$CYAN_S1;
-}
-
-.settings-form{
-    padding:0.5em $padding-side;
-    
-    .input-label{
-        width:15em;
-        color:$ORANGE;
-    }
-
-    .settings-input-row{
-        padding:0.5em 0;
-        border-bottom:$GREY solid 1px;
-        
-        input, textarea{
-            border:none;
-            font-size:1em;
-            color:black;
-            background-color:$CYAN;
-            font-family:$font-stack;
-
-            &:focus{
-                outline:none;
-            }
-        }
-    }
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -216,6 +190,32 @@ app-crawlers,app-crawler,app-crawler-code{
 }
 
 
+.settings-form{
+    padding:0.5em $padding-side;
+    
+    .input-label{
+        width:15em;
+        color:$ORANGE;
+    }
+
+    .settings-input-row{
+        padding:0.5em 0;
+        border-bottom:$GREY solid 1px;
+        
+        input, textarea{
+            border:none;
+            font-size:1em;
+            color:black;
+            background-color:$CYAN;
+            font-family:$font-stack;
+
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+}
+
 .new-form{
     padding:0.5em;
 
@@ -249,14 +249,16 @@ app-crawlers,app-crawler,app-crawler-code{
     }
     
     .list-item{
-        padding:0.5em 0.5em;
+        padding:0.2em 0;
         border-bottom:$CYAN_S2 solid 1px;
         align-items:center;
 
         img{
             height:1.5em;width:1.5em;
+            padding:0 0.5em;
             border-radius:2px;
         }
+
         span{
             padding:0 0.5em;
         }
