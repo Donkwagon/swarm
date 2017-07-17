@@ -6,7 +6,6 @@
   <div class="new-form-row r">
     <div class="label f1 c">
       <span>Crawler Name</span>
-      <span class="caption-text">Be accurate and succinct</span>
     </div>
     <div class="input-wrapper f162">
       <input class="text-input" type="text" spellcheck="false" placeholder="crawler name" [(ngModel)]="newCrawler.name" name="crawlerName"/>
@@ -14,8 +13,19 @@
   </div>
   <div class="new-form-row r">
     <div class="label f1 c">
+      <span>Crawler Type</span>
+    </div>
+    <div class="input-wrapper f162">
+        
+        <input type="radio" [(ngModel)]="newCrawler.type" name="type" (change)="setCrawlerType('post')" value="post" [checked]="newCrawler.type === 'Post'"> post &nbsp;
+        <input type="radio" [(ngModel)]="newCrawler.type" name="type" (change)="setCrawlerType('author')" value="author"  [checked]="newCrawler.type === 'author'"> author &nbsp;
+        <input type="radio" [(ngModel)]="newCrawler.type" name="type" (change)="setCrawlerType('mapper')" value="mapper"  [checked]="newCrawler.type === 'mapper'"> mapper &nbsp;
+
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
       <span>Root URL</span>
-      <span class="caption-text">Be accurate and succinct</span>
     </div>
     <div class="input-wrapper f162">
       <input class="text-input" type="text" spellcheck="false" placeholder="Root URL" [(ngModel)]="newCrawler.urlStrategy.root" name="rootUrl"/>
@@ -24,25 +34,32 @@
   <div class="new-form-row r">
     <div class="label f1 c">
       <span>Input Data Type</span>
-      <span class="caption-text">Be accurate and succinct</span>
     </div>
     <div class="input-wrapper f162">
-      <input class="text-input" type="text" spellcheck="false" placeholder="Root URL" name="rootUrl"/>
+        
+        <input type="radio" [(ngModel)]="newCrawler.inputDataType" name="inputDataType" (change)="setInputDataType('HTML')" value="HTML" [checked]="newCrawler.inputDataType === 'HTML'"> HTML &nbsp;
+        <input type="radio" [(ngModel)]="newCrawler.inputDataType" name="inputDataType" (change)="setInputDataType('JSON')" value="JSON"  [checked]="newCrawler.inputDataType === 'JSON'"> JSON &nbsp;
+        <input type="radio" [(ngModel)]="newCrawler.inputDataType" name="inputDataType" (change)="setInputDataType('TXT')" value="TXT"  [checked]="newCrawler.inputDataType === 'TXT'"> TXT &nbsp;
+        <input type="radio" [(ngModel)]="newCrawler.inputDataType" name="inputDataType" (change)="setInputDataType('XML')" value="XML"  [checked]="newCrawler.inputDataType === 'XML'"> XML &nbsp;
+        <input type="radio" [(ngModel)]="newCrawler.inputDataType" name="inputDataType" (change)="setInputDataType('CSV')" value="CSV"  [checked]="newCrawler.inputDataType === 'CSV'"> CSV &nbsp;
+
     </div>
   </div>
   <div class="new-form-row r">
     <div class="label f1 c">
       <span>Output Data Type</span>
-      <span class="caption-text">Be accurate and succinct</span>
     </div>
     <div class="input-wrapper f162">
-      <input class="text-input" type="text" spellcheck="false" placeholder="Root URL" name="rootUrl"/>
+          
+        <input type="radio" name="outputDataType" [(ngModel)]="newCrawler.outputDataType"  (change)="setOutputDataType('Post')" value="Post" [checked]="newCrawler.outputDataType === 'Post'"> Post &nbsp;
+        <input type="radio" name="outputDataType" [(ngModel)]="newCrawler.outputDataType"  (change)="setOutputDataType('User')" value="Author" [checked]="newCrawler.outputDataType === 'Author'"> Author &nbsp;
+        <input type="radio" name="outputDataType" [(ngModel)]="newCrawler.outputDataType"  (change)="setOutputDataType('Others')" value="Others" [checked]="newCrawler.outputDataType === 'Others'"> Others &nbsp;
+
     </div>
   </div>
   <div class="new-form-row r">
     <div class="label f1 c">
       <span>Crawler Description (optional)</span>
-      <span class="caption-text">Be accurate and succinct</span>
     </div>
     <div class="input-wrapper f162">
       <textarea class="text-input" type="text" spellcheck="false" placeholder="crawler description" [(ngModel)]="newCrawler.description" name="siteDescription"></textarea>

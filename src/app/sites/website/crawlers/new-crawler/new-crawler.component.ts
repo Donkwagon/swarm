@@ -44,6 +44,17 @@ export class NewCrawlerComponent implements OnInit {
     });
   }
   
+  setCrawlerType = (type) => {
+    this.newCrawler.type = type;
+  }
+
+  setInputDataType(dataType) {
+    this.newCrawler.inputDataType = dataType;
+  }
+
+  setOutputDataType(dataType) {
+    this.newCrawler.outputDataType = dataType;
+  }
 
   submitNewCrawler = () => {
     if(this.site){
