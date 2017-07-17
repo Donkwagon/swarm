@@ -1,13 +1,6 @@
 import { NgModule }                          from '@angular/core';
 import { Routes, RouterModule }              from '@angular/router';
 
-import { SiteComponent }                     from './site/site.component';
-import { PostsComponent }                    from './site/posts/posts.component';
-import { AuthorsComponent }                  from './site/authors/authors.component';
-import { EntrancesComponent }                from './site/entrances/entrances.component';
-import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
-import { SitemapComponent }                  from './site/sitemap/sitemap.component';
-
 import { ClusterComponent }                  from './cluster/cluster.component';
 
 import { SitesComponent }                    from './sites/sites.component';
@@ -93,15 +86,7 @@ const routes: Routes = [
       { path: 'tasks', component: DeveloperTasksComponent},
       { path: 'inbox', component: DeveloperInboxComponent}
   ]},
-  { path: 'cluster', component: ClusterComponent},
-  { path: 'site/:sitename', component: SiteComponent, children: [
-      { path: '', redirectTo: 'site', pathMatch: 'full' },
-      { path: 'sitemap', component: SitemapComponent},
-      { path: 'posts', component: PostsComponent},
-      { path: 'authors', component: AuthorsComponent},
-      { path: 'entrances', component: EntrancesComponent},
-      { path: 'backlogs', component: BacklogsComponent}
-  ]}
+  { path: 'cluster', component: ClusterComponent}
 ];
 
 @NgModule({

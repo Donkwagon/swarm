@@ -25,14 +25,6 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
 
-import { SiteComponent }                     from './site/site.component';
-import { PostsComponent }                    from './site/posts/posts.component';
-
-import { AuthorsComponent }                  from './site/authors/authors.component';
-import { EntrancesComponent }                from './site/entrances/entrances.component';
-import { SitemapComponent }                  from './site/sitemap/sitemap.component';
-import { BacklogsComponent }                 from './site/backlogs/backlogs.component';
-
 import { ClusterComponent }                  from './cluster/cluster.component';
 
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
@@ -79,9 +71,7 @@ import { CrawlersPageComponent }             from './crawlers-page/crawlers-page
 @NgModule({
   declarations: [
     AppComponent,
-    SiteComponent,
-    PostsComponent, AuthorsComponent, EntrancesComponent, SitemapComponent,
-    BacklogsComponent, ClusterComponent, SitesComponent,
+    ClusterComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
