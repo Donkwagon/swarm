@@ -5,14 +5,13 @@ var cheerio =             require('cheerio');
 
 var Article =             require('./models/content/article.model');
 var Security =            require('./models/content/security.model');
-var app = express();
+
+const vm =                require('vm');
 
 var ws = global.io.sockets;
 
 const crawler = express.Router();
 var crawler_COLLECTION = "crawlers";
-
-const vm = require('vm');
 
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
