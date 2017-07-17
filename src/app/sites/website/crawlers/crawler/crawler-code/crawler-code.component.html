@@ -92,11 +92,13 @@
       </div>
       
       <div class="output-interface c">
+
         <div class="interface-tabs-wrapper r">
-          <div class="interface-tab" (click)="selectConsoleMode('testingStrategy')">Testing Config</div>
-          <div class="interface-tab" (click)="selectConsoleMode('tolerance')">Tolerance</div>
-          <div class="interface-tab" (click)="selectConsoleMode('response')">Response</div>
+          <div class="interface-tab" [ngClass]="{'active':consoleMode === 'testingStrategy'}" (click)="selectConsoleMode('testingStrategy')">Testing Config</div>
+          <div class="interface-tab" [ngClass]="{'active':consoleMode === 'tolerance'}" (click)="selectConsoleMode('tolerance')">Tolerance</div>
+          <div class="interface-tab" [ngClass]="{'active':consoleMode === 'response'}" (click)="selectConsoleMode('response')">Response</div>
         </div>
+
         <div class="interface-module c f1" *ngIf="consoleMode === 'testingStrategy'">
           <div class="interface-module-head">TESTING CONFIGURATION</div>
           <perfect-scrollbar [config]="config" class="interface-module-body c f1">
