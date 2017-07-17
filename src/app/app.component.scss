@@ -3,12 +3,11 @@
 
 .app-menu-component{
     //background-color:#222;
-    margin-top:0.5em;
+    margin-top:1em;
 
     .app-menu-component-header{
         padding:0.5em 0;
         color:$WHITE;
-        font-size:1.2em;
     }
 
     .profile-row{
@@ -56,20 +55,19 @@
 
     .app-menu{
         position:fixed;
-        right:0;top:0;
+        right:0;top:21px;
         width:22em;
-        height: 100%;
-        padding:0em 0.5em;
-        background-color:rgba(12,12,12,0.5);
+        padding:0em 0.5em 1em 0.5em;
+        background-color:rgba(12,12,12,1);
         border-left:rgba(255,255,255,0.15) solid 1px;
+        border-bottom:rgba(255,255,255,0.15) solid 1px;
         transition: $transition-fast;
         opacity:0;
         z-index:0;
         display:none;
 
         .app-menu-title{
-            padding:1em 0 0.5em 0;
-            font-size:1.2em;
+            padding:0.5em 0 0.5em 0;
             font-weight:bold;
         }
     }
@@ -81,18 +79,11 @@
     }
 
     .site-list-item{
-        padding:0.3em 0.5em;
-        width:6em;
-        height:4em;
+        padding:0.5em 0.5em 0.3em 0.5em;
+        width:6em;height:3em;
         color:$WHITE;
-        background-color:$CYAN_S2;
         background-color:rgba(255,255,255,0.15);
         margin:0.1em;
-        
-        i{
-            font-size:1.2em;
-            color:$WHITE;
-        }
 
         &:hover{
             cursor:pointer;
@@ -106,37 +97,6 @@
         width:100%;height:100%;
         background-color:rgba(0,0,0,0.1);
         z-index:49;
-    }
-
-    .swarm-hive{
-        padding:0 0;
-        height:3.5em;
-        align-items:center;
-        font-weight:300;
-        z-index:51;
-
-        img{
-            margin-right:0.5em;
-            height:1.5em;width:1.5em;
-            //background-color:$CYAN_S2;
-            border:$CYAN_S2 solid 1px;
-            padding:7px;
-        }
-
-        h1, h2{font-size:1em;font-weight:300;margin:0;}
-        h1{
-            margin-top:1px;
-            letter-spacing:3px;
-            font-size:1em;
-        }
-
-        h2{
-            color:$CYAN_S1;
-        }
-
-        &:hover{
-            cursor:pointer;
-        }
     }
 }
 
@@ -327,7 +287,7 @@
 }
 
 .background-blur{
-    filter:blur(1em) brightness(0.8) sepia(0.2);
+    filter:blur(0) brightness(0.8) sepia(0.2);
 }
 
 .app-nav-bar{
