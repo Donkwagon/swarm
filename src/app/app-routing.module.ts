@@ -41,6 +41,7 @@ import { DeveloperInboxComponent }           from './developer/developer-inbox/d
 import { ResourcesComponent }                from './resources/resources.component';
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
+import { DocsPageComponent }                 from './docs-page/docs-page.component';
 
 
 const routes: Routes = [
@@ -86,7 +87,8 @@ const routes: Routes = [
       { path: 'tasks', component: DeveloperTasksComponent},
       { path: 'inbox', component: DeveloperInboxComponent}
   ]},
-  { path: 'cluster', component: ClusterComponent}
+  { path: 'cluster', component: ClusterComponent},
+  { path: 'docs', component: DocsPageComponent}
 ];
 
 @NgModule({

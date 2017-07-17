@@ -64,6 +64,7 @@ import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/craw
 import { ResourcesComponent }                from './resources/resources.component';
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
+import { DocsPageComponent }                 from './docs-page/docs-page.component';
 
 
 @NgModule({
@@ -78,7 +79,7 @@ import { CrawlersPageComponent }             from './crawlers-page/crawlers-page
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
-    ResourcesComponent, AdminComponent, CrawlersPageComponent
+    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
