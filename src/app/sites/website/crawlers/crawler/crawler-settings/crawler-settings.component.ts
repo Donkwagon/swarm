@@ -6,13 +6,13 @@ import { CrawlerService }                    from '../../../../../@core/services
 import { Site }                              from '../../../../../@core/classes/site';
 import { SiteService }                       from '../../../../../@core/services/sites.service';
 
-
 @Component({
   selector: 'app-crawler-settings',
   templateUrl: './crawler-settings.component.html',
   styleUrls: ['./crawler-settings.component.scss'],
   providers: [CrawlerService,SiteService]
 })
+
 export class CrawlerSettingsComponent implements OnInit {
 
   sub: any;
@@ -40,7 +40,6 @@ export class CrawlerSettingsComponent implements OnInit {
       this.crawlerId = params['crawlerId'];
       this.getCrawler();
     });
-
 
   }
 
@@ -87,6 +86,7 @@ export class CrawlerSettingsComponent implements OnInit {
     this.crawlerService.updateCrawler(this.crawler).then(res => {
       console.log(res);
     });
+    
   }
 
   deleteCrawler() {
@@ -94,5 +94,6 @@ export class CrawlerSettingsComponent implements OnInit {
     this.crawlerService.deleteCrawler(this.crawler._id).then(res => {
       console.log(res);
     });
+
   }
 }

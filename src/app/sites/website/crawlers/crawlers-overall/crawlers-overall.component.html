@@ -1,6 +1,14 @@
 <div class="f1 c">
   <div class="content-list-wrapper c">
-  
+    <div class="content-list-head c">
+      <b>{{siteName}} Crawlers</b>
+      <br/>
+      <div class="f1"></div>
+
+      <a routerLink="/sites/{{siteName}}/crawlers/new" routerLinkActive="active" class="site-info-box new-site-btn c" >
+        <div class="app-btn">New Crawler</div>
+      </a>
+    </div>
     <a routerLink="/sites/{{siteName}}/crawlers/{{crawler._id}}" routerLinkActive="active" class="list-item" *ngFor="let crawler of crawlers">
       <div class="r">
         <span>{{crawler.site}}</span>
@@ -11,11 +19,6 @@
           <i class="fa fa-check-square-o" *ngIf="crawler.validation"aria-hidden="true"></i>
         </span>
       </div>
-    </a>
-
-    <a routerLink="/sites/{{siteName}}/crawlers/new" routerLinkActive="active" class="site-info-box new-site-btn c" >
-      <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-      <span>NEW CRAWLER</span>
     </a>
 
   </div>
