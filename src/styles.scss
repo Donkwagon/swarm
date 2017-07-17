@@ -239,3 +239,26 @@ app-crawlers,app-crawler,app-crawler-code{
         border-radius:2px;
     }
 }
+
+.content-list-wrapper{
+
+    .content-list-head{
+        padding:0.5em $padding-side;
+        font-size:1em;
+        align-items:flex-start;
+    }
+    
+    .list-item{
+        padding:0.5em 0.5em;
+        border-bottom:$CYAN_S2 solid 1px;
+        align-items:center;
+
+        img{
+            height:1.5em;width:1.5em;
+            border-radius:2px;
+        }
+        span{
+            padding:0 0.5em;
+        }
+    }
+}
