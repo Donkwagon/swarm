@@ -88,4 +88,11 @@ export class CrawlerSettingsComponent implements OnInit {
       console.log(res);
     });
   }
+
+  deleteCrawler() {
+
+    this.crawlerService.deleteCrawler(this.crawler._id).then(res => {
+      console.log(res);
+    });
+  }
 }
