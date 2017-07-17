@@ -1,9 +1,46 @@
 
-  <form class="new-site-form c">
-    <h1>New Site</h1>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="site name" [(ngModel)]="newSite.name" name="siteName"/>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="site URL" [(ngModel)]="newSite.url" name="siteUrl"/>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="site logoURL" [(ngModel)]="newSite.imgUrl" name="imgUrl"/>
-    <textarea class="new-site-input" type="text" spellcheck="false" placeholder="site description" [(ngModel)]="newSite.description" name="siteDescription"></textarea>
-    <div class="button -green center" (click)="submitNewSite()">Submit</div>
-  </form>
+
+<form class="new-form c">
+  <div class="new-form-row r">
+    <span>New Site</span>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Site Name</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input class="text-input" type="text" spellcheck="false" placeholder="site name" [(ngModel)]="newSite.name" name="siteName"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Site URL</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input class="text-input" type="text" spellcheck="false" placeholder="site URL" [(ngModel)]="newSite.url" name="siteUrl"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Logo Image URL</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input class="text-input" type="text" spellcheck="false" placeholder="site logoURL" [(ngModel)]="newSite.imgUrl" name="imgUrl"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Site Description</span>
+    </div>
+    <div class="input-wrapper f162">
+      <textarea class="text-input" type="text" spellcheck="false" placeholder="site logoURL" [(ngModel)]="newSite.description" name="siteDescription"></textarea>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+    </div>
+    <div class="input-wrapper f162">
+      <div class="app-btn-large" (click)="submitNewSite()">Create Site</div>
+    </div>
+  </div>
+</form>
