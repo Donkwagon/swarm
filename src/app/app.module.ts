@@ -70,7 +70,8 @@ import { CrawlerCodeComponent }              from './sites/website/crawlers/craw
 import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/crawler/crawler-edit-history/crawler-edit-history.component';
 
 import { ResourcesComponent }                from './resources/resources.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent }                    from './admin/admin.component';
+import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 
 
 
@@ -88,7 +89,8 @@ import { AdminComponent } from './admin/admin.component';
     DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent, DeveloperOverallComponent,
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
-     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent, ResourcesComponent, AdminComponent
+    CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
+    ResourcesComponent, AdminComponent, CrawlersPageComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

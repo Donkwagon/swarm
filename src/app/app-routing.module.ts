@@ -46,6 +46,9 @@ import { DeveloperTasksComponent }           from './developer/developer-tasks/d
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
 import { ResourcesComponent }                from './resources/resources.component';
+import { AdminComponent }                    from './admin/admin.component';
+import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
@@ -79,6 +82,8 @@ const routes: Routes = [
   ]},
   { path: 'colors', component: ColorPaletteComponent},
   { path: 'resources', component: ResourcesComponent},
+  { path: 'admin', component: AdminComponent},
+  { path: 'crawlers', component: CrawlersPageComponent},
   { path: 'developer', component: DeveloperComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: DeveloperOverallComponent},
