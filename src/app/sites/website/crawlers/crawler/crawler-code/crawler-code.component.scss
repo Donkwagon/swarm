@@ -121,7 +121,6 @@
         width:25rem;
         border:rgba(0,0,0,0.5) solid 2px;
         border:$CYAN_S1 solid 1px;
-        font-size:0.85rem;
 
         .interface-tabs-wrapper{
             border-bottom:$CYAN_S1 solid 1px;
@@ -152,17 +151,15 @@
                 align-self:flex-start;
                 color:$WHITE;
                 width:100%;
-                padding:0.2em 0;
-                text-align:center;
-                //background-color:rgba(255,255,255,0.2);
-                border-bottom:$GREY dotted 1px;
+                padding:0.2em 0.5em;
+                background:linear-gradient(to bottom, #32323c 0%, #282832 100%);
+                border-bottom:rgba(60,60,60,0.05) solid 1px;
 
             }
 
             .interface-module-body{
                 padding:0.5em;
                 display:flex;
-                align-items:flex-start;
 
                 .msg-wrapper{
                     width:100%;
@@ -188,9 +185,9 @@
             }
 
             .config-setter{
-                background-color:$CYAN_S1;
-                padding:0.2em 0.5em;
+                padding:0.5em 0.5em;
                 margin:1px -0.5em;
+                border-bottom:$CYAN_S2 solid 1px;
             }
             
         }

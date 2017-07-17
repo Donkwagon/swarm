@@ -1,9 +1,10 @@
 <div class="crawler-interface f1 r">
+
   <div class="crawler c f1">
+
     <div class="work-space f1 r">
 
       <div class="editor-wrapper c f1">
-
 
         <div class="crawler-panel r" *ngIf="site">
 
@@ -19,7 +20,7 @@
               <span>{{urlSection.url}}</span>
               <span *ngIf="urlSection.type == 'ID RANGE'">{{urlSection.min}} - {{urlSection.max}}</span>
               <span>{{urlSection.suffix}}/</span>
-              <span style="color:red;" (click)="removeUrlSection(urlSection)">x</span>
+              <span class="red-text" (click)="removeUrlSection(urlSection)">x</span>
             </div>
           </div>
 
@@ -100,28 +101,41 @@
         </div>
 
         <div class="interface-module c f1" *ngIf="consoleMode === 'testingStrategy'">
-          <div class="interface-module-head">TESTING CONFIGURATION</div>
+          
+          <div class="interface-module-head">Testing Configuration</div>
+
           <perfect-scrollbar [config]="config" class="interface-module-body c f1">
+
             <div class="msg-wrapper c">
+
               <div class="r config-setter">
-                <div>Sampling Type</div>
-                <div class="f1"></div>
-                <input type="radio" name="gender" value="single" (change)="setTestingStrategy()" [(ngModel)]="testingStrategy"> Single
-                <input type="radio" name="gender" value="multiple" (change)="setTestingStrategy()" [(ngModel)]="testingStrategy"> Multiple
+                <div class="f1">Sampling Type</div>
+                <div class="f162">
+                  <input type="radio" name="gender" value="single" (change)="setTestingStrategy()" [(ngModel)]="testingStrategy"> Single
+                  <input type="radio" name="gender" value="multiple" (change)="setTestingStrategy()" [(ngModel)]="testingStrategy"> Multiple
+                </div>
               </div>
+
               <div class="r config-setter" *ngIf="crawler.testingStrategy.type === 'single'">
-                <div>ID</div>
-                <div class="f1"></div>
-                <input class="range-selector-input f1" type="number" [(ngModel)]="crawler.testingStrategy.id">
+                <div class="f1">ID</div>
+                <div class="f162">
+                  <input class="range-selector-input f1" type="number" [(ngModel)]="crawler.testingStrategy.id">
+                </div>
+                
               </div>
 
               <div class="r config-setter" *ngIf="crawler.testingStrategy.type === 'multiple'">
-                <div class="f1"></div>
-                Num:
-                <input class="range-selector-input f1" type="number" min="0" max="1000" value="0" [(ngModel)]="crawler.testingStrategy.num"/>
+                <div class="f1">Num:</div>
+                <div class="f162">
+                  <input class="range-selector-input f1" type="number" min="0" max="1000" value="0" [(ngModel)]="crawler.testingStrategy.num"/>
+                </div>
+                
               </div>
+              
             </div>
+
           </perfect-scrollbar>
+
         </div>
 
         <div class="interface-module c f1" *ngIf="consoleMode === 'tolerance'">
@@ -131,7 +145,7 @@
         </div>
 
         <div class="interface-module c f1"*ngIf="consoleMode === 'response'">
-          <div class="interface-module-head">RESPONSE</div>
+          <div class="interface-module-head">Response</div>
           <perfect-scrollbar [config]="config" class="interface-module-body c ofys f1">
             <div class="msg-wrapper r" *ngFor="let message of messages">
               <div class="msg" [ngClass]="{'success': message.status == 'success', 'error': message.status == 'error'}">

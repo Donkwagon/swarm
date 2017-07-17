@@ -26,7 +26,7 @@ $GREY:rgba(120,120, 120, 1);
 $YELLOW:rgba(255, 199, 64,1);
 $PURPLE:rgba(106, 77, 158,1);
 
-$RED: rgba(241, 103, 105,1);
+$RED: rgba(255, 103, 105,1);
 $PINK: rgba(230, 76, 132,1);
 
 $GREEN: rgba(62, 175, 77,1);
@@ -145,7 +145,7 @@ $grid: linear-gradient(0deg,
 .orange-text{color:$ORANGE!important;text-shadow: 0 0 9px $ORANGE;}
 
 .red{background-color:$RED;box-shadow: 0 0 9px $RED;}
-.red-text{color:$RED!important;text-shadow: 0 0 9px $RED;}
+.red-text{color:$RED!important;}
 
 .white{background-color:$WHITE;box-shadow: 0 0 9px $WHITE;}
 .white-text{color:$WHITE!important;}
