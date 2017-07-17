@@ -1,49 +1,26 @@
 
 @import '../../../../../_theme';
 
-.new-crawler-wrapper{
-    padding:1em;
-    border-radius:3px;
-    border:$CYAN_S1 double 3px;
-}
-.new-crawler-wrapper{
-    width:600px;
-    margin:0 auto;
-    align-items:flex-center;
-    justify-content:flex-center;
+.new-form{
+    padding:0.5em;
 
-    .new-site-input{
-        border:none;
-        border:$CYAN solid 0.5px;
-        border-radius:3px;
-        margin-bottom:1em;
-        padding:0.5em;
-        font-size:1.2em;
-        color:white;
-        background-color:rgba(0,0,0,0);
-        font-family:$font-stack;
+    .new-form-row{
+        padding:1em;
+        border-top:$CYAN_S2 solid 1px;
+        align-items:center;
+    }
+
+    .app-btn-large{
+        align-self:center;
+    }
+
+    input, textarea{
+        padding:0.5em 0.5em;
+        width:30em;
+        background-color:transparent;
         color:$CYAN;
-
-        &:focus{
-            outline:none;
-        }
-    }
-
-    textarea{
-        resize:vertical;
-    }
-
-    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-        color: $CYAN_S1;
-    }
-    ::-moz-placeholder { /* Firefox 19+ */
-        color: $CYAN_S1;
-    }
-    :-ms-input-placeholder { /* IE 10+ */
-        color: $CYAN_S1;
-    }
-    :-moz-placeholder { /* Firefox 18- */
-        color: $CYAN_S1;
+        background-color:$CYAN_S2;
+        border-bottom:$CYAN_S2 solid 1px;
+        border-radius:2px;
     }
 }
-

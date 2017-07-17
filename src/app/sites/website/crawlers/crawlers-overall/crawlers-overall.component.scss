@@ -1,0 +1,15 @@
+
+@import '../../../../../_theme';
+
+.content-list-wrapper{
+    
+    .list-item{
+        padding:0.5em 0;
+        margin:1px;
+        background-color:$CYAN_S2;
+
+        span{
+            padding:0 0.5em;
+        }
+    }
+}

@@ -64,7 +64,7 @@ const routes: Routes = [
           { path: 'crawlers', component: CrawlersComponent, children: [
             { path: '', redirectTo: 'overall', pathMatch: 'full' },
             { path: 'overall', component: CrawlersOverallComponent},
-            { path: 'new', component: CrawlerSettingsComponent},
+            { path: 'new', component: NewCrawlerComponent},
             { path: ':crawlerId', component: CrawlerComponent, children: [
               { path: '', redirectTo: 'overall', pathMatch: 'full' },
               { path: 'overall', component: CrawlerOverallComponent},

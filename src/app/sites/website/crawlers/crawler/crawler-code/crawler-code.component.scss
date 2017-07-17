@@ -2,10 +2,6 @@
 @import '../../../../../../_theme';
 
 
-.ace-monokai .ace_gutter{
-    background:rgba(0,0,0,0)!important;
-}
-
 .crawler-panel{
     padding:0em $padding-side;
     border-bottom:$CYAN_S1 solid 1px;
@@ -117,7 +113,6 @@
     }
 
 }
-
 
 .work-space{
     align-items:stretch;

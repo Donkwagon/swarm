@@ -73,10 +73,10 @@ a:active {color: $CYAN;text-decoration:none;}
 
 .app-background{
     @extend .fixed-full-screen;
-    background-color:#111;
-    background-image:$grid;
-    background-size: 50px 50px;
-    box-shadow:inset 900px #000;
+    background-color:#000;
+    // background-image:$grid;
+    // background-size: 50px 50px;
+    // box-shadow:inset 900px #000;
 }
 
 .main{
@@ -200,7 +200,14 @@ input, textarea{
     border:none;
     color:#000;
     font-size:1em;
+    font-family:$font-stack;
+
+    &:focus{
+        outline:none;
+    }
 }
+
+textarea{resize:vertical;}
 
 app-crawlers,app-crawler,app-crawler-code{
     display:flex;

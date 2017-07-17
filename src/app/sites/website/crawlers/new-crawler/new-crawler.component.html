@@ -1,9 +1,58 @@
-<div class="new-crawler-wrapper">
-  <form class="new-site-form c">
-    <p>New Crawler</p>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="crawler name" [(ngModel)]="newCrawler.name" name="crawlerName"/>
-    <input class="new-site-input" type="text" spellcheck="false" placeholder="Root URL" [(ngModel)]="newCrawler.urlStrategy.root" name="rootUrl"/>
-    <textarea class="new-site-input" type="text" spellcheck="false" placeholder="crawler description" [(ngModel)]="newCrawler.description" name="siteDescription"></textarea>
-    <div class="button -green center" (click)="submitNewCrawler()">Submit</div>
-  </form>
-</div>
+
+<form class="new-form c">
+  <div class="new-form-row r">
+    <span>New Crawler</span>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Crawler Name</span>
+      <span class="caption-text">Be accurate and succinct</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input type="text" spellcheck="false" placeholder="crawler name" [(ngModel)]="newCrawler.name" name="crawlerName"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Root URL</span>
+      <span class="caption-text">Be accurate and succinct</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input type="text" spellcheck="false" placeholder="Root URL" [(ngModel)]="newCrawler.urlStrategy.root" name="rootUrl"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Input Data Type</span>
+      <span class="caption-text">Be accurate and succinct</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input type="text" spellcheck="false" placeholder="Root URL" name="rootUrl"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Output Data Type</span>
+      <span class="caption-text">Be accurate and succinct</span>
+    </div>
+    <div class="input-wrapper f162">
+      <input type="text" spellcheck="false" placeholder="Root URL" name="rootUrl"/>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+      <span>Crawler Description (optional)</span>
+      <span class="caption-text">Be accurate and succinct</span>
+    </div>
+    <div class="input-wrapper f162">
+      <textarea type="text" spellcheck="false" placeholder="crawler description" [(ngModel)]="newCrawler.description" name="siteDescription"></textarea>
+    </div>
+  </div>
+  <div class="new-form-row r">
+    <div class="label f1 c">
+    </div>
+    <div class="input-wrapper f162">
+      <div class="app-btn-large" (click)="submitNewCrawler()">Create Crawler</div>
+    </div>
+  </div>
+</form>

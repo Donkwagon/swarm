@@ -7,8 +7,12 @@ $green:rgb(63, 204, 77);
 $red:rgb(198, 34, 25);
 /////////////////////////////////////////////////////////
 
+$transition: all 0.5s ease;
+$transition-fast: all 0.2s ease;
+$transition-very-fast: all 0.1s ease;
 
 $TEXT:rgba(36, 178, 153,1);
+$CAPTION: rgba(255,255,255,0.5);
 $CYAN:rgb(106, 244, 255);
 $CYAN_S1:rgba(43, 82, 107,1);
 $CYAN_S2:rgba(73, 112, 137,0.3);
@@ -36,6 +40,7 @@ $t: rgba(255,255,255,.02);
 $b: rgba(150,150,150,.05);
 $t: rgba(150,150,150,.0);
 $n: transparent;
+
 $font-stack:'Exo 2', 'Microsoft Yahei';
 
 $yellowish: rgb(255,255,200);
@@ -62,21 +67,6 @@ $grid: linear-gradient(0deg,
     position:fixed;top:0;left:0;width:100%;height:100%;
 }
 
-// colors
-$dark:  #333030;
-$ocean:  $BLUE;
-$grass: $GREEN;
-$snow: #FFFFFF;
-$salmon: #F32C52;
-$sun: #feee7d;
-$alge: #79a8a9;
-$flower: #353866;
-$coal: #202129;
-$coal-dust: #edeeee;
-// font import
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500);
-
-
 .app-btn{
   
     color:#111;
@@ -91,119 +81,34 @@ $coal-dust: #edeeee;
       background-image:linear-gradient(to bottom, #fff 0%, #ccc 100%);
       color:#000;
     }
-}
-// font
-$font-face: 'Roboto', sans-serif;
-
-
-// button styles
-.button {
-  display: flex;
-  overflow: hidden;
-
-  padding:0.2em 0.5em;
-
-  cursor: pointer;
-  user-select: none;
-  transition: all 60ms ease-in-out;
-  text-align: center;
-  white-space: nowrap;
-  text-decoration: none !important;
-  text-transform: none;
-  text-transform: capitalize;
-
-  color: #fff;
-  border: 0 none;
-  border-radius: 2px;
-
-  font-size:1em;
-
-  -webkit-appearance: none;
-  -moz-appearance:    none;
-  appearance:         none;
- 
-  justify-content: center;
-  align-items: center;
-
-  &:hover {
-    transition: all 60ms ease;
-
-    opacity: .85;
-  }
   
-  &:active {
-    transition: all 60ms ease;
-    opacity: .75;
-  }
+    &:active {
+      transition: all 60ms ease;
+      opacity: .75;
+    }
+    
+    &:focus {
+      outline: 1px dotted #959595;
+      outline-offset: -4px;
+    }
+}
+
+.app-btn-large{
   
-  &:focus {
-    outline: 1px dotted #959595;
-    outline-offset: -4px;
-  }
+    color:#111;
+    padding:0.5em 1em;
+    background-image:linear-gradient(to bottom, #eee 0%, #bbb 100%);
+    border-radius:1px;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2em;
+
+    &:hover{
+      cursor:pointer;
+      background-image:linear-gradient(to bottom, #fff 0%, #ccc 100%);
+      color:#000;
+    }
 }
-
-.button.-regular {
-  color: #202129;
-  background-color: #edeeee;
-  
-  &:hover {
-    color: #202129;
-    background-color: #e1e2e2;
-    opacity: 1;
-  }
-  
-  &:active {
-    background-color: #d5d6d6;
-    opacity: 1;
-  }
-}
-
-.button.-dark {
-  color: $snow;
-  background: $dark;
-  
-   &:focus {
-    outline: 1px dotted white;
-    outline-offset: -4px;
-  }
-}
-  
-.button.-green {
-  color: $snow;
-  background: $grass;
-}
-
-.button.-blue {
-  color: $snow;
-  background: $ocean;
-}
-
-.button.-salmon {
-  color: $snow;
-  background: $salmon;
-}
-
-.button.-sun {
-  color: #f15c5c;
-  background: $sun;
-}
-
-.button.-alge {
-  color: #f4f7f7;
-  background: $alge;
-}
-
-.button.-flower {
-  color: #FE8CDF;
-  background: $flower;
-}
-
-$transition: all 0.5s ease;
-$transition-fast: all 0.2s ease;
-$transition-very-fast: all 0.1s ease;
-
-
-
 
 
 .cyan{background-color:$CYAN;box-shadow: 0 0 9px $CYAN;}
@@ -238,3 +143,5 @@ $transition-very-fast: all 0.1s ease;
 
 .black{background-color:$BLACk;box-shadow: 0 0 9px $BLACk;}
 .black-text{color:$BLACk!important};
+
+.caption-text{color:$CAPTION!important;}
