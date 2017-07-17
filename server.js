@@ -2,12 +2,11 @@ var express =         require("express");
 var bodyParser =      require("body-parser");
 var mongoose =        require('mongoose');
 var http =            require('http');
-var url =             require('url');
 var dotenv =          require('dotenv').config();
-var admin =           require("firebase-admin");
 
 var chalk =           require('chalk');
- 
+
+var admin =           require("firebase-admin");
 var serviceAccount =  require("./server/firebase/swarm-c0b98-firebase-adminsdk-q66u1-685dfe1150");
 
 // adapter: postgresql
@@ -15,7 +14,6 @@ var serviceAccount =  require("./server/firebase/swarm-c0b98-firebase-adminsdk-q
 // username: nvestdb
 // password: nvest12345
 // host: nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com
-
 // var pgp = require('pg-promise')();
 // const conString = 'postgres://nvestdb:nvest12345@nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com:5432/nvestdb?ssl=true';
 
@@ -35,8 +33,9 @@ server.listen(process.env.PORT || 8100, function (err) {
 
 //////////////////////////////////////////
 //Connect to mongoose db
-global.db = (global.db ? global.db : mongoose.createConnection("mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532"));
-mongoose.connect('mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532');
+var MongoDbConStr = "mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532";
+global.db = (global.db ? global.db : mongoose.createConnection(MongoDbConStr));
+mongoose.connect(MongoDbConStr);
 
 //////////////////////////////////////////
 //Connect to io
@@ -60,7 +59,5 @@ const system = require('./server/system/system');
 app.use('/api', api);
 app.use('/queen',queen);
 app.use('/system',system);
-
-
 
 module.exports = app;
