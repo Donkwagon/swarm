@@ -1,26 +1,2 @@
 
 @import '../../../../../_theme';
-
-.new-form{
-    padding:0.5em;
-
-    .new-form-row{
-        padding:1em;
-        border-top:$CYAN_S2 solid 1px;
-        align-items:center;
-    }
-
-    .app-btn-large{
-        align-self:center;
-    }
-
-    input, textarea{
-        padding:0.5em 0.5em;
-        width:30em;
-        background-color:transparent;
-        color:$CYAN;
-        background-color:$CYAN_S2;
-        border-bottom:$CYAN_S2 solid 1px;
-        border-radius:2px;
-    }
-}

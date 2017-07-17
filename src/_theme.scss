@@ -97,11 +97,13 @@ $grid: linear-gradient(0deg,
   
     color:#111;
     padding:0.5em 1em;
-    background-image:linear-gradient(to bottom, #eee 0%, #bbb 100%);
-    border-radius:1px;
+    background-image:linear-gradient(to bottom, #eee 0%, #aaa 100%);
+    border-radius:3px;
     align-items:center;
     justify-content:center;
-    font-size:1.2em;
+    font-size:1.15em;
+    border-top:rgba(255,255,255,0.3) solid 1px;
+    border-bottom:rgba(12,12,12,0.3) solid 1px;
 
     &:hover{
       cursor:pointer;
