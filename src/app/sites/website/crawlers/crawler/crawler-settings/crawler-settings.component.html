@@ -1,9 +1,11 @@
 <perfect-scrollbar class="work-space f1 c " *ngIf="site && crawler">
 
   <form class="new-form c">
+
     <div class="new-form-row r">
       <span>{{siteName}}/{{crawler._id}}</span>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Crawler Name</span>
@@ -12,6 +14,7 @@
         <input class="text-input" type="text" spellcheck="false" [(ngModel)]="crawler.name" name="crawlerName"/>
       </div>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Example URL</span>
@@ -20,6 +23,7 @@
         <input class="text-input" type="text" spellcheck="false" [(ngModel)]="crawler.exampleUrl" name="exampleUrl"/>
       </div>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Crawler Description</span>
@@ -28,6 +32,19 @@
         <textarea class="text-input"type="text" spellcheck="false" [(ngModel)]="crawler.description" name="crawlerDescription"></textarea>
       </div>
     </div>
+
+    <div class="new-form-row r">
+      <div class="label f1 c">
+        <span>Validation</span>
+      </div>
+      <div class="input-wrapper f162">
+          
+        <input type="radio" name="crawlerValidation" [(ngModel)]="crawler.validation"  (change)="setValidation(true)" value="True" [checked]="crawler.validation"> True &nbsp;
+        <input type="radio" name="crawlerValidation" [(ngModel)]="crawler.validation"  (change)="setValidation(false)" value="False" [checked]="!crawler.validation"> False &nbsp;
+
+      </div>
+    </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Crawler Input Data Type</span>
@@ -42,6 +59,7 @@
 
       </div>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Crawler Output Data Type</span>
@@ -54,6 +72,7 @@
 
       </div>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
       </div>
@@ -63,6 +82,7 @@
         <div class="app-btn-large" (click)="saveChanges()">Save</div>
       </div>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Delete Crawler</span>
@@ -71,6 +91,7 @@
         <div class="app-btn-large" (click)="deleteCrawler()">Delete</div>
       </div>
     </div>
+    
   </form>
 
 </perfect-scrollbar>

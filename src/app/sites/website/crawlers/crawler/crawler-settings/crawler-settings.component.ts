@@ -76,6 +76,10 @@ export class CrawlerSettingsComponent implements OnInit {
     this.crawler.outputDataType = dataType;
   }
 
+  setValidation(validation) {
+    this.crawler.validation = validation;
+  }
+
 
   discardChanges() {
     return;
