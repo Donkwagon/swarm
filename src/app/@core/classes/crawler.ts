@@ -18,6 +18,8 @@ export class Crawler {
     doc: string;
     description: string;
 
+    exampleUrl: string;
+
     editHistory: any;
 
     urlStrategy: {root: String,sections: Object[]};
@@ -38,6 +40,7 @@ export class Crawler {
         this.site = "";
         this.code = "///////////////////////////////////////////////////////////////////\r\n//Fields of interest\r\n///////////////////////////////////////////////////////////////////\r\n\r\nvar title           = null;\r\nvar author          = null;\r\nvar primaryStock    = null;\r\nvar username        = null;\r\nvar articleId       = null;\r\n\r\nvar include_stocks  = null;\r\nvar summary         = null;\r\nvar publish_at      = null;\r\n\r\n///////////////////////////////////////////////////////////////////\r\n//Add crawling code here\r\n///////////////////////////////////////////////////////////////////\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
         this.doc = "";
+        this.exampleUrl = "";
         this.description = "";
         this.testingStrategy = {type: "single",id : 1024};
         this.editHistory = [];
