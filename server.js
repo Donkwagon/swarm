@@ -40,8 +40,8 @@ server.listen(process.env.PORT || 8100, function (err) {
 //////////////////////////////////////////
 //Connect to mongoose db
 var MongoDbConStr = "mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532";
-global.db = (global.db ? global.db : mongoose.createConnection(MongoDbConStr));
-mongoose.connect(MongoDbConStr);
+// global.db = (global.db ? global.db : mongoose.createConnection(MongoDbConStr));
+global.db = mongoose.createConnection(MongoDbConStr);
 //////////////////////////////////////////
 
 

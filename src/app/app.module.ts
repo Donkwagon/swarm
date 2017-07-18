@@ -65,6 +65,7 @@ import { ResourcesComponent }                from './resources/resources.compone
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
+import { DatabasePageComponent } from './database-page/database-page.component';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { DocsPageComponent }                 from './docs-page/docs-page.compone
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
-    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent
+    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

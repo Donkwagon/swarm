@@ -42,6 +42,7 @@ import { ResourcesComponent }                from './resources/resources.compone
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
+import { DatabasePageComponent }             from './database-page/database-page.component';
 
 
 const routes: Routes = [
@@ -88,7 +89,8 @@ const routes: Routes = [
       { path: 'inbox', component: DeveloperInboxComponent}
   ]},
   { path: 'cluster', component: ClusterComponent},
-  { path: 'docs', component: DocsPageComponent}
+  { path: 'docs', component: DocsPageComponent},
+  { path: 'database', component: DatabasePageComponent}
 ];
 
 @NgModule({
