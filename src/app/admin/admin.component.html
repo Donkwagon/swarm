@@ -1,3 +1,35 @@
-<p>
-  admin works!
-</p>
+
+<div class="app-page f1 c">
+
+  <div class="page-cover c">
+    <div class="page-cover-info r">
+      <div class="c">
+        <span>Admin</span>
+      </div>
+    </div>
+
+    <div class="page-cover-nav-wrapper r">
+      <input placeholder="search"/>
+    </div>
+  </div>
+
+
+  <perfect-scrollbar class="page-body c f1">
+
+    <div class="content-list-wrapper c w100">
+
+      <div  class="list-item r" *ngFor="let developer of developers">
+        
+        <span><img [src]="developer.photoURL"/></span>
+        <span>{{developer.displayName}}</span>
+        <span>{{developer.name}}</span>
+        <span>{{developer.username}}</span>
+
+      </div>
+
+    </div>
+
+  </perfect-scrollbar>
+
+
+</div>

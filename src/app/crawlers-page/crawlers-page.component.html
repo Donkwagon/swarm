@@ -15,18 +15,36 @@
 
 
   <perfect-scrollbar class="page-body c f1">
+
     <div class="content-list-wrapper c w100">
+
       <div  class="list-item r" *ngFor="let crawler of crawlers">
-        <a class="f1" routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/code">
+        
+        <a class="f1" routerLink="/sites/{{crawler.site}}">
+          <span>{{crawler.site}}</span>
+        </a>
+        
+        <a class="f2" routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/code">
           <span>{{crawler.name}}</span>
         </a>
+
+        <span class="caption-text" *ngIf="!crawler.validation">
+          Validation Needed
+        </span>
+        <span class="green-text" *ngIf="crawler.validation">
+          Validated
+        </span>
+
         <a routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/settings">
           <span class="caption-text">
             <i class="fa fa-cog" aria-hidden="true"></i>
           </span>
         </a>
+
       </div>
+
     </div>
+
   </perfect-scrollbar>
 
 
