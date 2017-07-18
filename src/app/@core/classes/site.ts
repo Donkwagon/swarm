@@ -3,7 +3,6 @@ export class Site {
     _id?: string;
     name: string;
     type: String; //id based, periodically updated
-    numStep: Number;
     description: string;
     crawlers: any;
     imgUrl: string;
@@ -14,5 +13,13 @@ export class Site {
     updated_at: Date;
 
     constructor(){
+        this.name = "";
+        this.type = "news portal";
+        this.description = "";
+        this.imgUrl = "";
+        this.url = "";
+        this.created_by = "false";
+        this.created_at = new Date();
+        this.updated_at = new Date();
     }
 }
