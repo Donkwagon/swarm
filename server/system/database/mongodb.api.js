@@ -42,10 +42,10 @@ emitMsg = (channel,status,content) => {
 //////////////////////////////////////////////////////
 
 MongoDb.get("", function(req, res) {
-  console.log(db.system);
-  var data = JSON.stringify(db.system);
-  console.log(data);
-  res.status(200).json(data);
+  // console.log(db.system);
+  // var database = db.getSiblingDB('<db>');
+  // console.log(database);
+  // res.status(200).json(data);
 });
 
 MongoDb.get("/site/:siteName", function(req, res) {

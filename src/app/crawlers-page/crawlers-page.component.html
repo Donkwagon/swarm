@@ -1,3 +1,33 @@
-<p>
-  crawlers-page works!
-</p>
+
+<div class="app-page f1 c">
+
+  <div class="page-cover c">
+    <div class="page-cover-info r">
+      <div class="c">
+        <span>Crawlers</span>
+      </div>
+    </div>
+
+    <div class="page-cover-nav-wrapper r">
+      <input placeholder="search"/>
+    </div>
+  </div>
+
+
+  <perfect-scrollbar class="page-body c f1">
+    <div class="content-list-wrapper c w100">
+      <div  class="list-item r" *ngFor="let crawler of crawlers">
+        <a class="f1" routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/code">
+          <span>{{crawler.name}}</span>
+        </a>
+        <a routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/settings">
+          <span class="caption-text">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </perfect-scrollbar>
+
+
+</div>
