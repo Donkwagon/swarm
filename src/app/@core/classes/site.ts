@@ -14,7 +14,7 @@ export class Site {
 
     constructor(){
         this.name = "";
-        this.type = "news portal";
+        this.type = "News Portal";
         this.description = "";
         this.imgUrl = "";
         this.url = "";
