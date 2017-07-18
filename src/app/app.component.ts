@@ -49,7 +49,6 @@ export class AppComponent {
     this.router.events.subscribe(event => {
 
       if(event instanceof NavigationStart) {
-
         this.menuDisplay = false;
         this.routerMapper.mapUrl(event.url);
 
