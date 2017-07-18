@@ -31,7 +31,7 @@ export class AuthorService {
     }
 
     createAuthor(newauthor: Author): Promise<Author> {
-      var data = newauthor;
+      let data = newauthor;
       return this.http.post(this.authorsUrl, data)
                  .toPromise()
                  .then(response => response.json() as Author)
@@ -46,7 +46,7 @@ export class AuthorService {
     }
 
     updateAuthor(putauthor: Author): Promise<Author> {
-      var putUrl = this.authorsUrl + '/' + putauthor._id;
+      let putUrl = this.authorsUrl + '/' + putauthor._id;
       return this.http.put(putUrl, putauthor)
                  .toPromise()
                  .then(response => response.json() as Author)
@@ -54,7 +54,7 @@ export class AuthorService {
     }
 
     private handleError (error: any) {
-      let errMsg = (error.message) ? error.message :
+      const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
       console.error(errMsg); // log to console instead
     }

@@ -1,3 +1,55 @@
-<p>
-  settings works!
-</p>
+<perfect-scrollbar class="work-space f1 c " *ngIf="site && site">
+
+  <form class="new-form c">
+    <div class="new-form-row r">
+      <span>{{siteName}} Settings</span>
+    </div>
+    <div class="new-form-row r">
+      <div class="label f1 c">
+        <span>Site Name</span>
+      </div>
+      <div class="input-wrapper f162">
+        <input class="text-input" type="text" spellcheck="false" [(ngModel)]="site.name" name="siteName"/>
+      </div>
+    </div>
+    <div class="new-form-row r">
+      <div class="label f1 c">
+        <span>Site Description</span>
+      </div>
+      <div class="input-wrapper f162">
+        <textarea class="text-input"type="text" spellcheck="false" [(ngModel)]="site.description" name="siteDescription"></textarea>
+      </div>
+    </div>
+    <div class="new-form-row r">
+      <div class="label f1 c">
+        <span>Site Type</span>
+      </div>
+      <div class="input-wrapper f162">
+        
+        <input type="radio" [(ngModel)]="site.type" name="type" (change)="setSiteType(' News Portal')" value="News Portal" [checked]="site.type === 'News Portal'"> News Portal &nbsp;
+        <input type="radio" [(ngModel)]="site.type" name="type" (change)="setSiteType('Blog Platform')" value="Blog Platform"  [checked]="site.type === 'Blog Platform'"> Blog Platform &nbsp;
+        <input type="radio" [(ngModel)]="site.type" name="type" (change)="setSiteType('Analysis')" value="Analysis"  [checked]="site.type === 'Analysis'"> Analysis &nbsp;
+        <input type="radio" [(ngModel)]="site.type" name="type" (change)="setSiteType('Technical')" value="Technical"  [checked]="site.type === 'Technical'"> Technical &nbsp;
+
+      </div>
+    </div>
+    <div class="new-form-row r">
+      <div class="label f1 c">
+      </div>
+      <div class="input-wrapper f162">
+        <div class="app-btn-large" (click)="discardChanges()">Discard</div>
+        &nbsp;
+        <div class="app-btn-large" (click)="saveChanges()">Save</div>
+      </div>
+    </div>
+    <div class="new-form-row r">
+      <div class="label f1 c">
+        <span>Delete Site</span>
+      </div>
+      <div class="input-wrapper f162">
+        <div class="app-btn-large" (click)="delete()">Delete</div>
+      </div>
+    </div>
+  </form>
+
+</perfect-scrollbar>

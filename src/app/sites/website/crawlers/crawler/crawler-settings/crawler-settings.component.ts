@@ -10,7 +10,7 @@ import { SiteService }                       from '../../../../../@core/services
   selector: 'app-crawler-settings',
   templateUrl: './crawler-settings.component.html',
   styleUrls: ['./crawler-settings.component.scss'],
-  providers: [CrawlerService,SiteService]
+  providers: [CrawlerService, SiteService]
 })
 
 export class CrawlerSettingsComponent implements OnInit {
@@ -19,7 +19,7 @@ export class CrawlerSettingsComponent implements OnInit {
   crawlerId: string;
   crawler: Crawler;
 
-  sub_crawler:any;
+  sub_crawler: any;
   siteName: string;
   site: Site;
 
@@ -50,7 +50,7 @@ export class CrawlerSettingsComponent implements OnInit {
     });
 
   }
-  
+
   getCrawler = () => {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
@@ -61,7 +61,7 @@ export class CrawlerSettingsComponent implements OnInit {
 
   }
 
-  ngOnDestroy() {
+  OnDestroy() {
 
     this.sub.unsubscribe();
     this.sub_crawler.unsubscribe();
@@ -86,7 +86,6 @@ export class CrawlerSettingsComponent implements OnInit {
     this.crawlerService.updateCrawler(this.crawler).then(res => {
       console.log(res);
     });
-    
   }
 
   deleteCrawler() {

@@ -39,10 +39,10 @@ export class AuthService {
   }
 
   registerDeveloper(developer) {
-    
+
     this.developerService.getDeveloper(developer.uid).then(res => {
       console.log(res);
-      if(!res){
+      if (!res){
         this.developerService.createDeveloper(developer).then(res => {
           console.log(res);
         });

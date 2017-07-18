@@ -60,7 +60,7 @@ export class SiteService {
     }
 
     // put("/Site/Sites/:id")
-    updatSite(putSite: Site): Promise<Site> {
+    updateSite(putSite: Site): Promise<Site> {
       var putUrl = this.SitesUrl + '/' + putSite._id;
       return this.http.put(putUrl, putSite)
                  .toPromise()

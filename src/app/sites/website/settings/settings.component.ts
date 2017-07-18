@@ -28,17 +28,36 @@ export class SettingsComponent implements OnInit {
     });
 
   }
-  
+
+  ngOnDestroy() {
+
+    this.sub.unsubscribe();
+
+  }
+
   getSiteInfo = () => {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {
-      
       this.site = res[0];
     });
   }
-  
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+
+  discardChanges() {
+    return;
   }
 
+  saveChanges() {
+
+    this.siteService.updateSite(this.site).then(res => {
+      console.log(res);
+    });
+  }
+
+  delete() {
+
+    this.siteService.deleteSite(this.site._id).then(res => {
+      console.log(res);
+    });
+
+  }
 }

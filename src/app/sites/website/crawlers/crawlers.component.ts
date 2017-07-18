@@ -35,13 +35,13 @@ export class CrawlersComponent implements OnInit {
     });
 
   }
-  
+
   ngOnDestroy() {
 
     this.sub.unsubscribe();
 
   }
-  
+
   getSiteInfo = () => {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {
