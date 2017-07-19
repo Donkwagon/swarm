@@ -119,7 +119,6 @@ export class RouterMapper {
                             }
                         });
                         
-
                         mapped = true;
                         
                         pathDictionary = node.children;
@@ -127,6 +126,7 @@ export class RouterMapper {
                     }
                 });
             }
+            
             if(mapperNode){
                 this.map.push(mapperNode);
             }

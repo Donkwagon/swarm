@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyADsDAzimwrTKj-bWjGakZTE9IrEFsy3po",
-    authDomain: "swarm-f92be.firebaseapp.com",
-    databaseURL: "https://swarm-f92be.firebaseio.com",
-    projectId: "swarm-f92be",
-    storageBucket: "swarm-f92be.appspot.com",
-    messagingSenderId: "106479663290"
+    apiKey: "AIzaSyDbSYZwqKbTNidTOiqS_YuBxijSHlfLjJU",
+    authDomain: "swarm-c0b98.firebaseapp.com",
+    databaseURL: "https://swarm-c0b98.firebaseio.com",
+    projectId: "swarm-c0b98",
+    storageBucket: "swarm-c0b98.appspot.com",
+    messagingSenderId: "634172514742"
   }
 };

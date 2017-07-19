@@ -60,6 +60,8 @@ export class AppComponent {
       }
 
     });
+
+    this.appReady = true;
   }
 
   playAudio() {
