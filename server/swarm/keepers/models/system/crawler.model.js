@@ -34,6 +34,6 @@ var crawlerSchema = new Schema({
 
 });
 
-var SitCrawlere = mongoose.model('Crawler', sitecrawlerSchemaSchema);
+var Crawler = mongoose.model('Crawler', sitecrawlerSchemaSchema);
 
 module.exports = Crawler;

@@ -10,15 +10,21 @@ export class SocketService {
   }
 
   getMessages() {
+
     let observable = new Observable(observer => {
+
       this.socket = io();
+
       this.socket.on('message', (data) => {
         observer.next(data);
       });
+
       return () => {
         this.socket.disconnect();
       };
+
     })
+    
     return observable;
   }
 }

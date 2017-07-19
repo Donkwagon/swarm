@@ -116,9 +116,7 @@ export class CrawlerCodeComponent implements OnInit {
   getCrawler = () => {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
-
-      this.crawler = res;
-
+      Object.assign(this.crawler, res);
     });
 
   }
@@ -223,6 +221,12 @@ export class CrawlerCodeComponent implements OnInit {
   }
 
   validateCode = () => {
+  }
+
+  generateBacklog = () => {
+    this.crawlerService.generateBacklog(this.crawler).then(res => {
+      console.log(res);
+    });
   }
 
   ////////////////////////////////////////////////////////////////////////////

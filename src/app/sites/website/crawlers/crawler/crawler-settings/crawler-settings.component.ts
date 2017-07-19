@@ -55,7 +55,7 @@ export class CrawlerSettingsComponent implements OnInit {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
 
-      this.crawler = res;
+      Object.assign(this.crawler, res);
 
     });
 

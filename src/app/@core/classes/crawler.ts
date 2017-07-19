@@ -10,6 +10,9 @@ export class Crawler {
     inputDataType: string;
     outputDataType: string;
 
+    backlogBatchSize: number;
+    backlogGenerated: boolean;
+
     site: string;
     siteId: string;
     siteImgUrl: string;
@@ -35,6 +38,8 @@ export class Crawler {
     updated_at: Date;
 
     constructor(){
+        this.backlogGenerated = false;
+        this.backlogBatchSize = 1000;
         this.urlStrategy = {root: "",sections: []};
         this.name = "";
         this.site = "";

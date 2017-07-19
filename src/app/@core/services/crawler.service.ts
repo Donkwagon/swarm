@@ -8,6 +8,13 @@ export class CrawlerService {
     private CrawlersUrl = '/queen/crawler';
 
     constructor (private http: Http) {}
+    generateBacklog(crawler: Crawler): Promise<any> {
+      return this.http.post(this.CrawlersUrl + "/generateBacklog", crawler)
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
     commenceProbing(): Promise<String[]> {
       return this.http.get(this.CrawlersUrl)
                  .toPromise()

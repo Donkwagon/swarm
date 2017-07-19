@@ -1,10 +1,13 @@
 const express =           require('express');
 var ObjectID =            require('mongodb').ObjectID;
+var mongoose =            require('mongoose');
 var request =             require('request');
 var cheerio =             require('cheerio');
 
 var Article =             require('./models/content/article.model');
 var Security =            require('./models/content/security.model');
+var CrawlerBacklog =      require('./models/system/crawler_backlog.model');
+
 
 const vm =                require('vm');
 
@@ -18,6 +21,54 @@ function handleError(res, reason, message, code) {
   emitMsg("message","error",reason);
   res.status(code || 500).json({"error": message});
 }
+
+crawler.post("/generateBacklog", function(req, res) {
+
+  var crawler = req.body;
+  
+  emitMsg("message","normal","Generating backlogs");
+
+  var batch = [];
+  var backlogBatchSize = crawler.backlogBatchSize;
+
+  var i = 0;
+  
+  while(i < backlogBatchSize){
+    var seed = [i,false,0,null,false];///[id, request, num of attempts, response code, success]
+    batch.push(seed);
+    i++;
+  }
+
+  var crawlerBacklog = new CrawlerBacklog({
+
+    site: crawler.site,
+    crawlerName: crawler.name,
+
+    batchId: 1,
+    batch: batch,
+    totalNum: backlogBatchSize,
+    completedNum: 0,
+    completed: false,
+    response: [],
+    created_at: new Date(),
+    updated_at: new Date()
+  });
+  console.log(crawlerBacklog);
+  crawlerBacklog.save(function (err) {
+    if (err) return handleError(err);
+    // saved!
+  })
+
+  // crawlerBacklog.save();
+
+
+
+
+  console.log("crawler backlog post work");
+    
+
+});
+
 
 crawler.post("/run", function(req, res) {
 
