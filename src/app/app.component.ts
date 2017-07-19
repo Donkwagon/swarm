@@ -32,6 +32,8 @@ export class AppComponent {
     private router: Router,
     public afAuth: AngularFireAuth,
     private developerService: DeveloperService) {
+
+    this.appReady = false;
     
     this.developer = new Developer();
 
@@ -40,7 +42,10 @@ export class AppComponent {
     afAuth.auth.onAuthStateChanged(res =>{
 
       this.developer = res;
-      this.registerDeveloper(this.developer);
+      console.log(res);
+      if(res){
+        this.registerDeveloper(this.developer);
+      }
       
     });
 

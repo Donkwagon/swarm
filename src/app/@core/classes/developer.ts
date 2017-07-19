@@ -31,5 +31,7 @@ export class Developer {
     acitivities: any[];
 
     constructor(){
+        this.uid = null;
+        this.displayName = null;
     }
 }
