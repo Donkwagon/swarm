@@ -16,7 +16,7 @@ Platform:
 npm manifest: 
   {
     "name": "swarm",
-    "version": "0.0.5",
+    "version": "0.0.82",
     "license": "MIT",
     "scripts": {
       "ng": "ng",
@@ -43,8 +43,10 @@ npm manifest:
       "@angular/platform-browser": "^4.0.0",
       "@angular/platform-browser-dynamic": "^4.0.0",
       "@angular/router": "^4.0.0",
-      "angularfire2": "^4.0.0-rc.0",
       "angular2-perfect-scrollbar": "^2.0.6",
+      "angularfire2": "^4.0.0-rc.0",
+      "aws-sdk": "^2.83.0",
+      "bcrypt": "^1.0.2",
       "body-parser": "^1.17.1",
       "chalk": "^1.1.3",
       "chart.js": "^2.6.0",
@@ -52,7 +54,6 @@ npm manifest:
       "colors": "^1.1.2",
       "core-js": "^2.4.1",
       "dotenv": "^4.0.0",
-      "eval": "^0.1.2",
       "express": "^4.15.3",
       "firebase": "^4.0.0",
       "firebase-admin": "^5.0.0",
@@ -60,8 +61,10 @@ npm manifest:
       "mongoose": "^4.9.9",
       "ng2-ace-editor": "^0.2.3",
       "ng2-charts": "^1.6.0",
+      "ng2-ckeditor": "^1.1.9",
       "pg-promise": "^5.9.0",
       "promise-polyfill": "^6.0.2",
+      "redis": "^2.7.1",
       "request": "^2.81.0",
       "rxjs": "^5.1.0",
       "socket.io": "^2.0.3",
@@ -6076,5 +6079,5 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.12.tgz#86ff5053c98aec291a0bf4bbac501d694a05cfbb"
 
 Trace: 
-  Error: EBUSY: resource busy or locked, open 'C:\Users\james\Documents\GitHub\swarm\node_modules\uws\uws_win32_48.node'
+  Error: EBUSY: resource busy or locked, open 'C:\Users\james\documents\github\swarm\node_modules\uws\uws_win32_48.node'
       at Error (native)
