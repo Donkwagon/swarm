@@ -42,7 +42,7 @@ export class AppComponent {
     afAuth.auth.onAuthStateChanged(res =>{
 
       this.developer = res;
-      console.log(res);
+      
       if(res){
         this.registerDeveloper(this.developer);
       }

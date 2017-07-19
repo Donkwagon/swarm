@@ -56,7 +56,6 @@ export class RouterMapper {
 
         url = url.split("/");
         url.shift();
-        console.log(url);
         
         var len = url.length;
         var i = 0;
@@ -128,8 +127,9 @@ export class RouterMapper {
                     }
                 });
             }
-
-            this.map.push(mapperNode)
+            if(mapperNode){
+                this.map.push(mapperNode);
+            }
 
             i++;
 

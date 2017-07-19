@@ -35,7 +35,7 @@
 
 <div class="app-background"></div>
 
-<div class="main r" *ngIf="developer.displayName &&  appReady">
+<div class="main r" *ngIf="developer && appReady">
 
   <div class="app-nav-bar r">
 
@@ -52,6 +52,7 @@
     </div>
 
     <div class="app-nav-bar-bo" *ngFor="let node of this.routerMapper.map">
+
       <a routerLink="{{node.url}}">{{node.name}}</a>
       <span *ngIf="node.children.length">
         &nbsp;
