@@ -72,8 +72,7 @@ import { DatabasePageComponent }             from './database-page/database-page
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ClusterComponent, SitesComponent,
+    AppComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
@@ -82,7 +81,8 @@ import { DatabasePageComponent }             from './database-page/database-page
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
-    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent, ServerComponent, ClusterOverallComponent
+    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
+    ClusterComponent, ServerComponent, ClusterOverallComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
