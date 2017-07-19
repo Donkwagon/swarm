@@ -26,6 +26,9 @@ import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
 
 import { ClusterComponent }                  from './cluster/cluster.component';
+import { ServerComponent }                   from './cluster/server/server.component';
+import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
+
 
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
@@ -65,8 +68,7 @@ import { ResourcesComponent }                from './resources/resources.compone
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
-import { DatabasePageComponent } from './database-page/database-page.component';
-
+import { DatabasePageComponent }             from './database-page/database-page.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,7 @@ import { DatabasePageComponent } from './database-page/database-page.component';
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
-    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent
+    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent, ServerComponent, ClusterOverallComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

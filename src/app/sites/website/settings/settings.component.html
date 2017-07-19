@@ -1,9 +1,11 @@
 <perfect-scrollbar class="work-space f1 c " *ngIf="site && site">
 
   <form class="new-form c">
+
     <div class="new-form-row r">
       <span>{{siteName}} Settings</span>
     </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Site Name</span>
@@ -12,6 +14,16 @@
         <input class="text-input" type="text" spellcheck="false" [(ngModel)]="site.name" name="siteName"/>
       </div>
     </div>
+
+    <div class="new-form-row r">
+      <div class="label f1 c">
+        <span>Sitemap URL</span>
+      </div>
+      <div class="input-wrapper f162">
+        <input class="text-input" type="text" spellcheck="false" [(ngModel)]="site.sitemapUrl" name="sitemapUrl"/>
+      </div>
+    </div>
+
     <div class="new-form-row r">
       <div class="label f1 c">
         <span>Site Description</span>

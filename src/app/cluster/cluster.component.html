@@ -1,56 +1,77 @@
-<div class="site-interface c f1">
-  <div class="system-stats r wr">
-    <div class="system-stat r">
-      <h2 class="ac">CPS&nbsp;</h2>
-      <h1 class="ac">96/s</h1>
+
+
+<div class="app-page f1 c">
+
+  <div class="page-cover c">
+    <div class="page-cover-info r">
+      <div class="c">
+        <span>Cluster</span>
+      </div>
     </div>
-    <div class="system-stat r">
-      <h2 class="ac">Supervisors&nbsp;</h2>
-      <h1 class="ac">2</h1>
-    </div>
-    <div class="system-stat r">
-      <h2 class="ac">Servers&nbsp;</h2>
-      <h1 class="ac">{{serverNum}}</h1>
-    </div>
-    <div class="system-stat r">
-      <h2 class="ac">Queue&nbsp;</h2>
-      <h1 class="ac">{{queueLength}}</h1>
-    </div>
+
+    <div class="page-cover-nav-wrapper r">
+      <!-- <input placeholder="search"/> -->
   </div>
 
-  <div class="r wr">
-    <div class="server c" *ngFor="let server of servers | async" >
-      <div class="r aie">
-        <!--<img src="{{heroImages[3]}}"/>
-        <div class="f1"></div>-->
-        <b class="type" [ngClass]="{'supervisor': server.type == 'supervisor'}"><i>{{server.type | uppercase}}</i></b>
-      </div>
-      <table class="system">
-        <tr>
-          <td class="caption">LAST UPDATE</td>
-          <td class="ar">{{(time - server.updated_at)/1000 | number:'1.0-0'}} s</td>
-        </tr>
-        <tr>
-          <td class="caption">LIFE</td>
-          <td class="ar">{{(time - server.created_at)/1000/60/60 | number:'1.1-1'}} hr</td>
-        </tr>
-        <tr>
-          <td class="caption">HOST</td>
-          <td class="ar">{{server.system.host}}</td>
-        </tr>
-        <tr>
-          <td class="caption">MEM</td>
-          <td class="ar">{{server.system.freeMem/1024/1024 | number:'1.0-0'}} / {{server.system.totalMem/1024/1024 | number:'1.0-0'}} MB</td>
-        </tr>
-        <tr>
-          <td class="caption">TYPE</td>
-          <td class="ar">{{server.system.type}}</td>
-        </tr>
-        <tr *ngFor="let network of server.system.networkInterfaces['Wi-Fi']">
-          <td class="caption">{{network.family}}</td>
-          <td class="ar">{{network.address}}</td>
-        </tr>
-      </table>
-    </div>
   </div>
+
+  <perfect-scrollbar class="page-body c f1">
+    <div class="system-stats r wr">
+      <div class="system-stat r">
+        <h2 class="ac">Flow Rate&nbsp;</h2>
+        <h1 class="ac">96/s</h1>
+      </div>
+      <div class="system-stat r">
+        <h2 class="ac">Supervisors&nbsp;</h2>
+        <h1 class="ac">2</h1>
+      </div>
+      <div class="system-stat r">
+        <h2 class="ac">Servers&nbsp;</h2>
+        <h1 class="ac">{{serverNum}}</h1>
+      </div>
+      <div class="system-stat r">
+        <h2 class="ac">Queue&nbsp;</h2>
+        <h1 class="ac">{{queueLength}}</h1>
+      </div>
+    </div>
+
+    <div class="r wr">
+      <div class="server c" *ngFor="let server of servers | async" >
+        <div class="r aie">
+          <!--<img src="{{heroImages[3]}}"/>
+          <div class="f1"></div>-->
+          <b class="type" [ngClass]="{'supervisor': server.type == 'supervisor'}"><i>{{server.type | uppercase}}</i></b>
+        </div>
+        <table class="system">
+          <tr>
+            <td class="caption">LAST UPDATE</td>
+            <td class="ar">{{(time - server.updated_at)/1000 | number:'1.0-0'}} s</td>
+          </tr>
+          <tr>
+            <td class="caption">LIFE</td>
+            <td class="ar">{{(time - server.created_at)/1000/60/60 | number:'1.1-1'}} hr</td>
+          </tr>
+          <tr>
+            <td class="caption">HOST</td>
+            <td class="ar">{{server.system.host}}</td>
+          </tr>
+          <tr>
+            <td class="caption">MEM</td>
+            <td class="ar">{{server.system.freeMem/1024/1024 | number:'1.0-0'}} / {{server.system.totalMem/1024/1024 | number:'1.0-0'}} MB</td>
+          </tr>
+          <tr>
+            <td class="caption">TYPE</td>
+            <td class="ar">{{server.system.type}}</td>
+          </tr>
+          <tr *ngFor="let network of server.system.networkInterfaces['Wi-Fi']">
+            <td class="caption">{{network.family}}</td>
+            <td class="ar">{{network.address}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </perfect-scrollbar>
+
+
 </div>

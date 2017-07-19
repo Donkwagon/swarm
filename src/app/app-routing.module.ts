@@ -2,6 +2,8 @@ import { NgModule }                          from '@angular/core';
 import { Routes, RouterModule }              from '@angular/router';
 
 import { ClusterComponent }                  from './cluster/cluster.component';
+import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
+import { ServerComponent }                   from './cluster/server/server.component';
 
 import { SitesComponent }                    from './sites/sites.component';
 import { SitesOverallComponent }             from './sites/sites-overall/sites-overall.component';
@@ -88,7 +90,11 @@ const routes: Routes = [
       { path: 'tasks', component: DeveloperTasksComponent},
       { path: 'inbox', component: DeveloperInboxComponent}
   ]},
-  { path: 'cluster', component: ClusterComponent},
+  { path: 'cluster', component: ClusterComponent, children: [
+      { path: '', redirectTo: 'overall', pathMatch: 'full' },
+      { path: 'overall', component: ClusterOverallComponent},
+      { path: 'server/:serverId', component: ServerComponent}
+  ]},
   { path: 'docs', component: DocsPageComponent},
   { path: 'database', component: DatabasePageComponent}
 ];

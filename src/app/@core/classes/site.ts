@@ -1,12 +1,20 @@
 export class Site {
     
     _id?: string;
+
     name: string;
     type: String; //id based, periodically updated
     description: string;
-    crawlers: any;
     imgUrl: string;
+
+    crawlers: any;
     url: string;
+
+    sitemapUrl: string;
+    sitemap: any;
+
+    robotTxtUrl: string;
+    robotTxt: any;
 
     created_by: string;
     created_at: Date;
