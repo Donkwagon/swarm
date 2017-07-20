@@ -4,7 +4,7 @@
 
 .crawler-panel{
     padding:0em $padding-side;
-    border-bottom:$CYAN_S1 solid 1px;
+    border-bottom:$CYAN_S2 solid 1px;
 
     .active{
         background-color:$CYAN;
@@ -119,15 +119,15 @@
 
     .output-interface{
         width:25rem;
-        border-left:$CYAN_S1 solid 1px;
+        border-left:$CYAN_S2 solid 1px;
 
         .interface-tabs-wrapper{
-            border-bottom:$CYAN_S1 solid 1px;
+            border-bottom:$CYAN_S2 solid 1px;
 
             .interface-tab{
                 padding:0.2em 0.5em;
                 background-color:$CYAN_S2;
-                border-right:$CYAN_S1 solid 1px;
+                border-right:$CYAN_S2 solid 1px;
                 color:$CYAN;
                 flex:1;
                 text-align:center;
