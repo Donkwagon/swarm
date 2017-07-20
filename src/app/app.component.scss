@@ -294,8 +294,13 @@
     top:0;left:0;
     z-index:30;
     width:100%;
-    background-image: linear-gradient(to bottom, rgba(50,50,60,1) 0%, rgba(40,40,50,1) 100%);
-    padding:0.1em 0 0 1px;
+    background-image: linear-gradient(to bottom, 
+    rgba(40,40,53,1) 0%,
+    rgba(40,40,53,1) 15%,
+    rgba(35,35,48,1) 50%,
+    rgba(38,38,51,1) 85%, 
+    rgba(36,36,49,1) 100%);
+    padding:0.2em 0 0.2em 0;
     border-bottom:rgba(24,24,24,0.05) solid 1px;
 
     .app-nav-bar-bo{
@@ -303,7 +308,7 @@
         color:#111;
         padding:0 0.2em 0 0.2em;
         margin-right:0.2em;
-        background-image:linear-gradient(to bottom, #eee 0%, #bbb 100%);
+        background-image:linear-gradient(to bottom, #fff 0%, #ddd 100%);
         border-radius:1px;
 
         a:link {color: #000;text-decoration:none;}
@@ -311,10 +316,7 @@
         a:hover {color: #000;text-decoration:none;}
         a:active {color: #000;text-decoration:none;}
 
-
-        i{
-            color:#777;
-        }
+        i{color:#777;}
 
         &:hover{
             cursor:pointer;
@@ -348,6 +350,7 @@
     .nav-btn{
         padding:0 0.5em;
         color:$WHITE;
+        border-radius:1px;
 
         &:hover{
             cursor:pointer;

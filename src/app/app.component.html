@@ -73,12 +73,12 @@
 
     <div class="nav-btn">
       <a routerLink="/developer" *ngIf="developer">
-        {{developer.displayName}}
+        {{developer.displayName.split(" ")[0]}}
       </a>
     </div>
 
     <div class="nav-btn" (click)="menuToggle()">
-      Menu
+      <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
 
   </div>

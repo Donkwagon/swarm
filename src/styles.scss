@@ -43,15 +43,11 @@ a:hover {color: $CYAN;text-decoration:none;}
 a:active {color: $CYAN;text-decoration:none;}
 
 .blue{color:$theme;}
-.yellowish{color:$yellowish};
 .caption{color:grey;}
 
 .app-background{
     @extend .fixed-full-screen;
     background-color:#000;
-    // background-image:$grid;
-    // background-size: 50px 50px;
-    // box-shadow:inset 900px #000;
 }
 
 .main{
@@ -75,13 +71,15 @@ a:active {color: $CYAN;text-decoration:none;}
     }
     
     .page-cover-nav-wrapper{
-        border-bottom:$CYAN_S1 solid 1px;
+        border-bottom:$CYAN_S2 solid 1px;
         border-top:$CYAN_S2 solid 1px;
         background-color:$CYAN_S2;
 
         .page-cover-nav{
             padding:0.1em $padding-side;
             border-right:$CYAN_S2 solid 1px;
+            width:100px;
+            text-align:center;
 
             &:hover{
                 cursor:pointer;
@@ -108,7 +106,7 @@ a:active {color: $CYAN;text-decoration:none;}
 
 .page-secondary-nav-wrapper{
     background-image: linear-gradient(to bottom, rgba(50,50,60,1) 0%, rgba(40,40,50,1) 100%);
-    border-bottom:$CYAN_S1 solid 1px;
+    border-bottom:$CYAN_S2 solid 1px;
 
     .page-secondary-nav{
         padding:0.1em $padding-side;
@@ -141,21 +139,6 @@ a:active {color: $CYAN;text-decoration:none;}
     background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.1) 0%, rgba(73, 112, 137,0.01) 100%);
 }
 
-.option-bar{
-    align-items:center;
-    margin-bottom:0.5em;
-
-    .option-button{
-        padding:0.5em;
-        background-color:$orange;
-        margin-right:0.5em;
-
-        &:hover{
-            cursor:pointer;
-            background-color:#000;
-        }
-    }
-}
 
 .table-profile-image{
     height:1rem;width:1rem;
