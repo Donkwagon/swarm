@@ -12,6 +12,7 @@ export class Crawler {
 
     backlogBatchSize: number;
     backlogGenerated: boolean;
+    batches: any; //array of batch status
 
     site: string;
     siteId: string;

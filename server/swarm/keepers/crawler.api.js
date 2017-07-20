@@ -7,6 +7,7 @@ var cheerio =             require('cheerio');
 var Article =             require('./models/content/article.model');
 var Security =            require('./models/content/security.model');
 var CrawlerBacklog =      require('./models/system/crawler_backlog.model');
+const CRAWLERBACKLOG_COLLECTION = "crawlerbacklogs";
 
 
 const vm =                require('vm');
@@ -25,8 +26,27 @@ function handleError(res, reason, message, code) {
 crawler.post("/generateBacklog", function(req, res) {
 
   var crawler = req.body;
+
+  var idRangeUrlCount = 0;
+  var batchIdStart = 0;
+  var batchIdEnd = 0;
+
+  crawler.urlStrategy.sections.forEach(el => {
+    if(el.type="ID RANGE"){
+      idRangeUrlCount = el.max - el.min;
+      batchIdStart = Math.floor(el.min/crawler.backlogBatchSize);
+      batchIdEnd = Math.round(el.max/crawler.backlogBatchSize);
+    }
+  });
+
+  console.log("startId: " + batchIdStart);
+  console.log("end id" + batchIdEnd);
   
   emitMsg("message","normal","Generating backlogs");
+  //createBatch(crawler,idRangeUrlCount,batchIdStart,batchIdEnd);
+});
+
+createBatch = (crawler,idRangeUrlCount,batchId,batchIdEnd) => {
 
   var batch = [];
   var backlogBatchSize = crawler.backlogBatchSize;
@@ -44,7 +64,7 @@ crawler.post("/generateBacklog", function(req, res) {
     site: crawler.site,
     crawlerName: crawler.name,
 
-    batchId: 1,
+    batchId: batchId,
     batch: batch,
     totalNum: backlogBatchSize,
     completedNum: 0,
@@ -53,21 +73,25 @@ crawler.post("/generateBacklog", function(req, res) {
     created_at: new Date(),
     updated_at: new Date()
   });
-  console.log(crawlerBacklog);
-  crawlerBacklog.save(function (err) {
-    if (err) return handleError(err);
-    // saved!
-  })
+
+  db.collection(CRAWLERBACKLOG_COLLECTION).insertOne(crawlerBacklog, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get crawler");
+    } else {
+      emitMsg("message","success","Batch " + batchId +" created");
+      batchId++;
+      if(batchId <= batchIdEnd){
+        createBatch(crawler,idRangeUrlCount,batchId,batchIdEnd);
+      }
+    }
+  });
 
   // crawlerBacklog.save();
 
 
-
-
   console.log("crawler backlog post work");
-    
 
-});
+}
 
 
 crawler.post("/run", function(req, res) {
