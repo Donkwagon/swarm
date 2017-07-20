@@ -10,6 +10,10 @@ module.exports = class Seed {
         this.st = false;   // status success mean request was ok, data parsing was ok and the data has been saved
     }
 
+    constructUrl (crawler) {
+        //reconstruct logic goes here
+    }
+
     queued () {
         this.att++;
     }

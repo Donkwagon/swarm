@@ -134,9 +134,9 @@ a:active {color: $CYAN;text-decoration:none;}
 
 .page-body{
     flex:1;
-    border-left:$CYAN_S1 solid 1px;
-    border-right:$CYAN_S1 solid 1px;
-    border-bottom:$CYAN_S1 solid 1px;
+    // border-left:$CYAN_S1 solid 1px;
+    // border-right:$CYAN_S1 solid 1px;
+    // border-bottom:$CYAN_S1 solid 1px;
     background-color:rgba(73, 112, 137,0.05);
     background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.1) 0%, rgba(73, 112, 137,0.01) 100%);
 }

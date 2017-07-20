@@ -20,7 +20,7 @@ $CYAN_S2:rgba(73, 112, 137,0.3);
 $BLUE:rgba(0, 127, 232,1);
 $BLACk:rgba(0, 0, 0,1);
 
-$ORANGE:rgba(224, 123, 61, 1);
+$ORANGE:rgba(254, 143, 81, 1);
 $WHITE:rgba(255,255, 245, 1);
 $GREY:rgba(120,120, 120, 1);
 $YELLOW:rgba(255, 199, 64,1);
@@ -32,35 +32,10 @@ $PINK: rgba(230, 76, 132,1);
 $GREEN: rgba(62, 175, 77,1);
 $line:rgba(238, 238, 220,0.5);
 
-$c: rgb(35, 76, 104);
-$c: rgb(36, 36, 36);
-$b: rgba(255,255,255,.05);
-$t: rgba(255,255,255,.02);
-
-$b: rgba(150,150,150,.05);
-$t: rgba(150,150,150,.0);
-$n: transparent;
 
 $font-stack:'Exo 2', 'Microsoft Yahei';
 
-$yellowish: rgb(255,255,200);
-
 $padding-side: 0.5em;
-
-$grid: linear-gradient(0deg,
-        $n 0%, $n 9px,
-        $b 9px, $b 10px, $n 10px, $n 19px,
-        $t 19px, $t 20px, $n 20px, $n 29px,
-        $t 29px, $t 30px, $n 30px, $n 39px,
-        $t 39px, $t 40px, $n 40px, $n 49px,
-        $t 49px, $t 50px),
-        linear-gradient(-90deg,
-        $n 0%, $n 9px,
-        $b 9px, $b 10px, $n 10px, $n 19px,
-        $t 19px, $t 20px, $n 20px, $n 29px,
-        $t 29px, $t 30px, $n 30px, $n 39px,
-        $t 39px, $t 40px, $n 40px, $n 49px,
-        $t 49px, $t 50px);
 
 
 .fixed-full-screen{
