@@ -7,6 +7,7 @@ var cheerio =             require('cheerio');
 var Article =             require('./models/content/article.model');
 var Security =            require('./models/content/security.model');
 var CrawlerBacklog =      require('./models/system/crawler_backlog.model');
+var Seed =      require('./classes/seed.class');
 const CRAWLERBACKLOG_COLLECTION = "crawlerbacklogs";
 
 
@@ -40,7 +41,7 @@ crawler.post("/generateBacklog", function(req, res) {
   });
   
   emitMsg("message","normal","Generating backlogs");
-  //createBatch(crawler,idRangeUrlCount,batchIdStart,batchIdEnd);
+  createBatch(crawler,idRangeUrlCount,batchIdStart,batchIdEnd);
 });
 
 createBatch = (crawler,idRangeUrlCount,batchId,batchIdEnd) => {
@@ -51,37 +52,39 @@ createBatch = (crawler,idRangeUrlCount,batchId,batchIdEnd) => {
   var i = 0;
   
   while(i < backlogBatchSize){
-    var seed = [i,false,0,null,false];///[id, request, num of attempts, response code, success(saved)]
+    var seed = new Seed(i);
+    console.log(seed);
     batch.push(seed);
     i++;
   }
+  console.log(JSON.stringify(batch));
 
-  var crawlerBacklog = new CrawlerBacklog({
+  // var crawlerBacklog = new CrawlerBacklog({
 
-    site: crawler.site,
-    crawlerName: crawler.name,
+  //   site: crawler.site,
+  //   crawlerName: crawler.name,
 
-    batchId: batchId,
-    batch: batch,
-    totalNum: backlogBatchSize,
-    completedNum: 0,
-    completed: false,
-    response: [],
-    created_at: new Date(),
-    updated_at: new Date()
-  });
+  //   batchId: batchId,
+  //   batch: batch,
+  //   totalNum: backlogBatchSize,
+  //   completedNum: 0,
+  //   completed: false,
+  //   response: [],
+  //   created_at: new Date(),
+  //   updated_at: new Date()
+  // });
 
-  db.collection(CRAWLERBACKLOG_COLLECTION).insertOne(crawlerBacklog, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to get crawler");
-    } else {
-      emitMsg("message","success","Batch " + batchId +" created");
-      batchId++;
-      if(batchId <= batchIdEnd){
-        createBatch(crawler,idRangeUrlCount,batchId,batchIdEnd);
-      }
-    }
-  });
+  // db.collection(CRAWLERBACKLOG_COLLECTION).insertOne(crawlerBacklog, function(err, doc) {
+  //   if (err) {
+  //     handleError(res, err.message, "Failed to get crawler");
+  //   } else {
+  //     emitMsg("message","success","Batch " + batchId +" created");
+  //     batchId++;
+  //     if(batchId <= batchIdEnd){
+  //       createBatch(crawler,idRangeUrlCount,batchId,batchIdEnd);
+  //     }
+  //   }
+  // });
 
   // crawlerBacklog.save();
 

@@ -17,28 +17,27 @@
 
   <perfect-scrollbar class="page-body c f1">
     <div class="system-stats r">
-      <div class="system-stat r f1">
+      <div class="system-stat r">
         <h2 class="ac">Flow Rate&nbsp;</h2>
         <h1 class="ac">96/s</h1>
       </div>
-      <div class="system-stat r f1">
+      <div class="system-stat r">
         <h2 class="ac">Supervisors&nbsp;</h2>
         <h1 class="ac">2</h1>
       </div>
-      <div class="system-stat r f1">
+      <div class="system-stat r">
         <h2 class="ac">Servers&nbsp;</h2>
         <h1 class="ac">{{serverNum}}</h1>
       </div>
-      <div class="system-stat r f1">
+      <div class="system-stat r">
         <h2 class="ac">Queue&nbsp;</h2>
         <h1 class="ac">{{queueLength}}</h1>
       </div>
     </div>
 
-
     <div class="content-list-wrapper c w100">
       <div  class="list-item r" *ngFor="let server of servers | async">
-        <a class="f2" routerLink="/cluster/server">
+        <a class="f2" routerLink="/cluster/server/1">
           <span>{{server.type}}</span>
         </a>
         <span class="f1 fe">{{(time - server.updated_at)/1000 | number:'1.0-0'}} s</span>
@@ -47,7 +46,6 @@
         <span class="f1 fe">{{server.system.type}}</span>
       </div>
     </div>
-
 
   </perfect-scrollbar>
 
