@@ -27,6 +27,7 @@ export class CrawlerSettingsComponent implements OnInit {
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
       private siteService: SiteService){
+        this.crawler = new Crawler();
 }
 
   ngOnInit() {
@@ -52,10 +53,12 @@ export class CrawlerSettingsComponent implements OnInit {
   }
 
   getCrawler = () => {
-
+    console.log("getting crawler?");
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
 
+      console.log(this.crawler);
       Object.assign(this.crawler, res);
+      console.log(this.crawler);
 
     });
 

@@ -150,9 +150,8 @@
                 align-self:flex-start;
                 color:$WHITE;
                 width:100%;
-                padding:0.2em 0.5em;
-                background:linear-gradient(to bottom, #32323c 0%, #282832 100%);
-                border-bottom:rgba(60,60,60,0.05) solid 1px;
+                @extend .grey-material-bar;
+                padding:0.2em $padding-side;
 
             }
 

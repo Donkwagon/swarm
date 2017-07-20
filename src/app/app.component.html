@@ -71,7 +71,7 @@
       Message
     </div>
 
-    <div class="nav-btn">
+    <div class="nav-btn" *ngIf="developer.displayName">
       <a routerLink="/developer" *ngIf="developer">
         {{developer.displayName.split(" ")[0]}}
       </a>

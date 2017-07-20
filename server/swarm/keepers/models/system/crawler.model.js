@@ -15,6 +15,10 @@ var crawlerSchema = new Schema({
   code: String,
   doc: String,
   description: String,
+
+  backlogBatchSize: Number,
+  backlogGenerated: Boolean,
+  batches: Schema.Types.Mixed, //array of batch status
   
   inputDataType: String,
   outputDataType: String,
