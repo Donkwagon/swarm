@@ -38,9 +38,6 @@ crawler.post("/generateBacklog", function(req, res) {
       batchIdEnd = Math.round(el.max/crawler.backlogBatchSize);
     }
   });
-
-  console.log("startId: " + batchIdStart);
-  console.log("end id" + batchIdEnd);
   
   emitMsg("message","normal","Generating backlogs");
   //createBatch(crawler,idRangeUrlCount,batchIdStart,batchIdEnd);
@@ -54,7 +51,7 @@ createBatch = (crawler,idRangeUrlCount,batchId,batchIdEnd) => {
   var i = 0;
   
   while(i < backlogBatchSize){
-    var seed = [i,false,0,null,false];///[id, request, num of attempts, response code, success]
+    var seed = [i,false,0,null,false];///[id, request, num of attempts, response code, success(saved)]
     batch.push(seed);
     i++;
   }
@@ -87,7 +84,6 @@ createBatch = (crawler,idRangeUrlCount,batchId,batchIdEnd) => {
   });
 
   // crawlerBacklog.save();
-
 
   console.log("crawler backlog post work");
 

@@ -16,60 +16,38 @@
   </div>
 
   <perfect-scrollbar class="page-body c f1">
-    <div class="system-stats r wr">
-      <div class="system-stat r">
+    <div class="system-stats r">
+      <div class="system-stat r f1">
         <h2 class="ac">Flow Rate&nbsp;</h2>
         <h1 class="ac">96/s</h1>
       </div>
-      <div class="system-stat r">
+      <div class="system-stat r f1">
         <h2 class="ac">Supervisors&nbsp;</h2>
         <h1 class="ac">2</h1>
       </div>
-      <div class="system-stat r">
+      <div class="system-stat r f1">
         <h2 class="ac">Servers&nbsp;</h2>
         <h1 class="ac">{{serverNum}}</h1>
       </div>
-      <div class="system-stat r">
+      <div class="system-stat r f1">
         <h2 class="ac">Queue&nbsp;</h2>
         <h1 class="ac">{{queueLength}}</h1>
       </div>
     </div>
 
-    <div class="r wr">
-      <div class="server c" *ngFor="let server of servers | async" >
-        <div class="r aie">
-          <!--<img src="{{heroImages[3]}}"/>
-          <div class="f1"></div>-->
-          <b class="type" [ngClass]="{'supervisor': server.type == 'supervisor'}"><i>{{server.type | uppercase}}</i></b>
-        </div>
-        <table class="system">
-          <tr>
-            <td class="caption-text">LAST UPDATE</td>
-            <td class="ar">{{(time - server.updated_at)/1000 | number:'1.0-0'}} s</td>
-          </tr>
-          <tr>
-            <td class="caption-text">LIFE</td>
-            <td class="ar">{{(time - server.created_at)/1000/60/60 | number:'1.1-1'}} hr</td>
-          </tr>
-          <tr>
-            <td class="caption-text">HOST</td>
-            <td class="ar">{{server.system.host}}</td>
-          </tr>
-          <tr>
-            <td class="caption-text">MEM</td>
-            <td class="ar">{{server.system.freeMem/1024/1024 | number:'1.0-0'}} / {{server.system.totalMem/1024/1024 | number:'1.0-0'}} MB</td>
-          </tr>
-          <tr>
-            <td class="caption-text">TYPE</td>
-            <td class="ar">{{server.system.type}}</td>
-          </tr>
-          <tr *ngFor="let network of server.system.networkInterfaces['Wi-Fi']">
-            <td class="caption-text">{{network.family}}</td>
-            <td class="ar">{{network.address}}</td>
-          </tr>
-        </table>
+
+    <div class="content-list-wrapper c w100">
+      <div  class="list-item r" *ngFor="let server of servers | async">
+        <a class="f2" routerLink="/cluster/server">
+          <span>{{server.type}}</span>
+        </a>
+        <span class="f1 fe">{{(time - server.updated_at)/1000 | number:'1.0-0'}} s</span>
+        <span class="f1 fe">{{(time - server.created_at)/1000/60/60 | number:'1.1-1'}} hr</span>
+        <span class="f1 fe">{{server.system.freeMem/1024/1024 | number:'1.0-0'}} / {{server.system.totalMem/1024/1024 | number:'1.0-0'}} MB</span>
+        <span class="f1 fe">{{server.system.type}}</span>
       </div>
     </div>
+
 
   </perfect-scrollbar>
 

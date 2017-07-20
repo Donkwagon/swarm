@@ -22,28 +22,3 @@
         }
     }
 }
-
-.server{
-    padding:0.5em;
-    margin:0.5em;
-    border:$WHITE solid 1px;
-
-    &:hover{
-        cursor:pointer;
-        border:$WHITE solid 1px;
-    }
-
-    .system{
-        padding:0.5em 0;
-        margin-top:1em;
-        font-size:0.8em;
-
-        p{
-            line-height:1.1;margin:0;padding:0;
-        }
-    }
-}
-
-.supervisor{
-    color:$ORANGE;
-}
