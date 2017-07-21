@@ -57,6 +57,7 @@ import { DeveloperProfileComponent }         from './developer/developer-profile
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 import { DeveloperNewTaskComponent }         from './developer/developer-tasks/developer-new-task/developer-new-task.component';
 import { DeveloperTasksOverallComponent }    from './developer/developer-tasks/developer-tasks-overall/developer-tasks-overall.component';
+import { DeveloperTaskComponent } from './developer/developer-tasks/developer-task/developer-task.component';
 
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
@@ -87,7 +88,7 @@ import { DatabasePageComponent }             from './database-page/database-page
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
-    ClusterComponent, ServerComponent, ClusterOverallComponent
+    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

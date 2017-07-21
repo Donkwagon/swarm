@@ -10,7 +10,7 @@ import { TaskService } from '../../../@core/services/task.service';
   selector: 'app-developer-new-task',
   templateUrl: './developer-new-task.component.html',
   styleUrls: ['./developer-new-task.component.scss'],
-  viewProviders: [ TaskService ]
+  providers: [ TaskService ]
 })
 export class DeveloperNewTaskComponent implements OnInit {
 

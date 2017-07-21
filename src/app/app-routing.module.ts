@@ -40,6 +40,7 @@ import { DeveloperProfileComponent }         from './developer/developer-profile
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 import { DeveloperNewTaskComponent }         from './developer/developer-tasks/developer-new-task/developer-new-task.component';
 import { DeveloperTasksOverallComponent }    from './developer/developer-tasks/developer-tasks-overall/developer-tasks-overall.component';
+import { DeveloperTaskComponent } from './developer/developer-tasks/developer-task/developer-task.component';
 
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
@@ -93,8 +94,8 @@ const routes: Routes = [
       { path: 'tasks', component: DeveloperTasksComponent,children: [
         { path: '', redirectTo: 'overall', pathMatch: 'full' },
         { path: 'overall', component: DeveloperTasksOverallComponent},
-        { path: 'new', component: DeveloperNewTaskComponent}
-        
+        { path: 'new', component: DeveloperNewTaskComponent},
+        { path: ':taskId', component: DeveloperTaskComponent}
       ]},
       { path: 'inbox', component: DeveloperInboxComponent}
   ]},
