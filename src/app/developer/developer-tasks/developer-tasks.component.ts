@@ -12,25 +12,16 @@ import { TaskService } from '../../@core/services/task.service';
   styleUrls: ['./developer-tasks.component.scss'],
   viewProviders: [ TaskService ]
 })
+
 export class DeveloperTasksComponent implements OnInit {
 
   developer: Developer;
 
-  tasks: Task[];
-
   constructor(private developerService: DeveloperService, private taskService: TaskService) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
-    this.tasks = [];
   }
 
   ngOnInit() {
   }
-
-  getTasks() {
-    this.taskService.getTasks().then(res => {
-      console.log(res);
-    });
-  }
-
 }

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TaskService {
-    private TasksUrl = '/queen/task';
+    private TasksUrl = '/facility/task';
 
     constructor (private http: Http) {}
     commenceProbing(): Promise<String[]> {

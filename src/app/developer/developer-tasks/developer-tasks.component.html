@@ -1,6 +1,12 @@
+<div class="page-secondary-nav-wrapper s0 r">
 
-<div class="content-list-wrapper c w100">
-  <div  class="list-item r" *ngFor="let task of tasks">
-    <span>{{task.name}}</span>
-  </div>
+  <a routerLink="/developer/tasks/overall"  routerLinkActive="active" class="page-secondary-nav">
+    Overall
+  </a>
+  <a routerLink="/developer/tasks/new"  routerLinkActive="active" class="page-secondary-nav">
+    New
+  </a>
+
 </div>
+
+<router-outlet></router-outlet>
