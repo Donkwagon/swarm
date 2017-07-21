@@ -2,8 +2,8 @@ const express =           require('express');
 var ObjectID =            require('mongodb').ObjectID;
 var mongoose =            require('mongoose');
 var request =             require('request');
-var cheerio =             require('cheerio');
 
+var cheerio =             require('cheerio');
 var Article =             require('./models/content/article.model');
 var Security =            require('./models/content/security.model');
 var CrawlerBacklog =      require('./models/system/crawler_backlog.model');
