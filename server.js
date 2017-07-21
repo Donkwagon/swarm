@@ -73,9 +73,11 @@ global.client = require('redis').createClient(REDIS_URI);
 //Routing
 const queen =         require('./server/swarm/queen');
 const system =        require('./server/system/system');
+const facility =      require('./server/facility/facility');
 
 app.use('/queen',queen);
 app.use('/system',system);
+app.use('/facility',facility);
 //////////////////////////////////////////
 
 

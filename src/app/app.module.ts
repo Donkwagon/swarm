@@ -55,6 +55,9 @@ import { DeveloperSettingsComponent }        from './developer/developer-setting
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
+import { DeveloperNewTaskComponent }         from './developer/developer-tasks/developer-new-task/developer-new-task.component';
+import { DeveloperTasksOverallComponent }    from './developer/developer-tasks/developer-tasks-overall/developer-tasks-overall.component';
+
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
 
@@ -70,6 +73,7 @@ import { CrawlersPageComponent }             from './crawlers-page/crawlers-page
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
 import { DatabasePageComponent }             from './database-page/database-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent, SitesComponent,
@@ -77,7 +81,8 @@ import { DatabasePageComponent }             from './database-page/database-page
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
     DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
-    DeveloperProfileComponent, DeveloperTasksComponent, DeveloperInboxComponent, DeveloperOverallComponent,
+    DeveloperProfileComponent, DeveloperTasksComponent, DeveloperNewTaskComponent, 
+    DeveloperTasksOverallComponent, DeveloperInboxComponent, DeveloperOverallComponent,
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
