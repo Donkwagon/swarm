@@ -25,5 +25,15 @@ export class DeveloperTasksOverallComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTasks();
+  }
+
+  getTasks() {
+    this.taskService.getTasks().then(res => {
+      var tasks = res;
+      tasks.forEach(task => {
+        this.tasks.push(task);
+      });
+    });
   }
 }

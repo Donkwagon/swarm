@@ -10,7 +10,7 @@ import { TaskService } from '../../@core/services/task.service';
   selector: 'app-developer-tasks',
   templateUrl: './developer-tasks.component.html',
   styleUrls: ['./developer-tasks.component.scss'],
-  viewProviders: [ TaskService ]
+  viewProviders: [ DeveloperService, TaskService ]
 })
 
 export class DeveloperTasksComponent implements OnInit {
@@ -19,9 +19,15 @@ export class DeveloperTasksComponent implements OnInit {
 
   constructor(private developerService: DeveloperService, private taskService: TaskService) {
     this.developer = new Developer();
-    this.developer = developerService.accessDeveloper();
   }
 
   ngOnInit() {
+    if(this.developerService.accessDeveloper()){
+      this.developer = this.developerService.accessDeveloper();
+    }else{
+      setTimeout(()=>{
+        this.developer = this.developerService.accessDeveloper();
+      },2000);
+    }
   }
 }
