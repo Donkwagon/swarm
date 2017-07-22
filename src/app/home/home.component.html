@@ -1,3 +1,27 @@
-<p>
-  home works!
-</p>
+
+<div class="module-list-wrapper r wr">
+  <div class="module c f162">
+    <div class="module-head">
+      <a routerLink="/developer/tasks/overall">
+        Tasks
+      </a>
+    </div>
+    <div class="module-body c">
+      <div class="task r" *ngFor="let task of tasks">
+        <span class="f1">
+          <a routerLink="/developer/tasks/{{task._id}}">
+            {{task.name}}
+          </a>
+        </span>
+        <span class="f2">{{task.description}}</span>
+      </div>
+
+    </div>
+  </div>
+  &nbsp;
+  <div class="module c f1">
+    <div class="module-head">
+      Recent Crawlers
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@import '../../_theme';
+
+.module-list-wrapper{
+
+    .module{
+        background-color:rgba(255,255,255,0.03);
+
+        .module-head{
+            @extend .grey-material-bar-bright;
+        }
+
+        .module-body{
+            color:$ORANGE;
+        }
+    }
+}
