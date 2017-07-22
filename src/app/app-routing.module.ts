@@ -52,8 +52,10 @@ import { CrawlersPageComponent }             from './crawlers-page/crawlers-page
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
 import { DatabasePageComponent }             from './database-page/database-page.component';
 
-import { UMLComponent } from './development/uml/uml.component';
-import { DatabaseComponent } from './development/database/database.component';
+import { DevelopmentComponent }              from './development/development.component';
+import { UMLComponent }                      from './development/uml/uml.component';
+import { DatabaseComponent }                 from './development/database/database.component';
+import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -105,14 +107,18 @@ const routes: Routes = [
       { path: 'inbox', component: DeveloperInboxComponent}
   ]},
   { path: 'cluster', component: ClusterComponent, children: [
-      { path: '', redirectTo: 'overall', pathMatch: 'full' },
-      { path: 'overall', component: ClusterOverallComponent},
-      { path: 'server/:serverId', component: ServerComponent}
+    { path: '', redirectTo: 'overall', pathMatch: 'full' },
+    { path: 'overall', component: ClusterOverallComponent},
+    { path: 'server/:serverId', component: ServerComponent}
   ]},
   { path: 'docs', component: DocsPageComponent},
   { path: 'database-page', component: DatabasePageComponent},
-  { path: 'UML', component: UMLComponent},
-  { path: 'database', component: DatabaseComponent}
+  { path: 'dev', component: DevelopmentComponent, children: [
+    { path: '', redirectTo: 'overall', pathMatch: 'full' },
+    { path: 'overall', component: DevelopmentOverallComponent},
+    { path: 'UML', component: UMLComponent},
+    { path: 'database', component: DatabaseComponent}
+  ]}
 ];
 
 @NgModule({
