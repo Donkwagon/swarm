@@ -75,6 +75,9 @@ import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
 import { DatabasePageComponent }             from './database-page/database-page.component';
+import { DevelopmentComponent } from './development/development.component';
+import { UMLComponent } from './development/uml/uml.component';
+import { DatabaseComponent } from './development/database/database.component';
 
 
 @NgModule({
@@ -90,7 +93,7 @@ import { DatabasePageComponent }             from './database-page/database-page
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
-    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent
+    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, DevelopmentComponent, UMLComponent, DatabaseComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

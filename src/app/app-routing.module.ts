@@ -52,6 +52,8 @@ import { CrawlersPageComponent }             from './crawlers-page/crawlers-page
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
 import { DatabasePageComponent }             from './database-page/database-page.component';
 
+import { UMLComponent } from './development/uml/uml.component';
+import { DatabaseComponent } from './development/database/database.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -108,7 +110,9 @@ const routes: Routes = [
       { path: 'server/:serverId', component: ServerComponent}
   ]},
   { path: 'docs', component: DocsPageComponent},
-  { path: 'database', component: DatabasePageComponent}
+  { path: 'database-page', component: DatabasePageComponent},
+  { path: 'UML', component: UMLComponent},
+  { path: 'database', component: DatabaseComponent}
 ];
 
 @NgModule({
