@@ -1,6 +1,8 @@
 import { NgModule }                          from '@angular/core';
 import { Routes, RouterModule }              from '@angular/router';
 
+import { HomeComponent } from './home/home.component';
+
 import { ClusterComponent }                  from './cluster/cluster.component';
 import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
 import { ServerComponent }                   from './cluster/server/server.component';
@@ -52,7 +54,8 @@ import { DatabasePageComponent }             from './database-page/database-page
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent},
   { path: 'sites', component: SitesComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: SitesOverallComponent},

@@ -25,6 +25,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
 
+import { HomeComponent }                     from './home/home.component';
+
 import { ClusterComponent }                  from './cluster/cluster.component';
 import { ServerComponent }                   from './cluster/server/server.component';
 import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
@@ -88,7 +90,7 @@ import { DatabasePageComponent }             from './database-page/database-page
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
-    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent
+    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

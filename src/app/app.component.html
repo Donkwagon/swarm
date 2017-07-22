@@ -85,10 +85,6 @@
 
   </div>
 
-  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
-    <router-outlet></router-outlet>
-  </div>
-
   <div class="app-menu-layer">
 
     <div class="app-menu c" [ngClass]="{'menu-expand': menuDisplay}" *ngIf="developer.displayName &&  appReady">
@@ -171,6 +167,10 @@
 
     <div class="menu-app-mask" *ngIf="menuDisplay" (click)="menuToggle()"></div>
 
+  </div>
+
+  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
+    <router-outlet></router-outlet>
   </div>
   
 </div>
