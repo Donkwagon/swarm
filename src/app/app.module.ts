@@ -59,7 +59,7 @@ import { DeveloperProfileComponent }         from './developer/developer-profile
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 import { DeveloperNewTaskComponent }         from './developer/developer-tasks/developer-new-task/developer-new-task.component';
 import { DeveloperTasksOverallComponent }    from './developer/developer-tasks/developer-tasks-overall/developer-tasks-overall.component';
-import { DeveloperTaskComponent } from './developer/developer-tasks/developer-task/developer-task.component';
+import { DeveloperTaskComponent }            from './developer/developer-tasks/developer-task/developer-task.component';
 
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
@@ -79,7 +79,7 @@ import { DatabasePageComponent }             from './database-page/database-page
 import { DevelopmentComponent }              from './development/development.component';
 import { UMLComponent }                      from './development/uml/uml.component';
 import { DatabaseComponent }                 from './development/database/database.component';
-import { DevelopmentOverallComponent } from './development/development-overall/development-overall.component';
+import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
 
 
 @NgModule({
@@ -95,7 +95,8 @@ import { DevelopmentOverallComponent } from './development/development-overall/d
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
-    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent
+    ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
+    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

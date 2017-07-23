@@ -2,23 +2,11 @@
 @import '_theme';
 
 
-@media (min-width: 1300px) {
-  body {
-      font-size:17px;
-  }
-}
-
-@media (min-width: 1600px) {
-  body {
-      font-size:17px;
-  }
-}
-
 body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:17px;
+    font-size:15px;
     color:$WHITE;
     background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
 }
@@ -73,8 +61,6 @@ a:active {color: $CYAN;text-decoration:none;}
     }
     
     .page-cover-nav-wrapper{
-        border-bottom:$CYAN_S2 solid 1px;
-        border-top:$CYAN_S2 solid 1px;
         background-color:$CYAN_S2;
 
         .page-cover-nav{
@@ -91,8 +77,6 @@ a:active {color: $CYAN;text-decoration:none;}
 
         input{
             border:none;
-            //margin-bottom:-1px;
-            border-bottom:$CYAN solid 1px;
             padding:0.1em $padding-side;
             font-size:1em;
             font-family: $font-stack;
@@ -133,7 +117,7 @@ a:active {color: $CYAN;text-decoration:none;}
 
 .page-body{
     flex:1;
-    background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.1) 0%, rgba(73, 112, 137,0.01) 100%);
+    background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.05) 0%, rgba(73, 112, 137,0.01) 100%);
 }
 
 
@@ -141,14 +125,6 @@ a:active {color: $CYAN;text-decoration:none;}
     height:1rem;width:1rem;
 }
 
-table{
-    width:100%;
-    border-collapse: collapse;
-    th{
-        border-collapse: collapse;
-        background-color:#24457C;
-    }
-}
 
 input, textarea{
     background-color:$CYAN;
