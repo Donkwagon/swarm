@@ -11,6 +11,15 @@
 
         .module-body{
             color:$WHITE;
+
+            .task{
+                padding:0.1em 0;
+                
+                span{
+                    padding:0 $padding-side;
+                }
+                
+            }
         }
     }
 }

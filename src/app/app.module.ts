@@ -80,6 +80,7 @@ import { DevelopmentComponent }              from './development/development.com
 import { UMLComponent }                      from './development/uml/uml.component';
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -96,7 +97,7 @@ import { DevelopmentOverallComponent }       from './development/development-ove
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
-    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent
+    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent, MessagesComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
