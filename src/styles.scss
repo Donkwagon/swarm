@@ -27,6 +27,7 @@ img{background:$WHITE;}
 .w100{width:100%;}.h100{height:100%;}
 .ofys{overflow-y:scroll;}
 .fe{justify-content:flex-end;}
+////////////////////////////////////////////////////////////////////////
 
 a:link {color: $CYAN;text-decoration:none;}
 a:visited {color: $CYAN;text-decoration:none;}
@@ -54,7 +55,7 @@ a:active {color: $CYAN;text-decoration:none;}
 
 .page-cover{
     padding-top:1.3em;
-    font-size:1.1em;
+    font-size:1.15em;
 
     .page-cover-info{
         align-items:center;
@@ -62,22 +63,29 @@ a:active {color: $CYAN;text-decoration:none;}
     
     .page-cover-nav-wrapper{
         background-color:$CYAN_S2;
+        background-image:linear-gradient(to bottom, #eee 0%, #ccc 100%);
 
         .page-cover-nav{
-            padding:0.1em $padding-side;
+            padding:0.05em $padding-side;
             border-right:$CYAN_S2 solid 1px;
             text-align:center;
+            color:black;
 
             &:hover{
                 cursor:pointer;
                 background-color:$CYAN_S2;
             }
         }
+
+        .active{
+            background-color:white;
+            
+        }
         
 
         input{
             border:none;
-            padding:0.1em $padding-side;
+            padding:0em $padding-side;
             font-size:1em;
             font-family: $font-stack;
             background-color:$CYAN;
