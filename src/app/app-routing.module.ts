@@ -57,6 +57,9 @@ import { UMLComponent }                      from './development/uml/uml.compone
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
 
+import { MessagesComponent } from './messages/messages.component';
+import { ConversationComponent } from './messages/conversation/conversation.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
@@ -118,6 +121,9 @@ const routes: Routes = [
     { path: 'overall', component: DevelopmentOverallComponent},
     { path: 'UML', component: UMLComponent},
     { path: 'database', component: DatabaseComponent}
+  ]},
+  { path: 'messages', component: MessagesComponent, children: [
+    { path: 't/:developerId', component: ConversationComponent}
   ]}
 ];
 

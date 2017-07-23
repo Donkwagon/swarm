@@ -81,6 +81,7 @@ import { UMLComponent }                      from './development/uml/uml.compone
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
 import { MessagesComponent } from './messages/messages.component';
+import { ConversationComponent } from './messages/conversation/conversation.component';
 
 
 @NgModule({
@@ -97,7 +98,7 @@ import { MessagesComponent } from './messages/messages.component';
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
-    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent, MessagesComponent
+    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent, MessagesComponent, ConversationComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
