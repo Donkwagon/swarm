@@ -37,6 +37,8 @@ import { ColorPaletteComponent }             from './color-palette/color-palette
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
+import { DeveloperSettingsBasicComponent }   from './developer/developer-settings/developer-settings-basic/developer-settings-basic.component';
+import { DeveloperSettingsAccountComponent } from './developer/developer-settings/developer-settings-account/developer-settings-account.component';
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
@@ -99,7 +101,11 @@ const routes: Routes = [
   { path: 'developer', component: DeveloperComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: DeveloperOverallComponent},
-      { path: 'settings', component: DeveloperSettingsComponent},
+      { path: 'settings', component: DeveloperSettingsComponent, children: [
+        { path: '', redirectTo: 'basic', pathMatch: 'full' },
+        { path: 'basic', component: DeveloperSettingsBasicComponent},
+        { path: 'account', component: DeveloperSettingsAccountComponent}
+      ]},
       { path: 'activities', component: DeveloperActivitiesComponent},
       { path: 'profile', component: DeveloperProfileComponent},
       { path: 'tasks', component: DeveloperTasksComponent,children: [

@@ -1,51 +1,16 @@
 
+<div class="page-secondary-nav-wrapper s0 r">
+
+  <a routerLink="/developer/settings/basic"  routerLinkActive="active" class="page-secondary-nav">
+    Basic
+  </a>
+
+  <a routerLink="/developer/settings/account"  routerLinkActive="active" class="page-secondary-nav">
+    Account
+  </a>
+
+  
+</div>
 <perfect-scrollbar class="work-space f1 c ">
-
-  <form class="new-form c">
-
-    <div class="new-form-row r">
-      <div class="label f1 c">
-        <span>Display Name</span>
-      </div>
-      <div class="input-wrapper f162">
-        <input class="text-input" type="text" spellcheck="false" [(ngModel)]="developer.displayName" name="displayName"/>
-      </div>
-    </div>
-    <div class="new-form-row r">
-      <div class="label f1 c">
-        <span>Username</span>
-      </div>
-      <div class="input-wrapper f162">
-        <input class="text-input" type="text" spellcheck="false" [(ngModel)]="developer.username" name="username"/>
-      </div>
-    </div>
-
-    <div class="new-form-row r">
-      <div class="label f1 c">
-        <span>Password</span>
-      </div>
-      <div class="input-wrapper f162">
-        <input class="text-input" type="password" spellcheck="false" [(ngModel)]="developer.oldPassword" name="oldPassword"/>
-      </div>
-    </div>
-    <div class="new-form-row r">
-      <div class="label f1 c">
-        <span>Confirm Password</span>
-      </div>
-      <div class="input-wrapper f162">
-        <input class="text-input" type="password" spellcheck="false" [(ngModel)]="developer.password" name="newPassword"/>
-      </div>
-    </div>
-    <div class="new-form-row r">
-      <div class="label f1 c">
-      </div>
-      <div class="input-wrapper f162">
-        <div class="app-btn-large" (click)="discardChanges()">Discard</div>
-        &nbsp;
-        <div class="app-btn-large" (click)="saveChanges()">Save</div>
-      </div>
-    </div>
-
-  </form>
-
+  <router-outlet></router-outlet>
 </perfect-scrollbar>

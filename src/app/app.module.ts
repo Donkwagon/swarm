@@ -59,6 +59,9 @@ import { CrawlerOverallComponent }           from './sites/website/crawlers/craw
 
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
+import { DeveloperSettingsBasicComponent }   from './developer/developer-settings/developer-settings-basic/developer-settings-basic.component';
+import { DeveloperSettingsAccountComponent } from './developer/developer-settings/developer-settings-account/developer-settings-account.component';
+
 import { DeveloperActivitiesComponent }      from './developer/developer-activities/developer-activities.component';
 import { DeveloperProfileComponent }         from './developer/developer-profile/developer-profile.component';
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
@@ -89,14 +92,14 @@ import { DevelopmentOverallComponent }       from './development/development-ove
 import { MessagesComponent }                 from './messages/messages.component';
 import { ConversationComponent }             from './messages/conversation/conversation.component';
 
-
 @NgModule({
   declarations: [
     AppComponent, SitesComponent,
     WebsiteComponent, ColorPaletteComponent,
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
-    DeveloperComponent, DeveloperSettingsComponent, DeveloperActivitiesComponent,
+    DeveloperComponent, DeveloperSettingsComponent, DeveloperSettingsBasicComponent,
+    DeveloperSettingsAccountComponent, DeveloperActivitiesComponent,
     DeveloperProfileComponent, DeveloperTasksComponent, DeveloperNewTaskComponent, 
     DeveloperTasksOverallComponent, DeveloperInboxComponent, DeveloperOverallComponent,
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
