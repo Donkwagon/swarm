@@ -11,11 +11,14 @@ import { DeveloperService }                             from './@core/shared/dev
 
 import { RouterMapper }                                    from './@core/classes/router-mapper';
 
+import { CookieService } from 'ngx-cookie';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [CookieService]
 })
 
 export class AppComponent {
@@ -31,13 +34,24 @@ export class AppComponent {
     db: AngularFireDatabase,
     private router: Router,
     public afAuth: AngularFireAuth,
-    private developerService: DeveloperService) {
+    private developerService: DeveloperService,
+    private cookieService: CookieService) {
 
     this.appReady = false;
     
     this.developer = new Developer();
 
     this.menuDisplay = false;
+
+    var userInfo = null;
+
+    for (var property in localStorage) {
+      if(property.includes("firebase:authUser")){
+        this.developer = userInfo;
+        this.developerService.setDeveloper(userInfo);
+        this.appReady = true;
+      }
+    }
 
     afAuth.auth.onAuthStateChanged(res =>{
 
@@ -61,7 +75,7 @@ export class AppComponent {
 
     });
 
-    this.appReady = true;
+    
   }
 
   playAudio() {
@@ -74,10 +88,9 @@ export class AppComponent {
   registerDeveloper = (developer) => {
     
     this.developerService.getDeveloper(developer.uid).then(res => {
-
       if(res){
         this.developerService.setDeveloper(res);
-        this.appReady = true;
+        //this.appReady = true;
       }else{
         this.developerService.createDeveloper(developer).then(res => {
           this.developerService.setDeveloper(res);

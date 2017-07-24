@@ -29,7 +29,7 @@
 
 <div class="app-background"></div>
 
-<div class="main r" *ngIf="developer && appReady">
+<div class="main r" *ngIf="appReady">
 
   <div class="app-nav-bar r">
 
@@ -70,7 +70,9 @@
     </div>
 
     <div class="nav-btn">
-      Message
+      <a routerLink="/messages/t/123">
+        Message
+      </a>
     </div>
 
     <div class="nav-btn" *ngIf="developer.displayName">

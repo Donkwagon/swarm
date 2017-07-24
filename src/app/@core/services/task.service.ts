@@ -24,9 +24,8 @@ export class TaskService {
                  .catch(this.handleError);
     }
 
-    // get("/Task/Tasks")
-    getTasksByTask(name: String): Promise<Task[]> {
-      return this.http.get(this.TasksUrl + '/task/' + name)
+    getTasksByType(complete: Boolean): Promise<Task[]> {
+      return this.http.get(this.TasksUrl + '/type/' + complete)
                  .toPromise()
                  .then(response => response.json() as Task[])
                  .catch(this.handleError);

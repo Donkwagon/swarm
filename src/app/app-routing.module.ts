@@ -1,7 +1,7 @@
 import { NgModule }                          from '@angular/core';
 import { Routes, RouterModule }              from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent }                     from './home/home.component';
 
 import { ClusterComponent }                  from './cluster/cluster.component';
 import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
@@ -42,7 +42,7 @@ import { DeveloperProfileComponent }         from './developer/developer-profile
 import { DeveloperTasksComponent }           from './developer/developer-tasks/developer-tasks.component';
 import { DeveloperNewTaskComponent }         from './developer/developer-tasks/developer-new-task/developer-new-task.component';
 import { DeveloperTasksOverallComponent }    from './developer/developer-tasks/developer-tasks-overall/developer-tasks-overall.component';
-import { DeveloperTaskComponent } from './developer/developer-tasks/developer-task/developer-task.component';
+import { DeveloperTaskComponent }            from './developer/developer-tasks/developer-task/developer-task.component';
 
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
@@ -57,8 +57,9 @@ import { UMLComponent }                      from './development/uml/uml.compone
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
 
-import { MessagesComponent } from './messages/messages.component';
-import { ConversationComponent } from './messages/conversation/conversation.component';
+import { MessagesComponent }                 from './messages/messages.component';
+import { ConversationComponent }             from './messages/conversation/conversation.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},

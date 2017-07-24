@@ -21,8 +21,8 @@ task.get("", function(req, res) {
   });
 });
 
-task.get("/site/:siteName", function(req, res) {
-  db.collection(TASK_COLLECTION).find({siteName: req.params.siteName}).toArray(function(err, docs) {
+task.get("/type/:complete", function(req, res) {
+  db.collection(TASK_COLLECTION).find({complete: req.params.complete}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get tasks.");
     } else {

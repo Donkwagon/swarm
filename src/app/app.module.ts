@@ -7,11 +7,14 @@ import { LocationStrategy }                  from '@angular/common';
 import { HashLocationStrategy }              from '@angular/common';
 
 import { environment }                       from '../environments/environment';
+
+//////////////////////////////////////////////////////////////////////////////////
+//external libraries
 import { AngularFireModule }                 from 'angularfire2';
 import { AngularFireDatabaseModule }         from 'angularfire2/database';
 import { AngularFireAuthModule }             from 'angularfire2/auth';
 
-import { AceEditorModule } from 'ng2-ace-editor';
+import { AceEditorModule }                   from 'ng2-ace-editor';
 
 import { ChartsModule }                      from 'ng2-charts/ng2-charts';
 
@@ -20,7 +23,11 @@ import { PerfectScrollbarConfigInterface }   from 'angular2-perfect-scrollbar';
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
 
-import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule }                     from 'ng2-ckeditor';
+
+import { CookieModule } from 'ngx-cookie';
+
+//////////////////////////////////////////////////////////////////////////////////
 
 import { AppRoutingModule }                  from './app-routing.module';
 import { AppComponent }                      from './app.component';
@@ -31,11 +38,11 @@ import { ClusterComponent }                  from './cluster/cluster.component';
 import { ServerComponent }                   from './cluster/server/server.component';
 import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
 
-
 import { ColorPaletteComponent }             from './color-palette/color-palette.component';
 
 import { SitesComponent }                    from './sites/sites.component';
 import { SitesOverallComponent }             from './sites/sites-overall/sites-overall.component';
+import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
 import { WebsiteComponent }                  from './sites/website/website.component';
 import { WebsiteOverallComponent }           from './sites/website/website-overall/website-overall.component';
@@ -49,8 +56,6 @@ import { CrawlersOverallComponent }          from './sites/website/crawlers/craw
 import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
 import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 import { CrawlerOverallComponent }           from './sites/website/crawlers/crawler/crawler-overall/crawler-overall.component';
-
-import { NewSiteComponent }                  from './sites/new-site/new-site.component';
 
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
@@ -80,8 +85,9 @@ import { DevelopmentComponent }              from './development/development.com
 import { UMLComponent }                      from './development/uml/uml.component';
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ConversationComponent } from './messages/conversation/conversation.component';
+
+import { MessagesComponent }                 from './messages/messages.component';
+import { ConversationComponent }             from './messages/conversation/conversation.component';
 
 
 @NgModule({
@@ -98,7 +104,8 @@ import { ConversationComponent } from './messages/conversation/conversation.comp
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
-    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent, MessagesComponent, ConversationComponent
+    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent,
+    MessagesComponent, ConversationComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
@@ -110,6 +117,7 @@ import { ConversationComponent } from './messages/conversation/conversation.comp
     ChartsModule,
     AceEditorModule,
     CKEditorModule,
+    CookieModule.forRoot(),
     SharedModule
   ],
   providers: [

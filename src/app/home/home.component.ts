@@ -16,11 +16,13 @@ export class HomeComponent implements OnInit {
   
   developer: Developer;
   tasks: Task[];
+  tasksCompleted: Task[];
 
   constructor(private developerService: DeveloperService, private taskService: TaskService) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
     this.tasks = []
+    this.tasksCompleted = []
   }
 
   ngOnInit() {
@@ -29,7 +31,13 @@ export class HomeComponent implements OnInit {
 
   getTasks() {
     this.taskService.getTasks().then(res => {
-      this.tasks = res;
+      res.forEach(task => {
+        if(task.complete){
+          this.tasksCompleted.push(task);
+        }else{
+          this.tasks.push(task);
+        }
+      })
     })
   }
 
@@ -38,6 +46,15 @@ export class HomeComponent implements OnInit {
     this.taskService.updateTask(task).then(res=> {
       if(!res){//reverse the update if didn't get updated in backend
         task.complete = !task.complete;
+        
+      }else{
+        this.tasksCompleted.push(task);
+        for (var i = 0; i < this.tasks.length; i++) {
+          var t = this.tasks[i];
+          if(t._id === task._id){
+            this.tasks.splice(i,1);
+          }
+        }
       }
     });
   }
