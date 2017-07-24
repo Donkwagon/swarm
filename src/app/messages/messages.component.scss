@@ -1,0 +1,30 @@
+@import '../../_theme';
+
+.app-page{
+    padding-top:2em;
+}
+
+.conversations-list-wrapper{
+    width:300px;
+    border-right:$CYAN_S1 solid 1px;
+
+    .conversation-thumb{
+        align-items:center;
+        background-color:$CYAN_S2;
+        margin:1px;
+
+        .thumb-image-wrapper{
+            padding:0.2em;
+
+            img{
+                width:3em;height:3em;
+                border-radius:50%;
+            }
+
+        }
+
+        .conversation-info{
+            padding:0.5em $padding-side;
+        }
+    }
+}
