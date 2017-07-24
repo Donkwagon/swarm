@@ -45,13 +45,12 @@ export class AppComponent {
 
     var userInfo = null;
 
-    for (var property in localStorage) {
-      if(property.includes("firebase:authUser")){
-        this.developer = userInfo;
-        this.developerService.setDeveloper(userInfo);
-        this.appReady = true;
-      }
+    if(cookieService.get("swarm-developer")){
+      var developer = cookieService.get("swarm-developer");
+      this.developerService.setDeveloper(JSON.parse(developer));
+      this.appReady = true;
     }
+
 
     afAuth.auth.onAuthStateChanged(res =>{
 
@@ -90,10 +89,14 @@ export class AppComponent {
     this.developerService.getDeveloper(developer.uid).then(res => {
       if(res){
         this.developerService.setDeveloper(res);
+        var cookie = JSON.stringify(res);
+        this.cookieService.put("swarm-developer",cookie);
         //this.appReady = true;
       }else{
         this.developerService.createDeveloper(developer).then(res => {
           this.developerService.setDeveloper(res);
+          var cookie = JSON.stringify(res);
+          this.cookieService.put("swarm-developer",cookie);
         });
       }
       

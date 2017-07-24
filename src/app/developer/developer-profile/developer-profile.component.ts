@@ -14,6 +14,7 @@ export class DeveloperProfileComponent implements OnInit {
   constructor(private developerService: DeveloperService) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
+    console.log(developerService.accessDeveloper());
   }
 
   ngOnInit() {

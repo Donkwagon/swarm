@@ -176,7 +176,7 @@
 
   </div>
 
-  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}">
+  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}" *ngIf="appReady">
     <router-outlet></router-outlet>
   </div>
   
