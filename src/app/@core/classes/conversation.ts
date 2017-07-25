@@ -4,6 +4,7 @@ export class Conversation {
 
     users: any[];
     messages: any[];
+    type: any;//user, system, AI.. :O
     
     numMessages: Number;
 
