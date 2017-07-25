@@ -11,7 +11,6 @@
     "e2e": "ng e2e",
     "postinstall": "ng build -prod",
     "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json"
-
   },
   "engines": {
     "node": "6.10.1",
@@ -49,6 +48,7 @@
     "firebase-admin": "^5.0.0",
     "mongodb": "^2.2.26",
     "mongoose": "^4.9.9",
+    "newrelic": "^2.0.0",
     "ng2-ace-editor": "^0.2.3",
     "ng2-charts": "^1.6.0",
     "ng2-ckeditor": "^1.1.9",
