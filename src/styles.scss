@@ -50,6 +50,7 @@ a:active {color: $BLUE;text-decoration:none;}
 
 .app-page{
     @extend .fixed-full-screen;
+    background-color:#000;
 }
 
 .page-cover{
