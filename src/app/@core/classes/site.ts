@@ -1,3 +1,5 @@
+import { DeveloperInterface } from "../interfaces/developer.interface";
+
 export class Site {
     
     _id?: string;
@@ -13,6 +15,8 @@ export class Site {
     sitemapUrl: string;
     sitemap: any;
 
+    developer: DeveloperInterface;
+
     robotTxtUrl: string;
     robotTxt: any;
 
@@ -20,14 +24,19 @@ export class Site {
     created_at: Date;
     updated_at: Date;
 
-    constructor(){
+    constructor(developer){
         this.name = "";
         this.type = "News Portal";
         this.description = "";
         this.imgUrl = "";
         this.url = "";
         this.created_by = "false";
+
+        this.developer.name = developer.displayName;
+        this.developer.uid = developer.uid;
+
         this.created_at = new Date();
         this.updated_at = new Date();
+
     }
 }

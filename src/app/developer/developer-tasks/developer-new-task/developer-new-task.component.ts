@@ -21,7 +21,7 @@ export class DeveloperNewTaskComponent implements OnInit {
   constructor(private developerService: DeveloperService, private taskService: TaskService) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
-    this.task = new Task;
+    this.task = new Task(this.developer);
   }
 
   ngOnInit() {
