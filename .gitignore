@@ -48,3 +48,8 @@ testem.log
 Thumbs.db
 
 *.log
+newrelic_agent.log
+*.log
+newrelic_agent.log
+newrelic_agent.log
+newrelic_agent.log

@@ -62,6 +62,17 @@ import { DevelopmentOverallComponent }       from './development/development-ove
 import { MessagesComponent }                 from './messages/messages.component';
 import { ConversationComponent }             from './messages/conversation/conversation.component';
 
+import { FinancialDataComponent }            from './financial-data/financial-data.component';
+import { FinancialDataOverallComponent }     from './financial-data/financial-data-overall/financial-data-overall.component';
+import { ExchangesComponent }                from './financial-data/exchanges/exchanges.component';
+import { SecuritiesComponent }               from './financial-data/securities/securities.component';
+import { ExchangeComponent }                 from './financial-data/exchanges/exchange/exchange.component';
+import { ExchangesOverallComponent }         from './financial-data/exchanges/exchanges-overall/exchanges-overall.component';
+import { ExchangeOverallComponent }          from './financial-data/exchanges/exchange/exchange-overall/exchange-overall.component';
+import { ExchangeSecuritesComponent }        from './financial-data/exchanges/exchange/exchange-securites/exchange-securites.component';
+
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -131,7 +142,21 @@ const routes: Routes = [
   ]},
   { path: 'messages', component: MessagesComponent, children: [
     { path: 't/:developerId', component: ConversationComponent}
-  ]}
+  ]},
+  { path: 'fdata', component: FinancialDataComponent, children: [
+    { path: '', redirectTo: 'overall', pathMatch: 'full' },
+    { path: 'overall', component: FinancialDataOverallComponent},
+    { path: 'ex', component: ExchangesComponent, children: [
+      { path: '', redirectTo: 'overall', pathMatch: 'full' },
+      { path: 'overall', component: ExchangesOverallComponent},
+      { path: 'exchange', component: ExchangeComponent, children: [
+        { path: '', redirectTo: 'overall', pathMatch: 'full' },
+        { path: 'overall', component: ExchangeOverallComponent},
+        { path: 's', component: ExchangeSecuritesComponent}
+      ]},
+    ]},
+    { path: 's', component: SecuritiesComponent}
+  ]},
 ];
 
 @NgModule({

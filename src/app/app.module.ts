@@ -92,6 +92,15 @@ import { DevelopmentOverallComponent }       from './development/development-ove
 import { MessagesComponent }                 from './messages/messages.component';
 import { ConversationComponent }             from './messages/conversation/conversation.component';
 
+import { FinancialDataComponent }            from './financial-data/financial-data.component';
+import { FinancialDataOverallComponent }     from './financial-data/financial-data-overall/financial-data-overall.component';
+import { ExchangesComponent }                from './financial-data/exchanges/exchanges.component';
+import { SecuritiesComponent }               from './financial-data/securities/securities.component';
+import { ExchangeComponent }                 from './financial-data/exchanges/exchange/exchange.component';
+import { ExchangesOverallComponent }         from './financial-data/exchanges/exchanges-overall/exchanges-overall.component';
+import { ExchangeOverallComponent }          from './financial-data/exchanges/exchange/exchange-overall/exchange-overall.component';
+import { ExchangeSecuritesComponent }        from './financial-data/exchanges/exchange/exchange-securites/exchange-securites.component';
+
 
 @NgModule({
   declarations: [
@@ -109,7 +118,10 @@ import { ConversationComponent }             from './messages/conversation/conve
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
     DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent,
-    MessagesComponent, ConversationComponent
+    MessagesComponent, ConversationComponent,
+    FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
+    SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
+    ExchangeOverallComponent, ExchangeSecuritesComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
