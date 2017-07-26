@@ -30,7 +30,7 @@ export class DeveloperTaskComponent implements OnInit {
   ) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
-    this.task = new Task;
+    this.task = new Task(this.developer);
 
     this.sub = this.route.params.subscribe(params => {
       this.taskId = params['taskId'];

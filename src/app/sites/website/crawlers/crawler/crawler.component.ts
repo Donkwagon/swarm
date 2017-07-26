@@ -1,10 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute }                          from '@angular/router';
+import { Component, OnInit, ViewChild }      from '@angular/core';
+import { ActivatedRoute }                    from '@angular/router';
 
 import { Crawler }                           from '../../../../@core/classes/crawler';
 import { CrawlerService }                    from '../../../../@core/services/crawler.service';
+
 import { Site }                              from '../../../../@core/classes/site';
 import { SiteService }                       from '../../../../@core/services/sites.service';
+
+import { Developer }                              from '../../../../@core/classes/developer';
+import { DeveloperService }                       from '../../../../@core/shared/developer.service';
 
 import { SocketService }                     from '../../../../@core/services/socket.service';
 import { AceEditorComponent } from 'ng2-ace-editor'; 
@@ -51,17 +55,24 @@ export class CrawlerComponent implements OnInit {
   max: number;
   min: number;
 
+  developer: Developer;
+
   constructor(
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
       private siteService: SiteService,
+      private developerService: DeveloperService,
       private socketService: SocketService){
 
       this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
 
       this.newUrlSectionPanel = false;
       
-      this.crawler = new Crawler();
+      this.developer = new Developer();
+      this.developer = developerService.accessDeveloper();
+
+      this.crawler = new Crawler(this.developer);
+
       this.resetNewInputs();
       this.mode = "settings";
 

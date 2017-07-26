@@ -3,8 +3,12 @@ import { ActivatedRoute }                          from '@angular/router';
 
 import { Crawler }                           from '../../../../../@core/classes/crawler';
 import { CrawlerService }                    from '../../../../../@core/services/crawler.service';
+
 import { Site }                              from '../../../../../@core/classes/site';
 import { SiteService }                       from '../../../../../@core/services/sites.service';
+
+import { Developer }                         from '../../../../../@core/classes/developer';
+import { DeveloperService }                  from '../../../../../@core/shared/developer.service';
 
 @Component({
   selector: 'app-crawler-settings',
@@ -23,11 +27,17 @@ export class CrawlerSettingsComponent implements OnInit {
   siteName: string;
   site: Site;
 
+  developer: Developer;
+
   constructor(
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
+      private developerService: DeveloperService,
       private siteService: SiteService){
-        this.crawler = new Crawler();
+
+        this.developer = new Developer();
+        this.developer = developerService.accessDeveloper();
+        this.crawler = new Crawler(this.developer);
 }
 
   ngOnInit() {
