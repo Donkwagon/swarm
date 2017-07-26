@@ -23,9 +23,9 @@ import { PerfectScrollbarConfigInterface }   from 'angular2-perfect-scrollbar';
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrollX: true};
 
-import { CKEditorModule }                     from 'ng2-ckeditor';
+import { CKEditorModule }                    from 'ng2-ckeditor';
 
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule }                      from 'ngx-cookie';
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -123,7 +123,8 @@ import { ExchangeSecurityComponent } from './financial-data/exchanges/exchange/e
     MessagesComponent, ConversationComponent,
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
-    ExchangeOverallComponent, ExchangeSecuritiesComponent, ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent
+    ExchangeOverallComponent, ExchangeSecuritiesComponent,
+    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

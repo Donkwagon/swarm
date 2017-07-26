@@ -38,8 +38,8 @@ export class ExchangeService {
                  .catch(this.handleError);
     }
 
-    getExchange(exchangeId: String): Promise<Exchange> {
-      return this.http.get(this.exchangesUrl + '/' + exchangeId)
+    getExchange(exchangeSymbol: String): Promise<Exchange> {
+      return this.http.get(this.exchangesUrl + '/' + exchangeSymbol)
                  .toPromise()
                  .then(response => response.json() as Exchange)
                  .catch(this.handleError);

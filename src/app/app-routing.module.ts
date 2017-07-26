@@ -151,7 +151,7 @@ const routes: Routes = [
     { path: 'ex', component: ExchangesComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: ExchangesOverallComponent},
-      { path: ':exchange', component: ExchangeComponent, children: [
+      { path: ':exchangeSymbol', component: ExchangeComponent, children: [
         { path: '', redirectTo: 'overall', pathMatch: 'full' },
         { path: 'overall', component: ExchangeOverallComponent},
         { path: 's', component: ExchangeSecuritiesComponent, children: [

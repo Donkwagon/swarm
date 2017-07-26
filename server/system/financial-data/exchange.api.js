@@ -102,8 +102,8 @@ exchange.post("", function(req, res) {
   });
 });
 
-exchange.get("/:id", function(req, res) {
-  db.collection(EXCHANGE_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+exchange.get("/:exchangeSymbol", function(req, res) {
+  db.collection(EXCHANGE_COLLECTION).findOne({ exchange: req.params.exchangeSymbol }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get exchange");
     } else {

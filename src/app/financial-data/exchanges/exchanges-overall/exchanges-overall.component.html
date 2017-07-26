@@ -1,3 +1,22 @@
-<p>
-  exchanges-overall works!
-</p>
+
+<div class="content-list-wrapper c w100">
+  <div class="r">
+    <div class="f1"></div>
+    <div class="app-btn" (click)="updateExchanges()">Update Exchanges</div>
+    &nbsp;
+    <div class="app-btn" (click)="fetchExchanges()">Fetch Exchanges</div>
+  </div>
+  <div  class="list-item r" *ngFor="let exchange of exchanges">
+    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+      <span>{{exchange.exchange}}</span>
+    </a>
+    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+      <span>{{exchange.exchangeName}}</span>
+    </a>
+    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+      <span>{{exchange.numSecurities}}</span>
+    </a>
+    <span class="caption-text">
+      {{exchange.createDate}}
+    </span>
+</div>
