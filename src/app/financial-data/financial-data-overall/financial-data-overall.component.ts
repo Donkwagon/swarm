@@ -16,7 +16,9 @@ export class FinancialDataOverallComponent implements OnInit {
   
   exchanges: Exchange[];
 
-  constructor(private exchangeService: ExchangeService, private securityService: SecurityService) { }
+  constructor(private exchangeService: ExchangeService, private securityService: SecurityService) {
+    this.exchanges = [];
+  }
 
   ngOnInit() {
     this.exchangeService.getExchanges().then(res => {

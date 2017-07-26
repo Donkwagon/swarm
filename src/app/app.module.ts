@@ -99,7 +99,9 @@ import { SecuritiesComponent }               from './financial-data/securities/s
 import { ExchangeComponent }                 from './financial-data/exchanges/exchange/exchange.component';
 import { ExchangesOverallComponent }         from './financial-data/exchanges/exchanges-overall/exchanges-overall.component';
 import { ExchangeOverallComponent }          from './financial-data/exchanges/exchange/exchange-overall/exchange-overall.component';
-import { ExchangeSecuritesComponent }        from './financial-data/exchanges/exchange/exchange-securites/exchange-securites.component';
+import { ExchangeSecuritiesComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-securities.component';
+import { ExchangeSecuritiesOverallComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-securities-overall/exchange-securities-overall.component';
+import { ExchangeSecurityComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-security/exchange-security.component';
 
 
 @NgModule({
@@ -121,7 +123,7 @@ import { ExchangeSecuritesComponent }        from './financial-data/exchanges/ex
     MessagesComponent, ConversationComponent,
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
-    ExchangeOverallComponent, ExchangeSecuritesComponent
+    ExchangeOverallComponent, ExchangeSecuritiesComponent, ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

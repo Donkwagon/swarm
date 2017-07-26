@@ -1,2 +1,33 @@
 
-<router-outlet></router-outlet>
+<div class="app-page f1 c">
+
+  <div class="page-cover c">
+    <div class="page-cover-info r">
+      <div class="c">
+        <span>Financial Data</span>
+      </div>
+    </div>
+
+    <div class="page-cover-nav-wrapper r">
+      <input placeholder="search"/>
+      <a  routerLink="/fdata/overall" routerLinkActive="active"  class="page-cover-nav">
+        Overall
+      </a>
+      <a  routerLink="/fdata/ex" routerLinkActive="active"  class="page-cover-nav">
+        Exchanges
+      </a>
+      <a  routerLink="/fdata/s" routerLinkActive="active"  class="page-cover-nav">
+        Securities
+      </a>
+  </div>
+
+  </div>
+
+  <perfect-scrollbar class="page-body c f1">
+
+    <router-outlet></router-outlet>
+
+  </perfect-scrollbar>
+
+
+</div>

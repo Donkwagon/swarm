@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExchangeSecuritesComponent } from './exchange-securites.component';
+import { ExchangeSecurityComponent } from './exchange-security.component';
 
-describe('ExchangeSecuritesComponent', () => {
-  let component: ExchangeSecuritesComponent;
-  let fixture: ComponentFixture<ExchangeSecuritesComponent>;
+describe('ExchangeSecurityComponent', () => {
+  let component: ExchangeSecurityComponent;
+  let fixture: ComponentFixture<ExchangeSecurityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExchangeSecuritesComponent ]
+      declarations: [ ExchangeSecurityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExchangeSecuritesComponent);
+    fixture = TestBed.createComponent(ExchangeSecurityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

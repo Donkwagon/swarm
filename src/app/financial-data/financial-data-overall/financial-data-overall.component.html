@@ -1,7 +1,13 @@
-<p>
-  financial-data-overall works!
-</p>
 
-<p *ngFor="let exchange of exchanges">
-  {{exchange | json}}
-</p>
+<div class="content-list-wrapper c w100">
+  <div  class="list-item r" *ngFor="let exchange of exchanges">
+    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+      <span>{{exchange.exchange}}</span>
+    </a>
+    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+      <span>{{exchange.exchangeName}}</span>
+    </a>
+    <span class="caption-text">
+      {{exchange.createDate}}
+    </span>
+</div>
