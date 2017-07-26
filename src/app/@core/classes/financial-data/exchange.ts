@@ -2,8 +2,9 @@ export class Exchange {
     
     _id?: string;
 
-    exchange: String;
-    exchangeName: String;
+    exchange: string;
+    exchangeName: string;
+    numSecurities: Number;
     
     created_at: Date;
     updated_at: Date;

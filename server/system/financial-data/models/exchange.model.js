@@ -7,6 +7,8 @@ var exchangeSchema = new Schema({
   exchange: String,
   exchangeName: String,
 
+  numSecurities: Number,
+
   created_at: Date,
   updated_at: Date
   
@@ -15,4 +17,4 @@ var exchangeSchema = new Schema({
 
 var Exchange = mongoose.model('Exchange', exchangeSchema);
 
-module.exports = Security;
+module.exports = Exchange;

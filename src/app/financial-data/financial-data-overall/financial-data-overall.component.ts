@@ -15,9 +15,11 @@ import { SecurityService } from "../../@core/services/financial-data/security.se
 export class FinancialDataOverallComponent implements OnInit {
   
   exchanges: Exchange[];
+  arrProcIndex: number;
 
   constructor(private exchangeService: ExchangeService, private securityService: SecurityService) {
     this.exchanges = [];
+    this.arrProcIndex = -1;
   }
 
   ngOnInit() {
@@ -29,4 +31,22 @@ export class FinancialDataOverallComponent implements OnInit {
     })
   }
 
+  updateExchanges() {
+    if(this.arrProcIndex < this.exchanges.length){
+      this.arrProcIndex++;
+      var exchange = this.exchanges[this.arrProcIndex];
+      this.exchangeService.getNumSecurities(exchange.exchange).then(result => {
+        console.log(result);
+      });
+
+      setTimeout(() => {this.updateExchanges()},1000);
+    }
+  }
+
+  fetchExchanges() {
+    this.exchangeService.fetchLatestExchanges().then(result => {
+      console.log(result);
+    });
+
+  }
 }

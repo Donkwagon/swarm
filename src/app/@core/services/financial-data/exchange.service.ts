@@ -16,6 +16,21 @@ export class ExchangeService {
                  .catch(this.handleError);
     }
 
+    getNumSecurities(exchange: string): Promise<Number> {
+      return this.http.get(this.exchangesUrl + "/num-securities/" + exchange)
+                 .toPromise()
+                 .then(response => response.json() as Number)
+                 .catch(this.handleError);
+    }
+
+
+    fetchLatestExchanges(): Promise<any> {
+      return this.http.get(this.exchangesUrl + "/fetch-lastest-exchanges")
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
     getExchangesByType(type: String): Promise<Exchange[]> {
       return this.http.get(this.exchangesUrl + '/type/' + type)
                  .toPromise()

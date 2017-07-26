@@ -1,7 +1,13 @@
 const express = require('express');
 const exchange = express.Router();
 var EXCHANGE_COLLECTION = "exchanges";
+var SECURITIY_COLLECTION = "securities";
 var ObjectID = require('mongodb').ObjectID;
+
+const Exchange = require("./models/exchange.model");
+
+var request = require('request');
+var cheerio = require('cheerio');
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -16,6 +22,59 @@ exchange.get("", function(req, res) {
     } else {
       res.status(200).json(docs);
     }
+  });
+});
+
+exchange.get("/fetch-lastest-exchanges", function(req, res) {
+
+    var URL = "http://www.eoddata.com/download.aspx";
+
+    req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
+    req.get({url: URL,headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
+        }
+    }, function(error, response, html){
+
+        var $ = cheerio.load(html);
+        console.log(html);
+
+        $("#ctl00_cph1_hd1_cboExchange").children().each(function(i, elem) {
+          var exchangeSymbol = $(this).attr("value");
+          var exchangeName = $(this).text();
+
+          var exchange = new Exchange({
+            exchange: exchangeSymbol,
+            exchangeName: exchangeName,
+            numSecurities: 0,
+            created_at: new Date(),
+            updated_at: new Date()
+          })
+
+          console.log(exchange);
+          db.collection(EXCHANGE_COLLECTION).insertOne(exchange, function(err, doc) {
+            if (err) {
+              handleError(res, err.message, "Failed to create new exchange.");
+            } else {
+              console.log(doc);
+            }
+          });
+
+        });
+
+    });
+});
+
+exchange.get("/num-securities/:exchange", function(req, res) {
+  db.collection(SECURITIY_COLLECTION).find({exchange:req.params.exchange}).count(function(err, count){
+    console.log(count)
+
+    db.collection(EXCHANGE_COLLECTION).updateOne({exchange: req.params.exchange}, {$set:{numSecurities: count}}, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to update exchange");
+      } else {
+        res.status(200).json(doc);
+      }
+    });
   });
 });
 
