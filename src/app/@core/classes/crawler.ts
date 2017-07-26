@@ -1,5 +1,6 @@
 
 import { Site } from './site';
+import { DeveloperInterface } from "../interfaces/developer.interface";
 
 export class Crawler {
     
@@ -35,10 +36,13 @@ export class Crawler {
 
     validation: Boolean;
 
+    developer: DeveloperInterface;
+
     created_at: Date;
     updated_at: Date;
 
-    constructor(){
+    constructor(developer){
+        
         this.backlogGenerated = false;
         this.backlogBatchSize = 1000;
         this.urlStrategy = {root: "",sections: []};
@@ -51,6 +55,10 @@ export class Crawler {
         this.testingStrategy = {type: "single",id : 1024};
         this.editHistory = [];
         this.validation = false;
+
+        this.developer.name = developer.displayName;
+        this.developer.uid = developer.uid;
+
         this.created_at = new Date();
         this.updated_at = new Date();
     }

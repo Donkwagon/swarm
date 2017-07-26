@@ -6,6 +6,9 @@ import { CrawlerService }                    from '../../../../@core/services/cr
 import { Site }                              from '../../../../@core/classes/site';
 import { SiteService }                       from '../../../../@core/services/sites.service';
 
+import { Developer } from '../../../../@core/classes/developer';
+import { DeveloperService } from '../../../../@core/shared/developer.service';
+
 @Component({
   selector: 'app-new-crawler',
   templateUrl: './new-crawler.component.html',
@@ -15,6 +18,8 @@ import { SiteService }                       from '../../../../@core/services/si
 
 export class NewCrawlerComponent implements OnInit {
 
+  developer: Developer;
+
   newCrawler: Crawler;
   sub: any;
   siteName: string;
@@ -23,9 +28,13 @@ export class NewCrawlerComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
-      private siteService: SiteService){
+      private siteService: SiteService,
+      private developerService: DeveloperService){
+        
+        this.developer = new Developer();
+        this.developer = developerService.accessDeveloper();
 
-        this.newCrawler = new Crawler();
+        this.newCrawler = new Crawler(this.developer);
   }
 
   ngOnInit() {

@@ -1,3 +1,5 @@
+import { DeveloperInterface } from "../interfaces/developer.interface";
+
 export class Task {
     
     _id?: string;
@@ -6,16 +8,21 @@ export class Task {
     description: String;
     
     complete: boolean;
-    created_by: string;
+
+    developer: DeveloperInterface;
 
     created_at: Date;
     updated_at: Date;
 
-    constructor(){
+    constructor(developer){
+        
         this.title = "";
         this.description = "";
         this.complete = false;
-        this.created_by = "";
+
+        this.developer.name = developer.displayName;
+        this.developer.uid = developer.uid;
+
         this.created_at = new Date();
         this.updated_at = new Date();
     }
