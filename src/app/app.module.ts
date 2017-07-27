@@ -25,6 +25,8 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {suppressScrol
 
 import { CKEditorModule }                    from 'ng2-ckeditor';
 
+import { InfiniteScrollModule }              from 'angular2-infinite-scroll';
+
 import { CookieModule }                      from 'ngx-cookie';
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -136,6 +138,7 @@ import { ExchangeSecurityComponent } from './financial-data/exchanges/exchange/e
     ChartsModule,
     AceEditorModule,
     CKEditorModule,
+    InfiniteScrollModule,
     CookieModule.forRoot(),
     SharedModule
   ],

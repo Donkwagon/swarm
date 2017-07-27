@@ -16,8 +16,8 @@ export class SecurityService {
                  .catch(this.handleError);
     }
 
-    getSecuritiesByType(type: String): Promise<Security[]> {
-      return this.http.get(this.securitiesUrl + '/type/' + type)
+    getSecuritiesByExchange(exchange: string): Promise<Security[]> {
+      return this.http.get(this.securitiesUrl + '/exchange/' + exchange)
                  .toPromise()
                  .then(response => response.json() as Security[])
                  .catch(this.handleError);

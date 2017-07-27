@@ -23,6 +23,7 @@ export class ExchangeOverallComponent implements OnInit {
     private route: ActivatedRoute,
     private exchangeService: ExchangeService,
     private securityService: SecurityService) {
+      this.exchange = new Exchange();
   }
 
   ngOnInit() {

@@ -19,8 +19,9 @@ security.get("", function(req, res) {
   });
 });
 
-security.get("/site/:siteName", function(req, res) {
-  db.collection(SECURITY_COLLECTION).find({siteName: req.params.siteName}).toArray(function(err, docs) {
+security.get("/exchange/:exchange", function(req, res) {
+  db.collection(SECURITY_COLLECTION).find({exchange: req.params.exchange}).limit(100).toArray(function(err, docs) {
+    console.log(docs);
     if (err) {
       handleError(res, err.message, "Failed to get securities.");
     } else {

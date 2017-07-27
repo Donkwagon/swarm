@@ -1,3 +1,9 @@
-<p>
-  exchange-securities works!
-</p>
+<perfect-scrollbar class="f1 content-list-wrapper c w100">
+  <div class="list-item r" *ngFor="let security of securities">
+    <span class="f1">{{security.exchange}}</span>
+    <span class="f1">{{security.symbol}}</span>
+    <span class="f2">{{security.securityName}}</span>
+    <span class="f162">{{security.sector}}</span>
+    <span class="f162">{{security.industry}}</span>
+  </div>
+</perfect-scrollbar>
