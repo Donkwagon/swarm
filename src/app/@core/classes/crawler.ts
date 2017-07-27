@@ -56,8 +56,7 @@ export class Crawler {
         this.editHistory = [];
         this.validation = false;
 
-        this.developer.name = developer.displayName;
-        this.developer.uid = developer.uid;
+        this.developer = {name:developer.displayName,uid:developer.id};
 
         this.created_at = new Date();
         this.updated_at = new Date();

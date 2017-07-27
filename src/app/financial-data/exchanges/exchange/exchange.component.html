@@ -1,2 +1,18 @@
 
+  <div class="page-secondary-nav-wrapper s0 r" *ngIf="exchange">
+
+    <a routerLink="/fdata/ex/{{exchange.exchange}}/overall"  routerLinkActive="active" class="page-secondary-nav">
+      {{exchange.exchange}}
+    </a>
+
+    <a routerLink="/fdata/ex/{{exchange.exchange}}/s/overall"  routerLinkActive="active" class="page-secondary-nav">
+      Securities
+    </a>
+
+    <a routerLink="/fdata/ex/{{exchange.exchange}}/overall"  routerLinkActive="active" class="page-secondary-nav">
+      Settings
+    </a>
+
+    
+  </div>
 <router-outlet></router-outlet>

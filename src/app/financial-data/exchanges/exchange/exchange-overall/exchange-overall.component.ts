@@ -39,5 +39,4 @@ export class ExchangeOverallComponent implements OnInit {
       this.exchange = res;
     })
   }
-
 }
