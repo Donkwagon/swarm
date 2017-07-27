@@ -9,6 +9,9 @@ var exchangeSchema = new Schema({
 
   numSecurities: Number,
 
+  sectorMappingPercent: Number,   //percent of total securities mapped with sector info
+  industryMappingPercent: Number, //percent of total securities mapped with industry info
+
   created_at: Date,
   updated_at: Date
   
