@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '_theme';
-
+html{background-color:#000;}
 
 body{
     @extend .fixed-full-screen;
@@ -8,7 +8,7 @@ body{
     font-family: $font-stack;
     font-size:15px;
     color:$WHITE;
-    background-image: linear-gradient(to bottom, #000 0%, darken(#000, 5%) 100%);
+    background-color:#000;;
 }
 
 .active{

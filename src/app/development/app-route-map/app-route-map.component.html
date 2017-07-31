@@ -1,3 +1,22 @@
-<p>
-  app-route-map works!
-</p>
+<div class="route-map-box">
+  <span>{{routerMapper.name}}</span>
+  <div class="r">
+    <div class="route-map-box" *ngFor="let el of routerMapper.children">
+      {{el.name}}
+      <div class="route-map-box" *ngFor="let e of el.children">
+        {{e.name}}
+        <div class="route-map-box" *ngFor="let ea of e.children">
+          {{ea.name}}
+          <div class="route-map-box" *ngFor="let eb of ea.children">
+            {{eb.name}}
+            <div class="route-map-box" *ngFor="let ec of eb.children">
+              {{ec.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>

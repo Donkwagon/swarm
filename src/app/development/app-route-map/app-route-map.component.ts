@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
+import { RouterMapper }      from '../../@core/classes/router-mapper';
 
 @Component({
   selector: 'app-app-route-map',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppRouteMapComponent implements OnInit {
 
-  constructor() { }
+  routerMapper: RouterMapper;
+
+  constructor(private router: Router) {
+
+    this.routerMapper = new RouterMapper("SWARM",router.config);
+
+  }
 
   ngOnInit() {
+    console.log(JSON.stringify(this.routerMapper));
   }
 
 }
