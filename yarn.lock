@@ -168,12 +168,6 @@
     q "^1.4.1"
     viz.js "^1.6.0"
 
-"@newrelic/native-metrics@^2.1.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@newrelic/native-metrics/-/native-metrics-2.1.1.tgz#2a7abd87373e46b3c957a08124a72c0c41968dc8"
-  dependencies:
-    nan "^2.4.0"
-
 "@ngtools/json-schema@1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.0.5.tgz#ad39037c70c88b245ac7267a71777646b6063d77"
@@ -257,10 +251,6 @@ agent-base@2:
     extend "~3.0.0"
     semver "~5.0.1"
 
-agent-base@~1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-1.0.2.tgz#6890d3fb217004b62b70f8928e0fae5f8952a706"
-
 ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
@@ -287,6 +277,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular2-infinite-scroll@^0.3.5:
+  version "0.3.43"
+  resolved "https://registry.yarnpkg.com/angular2-infinite-scroll/-/angular2-infinite-scroll-0.3.43.tgz#f7205c228d0de8a2df560089586b0ef7f571c0b6"
 
 angular2-perfect-scrollbar@^2.0.6:
   version "2.0.6"
@@ -1203,14 +1197,6 @@ compression@^1.5.2:
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
-
-concat-stream@^1.5.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
-  dependencies:
-    inherits "^2.0.3"
-    readable-stream "^2.2.2"
-    typedarray "^0.0.6"
 
 configstore@^3.0.0:
   version "3.1.0"
@@ -2660,14 +2646,6 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
-https-proxy-agent@^0.3.5:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-0.3.6.tgz#713fa38e5d353f50eb14a342febe29033ed1619b"
-  dependencies:
-    agent-base "~1.0.1"
-    debug "2"
-    extend "3"
-
 https-proxy-agent@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-1.0.0.tgz#35f7da6c48ce4ddbfa264891ac593ee5ff8671e6"
@@ -3145,7 +3123,7 @@ json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
-json-stringify-safe@^5.0.0, json-stringify-safe@~5.0.1:
+json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
@@ -3881,10 +3859,6 @@ nan@2.5.0, nan@^2.3.0, nan@^2.3.2:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
 
-nan@^2.4.0:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
-
 ncname@1.0.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ncname/-/ncname-1.0.0.tgz#5b57ad18b1ca092864ef62b0b1ed8194f383b71c"
@@ -3894,18 +3868,6 @@ ncname@1.0.x:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
-
-newrelic@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-2.0.1.tgz#2e4c4edbc12cf6fe3245b82a5d964237ef73d7a7"
-  dependencies:
-    concat-stream "^1.5.0"
-    https-proxy-agent "^0.3.5"
-    json-stringify-safe "^5.0.0"
-    readable-stream "^2.1.4"
-    semver "^5.3.0"
-  optionalDependencies:
-    "@newrelic/native-metrics" "^2.1.0"
 
 ng2-ace-editor@^0.2.3:
   version "0.2.3"
@@ -4927,7 +4889,7 @@ readable-stream@2.2.7, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-
     string_decoder "~1.0.0"
     util-deprecate "~1.0.1"
 
-readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.9:
+readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.9:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.3.tgz#368f2512d79f9d46fdfc71349ae7878bbc1eb95c"
   dependencies:
@@ -6023,10 +5985,6 @@ type-is@~1.6.15:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.15"
-
-typedarray@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
 typescript@2.4.1:
   version "2.4.1"
