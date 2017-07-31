@@ -8,27 +8,27 @@ export class SiteService {
     private sitesUrl = '/queen/SA';
 
     constructor (private http: Http) {}
-    runTest(): Promise<String[]> {
+    runTest(): Promise<String[] | void> {
       return this.http.get('/queen/test')
                  .toPromise()
                  .then(response => response.json() as String[])
                  .catch(this.handleError);
     }
-    crawlAuthors(): Promise<String[]> {
+    crawlAuthors(): Promise<String[] | void> {
       return this.http.get('/queen/test/author')
                  .toPromise()
                  .then(response => response.json() as String[])
                  .catch(this.handleError);
     }
 
-    crawlArticles(): Promise<String[]> {
+    crawlArticles(): Promise<String[] | void> {
       return this.http.get('/queen/test/article')
                  .toPromise()
                  .then(response => response.json() as String[])
                  .catch(this.handleError);
     }
 
-    commenceProbing(): Promise<String[]> {
+    commenceProbing(): Promise<String[] | void> {
       return this.http.get(this.sitesUrl)
                  .toPromise()
                  .then(response => response.json() as String[])
@@ -37,7 +37,7 @@ export class SiteService {
 
 
     // get("/site/sites")
-    getSites(): Promise<Site[]> {
+    getSites(): Promise<Site[] | void> {
       return this.http.get(this.sitesUrl)
                  .toPromise()
                  .then(response => response.json() as Site[])
@@ -45,7 +45,7 @@ export class SiteService {
     }
 
     // get("/site/sites")
-    getSitesByStatus(status: String): Promise<Site[]> {
+    getSitesByStatus(status: String): Promise<Site[] | void> {
       return this.http.get(this.sitesUrl + '/status/' + status)
                  .toPromise()
                  .then(response => response.json() as Site[])
@@ -53,7 +53,7 @@ export class SiteService {
     }
 
      // get("/site/sites/:id")
-    getsite(siteId: String): Promise<Site> {
+    getsite(siteId: String): Promise<Site | void> {
       return this.http.get(this.sitesUrl + '/' + siteId)
                  .toPromise()
                  .then(response => response.json() as Site)
@@ -61,7 +61,7 @@ export class SiteService {
     }
 
     // post("/site/sites")
-    createSite(newsite: Site): Promise<Site> {
+    createSite(newsite: Site): Promise<Site | void> {
       var data = newsite;
       return this.http.post(this.sitesUrl, data)
                  .toPromise()
@@ -72,7 +72,7 @@ export class SiteService {
    
 
     // delete("/site/sites/:id")
-    deleteSite(delsiteId: String): Promise<String> {
+    deleteSite(delsiteId: String): Promise<String | void> {
       return this.http.delete(this.sitesUrl + '/' + delsiteId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -80,7 +80,7 @@ export class SiteService {
     }
 
     // put("/site/sites/:id")
-    updateSite(putsite: Site): Promise<Site> {
+    updateSite(putsite: Site): Promise<Site | void> {
       var putUrl = this.sitesUrl + '/' + putsite._id;
       return this.http.put(putUrl, putsite)
                  .toPromise()

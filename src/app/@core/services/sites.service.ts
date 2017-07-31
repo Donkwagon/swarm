@@ -8,7 +8,7 @@ export class SiteService {
     private SitesUrl = '/queen/site';
 
     constructor (private http: Http) {}
-    commenceProbing(): Promise<String[]> {
+    commenceProbing(): Promise<String[] | void> {
       return this.http.get(this.SitesUrl)
                  .toPromise()
                  .then(response => response.json() as String[])
@@ -17,7 +17,7 @@ export class SiteService {
 
 
     // get("/Site/Sites")
-    getSites(): Promise<Site[]> {
+    getSites(): Promise<Site[] | void> {
       return this.http.get(this.SitesUrl)
                  .toPromise()
                  .then(response => response.json() as Site[])
@@ -25,7 +25,7 @@ export class SiteService {
     }
 
     // get("/Site/Sites")
-    getSitesBySite(name: String): Promise<Site[]> {
+    getSitesBySite(name: String): Promise<Site[] | void> {
       return this.http.get(this.SitesUrl + '/site/' + name)
                  .toPromise()
                  .then(response => response.json() as Site[])
@@ -33,7 +33,7 @@ export class SiteService {
     }
 
      // get("/Site/Sites/:id")
-    getSite(SiteId: String): Promise<Site> {
+    getSite(SiteId: String): Promise<Site | void> {
       return this.http.get(this.SitesUrl + '/' + SiteId)
                  .toPromise()
                  .then(response => response.json() as Site)
@@ -41,7 +41,7 @@ export class SiteService {
     }
 
     // post("/Site/Sites")
-    createSite(newSite: Site): Promise<Site> {
+    createSite(newSite: Site): Promise<Site | void> {
       var data = newSite;
       return this.http.post(this.SitesUrl, data)
                  .toPromise()
@@ -52,7 +52,7 @@ export class SiteService {
    
 
     // delete("/Site/Sites/:id")
-    deleteSite(delSiteId: String): Promise<String> {
+    deleteSite(delSiteId: String): Promise<String | void> {
       return this.http.delete(this.SitesUrl + '/' + delSiteId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -60,7 +60,7 @@ export class SiteService {
     }
 
     // put("/Site/Sites/:id")
-    updateSite(putSite: Site): Promise<Site> {
+    updateSite(putSite: Site): Promise<Site | void> {
       var putUrl = this.SitesUrl + '/' + putSite._id;
       return this.http.put(putUrl, putSite)
                  .toPromise()

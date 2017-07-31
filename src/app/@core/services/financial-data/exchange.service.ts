@@ -9,14 +9,14 @@ export class ExchangeService {
 
     constructor (private http: Http) {}
 
-    getExchanges(): Promise<Exchange[]> {
+    getExchanges(): Promise<Exchange[] | void> {
       return this.http.get(this.exchangesUrl)
                  .toPromise()
                  .then(response => response.json() as Exchange[])
                  .catch(this.handleError);
     }
 
-    getNumSecurities(exchange: string): Promise<Number> {
+    getNumSecurities(exchange: string): Promise<Number | void> {
       return this.http.get(this.exchangesUrl + "/num-securities/" + exchange)
                  .toPromise()
                  .then(response => response.json() as Number)
@@ -24,28 +24,28 @@ export class ExchangeService {
     }
 
 
-    fetchLatestExchanges(): Promise<any> {
+    fetchLatestExchanges(): Promise<any | void> {
       return this.http.get(this.exchangesUrl + "/fetch-lastest-exchanges")
                  .toPromise()
                  .then(response => response.json() as any)
                  .catch(this.handleError);
     }
 
-    getExchangesByType(type: String): Promise<Exchange[]> {
+    getExchangesByType(type: String): Promise<Exchange[] | void> {
       return this.http.get(this.exchangesUrl + '/type/' + type)
                  .toPromise()
                  .then(response => response.json() as Exchange[])
                  .catch(this.handleError);
     }
 
-    getExchange(exchangeSymbol: String): Promise<Exchange> {
+    getExchange(exchangeSymbol: String): Promise<Exchange | void> {
       return this.http.get(this.exchangesUrl + '/' + exchangeSymbol)
                  .toPromise()
                  .then(response => response.json() as Exchange)
                  .catch(this.handleError);
     }
 
-    createExchange(newexchange: Exchange): Promise<Exchange> {
+    createExchange(newexchange: Exchange): Promise<Exchange | void> {
       let data = newexchange;
       return this.http.post(this.exchangesUrl, data)
                  .toPromise()
@@ -53,14 +53,14 @@ export class ExchangeService {
                  .catch(this.handleError);
     }
 
-    deleteExchange(deleteExchangeId: String): Promise<String> {
+    deleteExchange(deleteExchangeId: String): Promise<String | void> {
       return this.http.delete(this.exchangesUrl + '/' + deleteExchangeId)
                  .toPromise()
                  .then(response => response.json() as String)
                  .catch(this.handleError);
     }
 
-    updateExchange(putexchange: Exchange): Promise<Exchange> {
+    updateExchange(putexchange: Exchange): Promise<Exchange | void> {
       let putUrl = this.exchangesUrl + '/' + putexchange._id;
       return this.http.put(putUrl, putexchange)
                  .toPromise()

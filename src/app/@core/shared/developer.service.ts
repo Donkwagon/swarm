@@ -21,21 +21,21 @@ export class DeveloperService {
       return this.developer;
     }
 
-    getDevelopers(): Promise<Developer[]> {
+    getDevelopers(): Promise<Developer[] | void> {
       return this.http.get(this.developersUrl)
                  .toPromise()
                  .then(response => response.json() as Developer[])
                  .catch(this.handleError);
     }
 
-    getDeveloper(developerId: String): Promise<Developer> {
+    getDeveloper(developerId: String): Promise<Developer | void> {
       return this.http.get(this.developersUrl + '/' + developerId)
                  .toPromise()
                  .then(response => response.json() as Developer)
                  .catch(this.handleError);
     }
 
-    createDeveloper(newdeveloper: Developer): Promise<Developer> {
+    createDeveloper(newdeveloper: Developer): Promise<Developer | void> {
       var data = newdeveloper;
       return this.http.post(this.developersUrl, data)
                  .toPromise()
@@ -43,14 +43,14 @@ export class DeveloperService {
                  .catch(this.handleError);
     }
 
-    deleteDeveloper(deleteDeveloperId: String): Promise<String> {
+    deleteDeveloper(deleteDeveloperId: String): Promise<String | void> {
       return this.http.delete(this.developersUrl + '/' + deleteDeveloperId)
                  .toPromise()
                  .then(response => response.json() as String)
                  .catch(this.handleError);
     }
 
-    initializeDeveloper(putdeveloper: Developer): Promise<Developer> {
+    initializeDeveloper(putdeveloper: Developer): Promise<Developer | void> {
       var putUrl = this.developersUrl + '/initialize/' + putdeveloper._id;
       return this.http.put(putUrl, putdeveloper)
                  .toPromise()
@@ -58,7 +58,7 @@ export class DeveloperService {
                  .catch(this.handleError);
     }
 
-    updateDeveloper(putdeveloper: Developer): Promise<Developer> {
+    updateDeveloper(putdeveloper: Developer): Promise<Developer | void> {
       var putUrl = this.developersUrl + '/' + putdeveloper._id;
       return this.http.put(putUrl, putdeveloper)
                  .toPromise()

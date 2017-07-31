@@ -10,14 +10,14 @@ export class BacklogService {
     constructor (private http: Http) {}
 
     // get("/backlog/backlogs")
-    getbacklogs(): Promise<Backlog[]> {
+    getbacklogs(): Promise<Backlog[] | void> {
       return this.http.get(this.backlogsUrl)
                  .toPromise()
                  .then(response => response.json() as Backlog[])
                  .catch(this.handleError);
     }
 
-    archiveBacklogs(): Promise<any> {
+    archiveBacklogs(): Promise<any | void> {
       return this.http.get(this.backlogsUrl + "/archive")
                  .toPromise()
                  .then(response => response.json() as any)
@@ -25,7 +25,7 @@ export class BacklogService {
     }
 
 
-    typecleaning(): Promise<any> {
+    typecleaning(): Promise<any | void> {
       return this.http.get(this.backlogsUrl + "/typecleaning")
                  .toPromise()
                  .then(response => response.json() as any)
@@ -33,7 +33,7 @@ export class BacklogService {
     }
 
 
-    generate(): Promise<any> {
+    generate(): Promise<any | void> {
       return this.http.get(this.backlogsUrl + "/generate")
                  .toPromise()
                  .then(response => response.json() as any)
@@ -41,7 +41,7 @@ export class BacklogService {
     }
 
     // get("/backlog/backlogs")
-    getbacklogsByType(type: String): Promise<Backlog[]> {
+    getbacklogsByType(type: String): Promise<Backlog[] | void> {
       return this.http.get(this.backlogsUrl + '/type/' + type)
                  .toPromise()
                  .then(response => response.json() as Backlog[])
@@ -49,7 +49,7 @@ export class BacklogService {
     }
 
      // get("/backlog/backlogs/:id")
-    getbacklog(backlogId: String): Promise<Backlog> {
+    getbacklog(backlogId: String): Promise<Backlog | void> {
       return this.http.get(this.backlogsUrl + '/' + backlogId)
                  .toPromise()
                  .then(response => response.json() as Backlog)
@@ -57,7 +57,7 @@ export class BacklogService {
     }
 
     // post("/backlog/backlogs")
-    creatEbacklog(newbacklog: Backlog): Promise<Backlog> {
+    creatEbacklog(newbacklog: Backlog): Promise<Backlog | void> {
       var data = newbacklog;
       return this.http.post(this.backlogsUrl, data)
                  .toPromise()
@@ -68,7 +68,7 @@ export class BacklogService {
    
 
     // delete("/backlog/backlogs/:id")
-    deletEbacklog(delbacklogId: String): Promise<String> {
+    deletEbacklog(delbacklogId: String): Promise<String | void> {
       return this.http.delete(this.backlogsUrl + '/' + delbacklogId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -76,7 +76,7 @@ export class BacklogService {
     }
 
     // put("/backlog/backlogs/:id")
-    updatbacklog(putbacklog: Backlog): Promise<Backlog> {
+    updatbacklog(putbacklog: Backlog): Promise<Backlog | void> {
       var putUrl = this.backlogsUrl + '/' + putbacklog._id;
       return this.http.put(putUrl, putbacklog)
                  .toPromise()

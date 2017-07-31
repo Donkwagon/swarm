@@ -10,7 +10,7 @@ export class DatabaseService {
 
 
     // get("/Site/Sites")
-    getNameSpaces(): Promise<any[]> {
+    getNameSpaces(): Promise<any[] | void> {
       return this.http.get(this.DatabaseUrl)
                  .toPromise()
                  .then(response => response.json() as any[])

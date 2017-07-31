@@ -8,7 +8,7 @@ export class EntranceService {
     private entrancesUrl = '/queen/entrance';
 
     constructor (private http: Http) {}
-    commenceProbing(): Promise<String[]> {
+    commenceProbing(): Promise<String[] | void> {
       return this.http.get(this.entrancesUrl)
                  .toPromise()
                  .then(response => response.json() as String[])
@@ -17,7 +17,7 @@ export class EntranceService {
 
 
     // get("/entrance/entrances")
-    getEntrances(): Promise<Entrance[]> {
+    getEntrances(): Promise<Entrance[] | void> {
       return this.http.get(this.entrancesUrl)
                  .toPromise()
                  .then(response => response.json() as Entrance[])
@@ -25,7 +25,7 @@ export class EntranceService {
     }
 
     // get("/entrance/entrances")
-    getEntrancesBySite(siteName: String): Promise<Entrance[]> {
+    getEntrancesBySite(siteName: String): Promise<Entrance[] | void> {
       return this.http.get(this.entrancesUrl + '/site/' + siteName)
                  .toPromise()
                  .then(response => response.json() as Entrance[])
@@ -33,7 +33,7 @@ export class EntranceService {
     }
 
      // get("/entrance/entrances/:id")
-    getEntrance(entranceId: String): Promise<Entrance> {
+    getEntrance(entranceId: String): Promise<Entrance | void> {
       return this.http.get(this.entrancesUrl + '/' + entranceId)
                  .toPromise()
                  .then(response => response.json() as Entrance)
@@ -41,7 +41,7 @@ export class EntranceService {
     }
 
     // post("/entrance/entrances")
-    createEntrance(newentrance: Entrance): Promise<Entrance> {
+    createEntrance(newentrance: Entrance): Promise<Entrance | void> {
       var data = newentrance;
       return this.http.post(this.entrancesUrl, data)
                  .toPromise()
@@ -52,7 +52,7 @@ export class EntranceService {
    
 
     // delete("/entrance/entrances/:id")
-    deleteEntrance(delentranceId: String): Promise<String> {
+    deleteEntrance(delentranceId: String): Promise<String | void> {
       return this.http.delete(this.entrancesUrl + '/' + delentranceId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -60,7 +60,7 @@ export class EntranceService {
     }
 
     // put("/entrance/entrances/:id")
-    updatEntrance(putentrance: Entrance): Promise<Entrance> {
+    updatEntrance(putentrance: Entrance): Promise<Entrance | void> {
       var putUrl = this.entrancesUrl + '/' + putentrance._id;
       return this.http.put(putUrl, putentrance)
                  .toPromise()

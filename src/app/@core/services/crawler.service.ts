@@ -8,14 +8,14 @@ export class CrawlerService {
     private CrawlersUrl = '/queen/crawler';
 
     constructor (private http: Http) {}
-    generateBacklog(crawler: Crawler): Promise<any> {
+    generateBacklog(crawler: Crawler): Promise<any | void> {
       return this.http.post(this.CrawlersUrl + "/generateBacklog", crawler)
                  .toPromise()
                  .then(response => response.json() as any)
                  .catch(this.handleError);
     }
 
-    commenceProbing(): Promise<String[]> {
+    commenceProbing(): Promise<String[] | void> {
       return this.http.get(this.CrawlersUrl)
                  .toPromise()
                  .then(response => response.json() as String[])
@@ -23,7 +23,7 @@ export class CrawlerService {
     }
 
     // post("/Crawler/Crawlers")
-    runCode(crawler: Crawler): Promise<Crawler> {
+    runCode(crawler: Crawler): Promise<Crawler | void> {
       console.log("data");
       return this.http.post(this.CrawlersUrl + '/run', crawler)
                  .toPromise()
@@ -33,7 +33,7 @@ export class CrawlerService {
 
 
     // get("/Crawler/Crawlers")
-    getCrawlers(): Promise<Crawler[]> {
+    getCrawlers(): Promise<Crawler[] | void> {
       return this.http.get(this.CrawlersUrl)
                  .toPromise()
                  .then(response => response.json() as Crawler[])
@@ -41,7 +41,7 @@ export class CrawlerService {
     }
 
     // get("/Crawler/Crawlers")
-    getCrawlersBySite(siteName: String): Promise<Crawler[]> {
+    getCrawlersBySite(siteName: String): Promise<Crawler[] | void> {
       return this.http.get(this.CrawlersUrl + '/site/' + siteName)
                  .toPromise()
                  .then(response => response.json() as Crawler[])
@@ -49,7 +49,7 @@ export class CrawlerService {
     }
 
      // get("/Crawler/Crawlers/:id")
-    getCrawler(CrawlerId: String): Promise<Crawler> {
+    getCrawler(CrawlerId: String): Promise<Crawler | void> {
       return this.http.get(this.CrawlersUrl + '/' + CrawlerId)
                  .toPromise()
                  .then(response => response.json() as Crawler)
@@ -57,7 +57,7 @@ export class CrawlerService {
     }
 
     // post("/Crawler/Crawlers")
-    createCrawler(newCrawler: Crawler): Promise<Crawler> {
+    createCrawler(newCrawler: Crawler): Promise<Crawler | void> {
       var data = newCrawler;
       return this.http.post(this.CrawlersUrl, data)
                  .toPromise()
@@ -68,7 +68,7 @@ export class CrawlerService {
    
 
     // delete("/Crawler/Crawlers/:id")
-    deleteCrawler(delCrawlerId: String): Promise<String> {
+    deleteCrawler(delCrawlerId: String): Promise<String | void> {
       return this.http.delete(this.CrawlersUrl + '/' + delCrawlerId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -76,7 +76,7 @@ export class CrawlerService {
     }
 
     // put("/Crawler/Crawlers/:id")
-    updateCrawler(putCrawler: Crawler): Promise<Crawler> {
+    updateCrawler(putCrawler: Crawler): Promise<Crawler | void> {
       var putUrl = this.CrawlersUrl + '/' + putCrawler._id;
       return this.http.put(putUrl, putCrawler)
                  .toPromise()
