@@ -1,3 +1,32 @@
-<p>
-  development works!
-</p>
+
+<div class="app-page f1 c">
+
+  <div class="page-cover c">
+    <div class="page-cover-info page-cover-developer r">
+      <div class="c">
+        <span>Development</span>
+      </div>
+    </div>
+
+    <div class="page-cover-nav-wrapper r">
+      <a routerLink="/dev/UML" routerLinkActive="active" class="page-cover-nav">
+        UML
+      </a>
+      <a routerLink="/dev/overall" routerLinkActive="active" class="page-cover-nav">
+        Overall
+      </a>
+      <a routerLink="/dev/routemap" routerLinkActive="active" class="page-cover-nav">
+        App Route Map
+      </a>
+      <a routerLink="/dev/database" routerLinkActive="active" class="page-cover-nav">
+        Database
+      </a>
+    </div>
+
+  </div>
+
+  <div class="page-body c">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

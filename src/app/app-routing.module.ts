@@ -58,6 +58,7 @@ import { DevelopmentComponent }              from './development/development.com
 import { UMLComponent }                      from './development/uml/uml.component';
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
+import { AppRouteMapComponent }              from './development/app-route-map/app-route-map.component';
 
 import { MessagesComponent }                 from './messages/messages.component';
 import { ConversationComponent }             from './messages/conversation/conversation.component';
@@ -140,7 +141,8 @@ const routes: Routes = [
     { path: '', redirectTo: 'overall', pathMatch: 'full' },
     { path: 'overall', component: DevelopmentOverallComponent},
     { path: 'UML', component: UMLComponent},
-    { path: 'database', component: DatabaseComponent}
+    { path: 'database', component: DatabaseComponent},
+    { path: 'routemap', component: AppRouteMapComponent}
   ]},
   { path: 'messages', component: MessagesComponent, children: [
     { path: 't/:developerId', component: ConversationComponent}

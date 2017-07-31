@@ -12,6 +12,7 @@ import { TaskService } from '../../../@core/services/task.service';
   styleUrls: ['./developer-tasks-overall.component.scss'],
   providers: [ TaskService ]
 })
+
 export class DeveloperTasksOverallComponent implements OnInit {
 
   developer: Developer;

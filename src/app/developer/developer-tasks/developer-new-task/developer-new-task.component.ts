@@ -15,7 +15,6 @@ import { TaskService } from '../../../@core/services/task.service';
 export class DeveloperNewTaskComponent implements OnInit {
 
   developer: Developer;
-
   task: Task;
 
   constructor(private developerService: DeveloperService, private taskService: TaskService) {

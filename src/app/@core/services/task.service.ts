@@ -8,20 +8,12 @@ export class TaskService {
     private TasksUrl = '/facility/task';
 
     constructor (private http: Http) {}
-    commenceProbing(): Promise<String[] | void> {
-      return this.http.get(this.TasksUrl)
-                 .toPromise()
-                 .then(response => response.json() as String[])
-                 .catch(this.handleError);
-    }
-
 
     // get("/Task/Tasks")
-    getTasks(): Promise<Task[] | void> {
+    getTasks(): Promise<Task[]> {
       return this.http.get(this.TasksUrl)
                  .toPromise()
-                 .then(response => response.json() as Task[])
-                 .catch(this.handleError);
+                 .then(response => response.json() as Task[]);
     }
 
     getTasksByType(complete: Boolean): Promise<Task[] | void> {
@@ -32,11 +24,10 @@ export class TaskService {
     }
 
      // get("/Task/Tasks/:id")
-    getTask(TaskId: String): Promise<Task | void> {
+    getTask(TaskId: String): Promise<Task> {
       return this.http.get(this.TasksUrl + '/' + TaskId)
                  .toPromise()
-                 .then(response => response.json() as Task)
-                 .catch(this.handleError);
+                 .then(response => response.json() as Task);
     }
 
     // post("/Task/Tasks")
@@ -49,7 +40,6 @@ export class TaskService {
     }
 
    
-
     // delete("/Task/Tasks/:id")
     deleteTask(delTaskId: String): Promise<String | void> {
       return this.http.delete(this.TasksUrl + '/' + delTaskId)

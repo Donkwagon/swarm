@@ -32,7 +32,6 @@ article.get("/site/:siteName", function(req, res) {
 article.post("", function(req, res) {
   var newarticle = req.body;
   newarticle.createDate = new Date();
-  console.log(req.body);
 
   db.collection(article_COLLECTION).insertOne(newarticle, function(err, doc) {
     if (err) {

@@ -88,6 +88,7 @@ import { DevelopmentComponent }              from './development/development.com
 import { UMLComponent }                      from './development/uml/uml.component';
 import { DatabaseComponent }                 from './development/database/database.component';
 import { DevelopmentOverallComponent }       from './development/development-overall/development-overall.component';
+import { AppRouteMapComponent }              from './development/app-route-map/app-route-map.component';
 
 import { MessagesComponent }                 from './messages/messages.component';
 import { ConversationComponent }             from './messages/conversation/conversation.component';
@@ -99,10 +100,10 @@ import { SecuritiesComponent }               from './financial-data/securities/s
 import { ExchangeComponent }                 from './financial-data/exchanges/exchange/exchange.component';
 import { ExchangesOverallComponent }         from './financial-data/exchanges/exchanges-overall/exchanges-overall.component';
 import { ExchangeOverallComponent }          from './financial-data/exchanges/exchange/exchange-overall/exchange-overall.component';
-import { ExchangeSecuritiesComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-securities.component';
+import { ExchangeSecuritiesComponent }       from './financial-data/exchanges/exchange/exchange-securities/exchange-securities.component';
 import { ExchangeSecuritiesOverallComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-securities-overall/exchange-securities-overall.component';
-import { ExchangeSecurityComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-security/exchange-security.component';
-import { ExchangeSettingsComponent } from './financial-data/exchanges/exchange/exchange-settings/exchange-settings.component';
+import { ExchangeSecurityComponent }         from './financial-data/exchanges/exchange/exchange-securities/exchange-security/exchange-security.component';
+import { ExchangeSettingsComponent }         from './financial-data/exchanges/exchange/exchange-settings/exchange-settings.component';
 
 
 
@@ -121,7 +122,7 @@ import { ExchangeSettingsComponent } from './financial-data/exchanges/exchange/e
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
     ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
-    DevelopmentComponent, UMLComponent, DatabaseComponent, DevelopmentOverallComponent,
+    DevelopmentComponent, UMLComponent, DatabaseComponent, AppRouteMapComponent, DevelopmentOverallComponent,
     MessagesComponent, ConversationComponent,
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,

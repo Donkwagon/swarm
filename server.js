@@ -74,7 +74,7 @@ const facility =      require('./server/facility/facility');
 
 app.use('/queen',queen);
 app.use('/system',system);
-app.use('/facility',facility);
+app.use('/facility',facility); // facility is a backend system that support the development logistics
 //////////////////////////////////////////
 
 
