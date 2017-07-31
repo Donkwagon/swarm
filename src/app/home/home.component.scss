@@ -10,6 +10,10 @@
 
         .module-body{
             color:$WHITE;
+            padding:$padding-side $padding-side;
+            border-left:$CYAN_S1 solid 1px;
+            border-right:$CYAN_S1 solid 1px;
+            border-bottom:$CYAN_S1 solid 1px;
 
             .task{
                 padding:0.1em 0;

@@ -5,8 +5,6 @@ var mongoose =        require('mongoose');
 var http =            require('http');
 var dotenv =          require('dotenv').config();
 
-var chalk =           require('chalk');
-
 var admin =           require("firebase-admin");
 var serviceAccount =  require("./server/firebase/swarm-c0b98-firebase-adminsdk-q66u1-685dfe1150");
 
@@ -32,7 +30,7 @@ const server = http.createServer(app);
 server.listen(process.env.PORT || 8100, function (err) {
     if (err) {console.log(err);process.exit(1);}
     var port = server.address().port;
-    console.log(chalk.cyan("App now running on port", port));
+    console.log("App now running on port",port);
 });
 //////////////////////////////////////////
 
@@ -41,7 +39,6 @@ server.listen(process.env.PORT || 8100, function (err) {
 //Connect to mongoose db
 // Use native promises
 // mongoose.Promise = require('bluebird');
-
 var MongoDbConStr = "mongodb://Donkw:Idhap007@ds115532-a0.mlab.com:15532,ds115532-a1.mlab.com:15532/heroku_tln16g2j?replicaSet=rs-ds115532";
 // global.db = (global.db ? global.db : mongoose.createConnection(MongoDbConStr));
 global.db = mongoose.createConnection(MongoDbConStr);
@@ -65,7 +62,6 @@ global.io = io;
 
 //////////////////////////////////////////
 //Connect to redis
-
 const REDIS_URI = "redis://h:p10e2291dd27b529d725f40a493f27246b12dd8879cc38924ae68f318964aaeb7@ec2-34-225-146-66.compute-1.amazonaws.com:46449";
 global.client = require('redis').createClient(REDIS_URI);
 
