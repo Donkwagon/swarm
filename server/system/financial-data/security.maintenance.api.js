@@ -16,16 +16,94 @@ securityMaintenance.get("/IEX-listing", function(req, res) {
     //fetch IEX list and map to listed seurities 
     //https://www.iextrading.com/api/mobile/refdata
 
-    var URL = "https://www.iextrading.com/trading/eligible-symbols/";
+    var URL = "https://www.iextrading.com/api/mobile/refdata";
 
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
+
     req.get({url: URL,headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
         }
     }, function(error, response, html){
-        console.log(response);
+
+        var listing = JSON.parse(response.body);
+        var len = listing.length;
+        var i = 0;
+        
+        updateIEXListing(listing, i, len);
+
+        res.status(200).json(response);
     });
 });
+
+updateIEXListing = function(listing, i, len) {
+    if(i < len){
+        var symbol = listing[i].Symbol;
+
+        db.collection(SECURITY_COLLECTION).findOneAndUpdate({'symbol': symbol}, {$set:{IEXListed:true}}, function(err, doc) {
+            if (err) {
+                handleError(res, err.message, "Failed to update security");
+                i++;
+                console.log(doc);
+                updateIEXListing(listing, i, len)
+            } else {
+                i++;
+                console.log(doc);
+                updateIEXListing(listing, i, len)
+            }
+        });
+
+
+    }else{
+        console.log("update completed!");
+    }
+}
+
+
+securityMaintenance.get("/IEX-data/symbol/:symbol", function(req, res) {
+    //fetch security data from IEX API 1.0 (free)
+    //https://api.iextrading.com/1.0/stock/amd/stats
+
+    var symbol = req.params.symbol;
+
+    var properties =   ["quote","company","news","financials","earnings","logo"];
+
+    properties.forEach(property => {
+        console.log("symbol" + symbol);
+        IEXRequestToData(symbol,property);
+    })
+
+});
+
+IEXRequestToData = function(symbol,propertyName) {
+
+    var URL = "https://api.iextrading.com/1.0";
+
+    URL = URL + "/stock/" + symbol + "/" + propertyName;
+    console.log(URL);
+
+    req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
+
+    req.get({
+        url: URL,
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.96 Safari/537.36'
+        }
+    }, function(error, response, body){
+
+        console.log(body);
+        var set = {};
+        set[propertyName] = JSON.parse(body);
+        console.log(set);
+        db.collection(SECURITY_COLLECTION).findOneAndUpdate({'symbol': symbol}, {$set:set}, function(err, doc) {
+            if (err) {
+                handleError(res, err.message, "Failed to update security");
+            } else {
+                console.log(doc);
+            }
+        });
+    });
+
+}
 
 
 module.exports = securityMaintenance;

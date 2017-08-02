@@ -10,7 +10,14 @@ export class SecurityMaintenanceService {
     constructor (private http: Http) {}
 
     updateIEXListing(): Promise < any > {
-      return this.http.get(this.securitiesUrl + "IEX-listing")
+      return this.http.get(this.securitiesUrl + "/IEX-listing")
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
+    getIEXData(): Promise < any > {
+      return this.http.get(this.securitiesUrl + "/IEX-data/symbol/AMD")
                  .toPromise()
                  .then(response => response.json() as any)
                  .catch(this.handleError);

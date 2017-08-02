@@ -1,3 +1,26 @@
-<p>
-  {{security | json}}
-</p>
+<div class="r">
+  <div class="c f1">
+    <span>{{security.company.symbol}}</span>
+    <span>{{security.company.companyName}}</span>
+    <span>{{security.company.exchange}}</span>
+    <span>{{security.company.industry}}</span>
+    <span>{{security.company.website}}</span>
+    <span class="orange-text">{{security.company.description}}</span>
+    <span>{{security.company.CEO}}</span>
+    <span>{{security.company.issueType}}</span>
+    <span>{{security.company.Technology}}</span>
+
+  </div>
+  <img class="security-logo" [src]="security.logo.url"/>
+
+  <!-- <div class="news c" *ngFor="let news of security.news">
+    <span>{{news.headline}}</span>
+    <span>{{news.source}}</span>
+    <span>{{news.url}}</span>
+    <span>{{news.datetime}}</span>
+    <span>{{news.summary}}</span>
+    <span>{{news.related}}</span>
+    <br>
+  </div> -->
+</div>
+
