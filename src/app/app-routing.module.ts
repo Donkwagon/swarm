@@ -64,6 +64,7 @@ import { MessagesComponent }                 from './messages/messages.component
 import { ConversationComponent }             from './messages/conversation/conversation.component';
 
 import { FinancialDataComponent }            from './financial-data/financial-data.component';
+import { FinancialDataMaintenanceComponent } from './financial-data/financial-data-maintenance/financial-data-maintenance.component';
 import { FinancialDataOverallComponent }     from './financial-data/financial-data-overall/financial-data-overall.component';
 import { ExchangesComponent }                from './financial-data/exchanges/exchanges.component';
 import { SecuritiesComponent }               from './financial-data/securities/securities.component';
@@ -150,6 +151,7 @@ const routes: Routes = [
   { path: 'fdata', component: FinancialDataComponent, children: [
     { path: '', redirectTo: 'overall', pathMatch: 'full' },
     { path: 'overall', component: FinancialDataOverallComponent},
+    { path: 'maintenance', component: FinancialDataMaintenanceComponent},
     { path: 'ex', component: ExchangesComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: ExchangesOverallComponent},

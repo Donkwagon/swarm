@@ -3,7 +3,6 @@ const security = express.Router();
 var SECURITY_COLLECTION = "securities";
 var ObjectID = require('mongodb').ObjectID;
 
-// Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
@@ -21,7 +20,6 @@ security.get("", function(req, res) {
 
 security.get("/exchange/:exchange", function(req, res) {
   db.collection(SECURITY_COLLECTION).find({exchange: req.params.exchange}).limit(100).toArray(function(err, docs) {
-    console.log(docs);
     if (err) {
       handleError(res, err.message, "Failed to get securities.");
     } else {
@@ -30,10 +28,21 @@ security.get("/exchange/:exchange", function(req, res) {
   });
 });
 
+
+security.get("/symbol/:symbol", function(req, res) {
+  db.collection(SECURITY_COLLECTION).findOne({symbol: req.params.symbol}, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get securities.");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
 security.post("", function(req, res) {
+  
   var newsecurity = req.body;
   newsecurity.createDate = new Date();
-  console.log(req.body);
 
   db.collection(SECURITY_COLLECTION).insertOne(newsecurity, function(err, doc) {
     if (err) {

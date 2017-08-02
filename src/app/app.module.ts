@@ -104,6 +104,7 @@ import { ExchangeSecuritiesComponent }       from './financial-data/exchanges/ex
 import { ExchangeSecuritiesOverallComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-securities-overall/exchange-securities-overall.component';
 import { ExchangeSecurityComponent }         from './financial-data/exchanges/exchange/exchange-securities/exchange-security/exchange-security.component';
 import { ExchangeSettingsComponent }         from './financial-data/exchanges/exchange/exchange-settings/exchange-settings.component';
+import { FinancialDataMaintenanceComponent } from './financial-data/financial-data-maintenance/financial-data-maintenance.component';
 
 
 
@@ -127,7 +128,7 @@ import { ExchangeSettingsComponent }         from './financial-data/exchanges/ex
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
     ExchangeOverallComponent, ExchangeSecuritiesComponent,
-    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent
+    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, FinancialDataMaintenanceComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

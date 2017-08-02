@@ -10,6 +10,8 @@ var securitySchema = new Schema({
   industry: String,
   exchange: String,
 
+  IEXListed: Boolean,
+
   created_at: Date,
   updated_at: Date
 });

@@ -30,6 +30,14 @@ export class SecurityService {
                  .catch(this.handleError);
     }
 
+
+    getSecurityBySymbol(symbol: String): Promise<Security | void> {
+      return this.http.get(this.securitiesUrl + '/symbol/' + symbol)
+                 .toPromise()
+                 .then(response => response.json() as Security)
+                 .catch(this.handleError);
+    }
+
     createSecurity(newsecurity: Security): Promise<Security | void> {
       let data = newsecurity;
       return this.http.post(this.securitiesUrl, data)

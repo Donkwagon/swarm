@@ -36,7 +36,7 @@ export class ExchangeSecuritiesComponent implements OnInit {
     this.sub = this.route.parent.params.subscribe(params => {
       this.exchangeSymbol = params['exchangeSymbol'];
       this.getExchange();
-      this.getSecuritiesByExchange();
+      //this.getSecuritiesByExchange();
     });
   }
 
