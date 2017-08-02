@@ -23,9 +23,10 @@ export class AdminComponent implements OnInit {
   getDevelopers() {
     this.developerService.getDevelopers().then(res => {
       console.log(res);
-      res.forEach(developer => {
+      
+      res ? res.forEach(developer => {
         this.developers.push(developer);
-      });
+      }) : console.log(res);
     });
   }
 

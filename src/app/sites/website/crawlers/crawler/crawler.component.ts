@@ -127,9 +127,9 @@ export class CrawlerComponent implements OnInit {
   getCrawler = () => {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
-
-      this.crawler = res;
-
+      if(res){
+        this.crawler = res;
+      }
     });
 
   }

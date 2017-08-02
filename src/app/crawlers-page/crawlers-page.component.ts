@@ -23,9 +23,9 @@ export class CrawlersPageComponent implements OnInit {
   getCrawlers() {
     this.crawlerService.getCrawlers().then(res => {
       console.log(res);
-      res.forEach(crawler => {
+      res ? res.forEach(crawler => {
         this.crawlers.push(crawler);
-      })
+      }) : console.log(res);
     })
   }
 

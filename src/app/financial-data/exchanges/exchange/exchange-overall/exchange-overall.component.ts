@@ -36,7 +36,7 @@ export class ExchangeOverallComponent implements OnInit {
 
   getExchange() {
     this.exchangeService.getExchange(this.exchangeSymbol).then(res => {
-      this.exchange = res;
+      res ? this.exchange = res : console.log(res);
     })
   }
 }

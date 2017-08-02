@@ -22,7 +22,9 @@ export class SitesOverallComponent implements OnInit {
 
   getSiteList = () => {
     this.siteService.getSites().then(res => {
-      this.sites = res;
+      if(res){
+        this.sites = res;
+      }
     });
   }
 

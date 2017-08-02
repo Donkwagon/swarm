@@ -25,9 +25,9 @@ export class FinancialDataOverallComponent implements OnInit {
   ngOnInit() {
     this.exchangeService.getExchanges().then(res => {
       console.log(res);
-      res.forEach(exchange => {
+      res ? res.forEach(exchange => {
         this.exchanges.push(exchange);
-      });
+      }) : console.log(res);
     })
   }
 

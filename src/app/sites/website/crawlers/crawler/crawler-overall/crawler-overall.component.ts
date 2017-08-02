@@ -55,7 +55,7 @@ export class CrawlerOverallComponent implements OnInit {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
 
-      this.crawler = res;
+      res ? this.crawler = res : console.log(res);
 
     });
 

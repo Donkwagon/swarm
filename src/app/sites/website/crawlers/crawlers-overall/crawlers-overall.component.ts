@@ -47,8 +47,8 @@ export class CrawlersOverallComponent implements OnInit {
     this.crawlerService.getCrawlersBySite(this.siteName).then(res => {
 
       console.log(res);
-      this.crawlers = res;
-      
+      if(res){this.crawlers = res;}
+  
     });
   }
 

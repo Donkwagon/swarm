@@ -42,16 +42,16 @@ export class ExchangeSecuritiesComponent implements OnInit {
 
   getExchange() {
     this.exchangeService.getExchange(this.exchangeSymbol).then(res => {
-      this.exchange = res;
+      res ? this.exchange = res : console.log(res);
     })
   }
 
   getSecuritiesByExchange() {
     this.securityService.getSecuritiesByExchange(this.exchangeSymbol).then(res => {
       console.log(res);
-      res.forEach(security => {
+      res ? res.forEach(security => {
         this.securities.push(security);
-      });
+      }) : console.log(res);
     })
   }
 
