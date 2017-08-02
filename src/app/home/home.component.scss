@@ -1,11 +1,28 @@
 @import '../../_theme';
 
+.quick-nav-wrapper{
+    margin-right:1em;
+    background-color:$CYAN_S2;
+    align-self:flex-start;
+    
+
+    .quick-nav{
+        padding:0.2em 1em 0.2em $padding-side;
+
+        &:hover{
+            cursor:pointer;
+            background-color:$CYAN_S2;
+        }
+    }
+}
+
 .module-list-wrapper{
 
     .module{
 
         .module-head{
-            @extend .grey-material-bar-bright;
+            border:$CYAN_S1 solid 1px;
+            padding:0.2em $padding-side;
         }
 
         .module-body{
