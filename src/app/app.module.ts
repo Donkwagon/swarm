@@ -106,6 +106,8 @@ import { ExchangeSecurityComponent }         from './financial-data/exchanges/ex
 import { ExchangeSettingsComponent }         from './financial-data/exchanges/exchange/exchange-settings/exchange-settings.component';
 import { FinancialDataMaintenanceComponent } from './financial-data/financial-data-maintenance/financial-data-maintenance.component';
 
+import { SandboxComponent }                  from './sandbox/sandbox.component';
+
 
 
 @NgModule({
@@ -128,7 +130,7 @@ import { FinancialDataMaintenanceComponent } from './financial-data/financial-da
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
     ExchangeOverallComponent, ExchangeSecuritiesComponent,
-    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, FinancialDataMaintenanceComponent
+    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, FinancialDataMaintenanceComponent, SandboxComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

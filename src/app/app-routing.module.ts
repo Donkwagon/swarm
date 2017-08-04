@@ -76,11 +76,13 @@ import { ExchangeSecuritiesOverallComponent } from './financial-data/exchanges/e
 import { ExchangeSecurityComponent } from './financial-data/exchanges/exchange/exchange-securities/exchange-security/exchange-security.component';
 import { ExchangeSettingsComponent } from './financial-data/exchanges/exchange/exchange-settings/exchange-settings.component';
 
+import { SandboxComponent }                  from './sandbox/sandbox.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
+  { path: 'sandbox', component: SandboxComponent},
   { path: 'sites', component: SitesComponent, children: [
       { path: '', redirectTo: 'overall', pathMatch: 'full' },
       { path: 'overall', component: SitesOverallComponent},
