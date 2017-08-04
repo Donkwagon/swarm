@@ -65,7 +65,23 @@ securityMaintenance.get("/IEX-data/symbol/:symbol", function(req, res) {
 
     var symbol = req.params.symbol;
 
-    var properties =   ["quote","company","news","financials","earnings","logo"];
+    var properties =   [
+        "quote",
+        "company",
+        "news",
+        "financials",
+        "earnings",
+        "logo",
+        "chart",
+        "chart/1d",
+        "chart/1m",
+        "chart/3m",
+        "chart/6m",
+        "chart/ytd",
+        "chart/1y",
+        "chart/2y",
+        "chart/5y",
+    ];
 
     properties.forEach(property => {
         console.log("symbol" + symbol);
