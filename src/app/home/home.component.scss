@@ -1,9 +1,9 @@
 @import '../../_theme';
 
 .quick-nav-wrapper{
-    margin-right:1em;
     background-color:$CYAN_S2;
     align-self:flex-start;
+    padding:0.2em 0;
     
 
     .quick-nav{
@@ -21,14 +21,15 @@
     .module{
 
         .module-head{
-            border:$CYAN_S1 solid 1px;
+            border-top:$CYAN_S1 solid 1px;
+            border-right:$CYAN_S1 solid 1px;
+            border-bottom:$CYAN_S1 solid 1px;
             padding:0.2em $padding-side;
         }
 
         .module-body{
             color:$WHITE;
             padding:$padding-side $padding-side;
-            border-left:$CYAN_S1 solid 1px;
             border-right:$CYAN_S1 solid 1px;
             border-bottom:$CYAN_S1 solid 1px;
 

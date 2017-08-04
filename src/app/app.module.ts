@@ -82,7 +82,6 @@ import { ResourcesComponent }                from './resources/resources.compone
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
-import { DatabasePageComponent }             from './database-page/database-page.component';
 
 import { DevelopmentComponent }              from './development/development.component';
 import { UMLComponent }                      from './development/uml/uml.component';
@@ -123,7 +122,7 @@ import { SandboxComponent }                  from './sandbox/sandbox.component';
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
-    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent, DatabasePageComponent,
+    ResourcesComponent, AdminComponent, CrawlersPageComponent, DocsPageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
     DevelopmentComponent, UMLComponent, DatabaseComponent, AppRouteMapComponent, DevelopmentOverallComponent,
     MessagesComponent, ConversationComponent,

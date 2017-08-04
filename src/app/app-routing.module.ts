@@ -52,7 +52,6 @@ import { ResourcesComponent }                from './resources/resources.compone
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
-import { DatabasePageComponent }             from './database-page/database-page.component';
 
 import { DevelopmentComponent }              from './development/development.component';
 import { UMLComponent }                      from './development/uml/uml.component';
@@ -139,7 +138,6 @@ const routes: Routes = [
     { path: 'server/:serverId', component: ServerComponent}
   ]},
   { path: 'docs', component: DocsPageComponent},
-  { path: 'database-page', component: DatabasePageComponent},
   { path: 'dev', component: DevelopmentComponent, children: [
     { path: '', redirectTo: 'overall', pathMatch: 'full' },
     { path: 'overall', component: DevelopmentOverallComponent},
