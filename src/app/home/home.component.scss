@@ -1,5 +1,6 @@
 @import '../../_theme';
 
+
 .interface-control-bar{
     background-color:rgb(16, 157, 54);
     background-color:rgba(157,16,54,1);
@@ -21,15 +22,20 @@
 }
 
 .quick-nav-wrapper{
-    background-color:rgba(255,255,255,0.15);
+    background-color:#333;
     align-self:stretch;
     padding:0.2em 0;
-    font-size:0.85em;
-    width:20em;
+    font-size:0.8em;
+    width:20rem;
+    a:link {color: #eee;text-decoration:none;}
+    a:visited {color: #eee;text-decoration:none;}
+    a:hover {color: #eee;text-decoration:none;}
+    a:active {color: #eee;text-decoration:none;}
+
     
 
     .quick-nav{
-        padding:0.2em 1em 0.2em $padding-side;
+        padding:0.1em 1em 0.1em $padding-side;
 
         &:hover{
             cursor:pointer;

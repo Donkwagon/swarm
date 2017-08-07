@@ -5,11 +5,13 @@ html{
 
 }
 
+*{flex-shrink:0;}
+
 body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:18px;
+    font-size:20px;
     color:$WHITE;
     ///background-color:#000;
 }

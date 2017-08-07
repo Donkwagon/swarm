@@ -188,7 +188,7 @@
 
 .app-main-wrapper{
     transition:$transition-fast;
-    padding-top:4.6em;
+    padding-top:4.2em;
 }
 
 .background-blur{
@@ -282,17 +282,17 @@
 
 
     input{
-        // border-top:$PINK solid 1px;
-        // border-right:$PINK solid 1px;
-        // border-bottom:$PINK solid 1px;
+        border-top:$PINK solid 1px;
+        border-right:$PINK solid 1px;
+        border-bottom:$PINK solid 1px;
         width:64%;
         height:100%;
         background-color:rgba(0,0,0,0);
-        background-color:$CYAN_S2;
+        //background-color:$CYAN_S2;
         color:white;
         padding:0;
         font-size:1em;
-        padding:0.1em $padding-side 0.1em 2.2em;
+        padding:0em $padding-side 0em 1em;
     }
 
     .input-icon{
@@ -301,5 +301,16 @@
         font-size:1em;
         color:$PINK;
         margin-left:$padding-side;
+    }
+
+    .arrow-right {
+        position:absolute;
+        top:0;left:0;
+        width: 0; 
+        height: 0; 
+        border-top: 0.65em solid transparent;
+        border-bottom: 0.65em solid transparent;
+        
+        border-left: 0.5em solid $PINK;
     }
 }
