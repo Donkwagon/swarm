@@ -1,9 +1,31 @@
 @import '../../_theme';
 
+.interface-control-bar{
+    background-color:rgb(16, 157, 54);
+    background-color:rgba(157,16,54,1);
+    margin-bottom:-1px;
+    z-index:10;
+    
+    .interface-control-bar-btn{
+        border-top:rgba(255,255,255,0.1) solid 1px;
+        border-bottom:rgba(0,0,0,0.2) solid 1px;
+        border-right:rgba(0,0,0,0.2) solid 1px;
+        color:white;
+        padding:0em 1em;
+
+        &:hover{
+            cursor:pointer;
+            background-color:rgba(255,255,255,0.1);
+        }
+    }
+}
+
 .quick-nav-wrapper{
-    background-color:$CYAN_S2;
-    align-self:flex-start;
+    background-color:rgba(255,255,255,0.15);
+    align-self:stretch;
     padding:0.2em 0;
+    font-size:0.85em;
+    width:20em;
     
 
     .quick-nav{
@@ -17,12 +39,12 @@
 }
 
 .module-list-wrapper{
+    font-size:0.9em;
 
     .module{
 
         .module-head{
             border-top:$CYAN_S1 solid 1px;
-            border-right:$CYAN_S1 solid 1px;
             border-bottom:$CYAN_S1 solid 1px;
             padding:0.2em $padding-side;
         }
@@ -30,14 +52,12 @@
         .module-body{
             color:$WHITE;
             padding:$padding-side $padding-side;
-            border-right:$CYAN_S1 solid 1px;
-            border-bottom:$CYAN_S1 solid 1px;
 
             .task{
                 padding:0.1em 0;
                 
                 span{
-                    padding:0 $padding-side;
+                    padding:0 $padding-side 0 0;
                 }
                 
             }

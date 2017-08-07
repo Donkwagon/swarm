@@ -17,7 +17,7 @@ $CYAN:rgb(106, 244, 255);
 $CYAN_S1:rgba(43, 82, 107,1);
 $CYAN_S2:rgba(73, 112, 137,0.3);
 
-$BLUE:#55B6E8;
+$BLUE:rgb(95, 172, 255);
 $BLACk:rgba(0, 0, 0,1);
 
 $ORANGE:rgba(254, 143, 81, 1);
@@ -138,7 +138,7 @@ $padding-side: 0.5em;
 .cyan-s-2-text{color:$CYAN_S2!important;}
 
 .orange{background-color:$ORANGE;box-shadow: 0 0 9px $ORANGE;}
-.orange-text{color:$ORANGE!important;text-shadow: 0 0 9px $ORANGE;}
+.orange-text{color:$ORANGE!important;}
 
 .red{background-color:$RED;box-shadow: 0 0 9px $RED;}
 .red-text{color:$RED!important;}

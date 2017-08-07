@@ -1,4 +1,69 @@
+<div class="interface-control-bar r">
+  <div class="interface-control-bar-btn">
+    Sites
+  </div>
+  <div class="interface-control-bar-btn">
+    Development
+  </div>
+  <div class="interface-control-bar-btn">
+    My Profile
+  </div>
+  <div class="interface-control-bar-btn">
+    History
+  </div>
+  <div class="interface-control-bar-btn">
+    Tools
+  </div>
+  <div class="f1"></div>
+  <div class="interface-control-bar-btn" style="color:black;">
+    Logout
+  </div>
+</div>
 <div class="r f1">
+  <div class="module-list-wrapper f1 c">
+
+      <div class="module c f1">
+      <div class="module-head">
+        <a routerLink="/developer/tasks/overall">
+          Tasks
+        </a>
+      </div>
+      <div class="module-body c f1">
+        <div class="task r" *ngFor="let task of tasks">
+          <span class="f1">
+            <a routerLink="/developer/tasks/{{task._id}}">
+              <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+              {{task.name}}
+            </a>
+          </span>
+          <span class="f1 orange-text">{{task.description}}</span>
+          <!-- <span class="app-btn" (click)="complete(task)"><i class="fa fa-check-square" aria-hidden="true"></i></span>
+          &nbsp;
+          <span class="app-btn" (click)="deleteTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+        </div>
+        <div class="task r" *ngFor="let task of tasksCompleted">
+          <span class="f1">
+            <a routerLink="/developer/tasks/{{task._id}}">
+              <i class="fa  fa-check-square caption-text" aria-hidden="true"></i>
+              {{task.name}}
+            </a>
+          </span>
+          <span class="f1 orange-text">{{task.description}}</span>
+          <!-- <span class="app-btn" (click)="deleteTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+        </div>
+
+      </div>
+    </div>
+    <div class="module c f1">
+      <div class="module-head">
+        Recent Crawlers
+      </div>
+      <div class="module-body c f1">
+
+      </div>
+    </div> 
+
+  </div>
   <div class="quick-nav-wrapper c">
     <a class="quick-nav r" routerLink="/sites" routerLinkActive="active">
       <i class="fa fa-sitemap" aria-hidden="true"></i>
@@ -68,76 +133,4 @@
     </a>
   </div>
 
-  <div class="module-list-wrapper f1 c">
-
-    <div class="r wr">
-      <div class="module c f162">
-        <div class="module-head">
-          <a routerLink="/developer/tasks/overall">
-            Tasks
-          </a>
-        </div>
-        <div class="module-body c">
-          <div class="category-splitter">
-            Todos
-          </div>
-          <div class="task r" *ngFor="let task of tasks">
-            <span><i class="fa fa-sticky-note-o caption-text" aria-hidden="true"></i></span>
-            <span class="f1">
-              <a routerLink="/developer/tasks/{{task._id}}">
-                {{task.name}}
-              </a>
-            </span>
-            <span class="f1 caption-text">{{task.description}}</span>
-            <span class="app-btn" (click)="complete(task)"><i class="fa fa-check-square" aria-hidden="true"></i></span>
-            &nbsp;
-            <span class="app-btn" (click)="deleteTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-          </div>
-          <div class="category-splitter">
-            Completed
-          </div>
-          <div class="task r" *ngFor="let task of tasksCompleted">
-            <span><i class="fa  fa-check-square caption-text" aria-hidden="true"></i></span>
-            <span class="f1">
-              <a routerLink="/developer/tasks/{{task._id}}">
-                {{task.name}}
-              </a>
-            </span>
-            <span class="f1 caption-text">{{task.description}}</span>
-            <span class="app-btn" (click)="deleteTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-          </div>
-
-        </div>
-      </div>
-      <div class="module c f1">
-        <div class="module-head">
-          Recent Crawlers
-        </div>
-        <div class="module-body c">
-
-        </div>
-      </div>
-    </div>
-
-    <div class="r wr">
-      <div class="module c f162">
-        <div class="module-head">
-          <a routerLink="/messages">
-            Messages
-          </a>
-        </div>
-        <div class="module-body c">
-        </div>
-      </div>
-      <div class="module c f1">
-        <div class="module-head">
-          Resources
-        </div>
-        <div class="module-body c">
-
-        </div>
-      </div>
-    </div>
-
-  </div>
 </div>

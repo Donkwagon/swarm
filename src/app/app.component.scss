@@ -188,7 +188,7 @@
 
 .app-main-wrapper{
     transition:$transition-fast;
-    padding-top:2em;
+    padding-top:4.6em;
 }
 
 .background-blur{
@@ -200,15 +200,18 @@
     top:0;left:0;
     z-index:30;
     width:100%;
-    @extend .grey-material-bar;
+    //@extend .grey-material-bar;
+    padding:0.1em 0 0.1em 0;
+    background-color:#222;
 
     .app-nav-bar-bo{
         position:relative;
         color:#111;
+        align-self:center;
         padding:0 0.2em 0 0.2em;
         margin-right:0.2em;
-        background-image:linear-gradient(to bottom, #fff 0%, #ddd 100%);
-        border-radius:1px;
+        font-size:0.9em;
+        background-image:linear-gradient(to bottom, #ddd 0%, #ccc 100%);
 
         a:link {color: #000;text-decoration:none;}
         a:visited {color: #000;text-decoration:none;}
@@ -256,5 +259,47 @@
             background-color:white;
             color:#000;
         }
+    }
+
+    .nav-btn-narrow{
+        padding:0 0.3em;
+        color:$WHITE;
+        border-radius:1px;
+
+        &:hover{
+            cursor:pointer;
+            background-color:white;
+            color:#000;
+        }
+    }
+}
+
+.app-input-bar{
+    position:absolute;
+    top:100%;
+    width:100%;
+    background-color:transparent;
+
+
+    input{
+        // border-top:$PINK solid 1px;
+        // border-right:$PINK solid 1px;
+        // border-bottom:$PINK solid 1px;
+        width:64%;
+        height:100%;
+        background-color:rgba(0,0,0,0);
+        background-color:$CYAN_S2;
+        color:white;
+        padding:0;
+        font-size:1em;
+        padding:0.1em $padding-side 0.1em 2.2em;
+    }
+
+    .input-icon{
+        position:absolute;
+        top:0.2em;left:0;
+        font-size:1em;
+        color:$PINK;
+        margin-left:$padding-side;
     }
 }

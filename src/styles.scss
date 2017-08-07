@@ -1,14 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import '_theme';
-html{background-color:#000;}
+html{
+    background-color:#000;
+
+}
 
 body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:17px;
+    font-size:18px;
     color:$WHITE;
-    background-color:#000;;
+    ///background-color:#000;
 }
 
 .active{
@@ -39,7 +42,8 @@ a:active {color: $BLUE;text-decoration:none;}
 
 .app-background{
     @extend .fixed-full-screen;
-    background-color:#000;
+    background-image:linear-gradient(to bottom, #181818 0%, #000 100%);
+    //background-color:#000;
 }
 
 .main{

@@ -26,19 +26,18 @@ export class DeveloperTaskComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private developerService: DeveloperService,
-    private taskService: TaskService
-  ) {
+    private taskService: TaskService) {
     this.developer = new Developer();
     this.developer = developerService.accessDeveloper();
-    this.task = new Task(this.developer);
+    console.log(this.developer);
+  }
+
+  ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
       this.taskId = params['taskId'];
       this.getTask();
     });
-  }
-
-  ngOnInit() {
   }
 
   getTask() {
