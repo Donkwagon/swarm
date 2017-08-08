@@ -106,6 +106,7 @@ import { ExchangeSettingsComponent }         from './financial-data/exchanges/ex
 import { FinancialDataMaintenanceComponent } from './financial-data/financial-data-maintenance/financial-data-maintenance.component';
 
 import { SandboxComponent }                  from './sandbox/sandbox.component';
+import { DataComponent } from './data/data.component';
 
 
 
@@ -129,7 +130,7 @@ import { SandboxComponent }                  from './sandbox/sandbox.component';
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
     ExchangeOverallComponent, ExchangeSecuritiesComponent,
-    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, FinancialDataMaintenanceComponent, SandboxComponent
+    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, FinancialDataMaintenanceComponent, SandboxComponent, DataComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,
