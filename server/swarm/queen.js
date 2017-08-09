@@ -4,14 +4,6 @@ var app =         express();
 const queen = express.Router();
 
 /////////////////////////////////////
-//Workers
-const SA =         require('./workers/seeking-alpha.crawler');
-const TEST =       require('./workers/seeking-alpha.backlogs.crawler');
-
-queen.use('/SA', SA);
-queen.use('/TEST', TEST);
-
-/////////////////////////////////////
 //Keepers
 const entrance =         require('./keepers/entrance.api');
 const backlog =          require('./keepers/backlog.api');

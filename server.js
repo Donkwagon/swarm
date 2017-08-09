@@ -8,13 +8,19 @@ var dotenv =          require('dotenv').config();
 var admin =           require("firebase-admin");
 var serviceAccount =  require("./server/firebase/swarm-c0b98-firebase-adminsdk-q66u1-685dfe1150");
 
-// adapter: postgresql
-// database: nvestdb
-// username: nvestdb
-// password: nvest12345
-// host: nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com
-// var pgp = require('pg-promise')();
-// const conString = 'postgres://nvestdb:nvest12345@nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com:5432/nvestdb?ssl=true';
+const { Client } = require('pg');
+
+//////////////////////////////////////////
+//Connect to postgresql database
+const conString = 'postgres://nvestdb:nvest12345@nvest-staging-33.cpq4uvfyn36t.us-east-1.rds.amazonaws.com:5432/nvestdb?ssl=true';
+
+pgClient = new Client({
+  connectionString: conString
+});
+
+pgClient.connect();
+
+global.pgClient = pgClient;
 
 
 //////////////////////////////////////////
