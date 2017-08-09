@@ -5,9 +5,9 @@ const USER_COLLECTION =            "users";
 const RELATIONSHIPS_COLLECTION =   "relationships";
 const COMMENT_COLLECTION =         "comments";
 const POST_COLLECTION =            "posts";
-const COMPANY_COLLECTION =            "companies";
-const SECTOR_COLLECTION =            "sectors";
-const INDUSTRY_COLLECTION =            "industries";
+const COMPANY_COLLECTION =         "companies";
+const SECTOR_COLLECTION =          "sectors";
+const INDUSTRY_COLLECTION =        "industries";
 
 var ObjectID = require('mongodb').ObjectID;
 
