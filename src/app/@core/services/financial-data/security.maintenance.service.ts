@@ -23,6 +23,13 @@ export class SecurityMaintenanceService {
                  .catch(this.handleError);
     }
 
+    getAllIEXListedData(): Promise < any > {
+      return this.http.get(this.securitiesUrl + "/IEX-data/all")
+                 .toPromise()
+                 .then(response => response.json() as any)
+                 .catch(this.handleError);
+    }
+
     private handleError (error: any) {
       const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';

@@ -26,4 +26,10 @@ export class FinancialDataMaintenanceComponent implements OnInit {
     })
   }
 
+  getAllIEXListedData() {
+    this.securityMaintenanceService.getAllIEXListedData().then(res => {
+      console.log(res);
+    })
+  }
+
 }
