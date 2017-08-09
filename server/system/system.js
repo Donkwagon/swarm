@@ -8,7 +8,7 @@ const database =                require('./database/mongodb.api');
 const security =                require('./financial-data/security.api');
 const securityMaintenance =     require('./financial-data/security.maintenance.api');
 const exchange =                require('./financial-data/exchange.api');
-const migrate =                require('./migate/migrate.api');
+const migrate =                require('./migrate/migrate.api');
 
 router.use('/auth', auth);
 router.use('/database', database);

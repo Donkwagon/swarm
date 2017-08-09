@@ -23,7 +23,7 @@ import { CookieService } from 'ngx-cookie';
 
 export class AppComponent {
 
-  developer: Developer;
+  developer: any;
   menuDisplay: boolean;
   appReady: boolean;
 
