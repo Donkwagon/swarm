@@ -1,26 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '_theme';
-html{
-    background-color:#000;
-
-}
 
 *{flex-shrink:0;}
+html{background-color:#000;font-size:14px;}
+img{background:$WHITE;}
 
 body{
     @extend .fixed-full-screen;
     padding:0;margin:0;
     font-family: $font-stack;
-    font-size:16px;
     color:$WHITE;
 }
 
-.active{
-    font-weight:bold;
-    background-color:$CYAN_S1;
-}
-
-img{background:$WHITE;}
+.active{font-weight:bold;background-color:$CYAN_S1;}
 
 ////////////////////////////////////////////////////////////////////////
 /* Frequently used css properties */
@@ -44,7 +36,6 @@ a:active {color: $BLUE;text-decoration:none;}
 .app-background{
     @extend .fixed-full-screen;
     background-image:linear-gradient(to bottom, #181818 0%, #000 100%);
-    //background-color:#000;
 }
 
 .main{
@@ -129,19 +120,14 @@ a:active {color: $BLUE;text-decoration:none;}
     }
 }
 
-.page-body{
-    flex:1;
-    //background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.05) 0%, rgba(73, 112, 137,0.01) 100%);
-}
+.page-body{flex:1;}
 
 .side-menu{
     border-right:$CYAN_S1 solid 1px;
     align-self:stretch;
     padding:0.2em 0;
-    width:10rem;
-    font-size:0.9rem;
+    width:12rem;
     
-
     a:link {color: #ddd;text-decoration:none;}
     a:visited {color: #ddd;text-decoration:none;}
     a:hover {color: #ddd;text-decoration:none;}
@@ -178,20 +164,18 @@ input, textarea{
     color:#000;
     font-size:1em;
     font-family:$font-stack;
+    resize:vertical;
 
     &:focus{
         outline:none;
     }
 }
 
-textarea{resize:vertical;}
-
 app-crawlers,app-crawler,app-crawler-code,app-crawlers-page,app-home,app-exchange,app-exchanges,app-exchange-securities{
     display:flex;
     flex-direction:column;
     flex:1;
 }
-
 
 .settings-form{
     padding:0.5em $padding-side;
@@ -204,18 +188,6 @@ app-crawlers,app-crawler,app-crawler-code,app-crawlers-page,app-home,app-exchang
     .settings-input-row{
         padding:0.5em 0;
         border-bottom:$GREY solid 1px;
-        
-        input, textarea{
-            border:none;
-            font-size:1em;
-            color:black;
-            background-color:$CYAN;
-            font-family:$font-stack;
-
-            &:focus{
-                outline:none;
-            }
-        }
     }
 }
 
