@@ -1,44 +1,43 @@
 
-<div class="app-page f1 c" *ngIf="site">
-
-  <div class="page-cover c">
+<div class="app-page f1 r" *ngIf="site">
     
-    <div class="page-cover-info page-cover-website r">
-      <img [src]="site.imgUrl"/>
-      <div class="c">
-        <a routerLink="/sites/{{site.name}}/overall">{{site.name}}</a>
-        <span>{{site.url}}</span>
+  <div class="side-menu c">
+    <a routerLink="/sites/{{site.name}}/overall" routerLinkActive="active"  class="side-menu-nav">
+      Overall
+    </a>
+    <a routerLink="/sites/{{site.name}}/crawlers" routerLinkActive="active"  class="side-menu-nav">
+      Crawlers
+    </a>
+    <a routerLink="/sites/{{site.name}}/status" routerLinkActive="active" class="side-menu-nav">
+      Status
+    </a>
+    <a routerLink="/sites/{{site.name}}/mappers" routerLinkActive="active" routerLinkActive="active" class="side-menu-nav">
+      Mappers
+    </a>
+    <a routerLink="/sites/{{site.name}}/data" routerLinkActive="active" class="side-menu-nav">
+      Data
+    </a>
+    <a routerLink="/sites/{{site.name}}/users" routerLinkActive="active" class="side-menu-nav">
+      Users
+    </a>
+    <a routerLink="/sites/{{site.name}}/settings" routerLinkActive="active" class="side-menu-nav">
+      Site Settings
+    </a>
+  </div>
+  <div class="page-body c f1">
+      
+  
+    <div class="page-cover c">
+      
+      <div class="page-cover-info page-cover-website r">
+        <img [src]="site.imgUrl"/>
+        <div class="c">
+          <a routerLink="/sites/{{site.name}}/overall">{{site.name}}</a>
+          <span>{{site.url}}</span>
+        </div>
       </div>
     </div>
-
-    <div class="page-cover-nav-wrapper r">
-      <input placeholder="search"/>
-      <a routerLink="/sites/{{site.name}}/overall" routerLinkActive="active"  class="page-cover-nav">
-        Overall
-      </a>
-      <a routerLink="/sites/{{site.name}}/crawlers" routerLinkActive="active"  class="page-cover-nav">
-        Crawlers
-      </a>
-      <a routerLink="/sites/{{site.name}}/status" routerLinkActive="active" class="page-cover-nav">
-        Status
-      </a>
-      <a routerLink="/sites/{{site.name}}/mappers" routerLinkActive="active" routerLinkActive="active" class="page-cover-nav">
-        Mappers
-      </a>
-      <a routerLink="/sites/{{site.name}}/data" routerLinkActive="active" class="page-cover-nav">
-        Data
-      </a>
-      <a routerLink="/sites/{{site.name}}/users" routerLinkActive="active" class="page-cover-nav">
-        Users
-      </a>
-      <a routerLink="/sites/{{site.name}}/settings" routerLinkActive="active" class="page-cover-nav">
-        Site Settings
-      </a>
-    </div>
-
-  </div>
-
-  <div class="page-body c f1">
+  
 
     <router-outlet></router-outlet>
 

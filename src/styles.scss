@@ -56,11 +56,10 @@ a:active {color: $BLUE;text-decoration:none;}
 
 .app-page{
     @extend .fixed-full-screen;
-    background-color:#000;
+    background-image:linear-gradient(to bottom, #181818 0%, #000 100%);
 }
 
 .page-cover{
-    padding-top:1.3em;
     font-size:1.15em;
 
     .page-cover-info{
@@ -133,7 +132,38 @@ a:active {color: $BLUE;text-decoration:none;}
 
 .page-body{
     flex:1;
-    background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.05) 0%, rgba(73, 112, 137,0.01) 100%);
+    //background-image: linear-gradient(to bottom, rgba(73, 112, 137,0.05) 0%, rgba(73, 112, 137,0.01) 100%);
+}
+
+.side-menu{
+    border-right:$CYAN_S1 solid 1px;
+    align-self:stretch;
+    padding:0.2em 0;
+    width:10rem;
+    color:#aaa;
+    font-size:0.9rem;
+    a:link {color: #aaa;text-decoration:none;}
+    a:visited {color: #aaa;text-decoration:none;}
+    a:hover {color: #aaa;text-decoration:none;}
+    a:active {color: #aaa;text-decoration:none;}
+
+    
+
+    .side-menu-nav{
+        padding:0.5em 1em 0.5em $padding-side;
+        align-items:center;
+        i{width:1em;color:#555;}
+        &:hover{
+            cursor:pointer;
+            background-color:$CYAN_S2;
+        }
+    }
+
+    .splitter{
+        padding:0.5em 1em 0.5em $padding-side;
+        align-items:center;
+        color:#555;
+    }
 }
 
 

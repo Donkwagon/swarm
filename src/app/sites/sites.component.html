@@ -1,26 +1,25 @@
 
-<div class="app-page f1 c">
+<div class="app-page f1 r">
 
-  <div class="page-cover c">
-    <div class="page-cover-info r">
-      <div class="c">
-        <span>Sites</span>
-      </div>
-    </div>
 
-    <div class="page-cover-nav-wrapper r">
-      <input placeholder="search"/>
-      <a  routerLink="/sites/new" routerLinkActive="active"  class="page-cover-nav">
+  <div class="side-menu c">
+      <a  routerLink="/sites/new" routerLinkActive="active"  class="side-menu-nav">
         New Site
       </a>
-      <a  routerLink="/sites/new" routerLinkActive="active"  class="page-cover-nav">
+      <a  routerLink="/sites/new" routerLinkActive="active"  class="side-menu-nav">
         Categories
       </a>
-  </div>
-
-  </div>
+    </div>
 
   <perfect-scrollbar class="page-body c f1">
+    <div class="page-cover c">
+      <div class="page-cover-info r">
+        <div class="c">
+          <span>Sites</span>
+        </div>
+      </div>
+  
+    </div>
 
     <router-outlet></router-outlet>
 

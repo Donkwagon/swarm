@@ -188,11 +188,6 @@
 
 .app-main-wrapper{
     transition:$transition-fast;
-    padding-top:23px;
-}
-
-.background-blur{
-    //filter:blur(0) brightness(0.8) sepia(0.2);
 }
 
 .app-nav-bar{
@@ -200,9 +195,9 @@
     top:0;left:0;
     z-index:30;
     width:100%;
-    //@extend .grey-material-bar;
-    padding:0.1em 0 0.1em 0;
-    background-color:#222;
+    height:2em;
+    align-items:center;
+    border-bottom:$CYAN_S1 solid 1px;
 
     .app-nav-bar-bo{
         position:relative;
@@ -224,15 +219,12 @@
             cursor:pointer;
             background-color:#EEE;
 
-            .app-nav-dropdown{
-                display:flex;
-            }
+            .app-nav-dropdown{display:flex;}
         }
 
         .app-nav-dropdown{
             position:absolute;
-            top:100%;
-            left:0;
+            top:100%;left:0;
             min-width:100%;
             background-color:#ccc;
             display:none;
@@ -262,15 +254,8 @@
     }
 
     .nav-btn-narrow{
+        @extend .nav-btn;
         padding:0 0.3em;
-        color:$WHITE;
-        border-radius:1px;
-
-        &:hover{
-            cursor:pointer;
-            background-color:white;
-            color:#000;
-        }
     }
 }
 
