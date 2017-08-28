@@ -1,25 +1,85 @@
-<div class="interface-control-bar r">
-  <div class="interface-control-bar-btn">
-    Sites
-  </div>
-  <div class="interface-control-bar-btn">
-    Development
-  </div>
-  <div class="interface-control-bar-btn">
-    My Profile
-  </div>
-  <div class="interface-control-bar-btn">
-    History
-  </div>
-  <div class="interface-control-bar-btn">
-    Tools
-  </div>
-  <div class="f1"></div>
-  <div class="interface-control-bar-btn" style="color:black;">
-    Logout
-  </div>
-</div>
+
 <div class="r f1">
+  <div class="quick-nav-wrapper c">
+    <div class="splitter">
+      CRAWL
+    </div>
+    <a class="quick-nav r" routerLink="/sites" routerLinkActive="active">
+      <i class="fa fa-sitemap" aria-hidden="true"></i>
+      &nbsp;
+      Sites
+    </a>
+    <a class="quick-nav r" routerLink="/crawlers" routerLinkActive="active">
+      <i class="fa fa-bug" aria-hidden="true"></i>
+      &nbsp;
+      Crawlers
+    </a>
+    <a class="quick-nav r" routerLink="/docs" routerLinkActive="active">
+      <i class="fa fa-book" aria-hidden="true"></i>
+      &nbsp;
+      Docs
+    </a>
+    <div class="splitter">
+      SYSTEM
+    </div>
+    <a class="quick-nav r" routerLink="/dev/database" routerLinkActive="active">
+      <i class="fa fa-database" aria-hidden="true"></i>
+      &nbsp;
+      Database
+    </a>
+    <a class="quick-nav r" routerLink="/cluster" routerLinkActive="active">
+      <i class="fa fa-connectdevelop" aria-hidden="true"></i>
+      &nbsp;
+      Cluster
+    </a>
+    <a class="quick-nav r" routerLink="/fdata" routerLinkActive="active">
+      <i class="fa fa-database" aria-hidden="true"></i>
+      &nbsp;
+      Financial Data
+    </a>
+    <a class="quick-nav r" routerLink="/dev/UML" routerLinkActive="active">
+      <i class="fa fa-columns" aria-hidden="true"></i>
+      &nbsp;
+      UML
+    </a>
+    <div class="splitter">
+      PERSONAL
+    </div>
+    <a class="quick-nav r" routerLink="/developer/tasks" routerLinkActive="active">
+      <i class="fa fa-tasks" aria-hidden="true"></i>
+      &nbsp;
+      Tasks
+    </a>
+    <a class="quick-nav r" routerLink="/resources" routerLinkActive="active">
+      <i class="fa fa-bath" aria-hidden="true"></i>
+      &nbsp;
+      Resources
+    </a>
+    <a class="quick-nav r" routerLink="/admin" routerLinkActive="active">
+      <i class="fa fa-user-secret" aria-hidden="true"></i>
+      &nbsp;
+      Admin
+    </a>
+    <a class="quick-nav r" routerLink="/developer/settings" routerLinkActive="active">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+      &nbsp;
+      Settings
+    </a>
+    <div class="splitter">
+      OTHERS
+    </div>
+    <a class="quick-nav r" routerLink="/colors" routerLinkActive="active">
+      <i class="fa fa-paint-brush" aria-hidden="true"></i>
+      &nbsp;
+      UI Guidelines
+    </a>
+          
+    <a class="quick-nav r" routerLink="/sandbox" routerLinkActive="active">
+      <i class="fa fa-smile-o" aria-hidden="true"></i>
+      &nbsp;
+      Sandbox
+    </a>
+  </div>
   <div class="module-list-wrapper f1 c">
 
       <div class="module c f1">
@@ -63,74 +123,6 @@
       </div>
     </div> 
 
-  </div>
-  <div class="quick-nav-wrapper c">
-    <a class="quick-nav r" routerLink="/sites" routerLinkActive="active">
-      <i class="fa fa-sitemap" aria-hidden="true"></i>
-      &nbsp;
-      Sites
-    </a>
-    <a class="quick-nav r" routerLink="/crawlers" routerLinkActive="active">
-      <i class="fa fa-bug" aria-hidden="true"></i>
-      &nbsp;
-      Crawlers
-    </a>
-    <a class="quick-nav r" routerLink="/colors" routerLinkActive="active">
-      <i class="fa fa-paint-brush" aria-hidden="true"></i>
-      &nbsp;
-      UI Guidelines
-    </a>
-    <a class="quick-nav r" routerLink="/cluster" routerLinkActive="active">
-      <i class="fa fa-connectdevelop" aria-hidden="true"></i>
-      &nbsp;
-      Cluster
-    </a>
-    <a class="quick-nav r" routerLink="/resources" routerLinkActive="active">
-      <i class="fa fa-bath" aria-hidden="true"></i>
-      &nbsp;
-      Resources
-    </a>
-          
-    <a class="quick-nav r" routerLink="/sandbox" routerLinkActive="active">
-      <i class="fa fa-smile-o" aria-hidden="true"></i>
-      &nbsp;
-      Sandbox
-    </a>
-    <a class="quick-nav r" routerLink="/developer/tasks" routerLinkActive="active">
-      <i class="fa fa-tasks" aria-hidden="true"></i>
-      &nbsp;
-      Tasks
-    </a>
-    <a class="quick-nav r" routerLink="/docs" routerLinkActive="active">
-      <i class="fa fa-book" aria-hidden="true"></i>
-      &nbsp;
-      Docs
-    </a>
-    <a class="quick-nav r" routerLink="/dev/database" routerLinkActive="active">
-      <i class="fa fa-database" aria-hidden="true"></i>
-      &nbsp;
-      Database
-    </a>
-    <a class="quick-nav r" routerLink="/fdata" routerLinkActive="active">
-      <i class="fa fa-database" aria-hidden="true"></i>
-      &nbsp;
-      Financial Data
-    </a>
-    <a class="quick-nav r" routerLink="/dev/UML" routerLinkActive="active">
-      <i class="fa fa-columns" aria-hidden="true"></i>
-      &nbsp;
-      UML
-    </a>
-    <a class="quick-nav r" routerLink="/admin" routerLinkActive="active">
-      <i class="fa fa-user-secret" aria-hidden="true"></i>
-      &nbsp;
-      Admin
-    </a>
-    <a class="quick-nav r" routerLink="/developer/settings" routerLinkActive="active">
-      <i class="fa fa-cog" aria-hidden="true"></i>
-      &nbsp;
-      Settings
-    </a>
   </div>
 
 </div>

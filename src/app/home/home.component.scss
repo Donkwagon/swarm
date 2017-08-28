@@ -2,7 +2,6 @@
 
 
 .interface-control-bar{
-    background-color:rgb(16, 157, 54);
     background-color:rgba(157,16,54,1);
     margin-bottom:-1px;
     z-index:10;
@@ -22,25 +21,34 @@
 }
 
 .quick-nav-wrapper{
-    background-color:#333;
+    border-right:$CYAN_S1 solid 1px;
+    border-top:$CYAN_S1 solid 1px;
     align-self:stretch;
     padding:0.2em 0;
-    font-size:0.8em;
-    width:20rem;
-    a:link {color: #eee;text-decoration:none;}
-    a:visited {color: #eee;text-decoration:none;}
-    a:hover {color: #eee;text-decoration:none;}
-    a:active {color: #eee;text-decoration:none;}
+    width:10rem;
+    color:#aaa;
+    font-size:0.9rem;
+    a:link {color: #aaa;text-decoration:none;}
+    a:visited {color: #aaa;text-decoration:none;}
+    a:hover {color: #aaa;text-decoration:none;}
+    a:active {color: #aaa;text-decoration:none;}
 
     
 
     .quick-nav{
-        padding:0.1em 1em 0.1em $padding-side;
-
+        padding:0.5em 1em 0.5em $padding-side;
+        align-items:center;
+        i{width:1em;color:#555;}
         &:hover{
             cursor:pointer;
             background-color:$CYAN_S2;
         }
+    }
+
+    .splitter{
+        padding:0.5em 1em 0.5em $padding-side;
+        align-items:center;
+        color:#555;
     }
 }
 
