@@ -13,7 +13,6 @@ body{
     font-family: $font-stack;
     font-size:16px;
     color:$WHITE;
-    ///background-color:#000;
 }
 
 .active{
@@ -140,19 +139,19 @@ a:active {color: $BLUE;text-decoration:none;}
     align-self:stretch;
     padding:0.2em 0;
     width:10rem;
-    color:#aaa;
     font-size:0.9rem;
-    a:link {color: #aaa;text-decoration:none;}
-    a:visited {color: #aaa;text-decoration:none;}
-    a:hover {color: #aaa;text-decoration:none;}
-    a:active {color: #aaa;text-decoration:none;}
-
     
+
+    a:link {color: #ddd;text-decoration:none;}
+    a:visited {color: #ddd;text-decoration:none;}
+    a:hover {color: #ddd;text-decoration:none;}
+    a:active {color: #ddd;text-decoration:none;}
 
     .side-menu-nav{
         padding:0.5em 1em 0.5em $padding-side;
         align-items:center;
-        i{width:1em;color:#555;}
+        font-weight:bold;
+        i{width:1em;color:#777;}
         &:hover{
             cursor:pointer;
             background-color:$CYAN_S2;
@@ -162,7 +161,8 @@ a:active {color: $BLUE;text-decoration:none;}
     .splitter{
         padding:0.5em 1em 0.5em $padding-side;
         align-items:center;
-        color:#555;
+        color:#777;
+        font-style: italic;
     }
 }
 
