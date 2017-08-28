@@ -1,0 +1,39 @@
+
+  
+{
+    "extends": "../tsconfig.json",
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ],
+    "include":[
+        "_theme"
+    ],
+    "compilerOptions": {
+        "outDir": "../out-tsc/app",
+        "module": "es2015",
+        "baseUrl": "",
+        "types": [],
+        "target": "es5",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": ["es2015", "dom"],
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "typeRoots": [
+        "./node_modules/@types/"
+        ]
+    },
+
+    "files": [
+        "src/app/app.module.ts",
+        "src/main.ts"
+    ],
+
+    "angularCompilerOptions": {
+        "genDir": "aot",
+        "skipMetadataEmit" : true
+    }
+}
