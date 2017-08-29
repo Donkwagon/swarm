@@ -32,20 +32,7 @@
 <div class="main r" *ngIf="appReady">
 
   <div class="app-nav-bar r">
-
-    <!-- <div class="app-input-bar">
-      <div class="arrow-right"></div>
-      <input type="text" spellcheck="false" placeholder="search and command"/>
-    </div> -->
-
-    <div class="nav-btn-narrow">
-      <i class="fa fa-angle-left" aria-hidden="true"></i>
-    </div>
-
-    <div class="nav-btn-narrow">
-      <i class="fa fa-angle-right" aria-hidden="true"></i>
-    </div>
-    
+    <img id="app-logo-image" src="https://overwatch.gamepedia.com/media/overwatch.gamepedia.com/3/38/Spray_Bastion_Curious.png?version=8f4abb72a60ceb00f47debcb975ecb8e"/>
     <div class="app-nav-bar-bo">
       <a routerLink="/">SWARM</a>
     </div>
@@ -193,7 +180,84 @@
   </div>
 
   <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}" *ngIf="appReady">
-    <router-outlet></router-outlet>
+
+    <div class="side-menu c">
+      <div class="splitter">
+        CRAWL
+      </div>
+      <a class="side-menu-nav r" routerLink="/sites" routerLinkActive="active">
+        <i class="fa fa-sitemap" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Sites
+      </a>
+      <a class="side-menu-nav r" routerLink="/crawlers" routerLinkActive="active">
+        <i class="fa fa-bug" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Crawlers
+      </a>
+      <a class="side-menu-nav r" routerLink="/docs" routerLinkActive="active">
+        <i class="fa fa-book" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Docs
+      </a>
+      <div class="splitter">
+        SYSTEM
+      </div>
+      <a class="side-menu-nav r" routerLink="/dev/database" routerLinkActive="active">
+        <i class="fa fa-database" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Database
+      </a>
+      <a class="side-menu-nav r" routerLink="/cluster" routerLinkActive="active">
+        <i class="fa fa-connectdevelop" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Cluster
+      </a>
+      <a class="side-menu-nav r" routerLink="/fdata" routerLinkActive="active">
+        <i class="fa fa-database" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Financial Data
+      </a>
+      <a class="side-menu-nav r" routerLink="/dev/UML" routerLinkActive="active">
+        <i class="fa fa-columns" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        UML
+      </a>
+      <div class="splitter">
+        PERSONAL
+      </div>
+      <a class="side-menu-nav r" routerLink="/developer/tasks" routerLinkActive="active">
+        <i class="fa fa-tasks" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Tasks
+      </a>
+      <a class="side-menu-nav r" routerLink="/resources" routerLinkActive="active">
+        <i class="fa fa-bath" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Resources
+      </a>
+      <a class="side-menu-nav r" routerLink="/admin" routerLinkActive="active">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Admin
+      </a>
+      <a class="side-menu-nav r" routerLink="/developer/settings" routerLinkActive="active">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        Settings
+      </a>
+      <div class="splitter">
+        OTHERS
+      </div>
+      <a class="side-menu-nav r" routerLink="/colors" routerLinkActive="active">
+        <i class="fa fa-paint-brush" aria-hidden="true"></i>
+        &nbsp;&nbsp;
+        UI Guidelines
+      </a>
+    </div>
+    <div class="f1 c">
+        <router-outlet></router-outlet>
+    </div>
   </div>
   
 </div>

@@ -33,14 +33,14 @@ $GREEN: rgba(62, 175, 77,1);
 $line:rgba(238, 238, 220,0.5);
 
 
-$font-stack:'Open Sans','Exo 2', 'Microsoft Yahei';
+$font-stack:'Roboto','Exo 2', 'Microsoft Yahei';
 
 $padding-side: 0.5em;
 
 
 .fixed-full-screen{
     position:fixed;top:0;left:0;width:100%;height:100%;
-    padding-top:2em;
+    padding-top:3em;
 }
 
 .app-btn{
