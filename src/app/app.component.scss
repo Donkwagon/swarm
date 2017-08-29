@@ -199,25 +199,34 @@
     align-items:center;
     border-bottom:$CYAN_S1 solid 1px;
     background-color:$CYAN_S1;
+    font-weight:500;
     
     #app-logo-image{
-        height:2em;width:2em;
+        height:1.6em;width:1.6em;
         margin-left:1em;
         margin-right:1em;
     }
 
+    .logo-text{
+        font-size:1.2em;
+        font-weight:500;
+        color:rgba(255,255,255,1);
+        margin:0 24px;
+    }
+
     .app-nav-bar-bo{
         position:relative;
-        color:#111;
+        color:rgba(0,0,0,0.6);
         align-self:center;
-        padding:0 0.2em 0 0.2em;
+        padding:2px 0.2em 2px 0.2em;
         margin-right:0.2em;
+        border-radius:2px;
         background-image:linear-gradient(to bottom, #ddd 0%, #ccc 100%);
 
-        a:link {color: #000;text-decoration:none;}
-        a:visited {color: #000;text-decoration:none;}
-        a:hover {color: #000;text-decoration:none;}
-        a:active {color: #000;text-decoration:none;}
+        a:link {color: rgba(0,0,0,0.6);text-decoration:none;}
+        a:visited {color: rgba(0,0,0,0.6);text-decoration:none;}
+        a:hover {color: rgba(0,0,0,0.6);text-decoration:none;}
+        a:active {color: rgba(0,0,0,0.6);text-decoration:none;}
 
         i{color:#777;}
 
@@ -251,6 +260,7 @@
         padding:0 0.5em;
         color:$WHITE;
         border-radius:1px;
+        color:#fff;
 
         &:hover{
             cursor:pointer;

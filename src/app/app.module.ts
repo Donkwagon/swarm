@@ -78,7 +78,6 @@ import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/craw
 
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
-import { DocsPageComponent }                 from './docs-page/docs-page.component';
 
 import { DevelopmentComponent }              from './development/development.component';
 import { UMLComponent }                      from './development/uml/uml.component';
@@ -119,7 +118,7 @@ import { DataComponent } from './data/data.component';
     SitesOverallComponent, WebsiteOverallComponent, CrawlersOverallComponent,
     CrawlerOverallComponent, CrawlerDocumentationComponent, CrawlerSettingsComponent, CrawlerCodeComponent,
     CrawlerEditHistoryComponent, WebsiteDataComponent, WebsiteUsersComponent,
-    AdminComponent, CrawlersPageComponent, DocsPageComponent,
+    AdminComponent, CrawlersPageComponent,
     ClusterComponent, ServerComponent, ClusterOverallComponent, DeveloperTaskComponent, HomeComponent, 
     DevelopmentComponent, UMLComponent, DatabaseComponent, AppRouteMapComponent, DevelopmentOverallComponent,
     MessagesComponent, ConversationComponent,
