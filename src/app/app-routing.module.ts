@@ -46,7 +46,6 @@ import { DeveloperTaskComponent }            from './developer/developer-tasks/d
 
 import { DeveloperInboxComponent }           from './developer/developer-inbox/developer-inbox.component';
 
-import { ResourcesComponent }                from './resources/resources.component';
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
 import { DocsPageComponent }                 from './docs-page/docs-page.component';
@@ -106,7 +105,6 @@ const routes: Routes = [
         ]
       }
   ]},
-  { path: 'resources', component: ResourcesComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'crawlers', component: CrawlersPageComponent},
   { path: 'developer', component: DeveloperComponent, children: [

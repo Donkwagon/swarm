@@ -182,74 +182,60 @@
   <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}" *ngIf="appReady">
 
     <div class="side-menu c">
-      <div class="splitter">
-        CRAWL
-      </div>
+
+      <div class="splitter">CRAWL</div>
+
       <a class="side-menu-nav r" routerLink="/sites" routerLinkActive="active">
         <i class="fa fa-sitemap" aria-hidden="true"></i>
-        
         Sites
       </a>
       <a class="side-menu-nav r" routerLink="/crawlers" routerLinkActive="active">
         <i class="fa fa-bug" aria-hidden="true"></i>
-        
         Crawlers
       </a>
       <a class="side-menu-nav r" routerLink="/docs" routerLinkActive="active">
         <i class="fa fa-book" aria-hidden="true"></i>
-        
         Docs
       </a>
-      <div class="splitter">
-        SYSTEM
-      </div>
+
+      <div class="splitter">SYSTEM</div>
+
       <a class="side-menu-nav r" routerLink="/dev/database" routerLinkActive="active">
         <i class="fa fa-database" aria-hidden="true"></i>
-        
         Database
       </a>
       <a class="side-menu-nav r" routerLink="/cluster" routerLinkActive="active">
         <i class="fa fa-connectdevelop" aria-hidden="true"></i>
-        
         Cluster
       </a>
       <a class="side-menu-nav r" routerLink="/fdata" routerLinkActive="active">
         <i class="fa fa-database" aria-hidden="true"></i>
-        
         Financial Data
       </a>
       <a class="side-menu-nav r" routerLink="/dev/UML" routerLinkActive="active">
         <i class="fa fa-columns" aria-hidden="true"></i>
-        
         UML
       </a>
-      <div class="splitter">
-        PERSONAL
-      </div>
+
+      <div class="splitter">PERSONAL</div>
       <a class="side-menu-nav r" routerLink="/developer/tasks" routerLinkActive="active">
         <i class="fa fa-tasks" aria-hidden="true"></i>
-        
         Tasks
-      </a>
-      <a class="side-menu-nav r" routerLink="/resources" routerLinkActive="active">
-        <i class="fa fa-bath" aria-hidden="true"></i>
-        
-        Resources
       </a>
       <a class="side-menu-nav r" routerLink="/admin" routerLinkActive="active">
         <i class="fa fa-user-secret" aria-hidden="true"></i>
-        
         Admin
       </a>
       <a class="side-menu-nav r" routerLink="/developer/settings" routerLinkActive="active">
         <i class="fa fa-cog" aria-hidden="true"></i>
-        
         Settings
       </a>
     </div>
+
     <perfect-scrollbar class="f1 c">
         <router-outlet></router-outlet>
     </perfect-scrollbar>
+
   </div>
   
 </div>
