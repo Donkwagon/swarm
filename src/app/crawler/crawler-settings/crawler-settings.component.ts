@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute }                          from '@angular/router';
 
-import { Crawler }                           from '../../../../../@core/classes/crawler';
-import { CrawlerService }                    from '../../../../../@core/services/crawler.service';
+import { Crawler }                           from '../../@core/classes/crawler';
+import { CrawlerService }                    from '../../@core/services/crawler.service';
 
-import { Site }                              from '../../../../../@core/classes/site';
-import { SiteService }                       from '../../../../../@core/services/sites.service';
+import { Site }                              from '../../@core/classes/site';
+import { SiteService }                       from '../../@core/services/sites.service';
 
-import { Developer }                         from '../../../../../@core/classes/developer';
-import { DeveloperService }                  from '../../../../../@core/shared/developer.service';
+import { Developer }                         from '../../@core/classes/developer';
+import { DeveloperService }                  from '../../@core/shared/developer.service';
 
 @Component({
   selector: 'app-crawler-settings',

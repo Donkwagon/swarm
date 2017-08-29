@@ -1,26 +1,26 @@
-import { Component, OnInit, ViewChild }      from '@angular/core';
-import { ActivatedRoute }                    from '@angular/router';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { ActivatedRoute }                          from '@angular/router';
 
-import { Crawler }                           from '../../../../@core/classes/crawler';
-import { CrawlerService }                    from '../../../../@core/services/crawler.service';
+import { Crawler }                           from '../../@core/classes/crawler';
+import { CrawlerService }                    from '../../@core/services/crawler.service';
+import { Site }                              from '../../@core/classes/site';
+import { SiteService }                       from '../../@core/services/sites.service';
 
-import { Site }                              from '../../../../@core/classes/site';
-import { SiteService }                       from '../../../../@core/services/sites.service';
+import { Developer }                         from '../../@core/classes/developer';
+import { DeveloperService }                  from '../../@core/shared/developer.service';
 
-import { Developer }                              from '../../../../@core/classes/developer';
-import { DeveloperService }                       from '../../../../@core/shared/developer.service';
-
-import { SocketService }                     from '../../../../@core/services/socket.service';
+import { SocketService }                     from '../../@core/services/socket.service';
 import { AceEditorComponent } from 'ng2-ace-editor'; 
 
+
 @Component({
-  selector: 'app-crawler',
-  templateUrl: './crawler.component.html',
-  styleUrls: ['./crawler.component.scss'],
+  selector: 'app-crawler-code',
+  templateUrl: './crawler-code.component.html',
+  styleUrls: ['./crawler-code.component.scss'],
   providers: [CrawlerService,SiteService,SocketService]
 })
 
-export class CrawlerComponent implements OnInit {
+export class CrawlerCodeComponent implements OnInit {
 
   @ViewChild('editor') editor;
   messages = [];
@@ -28,8 +28,6 @@ export class CrawlerComponent implements OnInit {
   testingDataOutput;
   testingData = [];
   message;
-
-  mode: string;
 
   sub_crawler:any;
   siteName: string;
@@ -55,6 +53,8 @@ export class CrawlerComponent implements OnInit {
   max: number;
   min: number;
 
+  consoleMode: string;
+
   developer: Developer;
 
   constructor(
@@ -67,25 +67,25 @@ export class CrawlerComponent implements OnInit {
       this.urlTypes = ["CONSTANT","ID RANGE","TICKER"];
 
       this.newUrlSectionPanel = false;
-      
+
       this.developer = new Developer();
       this.developer = developerService.accessDeveloper();
-
+      
       this.crawler = new Crawler(this.developer);
-
       this.resetNewInputs();
-      this.mode = "settings";
+
+      this.consoleMode = "response";
 
   }
 
   ngOnInit() {
 
-    this.sub = this.route.parent.parent.params.subscribe(params => {
+    this.sub = this.route.parent.parent.parent.params.subscribe(params => {
       this.siteName = params['siteName'];
       this.getSiteInfo();
     });
 
-    this.sub_crawler = this.route.params.subscribe(params => {
+    this.sub_crawler = this.route.parent.params.subscribe(params => {
       this.crawlerId = params['crawlerId'];
       this.getCrawler();
     });
@@ -114,8 +114,6 @@ export class CrawlerComponent implements OnInit {
 
   }
 
-  selectmode = (mode) => {this.mode = mode;}
-  
   getSiteInfo = () => {
 
     this.siteService.getSitesBySite(this.siteName).then(res => {
@@ -127,9 +125,7 @@ export class CrawlerComponent implements OnInit {
   getCrawler = () => {
 
     this.crawlerService.getCrawler(this.crawlerId).then(res => {
-      if(res){
-        this.crawler = res;
-      }
+      Object.assign(this.crawler, res);
     });
 
   }
@@ -209,18 +205,21 @@ export class CrawlerComponent implements OnInit {
   ////////////////////////////////////////////////////////////////////////////
 
   setTestingStrategy = () => {
+
     if(this.testingStrategy === 'single'){
         this.crawler.testingStrategy = {
           type: "single",
           id : 1024
         }
     }
+
     if(this.testingStrategy === 'multiple'){
         this.crawler.testingStrategy = {
           type: "multiple",
           num : 1024
         }
     }
+
   }
 
   onChange = () => {}
@@ -231,6 +230,20 @@ export class CrawlerComponent implements OnInit {
   }
 
   validateCode = () => {
+  }
+
+  generateBacklog = () => {
+    this.crawlerService.generateBacklog(this.crawler).then(res => {
+      console.log(res);
+    });
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //Ouput Interface logic
+  ////////////////////////////////////////////////////////////////////////////
+
+  selectConsoleMode = (consoleMode) => {
+    this.consoleMode = consoleMode;
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -247,5 +260,5 @@ export class CrawlerComponent implements OnInit {
     this.message = '';
 
   }
-  
+
 }

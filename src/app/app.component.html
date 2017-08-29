@@ -82,7 +82,7 @@
 
   </div>
 
-  <div class="app-main-wrapper r f1" [ngClass]="{'background-blur':menuDisplay}" *ngIf="appReady">
+  <div class="app-main-wrapper r f1" *ngIf="appReady">
 
     <div class="side-menu c">
 
@@ -132,7 +132,9 @@
     </div>
 
     <perfect-scrollbar class="f1 c">
+
         <router-outlet></router-outlet>
+        
     </perfect-scrollbar>
 
   </div>

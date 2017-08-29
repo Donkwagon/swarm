@@ -20,16 +20,16 @@ import { MappersComponent }                  from './sites/website/mappers/mappe
 import { SettingsComponent }                 from './sites/website/settings/settings.component';
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
 
-import { CrawlersOverallComponent }          from './sites/website/crawlers/crawlers-overall/crawlers-overall.component';
-import { CrawlerDocumentationComponent }     from './sites/website/crawlers/crawler/crawler-documentation/crawler-documentation.component';
-import { CrawlerSettingsComponent }          from './sites/website/crawlers/crawler/crawler-settings/crawler-settings.component';
-import { CrawlerOverallComponent }           from './sites/website/crawlers/crawler/crawler-overall/crawler-overall.component';
-import { CrawlerCodeComponent }              from './sites/website/crawlers/crawler/crawler-code/crawler-code.component';
-import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/crawler/crawler-edit-history/crawler-edit-history.component';
+import { CrawlerComponent }                  from './crawler/crawler.component';
+import { CrawlerDocumentationComponent }     from './crawler/crawler-documentation/crawler-documentation.component';
+import { CrawlerSettingsComponent }          from './crawler/crawler-settings/crawler-settings.component';
+import { CrawlerOverallComponent }           from './crawler/crawler-overall/crawler-overall.component';
+import { CrawlerCodeComponent }              from './crawler/crawler-code/crawler-code.component';
+import { CrawlerEditHistoryComponent }       from './crawler/crawler-edit-history/crawler-edit-history.component';
 
+import { CrawlersOverallComponent }          from './sites/website/crawlers/crawlers-overall/crawlers-overall.component';
 
 import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
-import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 import { StatusComponent }                   from './sites/website/status/status.component';
 
 import { DeveloperComponent }                from './developer/developer.component';
@@ -91,18 +91,18 @@ const routes: Routes = [
           { path: 'crawlers', component: CrawlersComponent, children: [
             { path: '', redirectTo: 'overall', pathMatch: 'full' },
             { path: 'overall', component: CrawlersOverallComponent},
-            { path: 'new', component: NewCrawlerComponent},
-            { path: ':crawlerId', component: CrawlerComponent, children: [
-              { path: '', redirectTo: 'overall', pathMatch: 'full' },
-              { path: 'overall', component: CrawlerOverallComponent},
-              { path: 'code', component: CrawlerCodeComponent},
-              { path: 'documentation', component: CrawlerDocumentationComponent},
-              { path: 'settings', component: CrawlerSettingsComponent},
-              { path: 'history', component: CrawlerEditHistoryComponent}
-            ]}
+            { path: 'new', component: NewCrawlerComponent}
           ]}
         ]
       }
+  ]},
+  { path: 'cr/:crawlerId', component: CrawlerComponent, children: [
+    { path: '', redirectTo: 'overall', pathMatch: 'full' },
+    { path: 'overall', component: CrawlerOverallComponent},
+    { path: 'code', component: CrawlerCodeComponent},
+    { path: 'documentation', component: CrawlerDocumentationComponent},
+    { path: 'settings', component: CrawlerSettingsComponent},
+    { path: 'history', component: CrawlerEditHistoryComponent}
   ]},
   { path: 'admin', component: AdminComponent},
   { path: 'crawlers', component: CrawlersPageComponent},

@@ -52,8 +52,6 @@ import { StatusComponent }                   from './sites/website/status/status
 import { CrawlersComponent }                 from './sites/website/crawlers/crawlers.component';
 import { CrawlersOverallComponent }          from './sites/website/crawlers/crawlers-overall/crawlers-overall.component';
 import { NewCrawlerComponent }               from './sites/website/crawlers/new-crawler/new-crawler.component';
-import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
-import { CrawlerOverallComponent }           from './sites/website/crawlers/crawler/crawler-overall/crawler-overall.component';
 
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
@@ -71,10 +69,13 @@ import { DeveloperInboxComponent }           from './developer/developer-inbox/d
 import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
 
 import { SharedModule }                      from './@core/shared/shared.module';
-import { CrawlerDocumentationComponent }     from './sites/website/crawlers/crawler/crawler-documentation/crawler-documentation.component';
-import { CrawlerSettingsComponent }          from './sites/website/crawlers/crawler/crawler-settings/crawler-settings.component';
-import { CrawlerCodeComponent }              from './sites/website/crawlers/crawler/crawler-code/crawler-code.component';
-import { CrawlerEditHistoryComponent }       from './sites/website/crawlers/crawler/crawler-edit-history/crawler-edit-history.component';
+
+import { CrawlerComponent }                  from './crawler/crawler.component';
+import { CrawlerOverallComponent }           from './crawler/crawler-overall/crawler-overall.component';
+import { CrawlerDocumentationComponent }     from './crawler/crawler-documentation/crawler-documentation.component';
+import { CrawlerSettingsComponent }          from './crawler/crawler-settings/crawler-settings.component';
+import { CrawlerCodeComponent }              from './crawler/crawler-code/crawler-code.component';
+import { CrawlerEditHistoryComponent }       from './crawler/crawler-edit-history/crawler-edit-history.component';
 
 import { AdminComponent }                    from './admin/admin.component';
 import { CrawlersPageComponent }             from './crawlers-page/crawlers-page.component';
@@ -102,13 +103,13 @@ import { ExchangeSettingsComponent }         from './financial-data/exchanges/ex
 import { FinancialDataMaintenanceComponent } from './financial-data/financial-data-maintenance/financial-data-maintenance.component';
 
 import { DataComponent } from './data/data.component';
+import { SecurityComponent } from './security/security.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, SitesComponent,
-    WebsiteComponent, 
+    AppComponent, SitesComponent,WebsiteComponent, 
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
     DeveloperComponent, DeveloperSettingsComponent, DeveloperSettingsBasicComponent,
@@ -125,7 +126,8 @@ import { DataComponent } from './data/data.component';
     FinancialDataComponent, FinancialDataOverallComponent, ExchangesComponent,
     SecuritiesComponent, ExchangeComponent, ExchangesOverallComponent,
     ExchangeOverallComponent, ExchangeSecuritiesComponent,
-    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, FinancialDataMaintenanceComponent, DataComponent
+    ExchangeSecuritiesOverallComponent, ExchangeSecurityComponent, ExchangeSettingsComponent, 
+    FinancialDataMaintenanceComponent, DataComponent, SecurityComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,

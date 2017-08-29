@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute }                          from '@angular/router';
 
-import { Crawler }                           from '../../../../../@core/classes/crawler';
-import { CrawlerService }                    from '../../../../../@core/services/crawler.service';
-import { Site }                              from '../../../../../@core/classes/site';
-import { SiteService }                       from '../../../../../@core/services/sites.service';
+import { Crawler }                           from '../../@core/classes/crawler';
+import { CrawlerService }                    from '../../@core/services/crawler.service';
+import { Site }                              from '../../@core/classes/site';
+import { SiteService }                       from '../../@core/services/sites.service';
 
 @Component({
   selector: 'app-crawler-overall',
