@@ -35,7 +35,7 @@ a:active {color: $BLUE;text-decoration:none;}
 
 .app-background{
     @extend .fixed-full-screen;
-    background-image:linear-gradient(to bottom, #181818 0%, #000 100%);
+    background-image:linear-gradient(to bottom, #191919 0%, #080808 100%);
 }
 
 .main{
@@ -44,20 +44,16 @@ a:active {color: $BLUE;text-decoration:none;}
     align-items:stretch;
 }
 
-.app-page{
-    // @extend .fixed-full-screen;
-    // background-image:linear-gradient(to bottom, #181818 0%, #000 100%);
-}
 
 .page-cover{
     background-color:$CYAN_S2;
 
     .page-cover-info{
         align-items:center;
-        padding:0.5em 1em;
+        padding:16px 24px 8px 24px;
 
         h1{
-            font-size:1.28em;
+            font-size:1.43em;
             font-weight:normal;
             margin:0;padding:0;
         }
@@ -67,8 +63,9 @@ a:active {color: $BLUE;text-decoration:none;}
 
         .page-cover-nav{
             color:white;
-            padding:0.5em 1em;
+            padding:8px 24px;
             color:#bbb;
+            font-weight:500;
 
             &:hover{
                 cursor:pointer;
@@ -126,27 +123,28 @@ a:active {color: $BLUE;text-decoration:none;}
     flex:1;
 
     .page-body-content{
-        width:900px;
+        width:936px;
+        border:$CYAN_S1 solid 1px;
         margin:2em auto;
         
     }
 }
 
 .side-menu{
-    border-right:$CYAN_S1 solid 2px;
     align-self:stretch;
-    width:12rem;
+    width:16rem;
+    background-color:rgba(0,0,0,0.2);
     
-    a:link {color: #bbb;text-decoration:none;}
-    a:visited {color: #bbb;text-decoration:none;}
-    a:hover {color: #bbb;text-decoration:none;}
-    a:active {color: #bbb;text-decoration:none;}
+    a:link {color: rgba(255,255,255,0.6);text-decoration:none;}
+    a:visited {color: rgba(255,255,255,0.6);text-decoration:none;}
+    a:hover {color: rgba(255,255,255,0.6);text-decoration:none;}
+    a:active {color: rgba(255,255,255,0.6);text-decoration:none;}
 
     .side-menu-nav{
-        padding:0.5em 1em 0.5em 1em;
+        padding:8px 24px;
         align-items:center;
-        font-weight:bold;
-        i{width:1em;color:#bbb;}
+        font-weight:500;
+        i{width:1em;margin-right:16px;color:rgba(255,255,255,0.6);}
         &:hover{
             cursor:pointer;
             background-color:$CYAN_S2;
@@ -154,10 +152,11 @@ a:active {color: $BLUE;text-decoration:none;}
     }
 
     .splitter{
-        padding:0.5em 1em 0.5em 1em;
+        padding:16px 24px 8px 24px;
         align-items:center;
-        color:#777;
-        font-size:0.8em;
+        color:rgba(255,255,255,0.38);
+        font-size:0.85em;
+        letter-spacing: 0.5px;
     }
 }
 
