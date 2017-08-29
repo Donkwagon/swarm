@@ -9,7 +9,7 @@
         <div class="app-btn">New Crawler</div>
       </a>
     </div>
-    <a routerLink="/sites/{{siteName}}/crawlers/{{crawler._id}}" routerLinkActive="active" class="list-item" *ngFor="let crawler of crawlers">
+    <a routerLink="/cr/{{crawler._id}}" routerLinkActive="active" class="list-item" *ngFor="let crawler of crawlers">
       <div class="r">
         <span>{{crawler.site}}</span>
         <span class="f1">{{crawler.name}}</span>

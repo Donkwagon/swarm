@@ -1,3 +1,40 @@
-<p>
-  crawler works!
-</p>
+
+<div class="app-page f1 c" *ngIf="crawler">
+
+
+  <div class="page-body c f1">
+
+    <div class="page-cover c">
+      <div class="page-cover-info r"> 
+        <h1>Crawler: {{crawler.name}}</h1>
+      </div>
+  
+      <div class="page-cover-nav-wrapper r">
+          <a  routerLink="/cr/{{crawler._id}}/overall" routerLinkActive="active"  class="page-cover-nav">
+            OVERVIEW
+          </a>
+          <a  routerLink="/cr/{{crawler._id}}/code" routerLinkActive="active"  class="page-cover-nav">
+            CODE
+          </a>
+          <a  routerLink="/cr/{{crawler._id}}/documentation" routerLinkActive="active"  class="page-cover-nav">
+            DOCUMENTATION
+          </a>
+          <a  routerLink="/cr/{{crawler._id}}/history" routerLinkActive="active"  class="page-cover-nav">
+            HISTORY
+          </a>
+          <a  routerLink="/cr/{{crawler._id}}/settings" routerLinkActive="active"  class="page-cover-nav">
+            SETTINGS
+          </a>
+      </div>
+    </div>
+
+    <div class="page-body">
+        <div class="page-body-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+  </div>
+
+
+</div>

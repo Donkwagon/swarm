@@ -44,9 +44,9 @@ a:active {color: $BLUE;text-decoration:none;}
     align-items:stretch;
 }
 
-
 .page-cover{
     background-color:$CYAN_S2;
+    border-bottom:#000 solid 2px;
 
     .page-cover-info{
         align-items:center;
@@ -166,12 +166,6 @@ input, textarea{
     }
 }
 
-app-crawlers,app-crawler,app-crawler-code,app-crawlers-page,app-home,app-exchange,app-exchanges,app-exchange-securities{
-    display:flex;
-    flex-direction:column;
-    flex:1;
-}
-
 .settings-form{
     padding:0.5em $padding-side;
     
@@ -232,25 +226,18 @@ app-crawlers,app-crawler,app-crawler-code,app-crawlers-page,app-home,app-exchang
             padding:8px 0;
             text-align:left;
             background-color:$CYAN_S2;
-            font-size:12px;
-            font-weight:500;
+            font-size:12px;font-weight:500;
             color:rgba(255,255,255,0.6);
         }
 
         td{
             display:table-cell;
-            border:none;
             height:48px;
             border-bottom:$CYAN_S2 solid 1px;
         }
 
-        .col-l{
-            padding-left:24px;
-        }
-        
-        .col-r{
-            padding-right:24px;
-        }
+        .col-l{padding-left:24px;}
+        .col-r{padding-right:24px;}
     }
     
     .list-item{

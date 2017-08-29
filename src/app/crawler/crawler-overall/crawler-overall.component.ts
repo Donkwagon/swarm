@@ -31,11 +31,6 @@ export class CrawlerOverallComponent implements OnInit {
 
   ngOnInit() {
 
-    this.sub = this.route.parent.parent.parent.params.subscribe(params => {
-      this.siteName = params['siteName'];
-      this.getSiteInfo();
-    });
-
     this.sub_crawler = this.route.parent.params.subscribe(params => {
       this.crawlerId = params['crawlerId'];
       this.getCrawler();
