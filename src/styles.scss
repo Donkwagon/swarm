@@ -75,20 +75,8 @@ a:active {color: $BLUE;text-decoration:none;}
 
         .active{
             color:#fff;
-            
-        }
-        
-
-        input{
-            border:none;
-            padding:0em $padding-side;
-            font-size:1em;
-            font-family: $font-stack;
-            background-color:$ORANGE;
-
-            &:focus{
-                outline:none;
-            }
+            background-color:transparent;
+            border-bottom:$CYAN_S1 solid 2px;
         }
     }
 }
@@ -124,9 +112,10 @@ a:active {color: $BLUE;text-decoration:none;}
 
     .page-body-content{
         width:936px;
-        border:$CYAN_S1 solid 1px;
-        margin:2em auto;
-        
+        border:$CYAN_S2 solid 1px;
+        margin:48px auto;
+        background-color:rgba(0,0,0,0.2);
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
     }
 }
 
@@ -224,25 +213,53 @@ app-crawlers,app-crawler,app-crawler-code,app-crawlers-page,app-home,app-exchang
 .content-list-wrapper{
 
     .content-list-head{
-        padding:0.5em $padding-side;
+        padding:8px 24px;
         font-size:1em;
         align-items:flex-start;
     }
+
+    table{
+        width:100%;
+        border-collapse: collapse;
+
+        a{margin:0;padding:0;line-height:1;}
+
+        tbody{display:table-row-group;}
+
+        tr{display:table-row;}
+
+        th{
+            padding:8px 0;
+            text-align:left;
+            background-color:$CYAN_S2;
+            font-size:12px;
+            font-weight:500;
+            color:rgba(255,255,255,0.6);
+        }
+
+        td{
+            display:table-cell;
+            border:none;
+            height:48px;
+            border-bottom:$CYAN_S2 solid 1px;
+        }
+
+        .col-l{
+            padding-left:24px;
+        }
+        
+        .col-r{
+            padding-right:24px;
+        }
+    }
     
     .list-item{
-        padding:0.2em 0;
-        border-bottom:$CYAN_S2 solid 1px;
         align-items:center;
 
         img{
-            height:1.5em;width:1.5em;
-            padding:0 0;
-            margin:0 0.5em;
-            border-radius:2px;
-        }
-
-        span{
-            padding:0 0.5em;
+            height:24px;width:24px;
+            padding:0;margin:0;
+            background-color:white;
         }
     }
 }

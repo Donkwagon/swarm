@@ -32,8 +32,6 @@ import { NewCrawlerComponent }               from './sites/website/crawlers/new-
 import { CrawlerComponent }                  from './sites/website/crawlers/crawler/crawler.component';
 import { StatusComponent }                   from './sites/website/status/status.component';
 
-import { ColorPaletteComponent }             from './color-palette/color-palette.component';
-
 import { DeveloperComponent }                from './developer/developer.component';
 import { DeveloperOverallComponent }         from './developer/developer-overall/developer-overall.component';
 import { DeveloperSettingsComponent }        from './developer/developer-settings/developer-settings.component';
@@ -108,7 +106,6 @@ const routes: Routes = [
         ]
       }
   ]},
-  { path: 'colors', component: ColorPaletteComponent},
   { path: 'resources', component: ResourcesComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'crawlers', component: CrawlersPageComponent},

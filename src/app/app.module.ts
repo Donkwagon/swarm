@@ -38,8 +38,6 @@ import { ClusterComponent }                  from './cluster/cluster.component';
 import { ServerComponent }                   from './cluster/server/server.component';
 import { ClusterOverallComponent }           from './cluster/cluster-overall/cluster-overall.component';
 
-import { ColorPaletteComponent }             from './color-palette/color-palette.component';
-
 import { SitesComponent }                    from './sites/sites.component';
 import { SitesOverallComponent }             from './sites/sites-overall/sites-overall.component';
 import { NewSiteComponent }                  from './sites/new-site/new-site.component';
@@ -112,7 +110,7 @@ import { DataComponent } from './data/data.component';
 @NgModule({
   declarations: [
     AppComponent, SitesComponent,
-    WebsiteComponent, ColorPaletteComponent,
+    WebsiteComponent, 
     NewSiteComponent, MappersComponent, SettingsComponent, CrawlersComponent,
     StatusComponent, NewCrawlerComponent, CrawlerComponent,
     DeveloperComponent, DeveloperSettingsComponent, DeveloperSettingsBasicComponent,

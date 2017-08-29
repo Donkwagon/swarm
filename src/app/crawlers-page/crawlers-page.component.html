@@ -2,51 +2,46 @@
 <div class="app-page f1 c">
 
   <div class="page-cover c">
+
     <div class="page-cover-info r">
-      <div class="c">
-        <span>Crawlers</span>
-      </div>
+        <h1>Crawlers</h1>
     </div>
 
-    <div class="page-cover-nav-wrapper r">
-      <input placeholder="search"/>
-    </div>
   </div>
 
 
-  <perfect-scrollbar class="page-body c f1">
+  <div class="page-body c f1">
 
-    <div class="content-list-wrapper c w100">
+    <div class="page-body-content">
 
-      <div  class="list-item r" *ngFor="let crawler of crawlers">
-        
-        <a class="f1" routerLink="/sites/{{crawler.site}}">
-          <span>{{crawler.site}}</span>
-        </a>
-        
-        <a class="f2" routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/code">
-          <span>{{crawler.name}}</span>
-        </a>
+      <div class="content-list-wrapper c w100">
 
-        <span class="caption-text" *ngIf="!crawler.validation">
-          Validation Needed
-        </span>
-        
-        <span class="green-text" *ngIf="crawler.validation">
-          Validated
-        </span>
+          <table>
+            <tr>
+                <th class="col-l">Site</th>
+                <th>Crawler Name</th>
+                <th>Validation</th>
+                <th class="col-r"></th>
+            </tr>
+            <tr  class="list-item r" *ngFor="let crawler of crawlers">
+              
+              <td class="col-l"><a class="f1" routerLink="/sites/{{crawler.site}}">{{crawler.site}}</a></td>
+              <td><a class="f2" routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/code">{{crawler.name}}</a></td>
+              <td *ngIf="!crawler.validation">Validation Needed</td>
+              <td *ngIf="crawler.validation">Validated</td>
+              <td class="col-r"><a routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/settings">
+                <i class="fa fa-cog" aria-hidden="true"></i></a>
+              </td>
+    
+            </tr>
+    
+          </table>
 
-        <a routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/settings">
-          <span class="caption-text">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-          </span>
-        </a>
-
-      </div>
+        </div>
 
     </div>
 
-  </perfect-scrollbar>
+  </div>
 
 
 </div>
