@@ -1,22 +1,40 @@
-
-<div class="content-list-wrapper c w100">
-  <div class="r">
-    <div class="f1"></div>
-    <div class="app-btn" (click)="updateExchanges()">Update Exchanges</div>
-    &nbsp;
-    <div class="app-btn" (click)="fetchExchanges()">Fetch Exchanges</div>
+<div class="page-body-content">
+  <div class="content-list-wrapper c w100">
+    <div class="r">
+      <div class="f1"></div>
+      <div class="app-btn" (click)="updateExchanges()">Update Exchanges</div>
+      &nbsp;
+      <div class="app-btn" (click)="fetchExchanges()">Fetch Exchanges</div>
+    </div>
+    <table>
+      <tr>
+          <th class="col-l">Exchange Symbol</th>
+          <th>Exchange Name</th>
+          <th>Number of Securities</th>
+          <th class="col-r">Created at</th>
+      </tr>
+      <tr class="list-item" *ngFor="let exchange of exchanges">
+        <td class="col-l">
+          <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+            <span>{{exchange.exchange}}</span>
+          </a>
+        </td>
+        <td>
+          <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+            <span>{{exchange.exchangeName}}</span>
+          </a>
+        </td>
+        <td>
+          <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
+            <span>{{exchange.numSecurities}}</span>
+          </a>
+        </td>
+        <td class="col-r">
+          <span class="caption-text">
+            {{exchange.createDate}}
+          </span>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div  class="list-item r" *ngFor="let exchange of exchanges">
-    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
-      <span>{{exchange.exchange}}</span>
-    </a>
-    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
-      <span>{{exchange.exchangeName}}</span>
-    </a>
-    <a class="f1" routerLink="/fdata/ex/{{exchange.exchange}}">
-      <span>{{exchange.numSecurities}}</span>
-    </a>
-    <span class="caption-text">
-      {{exchange.createDate}}
-    </span>
 </div>

@@ -46,7 +46,6 @@ a:active {color: $BLUE;text-decoration:none;}
 
 .page-cover{
     background-color:$CYAN_S2;
-    border-bottom:#000 solid 2px;
 
     .page-cover-info{
         align-items:center;
@@ -77,33 +76,29 @@ a:active {color: $BLUE;text-decoration:none;}
             color:#fff;
             background-color:transparent;
             border-bottom:$CYAN_S1 solid 2px;
+            padding-bottom:6px;
         }
     }
 }
 
 .page-secondary-nav-wrapper{
-    @extend .grey-material-bar;
-    padding:0;
+    border-top:$CYAN_S2 solid 1px;
+    background-color:$CYAN_S2;
 
     .page-secondary-nav{
-        padding:0.1em $padding-side;
+        padding:4px 24px;
+        font-weight:500;
 
         &:hover{
             cursor:pointer;
-            background-color:$CYAN_S2;
+            background-color:rgba(255,255,255,0.1);
         }
     }
-    
 
-    input{
-        border:none;
-        padding:0.2em $padding-side;
-        font-size:1em;
-        font-family: $font-stack;
-
-        &:focus{
-            outline:none;
-        }
+    .active{
+        color:#fff;
+        background-color:transparent;
+        border-bottom:$CYAN_S1 solid 2px;
     }
 }
 
@@ -147,10 +142,6 @@ a:active {color: $BLUE;text-decoration:none;}
         font-size:0.85em;
         letter-spacing: 0.5px;
     }
-}
-
-.table-profile-image{
-    height:1rem;width:1rem;
 }
 
 input, textarea{
