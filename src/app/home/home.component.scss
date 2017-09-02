@@ -26,14 +26,13 @@
     .module{
 
         .module-head{
-            border-top:$CYAN_S1 solid 1px;
+            padding:16px 24px;
+            background-color:$CYAN_S2;
             border-bottom:$CYAN_S1 solid 1px;
-            padding:0.2em $padding-side;
         }
 
         .module-body{
             color:$WHITE;
-            padding:$padding-side $padding-side;
 
             .task{
                 padding:0.1em 0;

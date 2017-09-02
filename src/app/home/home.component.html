@@ -7,49 +7,47 @@
         <h1>Home</h1>
       </div>
     </div>
+
     <div class="page-body">
+
       <div class="page-body-content">
-    
-        <div class="module c f1">
-          <div class="module-head">
-            <a routerLink="/developer/tasks/overall">
-              Tasks
-            </a>
-          </div>
-          <div class="module-body c f1">
-            <div class="task r" *ngFor="let task of tasks">
-              <span class="f1">
-                <a routerLink="/developer/tasks/{{task._id}}">
-                  <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
-                  {{task.name}}
-                </a>
-              </span>
-              <span class="f1 orange-text">{{task.description}}</span>
-              <!-- <span class="app-btn" (click)="complete(task)"><i class="fa fa-check-square" aria-hidden="true"></i></span>
-              &nbsp;&nbsp;
-              <span class="app-btn" (click)="deleteTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+        <div class="content-list-wrapper c w100">
+            
+          <div class="module c f1">
+            
+            <div class="module-head">
+              <a routerLink="/developer/tasks/overall">Tasks</a>
             </div>
-            <div class="task r" *ngFor="let task of tasksCompleted">
-              <span class="f1">
-                <a routerLink="/developer/tasks/{{task._id}}">
-                  <i class="fa  fa-check-square caption-text" aria-hidden="true"></i>
-                  {{task.name}}
-                </a>
-              </span>
-              <span class="f1 orange-text">{{task.description}}</span>
-              <!-- <span class="app-btn" (click)="deleteTask(task)"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
-            </div>
+
+            <div class="module-body c f1">
+  
+              <table>
+                
+                <tr>
+                  <th class="col-l">Task Name</th>
+                  <th class="col-r">Description</th>
+                </tr>
+            
+                <tr  class="list-item" *ngFor="let task of tasks">
+                  <td class="col-l">
+                      <a routerLink="/developer/tasks/{{task._id}}">{{task.name}}</a>
+                  </td>
+                  <td class="col-r">{{task.description}}</td>
+                </tr>
+          
+                <tr  class="list-item" *ngFor="let task of tasksCompleted">
+                  <td class="col-l">
+                      <a routerLink="/developer/tasks/{{task._id}}">{{task.name}}</a>
+                  </td>
+                  <td class="col-r">{{task.description}}</td>
+                </tr>
+                  
+              </table>
     
+            </div>
           </div>
+
         </div>
-        <div class="module c f1">
-          <div class="module-head">
-            Recent Crawlers
-          </div>
-          <div class="module-body c f1">
-    
-          </div>
-        </div> 
     
       </div>
     </div>
