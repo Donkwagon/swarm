@@ -26,7 +26,7 @@
             <tr  class="list-item r" *ngFor="let crawler of crawlers">
               
               <td class="col-l"><a class="f1" routerLink="/sites/{{crawler.site}}">{{crawler.site}}</a></td>
-              <td><a class="f2" routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/code">{{crawler.name}}</a></td>
+              <td><a class="f2" routerLink="/cr/{{crawler._id}}">{{crawler.name}}</a></td>
               <td *ngIf="!crawler.validation">Validation Needed</td>
               <td *ngIf="crawler.validation">Validated</td>
               <td class="col-r"><a routerLink="/sites/{{crawler.site}}/crawlers/{{crawler._id}}/settings">
