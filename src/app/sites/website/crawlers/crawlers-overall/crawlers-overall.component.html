@@ -1,5 +1,6 @@
 <div class="f1 c">
   <div class="content-list-wrapper c">
+
     <div class="content-list-head c">
       <b>{{siteName}} Crawlers</b>
       <br/>
@@ -9,16 +10,30 @@
         <div class="app-btn">New Crawler</div>
       </a>
     </div>
-    <a routerLink="/cr/{{crawler._id}}" routerLinkActive="active" class="list-item" *ngFor="let crawler of crawlers">
-      <div class="r">
-        <span>{{crawler.site}}</span>
-        <span class="f1">{{crawler.name}}</span>
-        <span>{{crawler.inputDataType}} => {{crawler.outputDataType}}</span>
-        <span>
-          <i class="fa fa-check-square-o grey-text" [ngClass]="{'green-text':crawler.validation}" aria-hidden="true"></i>
-        </span>
-      </div>
-    </a>
+
+    <table *ngIf="crawlers">
+        
+      <tr>
+        <th class="col-l">Site Name</th>
+        <th>Crawler Name</th>
+        <th>I/O Data Types</th>
+        <th class="col-r">Validation</th>
+      </tr>
+  
+      <tr  class="list-item" *ngFor="let crawler of crawlers">
+        <td class="col-l">
+            <a class="f1" routerLink="/sites/{{crawler.site}}">{{crawler.site}}</a>
+        </td>
+        <td><a routerLink="/cr/{{crawler._id}}" routerLinkActive="active">{{crawler.name}}</a></td>
+        <td>
+            <a routerLink="/cr/{{crawler._id}}">{{crawler.inputDataType}} => {{crawler.outputDataType}}</a>
+        </td>
+        <td class="col-r">
+            <i class="fa fa-check-square-o grey-text" [ngClass]="{'green-text':crawler.validation}" aria-hidden="true"></i>
+        </td>
+      </tr>
+  
+    </table>
 
   </div>
   
