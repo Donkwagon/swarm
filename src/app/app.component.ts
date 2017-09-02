@@ -10,7 +10,6 @@ import { Developer }                                    from './@core/classes/de
 import { DeveloperService }                             from './@core/shared/developer.service';
 
 import { RouterMapper }                                    from './@core/classes/router-mapper';
-
 import { CookieService } from 'ngx-cookie';
 
 
@@ -69,14 +68,6 @@ export class AppComponent {
 
     });
 
-    
-  }
-
-  playAudio() {
-    var audio = new Audio();
-    audio.src = "http://www.bigsoundbank.com/sounds/mp3/0945.mp3";
-    audio.load();
-    audio.play();
   }
 
   registerDeveloper = (developer) => {
@@ -86,7 +77,6 @@ export class AppComponent {
         this.developerService.setDeveloper(res);
         var cookie = JSON.stringify(res);
         this.cookieService.put("swarm-developer",cookie);
-        //this.appReady = true;
       }else{
         this.developerService.createDeveloper(developer).then(res => {
           this.developerService.setDeveloper(res);

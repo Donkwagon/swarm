@@ -1,10 +1,15 @@
+<div class="content-body-nav-wrapper r">
+  <div class="content-body-nav" (click)="selectDisplay('editor')">EDITOR</div>
+  <div class="content-body-nav" (click)="selectDisplay('console')">CONSOLE</div>
+</div>
+
 <div class="crawler-interface c">
 
   <div class="crawler c">
 
     <div class="work-space c">
 
-      <div class="editor-wrapper c">
+      <div class="editor-wrapper c" *ngIf="display === 'editor'">
 
         <div class="crawler-panel r" *ngIf="site">
 
@@ -86,11 +91,11 @@
           [readOnly]="false"
           [autoUpdateContent]="true"
           [durationBeforeCallback]="1000"
-          style="height:500px;width:100%;"></ace-editor>
+          style="height:1800px;width:100%;"></ace-editor>
 
       </div>
       
-      <div class="output-interface c">
+      <div class="output-interface c" *ngIf="display === 'console'">
 
         <div class="interface-tabs-wrapper r">
           <div class="interface-tab" [ngClass]="{'active':consoleMode === 'testingStrategy'}" (click)="selectConsoleMode('testingStrategy')">Testing Config</div>

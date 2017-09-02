@@ -57,6 +57,8 @@ export class CrawlerCodeComponent implements OnInit {
 
   developer: Developer;
 
+  display: String;
+
   constructor(
       private route: ActivatedRoute,
       private crawlerService: CrawlerService,
@@ -75,6 +77,8 @@ export class CrawlerCodeComponent implements OnInit {
       this.resetNewInputs();
 
       this.consoleMode = "response";
+
+      this.display = "console";
 
   }
 
@@ -106,6 +110,10 @@ export class CrawlerCodeComponent implements OnInit {
     this.connection.unsubscribe();
     this.testingDataOutput.unsubscribe();
 
+  }
+
+  selectDisplay = (display) => {
+    this.display = display;
   }
 
   getSiteInfo = () => {

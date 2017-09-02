@@ -144,11 +144,11 @@
         }
 
         .interface-module{
+            width:100%;
 
             .interface-module-head{
                 align-self:flex-start;
                 color:$WHITE;
-                width:100%;
                 @extend .grey-material-bar;
                 padding:0.2em $padding-side;
 
