@@ -8,8 +8,6 @@ var Article =     require('../content/article.model');
 var Log =         require('./log.model');
 var BacklogArchive =     require('./backlog_archive.model');
 
-var chalk =       require('chalk');
-
 var Schema = mongoose.Schema;
 
 var ArticleBacklogSchema = new Schema({

@@ -24,7 +24,6 @@ import { CookieService } from 'ngx-cookie';
 export class AppComponent {
 
   developer: any;
-  menuDisplay: boolean;
   appReady: boolean;
 
   routerMapper: RouterMapper;
@@ -40,8 +39,6 @@ export class AppComponent {
     this.appReady = false;
     
     this.developer = new Developer();
-
-    this.menuDisplay = false;
 
     var userInfo = null;
 
@@ -67,9 +64,7 @@ export class AppComponent {
     this.router.events.subscribe(event => {
 
       if(event instanceof NavigationStart) {
-        this.menuDisplay = false;
         this.routerMapper.mapUrl(event.url);
-
       }
 
     });
@@ -101,10 +96,6 @@ export class AppComponent {
       }
       
     });
-  }
-
-  menuToggle = () => {
-    this.menuDisplay = !this.menuDisplay;
   }
 
   login() {

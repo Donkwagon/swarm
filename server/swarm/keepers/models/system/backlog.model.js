@@ -8,8 +8,6 @@ var Article =     require('../content/article.model');
 var Log =         require('./log.model');
 var BacklogArchive =     require('./backlog_archive.model');
 
-var chalk =       require('chalk');
-
 var Schema = mongoose.Schema;
 
 var BacklogSchema = new Schema({
@@ -49,7 +47,7 @@ BacklogSchema.methods.requestWebpage = function (URL,UserAgent) {
 
         if(error||response.statusCode != 200){
 
-            console.log(chalk.red('error:' + error + 'status:' + response.statusCode));
+            console.log('error:' + error + 'status:' + response.statusCode);
             console.log(response);
 
             var log = new Log({
@@ -64,7 +62,7 @@ BacklogSchema.methods.requestWebpage = function (URL,UserAgent) {
 
         }else{
 
-            console.log(chalk.green('status' + response.statusCode));
+            console.log('status' + response.statusCode);
 
             this.processWebpage(html,URL);
             
@@ -109,7 +107,7 @@ BacklogSchema.methods.saveData = function (data) {
             if (!docs.length){
                 data.save(function(err){
                     if (err) throw err;
-                    console.log(chalk.green('Saved'));
+                    console.log('Saved');
                     var log = new Log({
                         message: data.displayName,
                         level: 1,
@@ -123,7 +121,7 @@ BacklogSchema.methods.saveData = function (data) {
                     log.save();
                 });
             }else{
-                console.log(chalk.yellow('Author already exist!'));
+                console.log('Author already exist!');
             }
         });//
                 
@@ -137,7 +135,7 @@ BacklogSchema.methods.saveData = function (data) {
 
                     if (err) throw err;
 
-                    console.log(chalk.green('Article Saved'));
+                    console.log('Article Saved');
 
                     var log = new Log({
                         message: 'saved' + data.title,
@@ -150,7 +148,7 @@ BacklogSchema.methods.saveData = function (data) {
                     log.save();
                 });
             }else{
-                console.log(chalk.yellow('article already exist!'));
+                console.log('article already exist!');
             }
         });
     }

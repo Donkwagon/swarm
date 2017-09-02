@@ -3,8 +3,6 @@ var mongoose =    require('mongoose');
 var request =     require('request');
 var cheerio =     require('cheerio');
 
-var chalk =       require('chalk');
-
 var Backlog =     require('./backlog.model');
 var Log =         require('./log.model');
 
@@ -40,7 +38,7 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
     req = request.defaults({jar: true,rejectUnauthorized: false,followAllRedirects: true});
     req.get({url: URL,headers: {'User-Agent': UserAgent}}, function(error, response, html){
         if(error||response.statusCode != 200){
-            console.log(chalk.red('error:' + error + "status:" + response.statusCode));
+            console.log('error:' + error + "status:" + response.statusCode);
 
             var log = new Log({
                 message: "Request Error" + response.statusCode + URL,
@@ -53,7 +51,7 @@ webpageOpener = function (baseURL,pageNum,UserAgent) {
             log.save();
 
         }else{
-            console.log(chalk.green("status" + response.statusCode));
+            console.log("status" + response.statusCode);
             webpageTetacles(html);
             setTimeout(() =>{webpageOpener(baseURL,pageNum,UserAgent);}, 10);
 
@@ -141,7 +139,7 @@ saveBacklog = (backlog) =>{
         if (!docs.length){
             backlog.save(function(err){
                 if (err) throw err;
-                console.log(chalk.green("Saved"));
+                console.log("Saved");
                 var log = new Log({
                     message: backlog.url,
                     level: 1,
@@ -154,7 +152,7 @@ saveBacklog = (backlog) =>{
                 log.pushToFirebaseDb(log);
             });
         }else{
-            console.log(chalk.yellow("backlog already exist!"));
+            console.log("backlog already exist!");
             var log = new Log({
                 message: "Backlog exist",
                 level: 1,

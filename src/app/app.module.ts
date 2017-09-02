@@ -16,8 +16,6 @@ import { AngularFireAuthModule }             from 'angularfire2/auth';
 
 import { AceEditorModule }                   from 'ng2-ace-editor';
 
-import { ChartsModule }                      from 'ng2-charts/ng2-charts';
-
 import { CKEditorModule }                    from 'ng2-ckeditor';
 
 import { CookieModule }                      from 'ngx-cookie';
@@ -130,7 +128,6 @@ import { SecurityComponent } from './security/security.component';
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    ChartsModule,
     AceEditorModule,
     CKEditorModule,
     CookieModule.forRoot(),

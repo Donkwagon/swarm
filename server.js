@@ -40,11 +40,6 @@ var io = require('socket.io').listen(server.listen(8100));
 io.sockets.on('connection',(socket) => {console.log('client connect');});
 global.io = io;
 
-// //////////////////////////////////////////
-// //Connect to redis
-// const REDIS_URI = "redis://h:p10e2291dd27b529d725f40a493f27246b12dd8879cc38924ae68f318964aaeb7@ec2-34-225-146-66.compute-1.amazonaws.com:46449";
-// global.client = require('redis').createClient(REDIS_URI);
-
 //////////////////////////////////////////
 //Routing
 const queen =         require('./server/swarm/queen');

@@ -7,8 +7,6 @@ var Author =      require('../content/author.model');
 var Article =     require('../content/article.model');
 var Backlog =     require('./backlog.model');
 
-var chalk =       require('chalk');
-
 var Schema = mongoose.Schema;
 
 var BacklogArchiveSchema = new Schema({
